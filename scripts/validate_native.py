@@ -24,6 +24,13 @@ RELEASE_API = "https://api.github.com/repos/MetaCubeX/meta-rules-dat/releases/ta
 ASN_URL = "https://github.com/MetaCubeX/meta-rules-dat/releases/download/latest/GeoLite2-ASN.mmdb"
 
 
+def providers_ready(providers: dict, expected: dict[str, int]) -> bool:
+    # A declared provider can be JSON null while its asynchronous Init runs.
+    return isinstance(providers, dict) and all(
+        isinstance(providers.get(name), dict) and providers[name].get("ruleCount") == count
+        for name, count in expected.items())
+
+
 def prepare_asn(home: Path) -> None:
     metadata = json.loads(update.fetch_url(RELEASE_API, limit=2 * 1024 * 1024))
     matches = [item for item in metadata.get("assets", []) if item.get("name") == "GeoLite2-ASN.mmdb"]
@@ -109,7 +116,7 @@ def validate(mihomo: Path, config: Path, home: Path, *, download_asn=False) -> s
                     try:
                         with opener.open(request, timeout=1) as response:
                             providers = json.load(response)["providers"]
-                        if all(providers.get(name, {}).get("ruleCount") == count for name, count in expected.items()):
+                        if providers_ready(providers, expected):
                             loaded = True
                             break
                     except (OSError, ValueError, KeyError):
