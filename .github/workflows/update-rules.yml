@@ -45,6 +45,23 @@ jobs:
       - name: Download, compile and validate rules
         run: python scripts/update.py
 
+      - name: Install the pinned MRS compiler
+        shell: bash
+        run: |
+          set -euo pipefail
+          curl --fail --location --retry 3 --retry-delay 2 \
+            'https://github.com/MetaCubeX/mihomo/releases/download/v1.19.33/mihomo-linux-amd64-v1-v1.19.33.gz' \
+            --output "$RUNNER_TEMP/mihomo.gz"
+          printf '%s  %s\n' \
+            '8ec92e7b2fdc6b853ba00156bab7e4e965c8b0d843b8c4ac8ab98795f02ad524' \
+            "$RUNNER_TEMP/mihomo.gz" | sha256sum --check
+          gzip --decompress --stdout "$RUNNER_TEMP/mihomo.gz" > "$RUNNER_TEMP/mihomo"
+          chmod +x "$RUNNER_TEMP/mihomo"
+          "$RUNNER_TEMP/mihomo" -v
+
+      - name: Compile and round-trip verify MRS alternatives
+        run: python scripts/build_mrs.py --mihomo "$RUNNER_TEMP/mihomo"
+
       - name: Publish changed rules and upstream state
         env:
           TARGET_BRANCH: ${{ github.event.repository.default_branch }}
@@ -69,6 +86,6 @@ jobs:
         run: |
           printf '%s\n' \
             'The update did not complete successfully. Check the failed step above.' \
-            'Download, parse or validation failures stop publication and preserve the previously published rules.' \
+            'Download, parse, MRS conversion or validation failures stop publication and preserve the previously published rules.' \
             'After fixing the cause, run this workflow again. No force-push is performed.' \
             >> "$GITHUB_STEP_SUMMARY"

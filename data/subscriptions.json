@@ -2,21 +2,42 @@
   "repository": "https://github.com/SangShy4You/Anti-AD",
   "branch": "main",
   "client": "Apps Connect",
-  "subscriptions": [
+  "compatibility_note": "原两份 YAML 同时启用后曾出现全部节点测速超时，手机端原因待确认。先只试主域名 MRS；IP 补充暂不启用。同内容 YAML/MRS 不要同时添加。",
+  "alternatives": [
     {
-      "name": "个人去广告",
+      "name": "个人去广告（YAML）",
       "url": "https://raw.githubusercontent.com/SangShy4You/Anti-AD/main/rules/ads-domain.yaml",
       "behavior": "domain",
       "format": "yaml",
       "policy": "REJECT",
       "update_interval_seconds": 86400,
-      "optional": false
+      "optional": true
     },
     {
-      "name": "个人去广告—IP 补充",
+      "name": "个人去广告—IP 补充（YAML）",
       "url": "https://raw.githubusercontent.com/SangShy4You/Anti-AD/main/rules/ads-ip.yaml",
       "behavior": "ipcidr",
       "format": "yaml",
+      "policy": "REJECT",
+      "update_interval_seconds": 86400,
+      "optional": true
+    }
+  ],
+  "subscriptions": [
+    {
+      "name": "个人去广告（MRS）",
+      "url": "https://raw.githubusercontent.com/SangShy4You/Anti-AD/main/rules/ads-domain.mrs",
+      "behavior": "domain",
+      "format": "mrs",
+      "policy": "REJECT",
+      "update_interval_seconds": 86400,
+      "optional": false
+    },
+    {
+      "name": "个人去广告—IP 补充（MRS）",
+      "url": "https://raw.githubusercontent.com/SangShy4You/Anti-AD/main/rules/ads-ip.mrs",
+      "behavior": "ipcidr",
+      "format": "mrs",
       "policy": "REJECT",
       "update_interval_seconds": 86400,
       "optional": true

@@ -1,0 +1,16 @@
+{
+  "counts": {
+    "domain": 195913,
+    "ipcidr": 221
+  },
+  "inputs": {
+    "rules/ads-domain.yaml": "7e7092070a9d5b07d7788a1023c2a8fffa31e7f56323d7d6bf9daf19cea68cb9",
+    "rules/ads-ip.yaml": "fc61e24a981e1bf384a622f6917a1a4f494243a2d476faf2bf6f3970718ca0a3"
+  },
+  "mihomo_version": "Meta v1.19.33",
+  "outputs": {
+    "rules/ads-domain.mrs": "a9052ec05457a19adfb276100679dd76687141eb56076fa51090cde8a76cb86a",
+    "rules/ads-ip.mrs": "cfc528c05b87b565dcdc1b3239b0ac2074b48a8e43c90000219aa215d1e89c66"
+  },
+  "schema_version": 1
+}
