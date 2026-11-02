@@ -1,0 +1,106 @@
+{
+  "inputs": {
+    "catalog_sha256": "3162cd3bf762bdc5808dcf3aed94957cbcb6a73db41019c416d66e7cf2a855e8",
+    "generator_sha256": "ba2dd6538b19342c983f108890301d22bdf67747acbe9df697b771d5cbb71507",
+    "personal_sha256": "a2d8bc3430ab2eb790e84d90931309eeea82d82399dbc5dc5578dc450551ac29",
+    "sources": [
+      {
+        "bytes": 3907538,
+        "id": "01_filter",
+        "raw_sha256": "c7a99c17a5ff6f16d83a260690663f91e00147b1fc40d8d0f7ee6a87738479d3",
+        "url": "https://raw.githubusercontent.com/sve1r/Rules-For-Quantumult-X/refs/heads/main/Rules/Advertising/antiAD-V4.list"
+      },
+      {
+        "bytes": 284379,
+        "id": "02_filter",
+        "raw_sha256": "b3b2b4730be9ff55b4c4045ff6f7a4cedb9de9c1e86c310f329b2e7fd85c2518",
+        "url": "https://raw.githubusercontent.com/sve1r/Rules-For-Quantumult-X/refs/heads/main/Rules/Advertising/AdReject.list"
+      },
+      {
+        "bytes": 23953,
+        "id": "03_filter",
+        "raw_sha256": "3c16443ed9645a04cf14397d371d05838b3fe676c680aa855fa0ccfc3193e394",
+        "url": "https://limbopro.com/Adblock4limbo.list"
+      },
+      {
+        "bytes": 1418962,
+        "id": "04_filter",
+        "raw_sha256": "c531799c628e39c2b94e539e1d81c2c458cc164998b57bd67df2c76f0cc63dba",
+        "url": "https://raw.githubusercontent.com/NobyDa/ND-AD/master/QuantumultX/AD_Block.txt"
+      },
+      {
+        "bytes": 2339360,
+        "id": "05_filter",
+        "raw_sha256": "992d2e00c5bc362bce93bf851494e19991057a795915d37da6c9e15f2c223404",
+        "url": "https://raw.githubusercontent.com/NobyDa/ND-AD/master/QuantumultX/AD_Block_Plus.txt"
+      },
+      {
+        "bytes": 7646,
+        "id": "06_filter",
+        "raw_sha256": "5ba475db11bd85c7f92699760c15d935d6011616143c99fff54827783772dc7a",
+        "url": "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/QuantumultX/Direct/Direct.list"
+      },
+      {
+        "bytes": 4979,
+        "id": "07_filter",
+        "raw_sha256": "277c3bc624a0fac9cd5dda46bd3b4b9321559f638f4c6ec9a18005ea45aeb8f6",
+        "url": "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/QuantumultX/Lan/Lan.list"
+      },
+      {
+        "bytes": 2046566,
+        "id": "08_filter",
+        "raw_sha256": "d0dce8010df0d8faad1bf07d9f4164194248040075bc49fa301bc6a1c22f4b0e",
+        "url": "https://raw.githubusercontent.com/privacy-protection-tools/anti-AD/master/anti-ad-surge2.txt"
+      },
+      {
+        "bytes": 1684697,
+        "id": "09_filter",
+        "raw_sha256": "2791fc2b3c4cf242caaa3e27f0393ea908aa82baa0b54b62c0ed2f4ec2d68198",
+        "url": "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/QuantumultX/Privacy/Privacy.list"
+      },
+      {
+        "bytes": 8176,
+        "id": "10_filter",
+        "raw_sha256": "f876f136c51c3d646607eca74239a611410b796d5903f6bf36f3b211ff24cdb8",
+        "url": "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/QuantumultX/Hijacking/Hijacking.list"
+      },
+      {
+        "bytes": 233459,
+        "id": "11_filter",
+        "raw_sha256": "da0ccf083e577513fc80507eecf07ae467abb50a80abba60a195a469e99bfcee",
+        "url": "https://raw.githubusercontent.com/mieqq/mieqq/master/In-AppTracker.txt"
+      },
+      {
+        "bytes": 1556,
+        "id": "12_filter",
+        "raw_sha256": "f2b1097292162858845d3b4f99058f047e0715bef4a0e6202b40a10af5c38e2c",
+        "url": "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/QuantumultX/WeChat/WeChat.list"
+      },
+      {
+        "bytes": 645,
+        "id": "13_filter",
+        "raw_sha256": "467d7173ed8d0541ed2436c0f686aee63b8850c0f1452469a7c8439f542cfd32",
+        "url": "https://raw.githubusercontent.com/ConnersHua/RuleGo/master/Surge/Ruleset/Direct+.list"
+      },
+      {
+        "bytes": 27224,
+        "id": "14_filter",
+        "raw_sha256": "2536aacb61b0d40b205d459df7f9beac4e3c0e23744a963e111a6147fabc8cc9",
+        "url": "https://raw.githubusercontent.com/ConnersHua/RuleGo/master/Surge/Ruleset/Extra/Reject/Advertising.list"
+      },
+      {
+        "bytes": 2816,
+        "id": "15_filter",
+        "raw_sha256": "b27f44faaf04388f5cf6effb82c9d4cdcf931a153f1d33c056f84855d20678f2",
+        "url": "https://raw.githubusercontent.com/ConnersHua/RuleGo/master/Surge/Ruleset/Extra/Reject/Tracking.list"
+      }
+    ]
+  },
+  "outputs": {
+    "data/report.json": "67b208b1d32eac14e1cff7fbaf020f29c4b6fccdb77eb711b3b62224d693ad0b",
+    "rules/ads-domain.yaml": "7e7092070a9d5b07d7788a1023c2a8fffa31e7f56323d7d6bf9daf19cea68cb9",
+    "rules/ads-ip.yaml": "fc61e24a981e1bf384a622f6917a1a4f494243a2d476faf2bf6f3970718ca0a3",
+    "rules/advanced-fragment.yaml": "82edcbb8316191f2ca9e441309465ccc6c3a0724dcd36b8824d391a852d91715"
+  },
+  "schema_version": 1
+}

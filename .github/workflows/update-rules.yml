@@ -1,0 +1,74 @@
+name: Update personal rules
+
+on:
+  schedule:
+    - cron: '20 8 * * *'
+      timezone: Asia/Shanghai
+  workflow_dispatch:
+  push:
+    paths:
+      - 'config/**'
+      - 'scripts/**'
+      - 'tests/**'
+      - '.github/workflows/update-rules.yml'
+
+permissions: {}
+
+concurrency:
+  group: personal-rules-update-${{ github.repository }}
+  cancel-in-progress: false
+
+jobs:
+  update:
+    # Scheduled and manual publishing use the default branch only.
+    if: github.ref == format('refs/heads/{0}', github.event.repository.default_branch)
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    permissions:
+      contents: write
+    steps:
+      - name: Check out the latest default branch
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          ref: ${{ github.event.repository.default_branch }}
+          fetch-depth: 1
+          persist-credentials: true
+
+      - name: Set up Python
+        uses: actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0 # v7.1.0
+        with:
+          python-version: '3.13'
+
+      - name: Run offline unit tests
+        run: python -m unittest discover -s tests
+
+      - name: Download, compile and validate rules
+        run: python scripts/update.py
+
+      - name: Publish changed rules and upstream state
+        env:
+          TARGET_BRANCH: ${{ github.event.repository.default_branch }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          git add -- rules data
+          if git diff --cached --quiet; then
+            printf '%s\n' 'No changes to rules or upstream state; no commit created.' >> "$GITHUB_STEP_SUMMARY"
+            exit 0
+          fi
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git commit -m 'Update personal rules and upstream state'
+          # Never force-push: a concurrent human change should fail safely.
+          git push origin "HEAD:refs/heads/$TARGET_BRANCH"
+          printf '%s\n' 'Updated rules and upstream state were published.' >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Explain an unsuccessful update
+        if: failure()
+        shell: bash
+        run: |
+          printf '%s\n' \
+            'The update did not complete successfully. Check the failed step above.' \
+            'Download, parse or validation failures stop publication and preserve the previously published rules.' \
+            'After fixing the cause, run this workflow again. No force-push is performed.' \
+            >> "$GITHUB_STEP_SUMMARY"

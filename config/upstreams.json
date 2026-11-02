@@ -1,0 +1,555 @@
+{
+  "schema_version": 1,
+  "scope": "personal_adblock_and_adblock_exemptions",
+  "notes": [
+    "sources 严格保留用户原 filter_remote 的 URL、顺序、策略、格式及启用状态；未按建议自动替换、停用或删除上游。",
+    "role=block 的 11 项用于广告、隐私与反劫持拦截；role=allow 的 4 项作为优先广告豁免来源。allow 不等于强制 DIRECT，原 expected_policy 仍需按应用的策略设置处理。",
+    "完整站点、地区、流媒体及应用代理路由不纳入本集合；excluded 仅保留原始来源元信息。",
+    "本清单不包含节点、订阅凭据、重写脚本或源规则正文；开发时可显式指定 ../migration/sources 作为本地快照缓存。",
+    "根仓库许可证识别仅是可核实的来源记录，不能替代对聚合列表更上游内容归属的核对；不要把所有上游规则统一标为 MIT。"
+  ],
+  "sources": [
+    {
+      "id": "01_filter",
+      "name": "sve1r-AntiAD-V4",
+      "url": "https://raw.githubusercontent.com/sve1r/Rules-For-Quantumult-X/refs/heads/main/Rules/Advertising/antiAD-V4.list",
+      "expected_policy": "reject",
+      "category": "advertising",
+      "source_format": "mixed",
+      "interval": 172800,
+      "opt_parser": true,
+      "enabled": true,
+      "source_line": 2,
+      "original_order": 1,
+      "role": "block",
+      "repository": "https://github.com/sve1r/Rules-For-Quantumult-X"
+    },
+    {
+      "id": "02_filter",
+      "name": "sve1r分流",
+      "url": "https://raw.githubusercontent.com/sve1r/Rules-For-Quantumult-X/refs/heads/main/Rules/Advertising/AdReject.list",
+      "expected_policy": "reject",
+      "category": "advertising",
+      "source_format": "mixed",
+      "interval": 172800,
+      "opt_parser": true,
+      "enabled": true,
+      "source_line": 3,
+      "original_order": 2,
+      "role": "block",
+      "repository": "https://github.com/sve1r/Rules-For-Quantumult-X"
+    },
+    {
+      "id": "03_filter",
+      "name": "毒奶分流",
+      "url": "https://limbopro.com/Adblock4limbo.list",
+      "expected_policy": "reject",
+      "category": "advertising",
+      "source_format": "mixed",
+      "interval": 172800,
+      "opt_parser": true,
+      "enabled": true,
+      "source_line": 4,
+      "original_order": 3,
+      "role": "block",
+      "repository": "https://github.com/limbopro/Adblock4limbo"
+    },
+    {
+      "id": "04_filter",
+      "name": "野比分流",
+      "url": "https://raw.githubusercontent.com/NobyDa/ND-AD/master/QuantumultX/AD_Block.txt",
+      "expected_policy": "reject",
+      "category": "advertising",
+      "source_format": "mixed",
+      "interval": 172800,
+      "opt_parser": true,
+      "enabled": true,
+      "source_line": 5,
+      "original_order": 4,
+      "role": "block",
+      "repository": "https://github.com/NobyDa/ND-AD"
+    },
+    {
+      "id": "05_filter",
+      "name": "野比分流Plus",
+      "url": "https://raw.githubusercontent.com/NobyDa/ND-AD/master/QuantumultX/AD_Block_Plus.txt",
+      "expected_policy": "reject",
+      "category": "advertising",
+      "source_format": "mixed",
+      "interval": 172800,
+      "opt_parser": false,
+      "enabled": true,
+      "source_line": 6,
+      "original_order": 5,
+      "role": "block",
+      "repository": "https://github.com/NobyDa/ND-AD"
+    },
+    {
+      "id": "06_filter",
+      "name": "规则修正@blackmatrix7",
+      "url": "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/QuantumultX/Direct/Direct.list",
+      "expected_policy": "全球加速",
+      "category": "rule_correction",
+      "source_format": "mixed",
+      "interval": 172800,
+      "opt_parser": false,
+      "enabled": true,
+      "source_line": 7,
+      "original_order": 6,
+      "role": "allow",
+      "repository": "https://github.com/blackmatrix7/ios_rule_script"
+    },
+    {
+      "id": "07_filter",
+      "name": "本地局域网@blackmatrix7",
+      "url": "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/QuantumultX/Lan/Lan.list",
+      "expected_policy": "direct",
+      "category": "local_network",
+      "source_format": "mixed",
+      "interval": 172800,
+      "opt_parser": false,
+      "enabled": true,
+      "source_line": 8,
+      "original_order": 7,
+      "role": "allow",
+      "repository": "https://github.com/blackmatrix7/ios_rule_script"
+    },
+    {
+      "id": "08_filter",
+      "name": "广告终结者@anti-ad",
+      "url": "https://raw.githubusercontent.com/privacy-protection-tools/anti-AD/master/anti-ad-surge2.txt",
+      "expected_policy": "reject",
+      "category": "advertising",
+      "source_format": "surge_domainset",
+      "interval": 172800,
+      "opt_parser": true,
+      "enabled": true,
+      "source_line": 9,
+      "conversion_note": "Preserve Surge DOMAIN-SET suffix semantics: convert each leading-dot domain to a mihomo +.domain entry, including the domain itself and its subdomains.",
+      "original_order": 8,
+      "role": "block",
+      "repository": "https://github.com/privacy-protection-tools/anti-AD"
+    },
+    {
+      "id": "09_filter",
+      "name": "隐私保护@blackmatrix7",
+      "url": "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/QuantumultX/Privacy/Privacy.list",
+      "expected_policy": "reject",
+      "category": "privacy",
+      "source_format": "mixed",
+      "interval": 172800,
+      "opt_parser": false,
+      "enabled": true,
+      "source_line": 10,
+      "original_order": 9,
+      "role": "block",
+      "repository": "https://github.com/blackmatrix7/ios_rule_script"
+    },
+    {
+      "id": "10_filter",
+      "name": "反劫持@blackmatrix7",
+      "url": "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/QuantumultX/Hijacking/Hijacking.list",
+      "expected_policy": "reject",
+      "category": "anti_hijacking",
+      "source_format": "mixed",
+      "interval": 172800,
+      "opt_parser": false,
+      "enabled": true,
+      "source_line": 11,
+      "original_order": 10,
+      "role": "block",
+      "repository": "https://github.com/blackmatrix7/ios_rule_script"
+    },
+    {
+      "id": "11_filter",
+      "name": "应用内防追踪@mieqq",
+      "url": "https://raw.githubusercontent.com/mieqq/mieqq/master/In-AppTracker.txt",
+      "expected_policy": "reject",
+      "category": "privacy",
+      "source_format": "surge_domainset",
+      "interval": 172800,
+      "opt_parser": true,
+      "enabled": true,
+      "source_line": 12,
+      "conversion_note": "Preserve Surge DOMAIN-SET suffix semantics: convert each leading-dot domain to a mihomo +.domain entry, including the domain itself and its subdomains.",
+      "original_order": 11,
+      "role": "block",
+      "repository": "https://github.com/mieqq/mieqq"
+    },
+    {
+      "id": "12_filter",
+      "name": "微信直连@blackmatrix7",
+      "url": "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/QuantumultX/WeChat/WeChat.list",
+      "expected_policy": "direct",
+      "category": "application_direct",
+      "source_format": "mixed",
+      "interval": 172800,
+      "opt_parser": true,
+      "enabled": true,
+      "source_line": 13,
+      "original_order": 12,
+      "role": "allow",
+      "repository": "https://github.com/blackmatrix7/ios_rule_script"
+    },
+    {
+      "id": "13_filter",
+      "name": "直连修正",
+      "url": "https://raw.githubusercontent.com/ConnersHua/RuleGo/master/Surge/Ruleset/Direct+.list",
+      "expected_policy": "direct",
+      "category": "direct_correction",
+      "source_format": "mixed",
+      "interval": 172800,
+      "opt_parser": true,
+      "enabled": true,
+      "source_line": 14,
+      "original_order": 13,
+      "role": "allow",
+      "repository": "https://github.com/ConnersHua/RuleGo"
+    },
+    {
+      "id": "14_filter",
+      "name": "广告拦截",
+      "url": "https://raw.githubusercontent.com/ConnersHua/RuleGo/master/Surge/Ruleset/Extra/Reject/Advertising.list",
+      "expected_policy": "reject",
+      "category": "advertising",
+      "source_format": "mixed",
+      "interval": 172800,
+      "opt_parser": true,
+      "enabled": true,
+      "source_line": 15,
+      "original_order": 14,
+      "role": "block",
+      "repository": "https://github.com/ConnersHua/RuleGo"
+    },
+    {
+      "id": "15_filter",
+      "name": "隐私保护",
+      "url": "https://raw.githubusercontent.com/ConnersHua/RuleGo/master/Surge/Ruleset/Extra/Reject/Tracking.list",
+      "expected_policy": "reject",
+      "category": "privacy",
+      "source_format": "mixed",
+      "interval": 172800,
+      "opt_parser": true,
+      "enabled": true,
+      "source_line": 16,
+      "original_order": 15,
+      "role": "block",
+      "repository": "https://github.com/ConnersHua/RuleGo"
+    }
+  ],
+  "excluded": [
+    {
+      "id": "16_filter",
+      "name": "海外抖音",
+      "url": "https://raw.githubusercontent.com/ConnersHua/RuleGo/master/Surge/Ruleset/Extra/Streaming/Video/TikTok.list",
+      "expected_policy": "全球加速",
+      "category": "streaming",
+      "source_format": "mixed",
+      "interval": 172800,
+      "opt_parser": true,
+      "enabled": true,
+      "source_line": 17,
+      "original_order": 16,
+      "exclusion_reason": "用于流媒体、语音、通讯、Apple、国内或全局代理的路由选择，不属于本个人广告拦截集合；原始 URL 与策略仅留档，不下载或合并。"
+    },
+    {
+      "id": "17_filter",
+      "name": "谷歌语音",
+      "url": "https://raw.githubusercontent.com/ConnersHua/RuleGo/master/Surge/Ruleset/Extra/Google/GoogleVoice.list",
+      "expected_policy": "美国节点",
+      "category": "voice_service",
+      "source_format": "mixed",
+      "interval": 172800,
+      "opt_parser": true,
+      "enabled": true,
+      "source_line": 18,
+      "original_order": 17,
+      "exclusion_reason": "用于流媒体、语音、通讯、Apple、国内或全局代理的路由选择，不属于本个人广告拦截集合；原始 URL 与策略仅留档，不下载或合并。"
+    },
+    {
+      "id": "18_filter",
+      "name": "电报代理",
+      "url": "https://raw.githubusercontent.com/ConnersHua/RuleGo/master/Surge/Ruleset/Extra/Telegram.list",
+      "expected_policy": "电报代理",
+      "category": "messaging",
+      "source_format": "mixed",
+      "interval": 172800,
+      "opt_parser": true,
+      "enabled": true,
+      "source_line": 19,
+      "original_order": 18,
+      "exclusion_reason": "用于流媒体、语音、通讯、Apple、国内或全局代理的路由选择，不属于本个人广告拦截集合；原始 URL 与策略仅留档，不下载或合并。"
+    },
+    {
+      "id": "19_filter",
+      "name": "国际媒体",
+      "url": "https://raw.githubusercontent.com/ConnersHua/RuleGo/master/Surge/Ruleset/Extra/Streaming/!CN.list",
+      "expected_policy": "国际媒体",
+      "category": "streaming",
+      "source_format": "mixed",
+      "interval": 172800,
+      "opt_parser": true,
+      "enabled": true,
+      "source_line": 20,
+      "original_order": 19,
+      "exclusion_reason": "用于流媒体、语音、通讯、Apple、国内或全局代理的路由选择，不属于本个人广告拦截集合；原始 URL 与策略仅留档，不下载或合并。"
+    },
+    {
+      "id": "20_filter",
+      "name": "港台番剧",
+      "url": "https://raw.githubusercontent.com/ConnersHua/RuleGo/master/Surge/Ruleset/Extra/Streaming/CN.list",
+      "expected_policy": "港台番剧",
+      "category": "streaming",
+      "source_format": "mixed",
+      "interval": 172800,
+      "opt_parser": true,
+      "enabled": true,
+      "source_line": 21,
+      "original_order": 20,
+      "exclusion_reason": "用于流媒体、语音、通讯、Apple、国内或全局代理的路由选择，不属于本个人广告拦截集合；原始 URL 与策略仅留档，不下载或合并。"
+    },
+    {
+      "id": "21_filter",
+      "name": "全球加速",
+      "url": "https://raw.githubusercontent.com/ConnersHua/RuleGo/master/Surge/Ruleset/Proxy.list",
+      "expected_policy": "全球加速",
+      "category": "proxy_routing",
+      "source_format": "mixed",
+      "interval": 172800,
+      "opt_parser": true,
+      "enabled": true,
+      "source_line": 22,
+      "original_order": 21,
+      "exclusion_reason": "用于流媒体、语音、通讯、Apple、国内或全局代理的路由选择，不属于本个人广告拦截集合；原始 URL 与策略仅留档，不下载或合并。"
+    },
+    {
+      "id": "22_filter",
+      "name": "苹果服务",
+      "url": "https://raw.githubusercontent.com/ConnersHua/RuleGo/master/Surge/Ruleset/Extra/Apple/Apple.list",
+      "expected_policy": "苹果服务",
+      "category": "apple_services",
+      "source_format": "mixed",
+      "interval": 172800,
+      "opt_parser": true,
+      "enabled": true,
+      "source_line": 23,
+      "original_order": 22,
+      "exclusion_reason": "用于流媒体、语音、通讯、Apple、国内或全局代理的路由选择，不属于本个人广告拦截集合；原始 URL 与策略仅留档，不下载或合并。"
+    },
+    {
+      "id": "23_filter",
+      "name": "国内网站",
+      "url": "https://raw.githubusercontent.com/ConnersHua/RuleGo/master/Surge/Ruleset/Direct.list",
+      "expected_policy": "direct",
+      "category": "domestic_routing",
+      "source_format": "mixed",
+      "interval": 172800,
+      "opt_parser": true,
+      "enabled": true,
+      "source_line": 24,
+      "original_order": 23,
+      "exclusion_reason": "用于流媒体、语音、通讯、Apple、国内或全局代理的路由选择，不属于本个人广告拦截集合；原始 URL 与策略仅留档，不下载或合并。"
+    },
+    {
+      "id": "24_filter",
+      "name": "微信直连",
+      "url": "https://raw.githubusercontent.com/ConnersHua/RuleGo/master/Surge/Ruleset/Extra/WeChat.list",
+      "expected_policy": "direct",
+      "category": "application_direct",
+      "source_format": "mixed",
+      "interval": 172800,
+      "opt_parser": true,
+      "enabled": true,
+      "source_line": 25,
+      "original_order": 24,
+      "exclusion_reason": "用于流媒体、语音、通讯、Apple、国内或全局代理的路由选择，不属于本个人广告拦截集合；原始 URL 与策略仅留档，不下载或合并。"
+    },
+    {
+      "id": "25_filter",
+      "name": "代理修正",
+      "url": "https://raw.githubusercontent.com/ConnersHua/RuleGo/master/Surge/Ruleset/Proxy+.list",
+      "expected_policy": "proxy",
+      "category": "proxy_correction",
+      "source_format": "mixed",
+      "interval": 172800,
+      "opt_parser": true,
+      "enabled": true,
+      "source_line": 26,
+      "original_order": 25,
+      "exclusion_reason": "用于流媒体、语音、通讯、Apple、国内或全局代理的路由选择，不属于本个人广告拦截集合；原始 URL 与策略仅留档，不下载或合并。"
+    }
+  ],
+  "attribution": [
+    {
+      "repository": "https://github.com/sve1r/Rules-For-Quantumult-X",
+      "owner": "sve1r",
+      "branch": "main",
+      "license": {
+        "label": "MIT",
+        "url": "https://github.com/sve1r/Rules-For-Quantumult-X/blob/main/LICENSE",
+        "status": "repository_license_verified"
+      },
+      "maintenance": {
+        "status": "no_general_maintenance_claim",
+        "note": "antiAD-V4.list 自述来自 anti-AD；其快照日期与原始 anti-AD 并不相同。"
+      },
+      "evidence_urls": [
+        "https://raw.githubusercontent.com/sve1r/Rules-For-Quantumult-X/refs/heads/main/Rules/Advertising/antiAD-V4.list",
+        "https://github.com/sve1r/Rules-For-Quantumult-X/blob/main/README.md"
+      ]
+    },
+    {
+      "repository": "https://github.com/limbopro/Adblock4limbo",
+      "owner": "limbopro",
+      "branch": "main",
+      "license": {
+        "label": "MIT",
+        "url": "https://github.com/limbopro/Adblock4limbo/blob/main/LICENSE",
+        "status": "repository_license_verified"
+      },
+      "maintenance": {
+        "status": "not_assessed"
+      },
+      "evidence_urls": [
+        "https://github.com/limbopro/Adblock4limbo/blob/main/README.md"
+      ]
+    },
+    {
+      "repository": "https://github.com/NobyDa/ND-AD",
+      "owner": "NobyDa",
+      "branch": "master",
+      "license": {
+        "label": "MIT",
+        "url": "https://github.com/NobyDa/ND-AD/blob/master/LICENSE",
+        "status": "repository_license_verified"
+      },
+      "maintenance": {
+        "status": "author_declared_unmaintained",
+        "since": "2022-09",
+        "note": "作者 README 明确宣布 2022/9 停止维护；Plus 的原作者说明还提示可能误杀。"
+      },
+      "evidence_urls": [
+        "https://github.com/NobyDa/ND-AD/blob/master/README.md"
+      ]
+    },
+    {
+      "repository": "https://github.com/blackmatrix7/ios_rule_script",
+      "owner": "blackmatrix7",
+      "branch": "master",
+      "license": {
+        "label": "GNU General Public License version 2",
+        "url": "https://github.com/blackmatrix7/ios_rule_script/blob/master/LICENSE",
+        "status": "repository_license_verified"
+      },
+      "maintenance": {
+        "status": "not_assessed"
+      },
+      "evidence_urls": [
+        "https://github.com/blackmatrix7/ios_rule_script/blob/master/README.md"
+      ]
+    },
+    {
+      "repository": "https://github.com/privacy-protection-tools/anti-AD",
+      "owner": "privacy-protection-tools",
+      "branch": "master",
+      "license": {
+        "label": "MIT",
+        "url": "https://github.com/privacy-protection-tools/anti-AD/blob/master/LICENSE",
+        "status": "repository_license_verified"
+      },
+      "maintenance": {
+        "status": "not_assessed"
+      },
+      "evidence_urls": [
+        "https://github.com/privacy-protection-tools/anti-AD/blob/master/README.md"
+      ]
+    },
+    {
+      "repository": "https://github.com/mieqq/mieqq",
+      "owner": "mieqq",
+      "branch": "master",
+      "license": {
+        "label": null,
+        "url": null,
+        "status": "no_root_license_file_found",
+        "checked_tree_url": "https://github.com/mieqq/mieqq/tree/master",
+        "note": "根目录文件清单未发现 LICENSE/COPYING；不据此推定作者授予任何特定再发布许可。"
+      },
+      "maintenance": {
+        "status": "not_assessed"
+      },
+      "evidence_urls": [
+        "https://github.com/mieqq/mieqq/blob/master/In-AppTracker.txt"
+      ]
+    },
+    {
+      "repository": "https://github.com/ConnersHua/RuleGo",
+      "owner": "ConnersHua",
+      "branch": "master",
+      "license": {
+        "label": null,
+        "url": null,
+        "status": "no_root_license_file_found",
+        "checked_tree_url": "https://github.com/ConnersHua/RuleGo/tree/master",
+        "note": "所用 ASCII master 分支根目录未发现 LICENSE/COPYING；不要把其他仓库或默认分支的许可套用到此分支。"
+      },
+      "maintenance": {
+        "status": "not_assessed"
+      },
+      "evidence_urls": [
+        "https://github.com/ConnersHua/RuleGo/tree/master"
+      ]
+    }
+  ],
+  "recommendations": [
+    {
+      "id": "antiad_mirror_vs_origin",
+      "source_ids": [
+        "01_filter",
+        "08_filter"
+      ],
+      "applied": false,
+      "suggestion": "未来可选择仅跟随 08_filter 的 anti-AD 原作者源，减少旧副本带来的重复维护；当前继续保留两项。",
+      "reason": "01_filter 文件头自述来自 anti-AD，但它是不同时间的快照，不是 08_filter 的字节或语义完全相同副本。简单去掉它会改变当前拦截集合，不能宣称无损删冗余。",
+      "evidence_urls": [
+        "https://raw.githubusercontent.com/sve1r/Rules-For-Quantumult-X/refs/heads/main/Rules/Advertising/antiAD-V4.list",
+        "https://raw.githubusercontent.com/privacy-protection-tools/anti-AD/master/anti-ad-surge2.txt"
+      ]
+    },
+    {
+      "id": "nobyda_frozen_sources",
+      "source_ids": [
+        "04_filter",
+        "05_filter"
+      ],
+      "applied": false,
+      "suggestion": "保留为兼容旧体验的冻结来源；若后续希望减少旧规则，可在差异报告与实际应用回归确认后逐项停用。",
+      "reason": "原作者于 2022/9 宣布停止维护；AD_Block 整合 anti-AD、ConnersHua 等来源，Plus 的具体来源未知且作者提示可能误杀。不能仅凭来源重叠就断言全部条目冗余。",
+      "evidence_urls": [
+        "https://github.com/NobyDa/ND-AD/blob/master/README.md"
+      ]
+    },
+    {
+      "id": "deduplicate_rules_not_source_assumptions",
+      "source_ids": [
+        "01_filter",
+        "02_filter",
+        "03_filter",
+        "04_filter",
+        "05_filter",
+        "08_filter",
+        "09_filter",
+        "10_filter",
+        "11_filter",
+        "14_filter",
+        "15_filter"
+      ],
+      "applied": false,
+      "suggestion": "在生成阶段按规则类型与匹配语义去重并报告每个来源的贡献；缺少可验证的包含关系时，不自动删除完整来源。",
+      "reason": "DOMAIN、DOMAIN-SUFFIX、DOMAIN-KEYWORD、IP 与 USER-AGENT 不是可互换的条目；上游条目数量或项目包含关系本身不能证明实际覆盖等价。",
+      "evidence_urls": [
+        "https://wiki.metacubex.one/config/rule-providers/content/"
+      ]
+    }
+  ]
+}

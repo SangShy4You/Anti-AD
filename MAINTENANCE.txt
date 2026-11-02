@@ -1,0 +1,59 @@
+个人规则的更新与维护
+
+运行安排
+GitHub Actions 工作流名为 Update personal rules，每天北京时间 08:20 检查上游。
+配置使用 cron: '20 8 * * *'、timezone: Asia/Shanghai，不需要另行换算 UTC。
+也可在仓库 Actions 中选择该工作流，手动 Run workflow；请选择仓库默认分支。
+修改 config/、scripts/、tests/ 或工作流本身后，默认分支会触发一次检查。
+rules/ 和 data/ 的产物更新不会触发源码变更检查。
+
+更新内容
+上游清单在 config/upstreams.json，编译入口为 python scripts/update.py。
+使用 Python 3.13 和标准库，不需要另装依赖，也不下载执行上游脚本。
+每次先运行一次离线单元测试，再下载、解析、去重和验证规则。
+仅当整个更新成功后，工作流才允许提交 rules/ 和 data/。
+data/upstream-state.json 保存稳定的上游哈希，data/report.json 保存审计结果。
+不要往这些文件添加每次检查时间，否则即使规则未变也会产生提交。
+rules/ 和 data/ 均无变更时，运行保持成功，不创建空提交，不发送自定义状态消息。
+上游状态变更而最终规则内容相同时，仍可能生成一条仅更新审计状态的提交。
+
+失败与恢复
+任何单元测试、上游下载、解析或产物验证失败都会使本次运行失败，停止发布。
+已发布的旧规则保持可用；失败不会用空列表或半成品覆盖远程产物。
+在 Actions 打开红色运行，查看失败步骤与报错；修复原因后手动重新运行。
+工作流使用 GitHub 自动提供的 GITHUB_TOKEN，仅授予本仓库 contents: write，
+无需把个人访问令牌写入源码，也无需创建额外 Codex 定时任务。
+如发布阶段遇到 403 或分支保护拒绝，按报错检查仓库权限和保护规则。
+如有人在编译期间提交了新版本，普通 git push 会拒绝旧分支提交；不强推，重新运行即可。
+同一仓库的更新运行串行执行，不会相互中断或同时发布。
+
+通知与定时限制
+失败可通过 GitHub 原生 Actions 通知得知。请在个人通知设置中启用 Actions 通知，
+若只想收到问题通知，选择仅失败；本项目不创建重复提醒或自动评论。
+通知能否送达取决于你的 GitHub 通知偏好。定时运行的通知接收者还与最后修改
+cron 的用户有关。普通无变更运行不会主动发送项目自定义通知。
+GitHub 定时任务不是精确闹钟，繁忙时可能延迟，极端情况下排队任务可能被丢弃。
+工作流必须保留在默认分支；定时运行只使用默认分支的最新提交。
+公开仓库连续 60 天没有活动时，GitHub 可能自动停用定时工作流。
+若因此停用，请在 Actions 中重新启用。这里不会用每日空提交规避该平台机制。
+文件位于本地不代表定时任务已生效：仓库发布并启用 Actions 后才会在 GitHub 执行。
+
+本地检查
+在仓库根目录执行：
+  python -m unittest discover -s tests
+  python scripts/update.py
+检查 rules/、data/ 的差异后再提交。不要修改生成文件来永久维护自定义规则，
+应调整配置或生成逻辑，避免下一次更新覆盖手动变更。
+
+Actions 版本固定（2026-11-02 核对）
+actions/checkout v7.0.1：3d3c42e5aac5ba805825da76410c181273ba90b1
+actions/setup-python v7.1.0：6d4fd22b20465ccc0f7354476588e8df7c9ca0e0
+工作流引用完整提交 SHA。升级时应先核对原作者发布记录和对应完整提交，
+再修改 SHA 及版本注释；不把可变的主版本标签当作不可变版本。
+
+官方依据
+https://docs.github.com/en/actions/reference/workflows-and-actions/events-that-trigger-workflows#schedule
+https://docs.github.com/en/actions/tutorials/authenticate-with-github_token
+https://docs.github.com/en/actions/concepts/security/github_token
+https://github.com/actions/checkout/releases/tag/v7.0.1
+https://github.com/actions/setup-python/releases/tag/v7.1.0

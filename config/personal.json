@@ -1,0 +1,16 @@
+{
+  "name": "个人去广告",
+  "scope": "ads-and-tracking",
+  "allow_ordered_domain_stages": false,
+  "disabled_sources": [],
+  "allow": {
+    "domains": [],
+    "suffixes": [],
+    "ipcidrs": []
+  },
+  "reject": {
+    "domains": [],
+    "suffixes": [],
+    "ipcidrs": []
+  }
+}

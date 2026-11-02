@@ -1,0 +1,289 @@
+{
+  "advanced_policy_order": [
+    "RULE-SET,personal_stage_01,REJECT",
+    "RULE-SET,personal_stage_02,全球加速",
+    "RULE-SET,personal_stage_03,DIRECT",
+    "RULE-SET,personal_stage_04,REJECT",
+    "RULE-SET,personal_stage_05,DIRECT",
+    "RULE-SET,personal_stage_06,REJECT"
+  ],
+  "artifacts": [
+    "rules/ads-domain.yaml",
+    "rules/ads-ip.yaml",
+    "rules/advanced-fragment.yaml"
+  ],
+  "counts": {
+    "advanced_only_rule_rows": 138,
+    "advanced_stages": 6,
+    "distinct_reject_domain_patterns": 248115,
+    "issues": 5,
+    "source_local_unique_reject_domain_rows": 377253,
+    "source_local_unique_rules": 378118,
+    "ui_domain_patterns": 195913,
+    "ui_ip_prefixes": 221
+  },
+  "issues": [
+    {
+      "category": "unsupported-user-agent",
+      "exported": false,
+      "line": 8239,
+      "rule": "USER-AGENT,AVOS*,reject",
+      "source": "02_filter"
+    },
+    {
+      "category": "invalid-trailing-dot-domain",
+      "exported": false,
+      "line": 10125,
+      "rule": "DOMAIN-SUFFIX,abbp1.space.,REJECT",
+      "source": "04_filter"
+    },
+    {
+      "category": "unsupported-user-agent",
+      "exported": false,
+      "line": 241,
+      "rule": "USER-AGENT,%E8%BF%85%E9%9B%B7,Direct",
+      "source": "06_filter"
+    },
+    {
+      "category": "unsupported-user-agent",
+      "exported": false,
+      "line": 50,
+      "rule": "USER-AGENT,MicroMessenger*,WeChat",
+      "source": "12_filter"
+    },
+    {
+      "category": "unsupported-user-agent",
+      "exported": false,
+      "line": 51,
+      "rule": "USER-AGENT,WeChat*,WeChat",
+      "source": "12_filter"
+    }
+  ],
+  "limitations": [
+    "UI domain/ipcidr exports cannot preserve keyword, UA, rewrite, or all domain-versus-IP precedence.",
+    "The advanced fragment preserves supported cross-type source order but requires existing named policies and compatible GEOIP/ASN data.",
+    "Manual allow overrides manual reject, followed by upstream order; manual allow policy defaults to DIRECT.",
+    "Only public source contents are compiled; QX device cache, filter_local and resource_parser_url may differ.",
+    "No iOS Apps Connect import or runtime behavior is certified by compilation."
+  ],
+  "profile": "个人去广告",
+  "sources": [
+    {
+      "id": "01_filter",
+      "policy": "REJECT",
+      "role": "block",
+      "rules": 102721,
+      "status": "compiled",
+      "types": {
+        "DOMAIN-SUFFIX": 102721
+      }
+    },
+    {
+      "id": "02_filter",
+      "policy": "REJECT",
+      "role": "block",
+      "rules": 8238,
+      "status": "compiled",
+      "types": {
+        "DOMAIN": 37,
+        "DOMAIN-SUFFIX": 8144,
+        "IP-CIDR": 56,
+        "IP-CIDR6": 1
+      }
+    },
+    {
+      "id": "03_filter",
+      "policy": "REJECT",
+      "role": "block",
+      "rules": 526,
+      "status": "compiled",
+      "types": {
+        "DOMAIN": 223,
+        "DOMAIN-KEYWORD": 34,
+        "DOMAIN-SUFFIX": 269
+      }
+    },
+    {
+      "id": "04_filter",
+      "policy": "REJECT",
+      "role": "block",
+      "rules": 43643,
+      "status": "compiled",
+      "types": {
+        "DOMAIN": 25905,
+        "DOMAIN-KEYWORD": 53,
+        "DOMAIN-SUFFIX": 17470,
+        "IP-CIDR": 215
+      }
+    },
+    {
+      "id": "05_filter",
+      "policy": "REJECT",
+      "role": "block",
+      "rules": 69350,
+      "status": "compiled",
+      "types": {
+        "DOMAIN": 69350
+      }
+    },
+    {
+      "id": "06_filter",
+      "policy": "全球加速",
+      "role": "allow",
+      "rules": 231,
+      "status": "compiled",
+      "types": {
+        "DOMAIN": 56,
+        "DOMAIN-KEYWORD": 36,
+        "DOMAIN-SUFFIX": 139
+      }
+    },
+    {
+      "id": "07_filter",
+      "policy": "DIRECT",
+      "role": "allow",
+      "rules": 142,
+      "status": "compiled",
+      "types": {
+        "DOMAIN": 9,
+        "DOMAIN-SUFFIX": 115,
+        "IP-CIDR": 14,
+        "IP-CIDR6": 4
+      }
+    },
+    {
+      "id": "08_filter",
+      "policy": "REJECT",
+      "role": "block",
+      "rules": 101785,
+      "status": "compiled",
+      "types": {
+        "DOMAIN-SUFFIX": 101785
+      }
+    },
+    {
+      "id": "09_filter",
+      "policy": "REJECT",
+      "role": "block",
+      "rules": 39936,
+      "status": "compiled",
+      "types": {
+        "DOMAIN": 19,
+        "DOMAIN-KEYWORD": 9,
+        "DOMAIN-SUFFIX": 39897,
+        "IP-CIDR": 11
+      }
+    },
+    {
+      "id": "10_filter",
+      "policy": "REJECT",
+      "role": "block",
+      "rules": 228,
+      "status": "compiled",
+      "types": {
+        "DOMAIN": 1,
+        "DOMAIN-SUFFIX": 185,
+        "IP-CIDR": 42
+      }
+    },
+    {
+      "id": "11_filter",
+      "policy": "REJECT",
+      "role": "block",
+      "rules": 10192,
+      "status": "compiled",
+      "types": {
+        "DOMAIN-SUFFIX": 10192
+      }
+    },
+    {
+      "id": "12_filter",
+      "policy": "DIRECT",
+      "role": "allow",
+      "rules": 41,
+      "status": "compiled",
+      "types": {
+        "DOMAIN": 18,
+        "DOMAIN-SUFFIX": 22,
+        "IP-ASN": 1
+      }
+    },
+    {
+      "id": "13_filter",
+      "policy": "DIRECT",
+      "role": "allow",
+      "rules": 21,
+      "status": "compiled",
+      "types": {
+        "DOMAIN": 18,
+        "DOMAIN-SUFFIX": 3
+      }
+    },
+    {
+      "id": "14_filter",
+      "policy": "REJECT",
+      "role": "block",
+      "rules": 974,
+      "status": "compiled",
+      "types": {
+        "DOMAIN": 258,
+        "DOMAIN-KEYWORD": 5,
+        "DOMAIN-SUFFIX": 707,
+        "IP-CIDR": 4
+      }
+    },
+    {
+      "id": "15_filter",
+      "policy": "REJECT",
+      "role": "block",
+      "rules": 90,
+      "status": "compiled",
+      "types": {
+        "DOMAIN": 30,
+        "DOMAIN-SUFFIX": 60
+      }
+    }
+  ],
+  "ui": {
+    "cross_type_examples": [
+      {
+        "domain_projection_allows_root": true,
+        "earliest_expression": "DOMAIN-KEYWORD,analytics",
+        "host": "analytics.strava.com",
+        "policy": "REJECT",
+        "source": "04_filter"
+      }
+    ],
+    "domain_mode": "single-file",
+    "equivalence": "domain-only and IP-only projections; not full QX equivalence",
+    "ip": {
+      "behavior": "ipcidr",
+      "format": "yaml",
+      "path": "rules/ads-ip.yaml",
+      "policy": "REJECT"
+    },
+    "required_domain_order": [
+      {
+        "behavior": "domain",
+        "format": "yaml",
+        "path": "rules/ads-domain.yaml",
+        "policy": "REJECT"
+      }
+    ],
+    "root_only_allow_exceptions_encoded_as_leading_dot": [
+      {
+        "allow_policy": "全球加速",
+        "allow_source": "06_filter",
+        "blocking_source": "11_filter",
+        "domain": "log.mmstat.com"
+      },
+      {
+        "allow_policy": "全球加速",
+        "allow_source": "06_filter",
+        "blocking_source": "11_filter",
+        "domain": "analytics.strava.com"
+      }
+    ],
+    "unrepresentable_single_file_holes": []
+  }
+}

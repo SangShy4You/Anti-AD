@@ -1,0 +1,25 @@
+{
+  "repository": "https://github.com/SangShy4You/Anti-AD",
+  "branch": "main",
+  "client": "Apps Connect",
+  "subscriptions": [
+    {
+      "name": "个人去广告",
+      "url": "https://raw.githubusercontent.com/SangShy4You/Anti-AD/main/rules/ads-domain.yaml",
+      "behavior": "domain",
+      "format": "yaml",
+      "policy": "REJECT",
+      "update_interval_seconds": 86400,
+      "optional": false
+    },
+    {
+      "name": "个人去广告—IP 补充",
+      "url": "https://raw.githubusercontent.com/SangShy4You/Anti-AD/main/rules/ads-ip.yaml",
+      "behavior": "ipcidr",
+      "format": "yaml",
+      "policy": "REJECT",
+      "update_interval_seconds": 86400,
+      "optional": true
+    }
+  ]
+}
