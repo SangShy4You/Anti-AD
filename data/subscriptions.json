@@ -2,7 +2,7 @@
   "repository": "https://github.com/SangShy4You/Anti-AD",
   "branch": "main",
   "client": "Apps Connect",
-  "compatibility_note": "原两份 YAML 同时启用后曾出现全部节点测速超时，手机端原因待确认。先只试主域名 MRS；IP 补充暂不启用。同内容 YAML/MRS 不要同时添加。",
+  "compatibility_note": "用户已确认主域名MRS及REJECT设置可用；原YAML异常后继续使用MRS。主列表更新包含已审计全域补漏，原QX的URL/响应脚本仍非域名入口能力。",
   "alternatives": [
     {
       "name": "个人去广告（YAML）",
@@ -42,5 +42,12 @@
       "update_interval_seconds": 86400,
       "optional": true
     }
-  ]
+  ],
+  "advanced_alternative": {
+    "url": "https://raw.githubusercontent.com/SangShy4You/Anti-AD/main/rules/advanced-merge.yaml",
+    "type": "configuration_merge_fragment",
+    "importable_as_domain_or_ipcidr_provider": false,
+    "instructions": "https://github.com/SangShy4You/Anti-AD/blob/main/APPSCONNECT-高级迁移.md",
+    "routing_mode": "Allow stages PASS back to existing airport routing; preserves ordered ad exemptions, not old forced exits."
+  }
 }

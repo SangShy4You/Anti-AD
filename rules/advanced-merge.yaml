@@ -1,0 +1,130 @@
+# Optional merge fragment, not a complete VPN or node subscription.
+# Merge providers/sub-rules; prepend rules before broad airport routing.
+# Allow stages PASS back to the original main rules, not forced QX exits.
+# Requires native SUB-RULE/PASS support. No HTTP rewriting or scripts.
+rule-providers:
+  personal_ads_s01_domain:
+    type: "http"
+    behavior: "domain"
+    format: "mrs"
+    url: "https://raw.githubusercontent.com/SangShy4You/Anti-AD/main/rules/advanced/stage-01-domain.mrs"
+    path: "./rules/advanced/stage-01-domain.mrs"
+    interval: 86400
+  personal_ads_s01_extra:
+    type: "http"
+    behavior: "classical"
+    format: "text"
+    url: "https://raw.githubusercontent.com/SangShy4You/Anti-AD/main/rules/advanced/stage-01-extra.txt"
+    path: "./rules/advanced/stage-01-extra.txt"
+    interval: 86400
+  personal_ads_s01_ip:
+    type: "http"
+    behavior: "ipcidr"
+    format: "mrs"
+    url: "https://raw.githubusercontent.com/SangShy4You/Anti-AD/main/rules/advanced/stage-01-ip.mrs"
+    path: "./rules/advanced/stage-01-ip.mrs"
+    interval: 86400
+  personal_ads_s02_domain:
+    type: "http"
+    behavior: "domain"
+    format: "mrs"
+    url: "https://raw.githubusercontent.com/SangShy4You/Anti-AD/main/rules/advanced/stage-02-domain.mrs"
+    path: "./rules/advanced/stage-02-domain.mrs"
+    interval: 86400
+  personal_ads_s02_extra:
+    type: "http"
+    behavior: "classical"
+    format: "text"
+    url: "https://raw.githubusercontent.com/SangShy4You/Anti-AD/main/rules/advanced/stage-02-extra.txt"
+    path: "./rules/advanced/stage-02-extra.txt"
+    interval: 86400
+  personal_ads_s03_domain:
+    type: "http"
+    behavior: "domain"
+    format: "mrs"
+    url: "https://raw.githubusercontent.com/SangShy4You/Anti-AD/main/rules/advanced/stage-03-domain.mrs"
+    path: "./rules/advanced/stage-03-domain.mrs"
+    interval: 86400
+  personal_ads_s03_ip:
+    type: "http"
+    behavior: "ipcidr"
+    format: "mrs"
+    url: "https://raw.githubusercontent.com/SangShy4You/Anti-AD/main/rules/advanced/stage-03-ip.mrs"
+    path: "./rules/advanced/stage-03-ip.mrs"
+    interval: 86400
+  personal_ads_s04_domain:
+    type: "http"
+    behavior: "domain"
+    format: "mrs"
+    url: "https://raw.githubusercontent.com/SangShy4You/Anti-AD/main/rules/advanced/stage-04-domain.mrs"
+    path: "./rules/advanced/stage-04-domain.mrs"
+    interval: 86400
+  personal_ads_s04_extra:
+    type: "http"
+    behavior: "classical"
+    format: "text"
+    url: "https://raw.githubusercontent.com/SangShy4You/Anti-AD/main/rules/advanced/stage-04-extra.txt"
+    path: "./rules/advanced/stage-04-extra.txt"
+    interval: 86400
+  personal_ads_s04_ip:
+    type: "http"
+    behavior: "ipcidr"
+    format: "mrs"
+    url: "https://raw.githubusercontent.com/SangShy4You/Anti-AD/main/rules/advanced/stage-04-ip.mrs"
+    path: "./rules/advanced/stage-04-ip.mrs"
+    interval: 86400
+  personal_ads_s05_domain:
+    type: "http"
+    behavior: "domain"
+    format: "mrs"
+    url: "https://raw.githubusercontent.com/SangShy4You/Anti-AD/main/rules/advanced/stage-05-domain.mrs"
+    path: "./rules/advanced/stage-05-domain.mrs"
+    interval: 86400
+  personal_ads_s05_extra:
+    type: "http"
+    behavior: "classical"
+    format: "text"
+    url: "https://raw.githubusercontent.com/SangShy4You/Anti-AD/main/rules/advanced/stage-05-extra.txt"
+    path: "./rules/advanced/stage-05-extra.txt"
+    interval: 86400
+  personal_ads_s06_domain:
+    type: "http"
+    behavior: "domain"
+    format: "mrs"
+    url: "https://raw.githubusercontent.com/SangShy4You/Anti-AD/main/rules/advanced/stage-06-domain.mrs"
+    path: "./rules/advanced/stage-06-domain.mrs"
+    interval: 86400
+  personal_ads_s06_extra:
+    type: "http"
+    behavior: "classical"
+    format: "text"
+    url: "https://raw.githubusercontent.com/SangShy4You/Anti-AD/main/rules/advanced/stage-06-extra.txt"
+    path: "./rules/advanced/stage-06-extra.txt"
+    interval: 86400
+  personal_ads_s06_ip_no_resolve:
+    type: "http"
+    behavior: "ipcidr"
+    format: "mrs"
+    url: "https://raw.githubusercontent.com/SangShy4You/Anti-AD/main/rules/advanced/stage-06-ip-no-resolve.mrs"
+    path: "./rules/advanced/stage-06-ip-no-resolve.mrs"
+    interval: 86400
+sub-rules:
+  personal_ads:
+    - "RULE-SET,personal_ads_s01_domain,REJECT"
+    - "RULE-SET,personal_ads_s01_extra,REJECT"
+    - "RULE-SET,personal_ads_s01_ip,REJECT"
+    - "RULE-SET,personal_ads_s02_domain,PASS"
+    - "RULE-SET,personal_ads_s02_extra,PASS"
+    - "RULE-SET,personal_ads_s03_domain,PASS"
+    - "RULE-SET,personal_ads_s03_ip,PASS"
+    - "RULE-SET,personal_ads_s04_domain,REJECT"
+    - "RULE-SET,personal_ads_s04_extra,REJECT"
+    - "RULE-SET,personal_ads_s04_ip,REJECT"
+    - "RULE-SET,personal_ads_s05_domain,PASS"
+    - "RULE-SET,personal_ads_s05_extra,PASS"
+    - "RULE-SET,personal_ads_s06_domain,REJECT"
+    - "RULE-SET,personal_ads_s06_extra,REJECT"
+    - "RULE-SET,personal_ads_s06_ip_no_resolve,REJECT,no-resolve"
+    - "MATCH,PASS"
+rules:
+  - "SUB-RULE,(OR,((NETWORK,tcp),(NETWORK,udp))),personal_ads"

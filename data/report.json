@@ -15,11 +15,11 @@
   "counts": {
     "advanced_only_rule_rows": 138,
     "advanced_stages": 6,
-    "distinct_reject_domain_patterns": 248115,
+    "distinct_reject_domain_patterns": 248121,
     "issues": 5,
-    "source_local_unique_reject_domain_rows": 377253,
-    "source_local_unique_rules": 378118,
-    "ui_domain_patterns": 195913,
+    "source_local_unique_reject_domain_rows": 377260,
+    "source_local_unique_rules": 378125,
+    "ui_domain_patterns": 195907,
     "ui_ip_prefixes": 221
   },
   "issues": [
@@ -242,6 +242,106 @@
         "DOMAIN": 30,
         "DOMAIN-SUFFIX": 60
       }
+    },
+    {
+      "derivation": {
+        "count": 7,
+        "entries": [
+          {
+            "domain_pattern": "fc-video.cdn.bcebos.com",
+            "evidence": [
+              {
+                "line": 882,
+                "rule": "^https?:\\/\\/fc-video\\.cdn\\.bcebos\\.com url reject"
+              }
+            ],
+            "scope": "exact-host",
+            "source_expression": "^https?:\\/\\/fc-video\\.cdn\\.bcebos\\.com"
+          },
+          {
+            "domain_pattern": "api.htp.ad-scope.com.cn",
+            "evidence": [
+              {
+                "line": 1459,
+                "rule": "^https?:\\/\\/api\\.htp\\.ad-scope\\.com\\.cn.* url reject"
+              }
+            ],
+            "scope": "exact-host",
+            "source_expression": "^https?:\\/\\/api\\.htp\\.ad-scope\\.com\\.cn.*"
+          },
+          {
+            "domain_pattern": "sdk1xyajs.data.kuiniuca.com",
+            "evidence": [
+              {
+                "line": 3024,
+                "rule": "^https?:\\/\\/sdk1xyajs\\.data\\.kuiniuca\\.com url reject"
+              }
+            ],
+            "scope": "exact-host",
+            "source_expression": "^https?:\\/\\/sdk1xyajs\\.data\\.kuiniuca\\.com"
+          },
+          {
+            "domain_pattern": "stat.peopleapp.com",
+            "evidence": [
+              {
+                "line": 3860,
+                "rule": "^https?:\\/\\/stat\\.peopleapp\\.com\\/ url reject"
+              }
+            ],
+            "scope": "exact-host",
+            "source_expression": "^https?:\\/\\/stat\\.peopleapp\\.com\\/"
+          },
+          {
+            "domain_pattern": "adapi.izuiyou.com",
+            "evidence": [
+              {
+                "line": 6874,
+                "rule": "^https?:\\/\\/adapi\\.izuiyou\\.com\\/ url reject"
+              }
+            ],
+            "scope": "exact-host",
+            "source_expression": "^https?:\\/\\/adapi\\.izuiyou\\.com\\/"
+          },
+          {
+            "domain_pattern": ".kingsoft-office-service.com",
+            "evidence": [
+              {
+                "line": 2414,
+                "rule": "^https?:\\/\\/.+?\\.kingsoft-office-service\\.com url reject"
+              }
+            ],
+            "scope": "subdomains-only",
+            "source_expression": "^https?:\\/\\/.+?\\.kingsoft-office-service\\.com"
+          },
+          {
+            "domain_pattern": ".pglstatp-toutiao.com",
+            "evidence": [
+              {
+                "line": 4079,
+                "rule": "^https?:\\/\\/.+\\.pglstatp-toutiao\\.com url reject"
+              }
+            ],
+            "scope": "subdomains-only",
+            "source_expression": "^https?:\\/\\/.+\\.pglstatp-toutiao\\.com"
+          }
+        ],
+        "format": "domain_text",
+        "limitations": [
+          "Only reviewed whole-host plain URL rejects are represented.",
+          "A network REJECT does not reproduce an HTTP rejection status/body.",
+          "Path-specific rules, response stubs, JavaScript and MITM are not converted."
+        ],
+        "schema_version": 1
+      },
+      "id": "26_rewrite_domains",
+      "policy": "REJECT",
+      "role": "block",
+      "rules": 7,
+      "status": "compiled",
+      "types": {
+        "DOMAIN": 5,
+        "DOMAIN-SUBDOMAIN": 2
+      }
     }
   ],
   "ui": {
@@ -271,6 +371,12 @@
       }
     ],
     "root_only_allow_exceptions_encoded_as_leading_dot": [
+      {
+        "allow_policy": "FALLTHROUGH",
+        "allow_source": null,
+        "blocking_source": "26_rewrite_domains",
+        "domain": "kingsoft-office-service.com"
+      },
       {
         "allow_policy": "全球加速",
         "allow_source": "06_filter",

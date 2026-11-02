@@ -23,6 +23,34 @@ SOURCES = (("domain", "rules/ads-domain.yaml", "rules/ads-domain.mrs"),
            ("ipcidr", "rules/ads-ip.yaml", "rules/ads-ip.mrs"))
 
 
+def _sources(root: Path) -> list[tuple[str, str, str]]:
+    sources = list(SOURCES)
+    manifest = root / "data/advanced-state.json"
+    if not manifest.exists():
+        return sources
+    try:
+        state = json.loads(update._path(root, "data/advanced-state.json").read_text(encoding="utf-8"))
+        entries = state["mrs_sources"]
+        if not isinstance(entries, list) or not entries or len(entries) > 64:
+            raise ValueError("invalid advanced MRS source list")
+        for item in entries:
+            behavior, source, output = (item[key] for key in ("behavior", "yaml_path", "mrs_path"))
+            if (behavior not in {"domain", "ipcidr"} or not isinstance(source, str)
+                    or not source.startswith("rules/advanced/") or not source.endswith(".yaml")
+                    or output != source.removesuffix(".yaml") + ".mrs"):
+                raise ValueError("invalid advanced MRS source")
+            update._path(root, source)
+            update._path(root, output, output=True)
+            if state.get("outputs", {}).get(source) != update.sha256(update._path(root, source).read_bytes()):
+                raise ValueError("advanced YAML differs from its validated manifest")
+            sources.append((behavior, source, output))
+        if len({x[1] for x in sources}) != len(sources) or len({x[2] for x in sources}) != len(sources):
+            raise ValueError("duplicate advanced MRS source")
+    except (KeyError, TypeError, ValueError) as exc:
+        raise MrsBuildError(f"Invalid advanced source manifest: {exc}") from exc
+    return sources
+
+
 class MrsBuildError(RuntimeError):
     """Native conversion or round-trip verification failed."""
 
@@ -79,19 +107,20 @@ def build_mrs(mihomo: Path, root: Path = ROOT, *,
     if version_match is None or version_match.group(1) != EXPECTED_VERSION:
         raise MrsBuildError(f"Expected Mihomo {EXPECTED_VERSION}; refusing an unreviewed converter")
 
+    sources = _sources(root)
     inputs = {relative: update._path(root, relative).read_bytes()
-              for _, relative, _ in SOURCES}
+              for _, relative, _ in sources}
     expected = {relative: _payload(raw, relative) for relative, raw in inputs.items()}
     # Validate output paths before invoking the tool, including existing symlinks.
-    for relative in [*(output for _, _, output in SOURCES), "data/mrs-state.json"]:
+    for relative in [*(output for _, _, output in sources), "data/mrs-state.json"]:
         update._path(root, relative, output=True)
     payloads = {}
     with tempfile.TemporaryDirectory(prefix=".rule-update-mrs-", dir=root) as folder:
         stage = Path(folder)
-        for behavior, relative, output in SOURCES:
-            source_file = stage / f"{behavior}.yaml"
-            mrs_file = stage / f"{behavior}.mrs"
-            roundtrip_file = stage / f"{behavior}.txt"
+        for index, (behavior, relative, output) in enumerate(sources):
+            source_file = stage / f"{index}-{behavior}.yaml"
+            mrs_file = stage / f"{index}-{behavior}.mrs"
+            roundtrip_file = stage / f"{index}-{behavior}.txt"
             source_file.write_bytes(inputs[relative])
             _command(runner, [str(mihomo), "convert-ruleset", behavior, "yaml",
                               str(source_file), str(mrs_file)])
@@ -119,6 +148,8 @@ def build_mrs(mihomo: Path, root: Path = ROOT, *,
         "outputs": {path: update.sha256(raw) for path, raw in sorted(payloads.items())},
         "counts": {behavior: len(expected[relative]) for behavior, relative, _ in SOURCES},
     }
+    if len(sources) > len(SOURCES):
+        state["advanced_counts"] = {output: len(expected[source]) for _, source, output in sources[len(SOURCES):]}
     payloads["data/mrs-state.json"] = update._json_bytes(state)
     written = update._publish(root, payloads)
     return {"changed": bool(written), "written": written, "counts": state["counts"]}

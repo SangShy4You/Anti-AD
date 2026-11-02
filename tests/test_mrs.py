@@ -64,7 +64,7 @@ class MrsBuildTests(unittest.TestCase):
 
     def snapshot(self):
         return {path.relative_to(self.root).as_posix(): (path.read_bytes(), path.stat().st_mtime_ns)
-                for folder in ("rules", "data") for path in (self.root / folder).iterdir()}
+                for folder in ("rules", "data") for path in (self.root / folder).rglob("*") if path.is_file()}
 
     def build(self, runner):
         return build_mrs.build_mrs(self.mihomo, self.root, runner=runner)
@@ -101,6 +101,25 @@ class MrsBuildTests(unittest.TestCase):
                 with self.assertRaises(build_mrs.MrsBuildError):
                     self.build(runner)
                 self.assertEqual(self.snapshot(), before)
+
+    def test_advanced_manifest_requires_unchanged_input_before_publication(self):
+        source = "rules/advanced/stage-01-domain.yaml"
+        output = "rules/advanced/stage-01-domain.mrs"
+        path = self.root / source
+        path.parent.mkdir()
+        path.write_bytes(b'payload:\n  - "advanced.example"\n')
+        manifest = {"mrs_sources": [{"behavior": "domain", "yaml_path": source,
+                                     "mrs_path": output, "rule_count": 1}],
+                    "outputs": {source: build_mrs.update.sha256(path.read_bytes())}}
+        (self.root / "data/advanced-state.json").write_text(json.dumps(manifest), encoding="utf-8")
+        self.build(FakeMihomo())
+        state = json.loads((self.root / "data/mrs-state.json").read_text(encoding="utf-8"))
+        self.assertEqual(state["advanced_counts"], {output: 1})
+        path.write_bytes(b'payload:\n  - "tampered.example"\n')
+        before = self.snapshot()
+        with self.assertRaisesRegex(build_mrs.MrsBuildError, "differs"):
+            self.build(FakeMihomo())
+        self.assertEqual(self.snapshot(), before)
 
 
 if __name__ == "__main__":

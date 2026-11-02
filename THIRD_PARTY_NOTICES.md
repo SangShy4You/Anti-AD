@@ -17,6 +17,7 @@
 | [privacy-protection-tools/anti-AD](https://github.com/privacy-protection-tools/anti-AD) | `master` | [MIT](https://github.com/privacy-protection-tools/anti-AD/blob/master/LICENSE) | [完整原文](licenses/privacy-protection-tools-anti-AD-MIT.txt) |
 | [mieqq/mieqq](https://github.com/mieqq/mieqq) | `master` | 未在所用分支根目录发现 LICENSE/COPYING | 未生成替代许可证 |
 | [ConnersHua/RuleGo](https://github.com/ConnersHua/RuleGo) | `master` | 未在所用分支根目录发现 LICENSE/COPYING | 未生成替代许可证 |
+| [fmz200/wool_scripts](https://github.com/fmz200/wool_scripts) | `main` | [GNU General Public License version 3](https://github.com/fmz200/wool_scripts/blob/main/LICENSE) | [完整原文](licenses/fmz200-wool_scripts-GPL-3.0.txt) |
 
 四份 MIT 副本分别保留以下原始版权署名；完整许可正文与免责声明均已随文件保存：
 
@@ -59,6 +60,8 @@ blackmatrix7 的随附文件为其仓库原始 GNU GPL version 2 完整文本。
 完整来源元信息见 [config/upstreams.json](config/upstreams.json)。非广告用途的其余路由来源仅在该文件的 `excluded` 内留档，不属于本集合的聚合输入。重写、解锁、内容修改脚本未纳入本集合。
 
 ## 维护状态与来源关系
+
+- 新增 fmz200 来源仅从原作者当前 `rewrite.snippet` 中提取 7 个已审计的全主机 plain reject 模式，并与既有域名列表去重；不分发或执行其 JavaScript。原作者署名、原地址、历史删除提交和当前替代文件分别保留在 `data/rewrite-audit.json`。这不是对旧 QX 缓存的复现，也不将该来源改标为 MIT。
 
 - [NobyDa/ND-AD README](https://github.com/NobyDa/ND-AD/blob/master/README.md) 明确宣布于 2022/9 停止维护；其中 AD_Block 整合 anti-AD、ConnersHua 等来源，Plus 的具体来源列为未知并提示可能误杀。保留来源不表示该列表仍在更新。
 - sve1r 的 antiAD-V4 文件头注明来源为 anti-AD，但它与本集合直接引用的 anti-AD 原作者文件属于不同快照，不能当成内容完全相同的副本。来源未因这项说明自动删改；生成阶段只进行可确认的规则去重。

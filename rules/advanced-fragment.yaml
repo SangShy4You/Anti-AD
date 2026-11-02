@@ -326657,6 +326657,12 @@ rule-providers:
       - "DOMAIN,safebrowsing.urlsec.qq.com"
       - "DOMAIN,track.tenjin.com"
       - "DOMAIN,track.tenjin.io"
+      - "DOMAIN,fc-video.cdn.bcebos.com"
+      - "DOMAIN,api.htp.ad-scope.com.cn"
+      - "DOMAIN,sdk1xyajs.data.kuiniuca.com"
+      - "DOMAIN,stat.peopleapp.com"
+      - "DOMAIN-WILDCARD,*.kingsoft-office-service.com"
+      - "DOMAIN-WILDCARD,*.pglstatp-toutiao.com"
 rules:
   - "RULE-SET,personal_stage_01,REJECT"
   - "RULE-SET,personal_stage_02,全球加速"

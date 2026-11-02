@@ -45,6 +45,9 @@ jobs:
       - name: Download, compile and validate rules
         run: python scripts/update.py
 
+      - name: Build the ordered advanced routing alternative
+        run: python scripts/advanced.py
+
       - name: Install the pinned MRS compiler
         shell: bash
         run: |
@@ -61,6 +64,14 @@ jobs:
 
       - name: Compile and round-trip verify MRS alternatives
         run: python scripts/build_mrs.py --mihomo "$RUNNER_TEMP/mihomo"
+
+      - name: Exercise ordered PASS and reject routing with the official core
+        env:
+          MIHOMO_TEST_BINARY: ${{ runner.temp }}/mihomo
+        run: python -m unittest discover -s tests -p test_advanced.py
+
+      - name: Validate the advanced fragment with the official core
+        run: python scripts/validate_native.py --mihomo "$RUNNER_TEMP/mihomo" --home "$RUNNER_TEMP/native-validation" --download-asn
 
       - name: Publish changed rules and upstream state
         env:

@@ -1,7 +1,7 @@
 {
   "inputs": {
-    "catalog_sha256": "3162cd3bf762bdc5808dcf3aed94957cbcb6a73db41019c416d66e7cf2a855e8",
-    "generator_sha256": "3b3a21dcc031d842c1cc93179e74cffbfc705125c2bc3175e28a0bf3829069ec",
+    "catalog_sha256": "6e6f5cc9bd8211b1035844a38ffe771c66f9bc97bc9bdc2e0c14bb8d9df0ef00",
+    "generator_sha256": "a998174249257fce8cab9ab73a5f55de2dd87cdd6182362f737a683a68855b15",
     "personal_sha256": "a2d8bc3430ab2eb790e84d90931309eeea82d82399dbc5dc5578dc450551ac29",
     "sources": [
       {
@@ -93,14 +93,20 @@
         "id": "15_filter",
         "raw_sha256": "b27f44faaf04388f5cf6effb82c9d4cdcf931a153f1d33c056f84855d20678f2",
         "url": "https://raw.githubusercontent.com/ConnersHua/RuleGo/master/Surge/Ruleset/Extra/Reject/Tracking.list"
+      },
+      {
+        "bytes": 349915,
+        "id": "26_rewrite_domains",
+        "raw_sha256": "371ee2dee23f6aee74017f23e54d42a6d19a1b84f9fc7c63e2f70f59abbe4b9a",
+        "url": "https://raw.githubusercontent.com/fmz200/wool_scripts/main/QuantumultX/rewrite/rewrite.snippet"
       }
     ]
   },
   "outputs": {
-    "data/report.json": "67b208b1d32eac14e1cff7fbaf020f29c4b6fccdb77eb711b3b62224d693ad0b",
-    "rules/ads-domain.yaml": "7e7092070a9d5b07d7788a1023c2a8fffa31e7f56323d7d6bf9daf19cea68cb9",
+    "data/report.json": "cd9e7ede60d83f956515c4e8d67f39edf66884502fcf4a81c9b891247fba2ec2",
+    "rules/ads-domain.yaml": "b96329afa680a45f753f3b3dd73e63445389a8ca52f1fa17dbd3547b5d517cf0",
     "rules/ads-ip.yaml": "fc61e24a981e1bf384a622f6917a1a4f494243a2d476faf2bf6f3970718ca0a3",
-    "rules/advanced-fragment.yaml": "82edcbb8316191f2ca9e441309465ccc6c3a0724dcd36b8824d391a852d91715"
+    "rules/advanced-fragment.yaml": "9938f571cf0cfd6094cd4793eb5cb14e6f96729f913bca9cd08143e324cfa89a"
   },
   "schema_version": 1
 }

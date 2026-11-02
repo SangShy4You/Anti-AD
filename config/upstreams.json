@@ -6,7 +6,8 @@
     "role=block 的 11 项用于广告、隐私与反劫持拦截；role=allow 的 4 项作为优先广告豁免来源。allow 不等于强制 DIRECT，原 expected_policy 仍需按应用的策略设置处理。",
     "完整站点、地区、流媒体及应用代理路由不纳入本集合；excluded 仅保留原始来源元信息。",
     "本清单不包含节点、订阅凭据、重写脚本或源规则正文；开发时可显式指定 ../migration/sources 作为本地快照缓存。",
-    "根仓库许可证识别仅是可核实的来源记录，不能替代对聚合列表更上游内容归属的核对；不要把所有上游规则统一标为 MIT。"
+    "根仓库许可证识别仅是可核实的来源记录，不能替代对聚合列表更上游内容归属的核对；不要把所有上游规则统一标为 MIT。",
+    "新增的26_rewrite_domains是从用户原R03的原作者当前替代文件中，仅提取已审计且仍有完整证据的全主机plain reject；这不是QX URL/响应脚本的完整迁移，不执行JS。"
   ],
   "sources": [
     {
@@ -235,6 +236,22 @@
       "original_order": 15,
       "role": "block",
       "repository": "https://github.com/ConnersHua/RuleGo"
+    },
+    {
+      "id": "26_rewrite_domains",
+      "name": "fmz200重写中的已审计全域拦截",
+      "url": "https://raw.githubusercontent.com/fmz200/wool_scripts/main/QuantumultX/rewrite/rewrite.snippet",
+      "expected_policy": "reject",
+      "category": "advertising_from_audited_rewrite",
+      "source_format": "audited_qx_rewrite_domains",
+      "interval": 86400,
+      "enabled": true,
+      "original_order": 26,
+      "role": "block",
+      "repository": "https://github.com/fmz200/wool_scripts",
+      "derived_from_user_rewrite": "03_rewrite",
+      "limit": "Only explicitly reviewed whole-host plain reject patterns; never promote path-specific rules, scripts or response stubs to domain blocking.",
+      "license_url": "https://github.com/fmz200/wool_scripts/blob/main/LICENSE"
     }
   ],
   "excluded": [

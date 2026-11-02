@@ -110,7 +110,7 @@ def _path(root: Path, relative: str, *, output: bool = False) -> Path:
     if any(part in {"", ".", ".."} for part in parts):
         raise UpdateError(f"Unsafe repository path: {relative!r}")
     if output and not (len(parts) >= 2 and parts[0] == "rules"
-                       or relative in {"data/report.json", "data/upstream-state.json", "data/mrs-state.json"}):
+                       or relative in {"data/report.json", "data/upstream-state.json", "data/mrs-state.json", "data/advanced-state.json"}):
         raise UpdateError(f"Output path is outside the generated directories: {relative}")
     candidate = root.joinpath(*parts)
     try:
@@ -230,7 +230,7 @@ def _publish(root: Path, payloads: dict[str, bytes | None]) -> list[str]:
     if not changed:
         return []
     # The state marker is replaced only after every rule and report has succeeded.
-    changed.sort(key=lambda relative: (relative in {"data/upstream-state.json", "data/mrs-state.json"}, relative))
+    changed.sort(key=lambda relative: (relative in {"data/upstream-state.json", "data/mrs-state.json", "data/advanced-state.json"}, relative))
     with tempfile.TemporaryDirectory(prefix=".rule-update-", dir=root) as temp:
         stage = Path(temp)
         backups = {}

@@ -1,0 +1,906 @@
+{
+  "audit_scope": "All 25 original rewrite resource URLs/statuses were checked; recovered public history is not the user device cache. JavaScript was not executed.",
+  "capability_evidence": [
+    "https://apps.apple.com/us/app/apps-connect/id1643688878",
+    "https://push.skynetwork.homes/support/",
+    "https://github.com/MetaCubeX/mihomo/blob/v1.19.33/config/config.go#L404",
+    "https://github.com/MetaCubeX/mihomo/blob/v1.19.33/constant/metadata.go",
+    "https://wiki.metacubex.one/config/rule-providers/content/"
+  ],
+  "explicit_remaining_gaps": {
+    "https_paths_and_response_scripts": "Not implemented by a domain/IP rule provider or the native Mihomo full configuration. An Apps Connect HTTP rewrite/JS/MITM extension has not been verified.",
+    "pokehub": {
+      "conclusion": "No observed QX hit or app SDK identification. Absence of the app name does not prove generic SDK rules do not apply; no app-specific domain was invented.",
+      "literal_app_name_found": false
+    },
+    "shared_business_hosts_not_blanket_blocked": [
+      "api.m.jd.com",
+      "api.zhihu.com",
+      "appcloud2.zhihu.com",
+      "tiebac.baidu.com",
+      "youtubei.googleapis.com",
+      "googlevideo.com"
+    ],
+    "user_agent": "Four original filter rows cannot be represented by current provider/full Mihomo metadata."
+  },
+  "main_domain_supplement": {
+    "audited_patterns": 7,
+    "automatic_update_policy": "Require every audited expression to remain a plain whole-host reject. New or changed patterns require review; a failure preserves all published rules.",
+    "coverage_verification": {
+      "added_patterns": [
+        ".kingsoft-office-service.com",
+        "fc-video.cdn.bcebos.com",
+        "sdk1xyajs.data.kuiniuca.com",
+        "stat.peopleapp.com"
+      ],
+      "new_pattern_count": 195907,
+      "new_sha256": "b96329afa680a45f753f3b3dd73e63445389a8ca52f1fa17dbd3547b5d517cf0",
+      "old_pattern_count": 195913,
+      "old_patterns_compacted_under_new_children_only_parent": [
+        "+.abroad-ad.kingsoft-office-service.com",
+        "+.bannera.kingsoft-office-service.com",
+        "+.cloudservice13.kingsoft-office-service.com",
+        "+.cloudservice14.kingsoft-office-service.com",
+        "+.cloudservice24.kingsoft-office-service.com",
+        "+.cloudservice27.kingsoft-office-service.com",
+        "+.rating6.kingsoft-office-service.com",
+        "cloudservice12.kingsoft-office-service.com",
+        "cloudservice22.kingsoft-office-service.com",
+        "moupdate1.kingsoft-office-service.com"
+      ],
+      "old_patterns_without_equivalent_or_broader_rejection": 0,
+      "old_sha256": "7e7092070a9d5b07d7788a1023c2a8fffa31e7f56323d7d6bf9daf19cea68cb9"
+    },
+    "extractor": "scripts/rewrite_domains.py",
+    "new_patterns_before_supplement": [
+      "fc-video.cdn.bcebos.com",
+      "sdk1xyajs.data.kuiniuca.com",
+      "stat.peopleapp.com",
+      ".kingsoft-office-service.com"
+    ],
+    "source_url": "https://raw.githubusercontent.com/fmz200/wool_scripts/main/QuantumultX/rewrite/rewrite.snippet"
+  },
+  "native_advanced_route_candidate": {
+    "limitation": "Requires full route configuration; cannot go in a domain-only provider. Check REJECT-NO-DROP policy differences before enabling. This forces transport fallback, and alone is not a complete YouTube ad remover.",
+    "line": 5,
+    "mihomo_route_expression": "AND,((NETWORK,udp),(DST-PORT,443),(DOMAIN-SUFFIX,googlevideo.com)),REJECT",
+    "original": "AND,((PROTOCOL,UDP),(DEST-PORT,443),(DOMAIN-SUFFIX,googlevideo.com)),REJECT-NO-DROP",
+    "source_id": "22_rewrite"
+  },
+  "original_resources": {
+    "disabled": 4,
+    "enabled": 21,
+    "total": 25
+  },
+  "resources": [
+    {
+      "action_summary": {
+        "actions": {
+          "script-request-body": 1,
+          "script-response-body": 2
+        },
+        "url_rows": 3
+      },
+      "coverage": {
+        "audit_file": "remaining-audit.json",
+        "audited_snapshot_status": "fetched",
+        "enabled": true,
+        "has_confirmed_ad_configuration": false,
+        "id": "01_rewrite",
+        "original_fetch_status": "fetched",
+        "original_http_status": 200
+      },
+      "enabled": true,
+      "evidence": {
+        "bytes": 558,
+        "final_url": "https://raw.githubusercontent.com/DoracisMu/quanX_rewirte/master/JdTb.conf",
+        "http_status": 200,
+        "sha256": "8fc670b6dbbe0c71f478ddc1da27857ca20bd44f161ed465a1d9e1ffd89a5c0e",
+        "status": "fetched"
+      },
+      "id": "01_rewrite",
+      "interpretation": "Read JD/Taobao price-comparison request/response hooks. No plain whole-host reject in this configuration; dependencies were not executed.",
+      "migration": "Feature/dependency resource or unavailable original; not represented as an ad-domain provider.",
+      "name": "购物比价",
+      "url": "https://raw.githubusercontent.com/DoracisMu/quanX_rewirte/master/JdTb.conf"
+    },
+    {
+      "action_summary": {
+        "actions": {
+          "reject": 2,
+          "reject-200": 3,
+          "script-request-header": 6,
+          "script-response-body": 187
+        },
+        "url_rows": 198
+      },
+      "coverage": {
+        "audit_file": "remaining-audit.json",
+        "audited_snapshot_status": "fetched",
+        "enabled": true,
+        "has_confirmed_ad_configuration": true,
+        "id": "02_rewrite",
+        "original_fetch_status": "fetched",
+        "original_http_status": 200
+      },
+      "enabled": true,
+      "evidence": {
+        "bytes": 48076,
+        "final_url": "https://raw.githubusercontent.com/chxm1023/Script_X/main/Collections.conf",
+        "http_status": 200,
+        "sha256": "e44e392d97acdc2e0ff868c91f53b5a9d649396ba726e9fff69ba815908d74b6",
+        "status": "fetched"
+      },
+      "id": "02_rewrite",
+      "interpretation": "Mixed collection. Actual configuration contains advertising cleanup alongside unrelated entitlement/purchase modifications. Only ad-specific evidence is retained for migration review; no unlock script was added or executed.",
+      "migration": "Contains ad cleanup mixed with other features; only ad scope reviewed, no entitlement script imported.",
+      "name": "app解锁合集@chxm1023",
+      "url": "https://raw.githubusercontent.com/chxm1023/Script_X/main/Collections.conf"
+    },
+    {
+      "action_summary": {
+        "actions": {
+          "302": 4,
+          "echo-response": 1,
+          "reject": 493,
+          "reject-200": 239,
+          "reject-dict": 434,
+          "reject-img": 108,
+          "request-body": 1,
+          "response-body": 28,
+          "script-analyze-echo-response": 1,
+          "script-request-body": 2,
+          "script-response-body": 197,
+          "script-response-header": 2
+        },
+        "active_url_and_script_rows": 1510,
+        "mitm_host_entries": 872,
+        "route_rule_rows": [],
+        "script_hook_rows": 202,
+        "url_reject_rows_including_response_stubs": 1274
+      },
+      "author_deletion_history": {
+        "deletion_commit": "538c5d99b8c358edd73dc42c8f5223b79e33781e",
+        "last_public_ref": "4c1187b90ef8d27a58c5ed75cba2fd92598cc44d",
+        "url": "https://github.com/fmz200/wool_scripts/commit/538c5d99b8c358edd73dc42c8f5223b79e33781e"
+      },
+      "coverage": {
+        "audit_file": "audit.json",
+        "audited_snapshot_status": "fetched",
+        "enabled": true,
+        "has_confirmed_ad_configuration": true,
+        "id": "03_rewrite",
+        "original_fetch_status": "http_error",
+        "original_http_status": 404
+      },
+      "enabled": true,
+      "evidence": {
+        "bytes": 227132,
+        "http_status": 200,
+        "sha256": "b70f88cdfe1c9adf964ef6b12127214cf0194a0f4f70eec12aab1b3ef2aa27a9",
+        "url": "https://raw.githubusercontent.com/fmz200/wool_scripts/4c1187b90ef8d27a58c5ed75cba2fd92598cc44d/QuantumultX/rewrite/chongxie.txt",
+        "variant": "last-public-before-author-deletion-not-user-cache"
+      },
+      "id": "03_rewrite",
+      "migration": "Audited whole-host subset only; path-specific rejection, response changes and script hooks require an HTTP rewrite runtime.",
+      "name": "去广告合集@chxm1023",
+      "original_http_status": 404,
+      "url": "https://raw.githubusercontent.com/fmz200/wool_scripts/main/QuantumultX/rewrite/chongxie.txt"
+    },
+    {
+      "action_summary": {
+        "actions": {
+          "reject": 8,
+          "reject-200": 2,
+          "reject-dict": 91,
+          "script-response-body": 50
+        },
+        "active_url_and_script_rows": 151,
+        "mitm_host_entries": 114,
+        "route_rule_rows": [],
+        "script_hook_rows": 50,
+        "url_reject_rows_including_response_stubs": 101
+      },
+      "coverage": {
+        "audit_file": "audit.json",
+        "audited_snapshot_status": "fetched",
+        "enabled": true,
+        "has_confirmed_ad_configuration": true,
+        "id": "04_rewrite",
+        "original_fetch_status": "fetched",
+        "original_http_status": 200
+      },
+      "enabled": true,
+      "evidence": {
+        "bytes": 26252,
+        "http_status": 200,
+        "sha256": "421fc9a1aa15035d54825011a4333c626ac2165d0469bed86bfcb154a223b17e",
+        "url": "https://raw.githubusercontent.com/fmz200/wool_scripts/main/QuantumultX/rewrite/cleanup.snippet",
+        "variant": "original"
+      },
+      "id": "04_rewrite",
+      "migration": "Audited whole-host subset only; path-specific rejection, response changes and script hooks require an HTTP rewrite runtime.",
+      "name": "App&小程序净化合集@fmz200",
+      "original_http_status": 200,
+      "url": "https://raw.githubusercontent.com/fmz200/wool_scripts/main/QuantumultX/rewrite/cleanup.snippet"
+    },
+    {
+      "action_summary": {
+        "actions": null,
+        "url_rows": null
+      },
+      "coverage": {
+        "audit_file": "remaining-audit.json",
+        "audited_snapshot_status": "http_error",
+        "enabled": false,
+        "has_confirmed_ad_configuration": null,
+        "id": "05_rewrite",
+        "original_fetch_status": "http_error",
+        "original_http_status": 404
+      },
+      "enabled": false,
+      "evidence": {
+        "bytes": null,
+        "final_url": null,
+        "http_status": 404,
+        "sha256": null,
+        "status": "http_error"
+      },
+      "id": "05_rewrite",
+      "interpretation": "Originally disabled and current URL is unavailable. Excluded; contents were not read.",
+      "migration": "Originally disabled; not activated.",
+      "name": "百度地图净化[卸载重装]@RuCu6",
+      "url": "https://raw.githubusercontent.com/RuCu6/QuanX/main/Rewrites/Cube/bdmap.snippet"
+    },
+    {
+      "action_summary": {
+        "actions": {
+          "reject-dict": 1,
+          "script-response-body": 17
+        },
+        "active_url_and_script_rows": 18,
+        "mitm_host_entries": 17,
+        "route_rule_rows": [],
+        "script_hook_rows": 17,
+        "url_reject_rows_including_response_stubs": 1
+      },
+      "author_deletion_history": {
+        "deletion_commit": "6edf7f54684000917c1ff1ad12ad9a77ca6d4627",
+        "last_public_ref": "c8e40ff852028c51f361e439a6e7f97b79d82b9a",
+        "url": "https://github.com/ddgksf2013/Rewrite/commit/6edf7f54684000917c1ff1ad12ad9a77ca6d4627"
+      },
+      "coverage": {
+        "audit_file": "audit.json",
+        "audited_snapshot_status": "fetched",
+        "enabled": true,
+        "has_confirmed_ad_configuration": true,
+        "id": "06_rewrite",
+        "original_fetch_status": "http_error",
+        "original_http_status": 404
+      },
+      "enabled": true,
+      "evidence": {
+        "bytes": 5154,
+        "http_status": 200,
+        "sha256": "c3c934dbbeb3e12c0257d191b8069e5f790a5a162226c1e0338a94894fce9adc",
+        "url": "https://raw.githubusercontent.com/ddgksf2013/Rewrite/c8e40ff852028c51f361e439a6e7f97b79d82b9a/Html/WebAdBlock.conf",
+        "variant": "last-public-before-author-deletion-not-user-cache"
+      },
+      "id": "06_rewrite",
+      "migration": "Audited whole-host subset only; path-specific rejection, response changes and script hooks require an HTTP rewrite runtime.",
+      "name": "影视网站去广告@ddgksf2013",
+      "original_http_status": 404,
+      "url": "https://raw.githubusercontent.com/ddgksf2013/Rewrite/master/Html/WebAdBlock.conf"
+    },
+    {
+      "action_summary": {
+        "actions": null,
+        "url_rows": null
+      },
+      "coverage": {
+        "audit_file": "remaining-audit.json",
+        "audited_snapshot_status": "http_error",
+        "enabled": false,
+        "has_confirmed_ad_configuration": null,
+        "id": "07_rewrite",
+        "original_fetch_status": "http_error",
+        "original_http_status": 404
+      },
+      "enabled": false,
+      "evidence": {
+        "bytes": null,
+        "final_url": null,
+        "http_status": 404,
+        "sha256": null,
+        "status": "http_error"
+      },
+      "id": "07_rewrite",
+      "interpretation": "Originally disabled and current URL is unavailable. Excluded; contents were not read.",
+      "migration": "Originally disabled; not activated.",
+      "name": "神机重定向@DivineEngine",
+      "url": "https://raw.githubusercontent.com/DivineEngine/Profiles/master/Quantumult/Rewrite/General.conf"
+    },
+    {
+      "action_summary": {
+        "actions": {
+          "302": 83
+        },
+        "url_rows": 83
+      },
+      "coverage": {
+        "audit_file": "remaining-audit.json",
+        "audited_snapshot_status": "fetched",
+        "enabled": true,
+        "has_confirmed_ad_configuration": false,
+        "id": "08_rewrite",
+        "original_fetch_status": "fetched",
+        "original_http_status": 200
+      },
+      "enabled": true,
+      "evidence": {
+        "bytes": 11074,
+        "final_url": "https://raw.githubusercontent.com/ddgksf2013/Rewrite/master/Html/Q-Search.conf",
+        "http_status": 200,
+        "sha256": "a714d37e2b367971dc5bffa54edf47ad72d9e975e0e27d4cc182abdc2391d6af",
+        "status": "fetched"
+      },
+      "id": "08_rewrite",
+      "interpretation": "Read search shortcut redirects (HTTP 302). No whole-host plain reject or explicit ad cleanup in the configuration.",
+      "migration": "Feature/dependency resource or unavailable original; not represented as an ad-domain provider.",
+      "name": "Safari超级搜索@ddgksf2013",
+      "url": "https://raw.githubusercontent.com/ddgksf2013/Rewrite/master/Html/Q-Search.conf"
+    },
+    {
+      "action_summary": {
+        "actions": {
+          "script-response-body": 1
+        },
+        "url_rows": 1
+      },
+      "coverage": {
+        "audit_file": "remaining-audit.json",
+        "audited_snapshot_status": "fetched",
+        "enabled": true,
+        "has_confirmed_ad_configuration": false,
+        "id": "09_rewrite",
+        "original_fetch_status": "fetched",
+        "original_http_status": 200
+      },
+      "enabled": true,
+      "evidence": {
+        "bytes": 537,
+        "final_url": "https://raw.githubusercontent.com/ddgksf2013/Rewrite/master/Html/EndlessGoogle.conf",
+        "http_status": 200,
+        "sha256": "465e5fcb1bbee4cc88cf70218f9e85c7fedc51bf1fa9ad2f1f4af4994ff6bf5d",
+        "status": "fetched"
+      },
+      "id": "09_rewrite",
+      "interpretation": "Read Google search response hook for endless pagination. No ad-specific configuration evidence or whole-host plain reject; referenced script was not executed.",
+      "migration": "Feature/dependency resource or unavailable original; not represented as an ad-domain provider.",
+      "name": "Google自动翻页@ddgksf2013",
+      "url": "https://raw.githubusercontent.com/ddgksf2013/Rewrite/master/Html/EndlessGoogle.conf"
+    },
+    {
+      "action_summary": {
+        "actions": {
+          "request-header": 2
+        },
+        "url_rows": 2
+      },
+      "coverage": {
+        "audit_file": "remaining-audit.json",
+        "audited_snapshot_status": "fetched",
+        "enabled": true,
+        "has_confirmed_ad_configuration": false,
+        "id": "10_rewrite",
+        "original_fetch_status": "fetched",
+        "original_http_status": 200
+      },
+      "enabled": true,
+      "evidence": {
+        "bytes": 743,
+        "final_url": "https://raw.githubusercontent.com/id77/QuantumultX/master/rewrite/Youtube_CC.conf#out=Hant",
+        "http_status": 200,
+        "sha256": "039c9c94705dee2e1dd0256bd30c1b34d40ada11a73b5220d676f7c9783f6e8c",
+        "status": "fetched"
+      },
+      "id": "10_rewrite",
+      "interpretation": "Read subtitle language request-header rewrites. No whole-host plain reject.",
+      "migration": "Feature/dependency resource or unavailable original; not represented as an ad-domain provider.",
+      "name": "油管字幕翻译@id77",
+      "url": "https://raw.githubusercontent.com/id77/QuantumultX/master/rewrite/Youtube_CC.conf#out=Hant"
+    },
+    {
+      "action_summary": {
+        "actions": {
+          "script-request-header": 1,
+          "script-response-body": 1
+        },
+        "url_rows": 2
+      },
+      "coverage": {
+        "audit_file": "remaining-audit.json",
+        "audited_snapshot_status": "fetched",
+        "enabled": true,
+        "has_confirmed_ad_configuration": false,
+        "id": "11_rewrite",
+        "original_fetch_status": "fetched",
+        "original_http_status": 200
+      },
+      "enabled": true,
+      "evidence": {
+        "bytes": 525,
+        "final_url": "https://raw.githubusercontent.com/Orz-3/QuantumultX/master/Netflix_ratings.conf",
+        "http_status": 200,
+        "sha256": "e0b44fbc59390f0a30e4c0b064b0b584312372b4aaa188e3fd2960bd01c3faee",
+        "status": "fetched"
+      },
+      "id": "11_rewrite",
+      "interpretation": "Read Netflix rating request/response hooks. No whole-host plain reject; referenced script was not executed.",
+      "migration": "Feature/dependency resource or unavailable original; not represented as an ad-domain provider.",
+      "name": "Netflix评分@Orz-3",
+      "url": "https://raw.githubusercontent.com/Orz-3/QuantumultX/master/Netflix_ratings.conf"
+    },
+    {
+      "action_summary": {
+        "actions": {
+          "script-request-body": 1,
+          "script-response-body": 2
+        },
+        "url_rows": 3
+      },
+      "coverage": {
+        "audit_file": "remaining-audit.json",
+        "audited_snapshot_status": "fetched",
+        "enabled": false,
+        "has_confirmed_ad_configuration": false,
+        "id": "12_rewrite",
+        "original_fetch_status": "fetched",
+        "original_http_status": 200
+      },
+      "enabled": false,
+      "evidence": {
+        "bytes": 560,
+        "final_url": "https://raw.githubusercontent.com/Orz-3/QuantumultX/master/JD_TB_price.conf",
+        "http_status": 200,
+        "sha256": "777bcc9d0525e47012b17438236a8d73e84a7c39a472d0bb6e582b08522fe5c5",
+        "status": "fetched"
+      },
+      "id": "12_rewrite",
+      "interpretation": "Originally disabled. Read price-comparison hooks; excluded from effective QX adblocking migration.",
+      "migration": "Originally disabled; not activated.",
+      "name": "比价脚本@Orz-3",
+      "url": "https://raw.githubusercontent.com/Orz-3/QuantumultX/master/JD_TB_price.conf"
+    },
+    {
+      "action_summary": {
+        "actions": {
+          "script-analyze-echo-response": 1
+        },
+        "url_rows": 1
+      },
+      "coverage": {
+        "audit_file": "remaining-audit.json",
+        "audited_snapshot_status": "fetched",
+        "enabled": true,
+        "has_confirmed_ad_configuration": false,
+        "id": "13_rewrite",
+        "original_fetch_status": "fetched",
+        "original_http_status": 200
+      },
+      "enabled": true,
+      "evidence": {
+        "bytes": 19268,
+        "final_url": "https://raw.githubusercontent.com/NobyDa/Script/master/TestFlight/TestFlightAccount.js",
+        "http_status": 200,
+        "sha256": "30fbd3001671beb349190fe0214b1a23f4628fec922ece2227247b2f31170d09",
+        "status": "fetched"
+      },
+      "id": "13_rewrite",
+      "interpretation": "Read JavaScript resource as text. It concerns TestFlight account/session handling and embedded setup. No ad-cleanup terms or whole-host plain reject found; it was not executed.",
+      "migration": "Feature/dependency resource or unavailable original; not represented as an ad-domain provider.",
+      "name": "Testflight解锁限制@NobyDa",
+      "url": "https://raw.githubusercontent.com/NobyDa/Script/master/TestFlight/TestFlightAccount.js"
+    },
+    {
+      "action_summary": {
+        "actions": {
+          "script-response-body": 1
+        },
+        "url_rows": 1
+      },
+      "coverage": {
+        "audit_file": "remaining-audit.json",
+        "audited_snapshot_status": "fetched",
+        "enabled": true,
+        "has_confirmed_ad_configuration": false,
+        "id": "14_rewrite",
+        "original_fetch_status": "fetched",
+        "original_http_status": 200
+      },
+      "enabled": true,
+      "evidence": {
+        "bytes": 550,
+        "final_url": "https://raw.githubusercontent.com/zZPiglet/Task/master/UnblockURLinWeChat.conf",
+        "http_status": 200,
+        "sha256": "722f3c349f03020175f718730d22a1f503b9770d8af5b162017b0eab29a797f3",
+        "status": "fetched"
+      },
+      "id": "14_rewrite",
+      "interpretation": "Read WeChat link confirmation response hook. No whole-host plain reject; referenced script was not executed.",
+      "migration": "Feature/dependency resource or unavailable original; not represented as an ad-domain provider.",
+      "name": "解除微信链接屏蔽@zZPiglet",
+      "url": "https://raw.githubusercontent.com/zZPiglet/Task/master/UnblockURLinWeChat.conf"
+    },
+    {
+      "action_summary": {
+        "actions": null,
+        "url_rows": null
+      },
+      "coverage": {
+        "audit_file": "remaining-audit.json",
+        "audited_snapshot_status": "http_error",
+        "enabled": true,
+        "has_confirmed_ad_configuration": null,
+        "id": "15_rewrite",
+        "original_fetch_status": "http_error",
+        "original_http_status": 404
+      },
+      "enabled": true,
+      "evidence": {
+        "bytes": null,
+        "final_url": null,
+        "http_status": 404,
+        "sha256": null,
+        "status": "http_error"
+      },
+      "id": "15_rewrite",
+      "interpretation": "Enabled but current URL returned 404. Contents unavailable; cannot infer all functionality from its label.",
+      "migration": "Feature/dependency resource or unavailable original; not represented as an ad-domain provider.",
+      "name": "百度网盘倍速@ddgksf2013",
+      "url": "https://raw.githubusercontent.com/ddgksf2013/Rewrite/master/Function/BaiduCloud.conf"
+    },
+    {
+      "action_summary": {
+        "actions": null,
+        "url_rows": null
+      },
+      "coverage": {
+        "audit_file": "remaining-audit.json",
+        "audited_snapshot_status": "http_error",
+        "enabled": false,
+        "has_confirmed_ad_configuration": null,
+        "id": "16_rewrite",
+        "original_fetch_status": "http_error",
+        "original_http_status": 404
+      },
+      "enabled": false,
+      "evidence": {
+        "bytes": null,
+        "final_url": null,
+        "http_status": 404,
+        "sha256": null,
+        "status": "http_error"
+      },
+      "id": "16_rewrite",
+      "interpretation": "Originally disabled and current URL is unavailable. Excluded; contents were not read.",
+      "migration": "Originally disabled; not activated.",
+      "name": "B站换区脚本[不会配置boxjs请勿勾选]@ddgksf2013",
+      "url": "https://raw.githubusercontent.com/ddgksf2013/Rewrite/master/Function/BilibiliAutoRegion.conf"
+    },
+    {
+      "action_summary": {
+        "actions": {
+          "script-response-body": 1
+        },
+        "url_rows": 1
+      },
+      "coverage": {
+        "audit_file": "remaining-audit.json",
+        "audited_snapshot_status": "fetched",
+        "enabled": true,
+        "has_confirmed_ad_configuration": true,
+        "id": "17_rewrite",
+        "original_fetch_status": "fetched",
+        "original_http_status": 200
+      },
+      "enabled": true,
+      "evidence": {
+        "bytes": 957,
+        "final_url": "https://raw.githubusercontent.com/ddgksf2013/Rewrite/master/Html/Douban.conf",
+        "http_status": 200,
+        "sha256": "ee9f285059e0e0e478a2585c91e53188135775a68a9795b1dd39df979abbc757",
+        "status": "fetched"
+      },
+      "id": "17_rewrite",
+      "interpretation": "Actual metadata explicitly describes Douban mobile webpage popup-ad cleanup plus viewing shortcuts. The active operation is a response-body script on shared m.douban.com paths, not a domain reject.",
+      "migration": "Contains ad cleanup mixed with other features; only ad scope reviewed, no entitlement script imported.",
+      "name": "豆瓣电影网页快捷跳转@ddgksf2013",
+      "url": "https://raw.githubusercontent.com/ddgksf2013/Rewrite/master/Html/Douban.conf"
+    },
+    {
+      "action_summary": {
+        "actions": {
+          "script-analyze-echo-response": 1
+        },
+        "url_rows": 1
+      },
+      "coverage": {
+        "audit_file": "remaining-audit.json",
+        "audited_snapshot_status": "fetched",
+        "enabled": true,
+        "has_confirmed_ad_configuration": false,
+        "id": "18_rewrite",
+        "original_fetch_status": "fetched",
+        "original_http_status": 200
+      },
+      "enabled": true,
+      "evidence": {
+        "bytes": 207,
+        "final_url": "https://raw.githubusercontent.com/chavyleung/scripts/master/box/rewrite/boxjs.rewrite.quanx.conf",
+        "http_status": 200,
+        "sha256": "39bbc01168931bc67f333468c743b8022d770e240d41b36847bc96a2aa5510f5",
+        "status": "fetched"
+      },
+      "id": "18_rewrite",
+      "interpretation": "Read BoxJS local settings/UI script endpoint. It can configure other scripts but is not itself a whole-host ad reject.",
+      "migration": "Feature/dependency resource or unavailable original; not represented as an ad-domain provider.",
+      "name": "boxjs@chavyleung",
+      "url": "https://raw.githubusercontent.com/chavyleung/scripts/master/box/rewrite/boxjs.rewrite.quanx.conf"
+    },
+    {
+      "action_summary": {
+        "actions": {
+          "script-analyze-echo-response": 2
+        },
+        "url_rows": 2
+      },
+      "coverage": {
+        "audit_file": "remaining-audit.json",
+        "audited_snapshot_status": "fetched",
+        "enabled": true,
+        "has_confirmed_ad_configuration": false,
+        "id": "19_rewrite",
+        "original_fetch_status": "fetched",
+        "original_http_status": 200
+      },
+      "enabled": true,
+      "evidence": {
+        "bytes": 358,
+        "final_url": "https://raw.githubusercontent.com/Peng-YM/Sub-Store/master/config/QX.snippet",
+        "http_status": 200,
+        "sha256": "8dfced1a4709e5897be2733aab3749600b0119201d4a62cdcf930f5b1d8f753f",
+        "status": "fetched"
+      },
+      "id": "19_rewrite",
+      "interpretation": "Read Sub-Store management script endpoints. No whole-host plain reject.",
+      "migration": "Feature/dependency resource or unavailable original; not represented as an ad-domain provider.",
+      "name": "Sub-Store@Peng-YM",
+      "url": "https://raw.githubusercontent.com/Peng-YM/Sub-Store/master/config/QX.snippet"
+    },
+    {
+      "action_summary": {
+        "actions": {
+          "307": 3,
+          "reject": 47,
+          "script-response-body": 76
+        },
+        "active_url_and_script_rows": 126,
+        "mitm_host_entries": 461,
+        "route_rule_rows": [],
+        "script_hook_rows": 76,
+        "url_reject_rows_including_response_stubs": 47
+      },
+      "coverage": {
+        "audit_file": "audit.json",
+        "audited_snapshot_status": "fetched",
+        "enabled": true,
+        "has_confirmed_ad_configuration": true,
+        "id": "20_rewrite",
+        "original_fetch_status": "http_error",
+        "original_http_status": 403
+      },
+      "enabled": true,
+      "evidence": {
+        "bytes": 39543,
+        "http_status": 200,
+        "sha256": "24076b14294924636b7db4b9f7c4c207387ae29ecef1199f126f1ea869f510c1",
+        "url": "https://raw.githubusercontent.com/limbopro/Adblock4limbo/main/Adblock4limbo.conf",
+        "variant": "author-repository-version"
+      },
+      "id": "20_rewrite",
+      "migration": "Audited whole-host subset only; path-specific rejection, response changes and script hooks require an HTTP rewrite runtime.",
+      "name": "毒奶重写",
+      "original_http_status": 403,
+      "url": "https://limbopro.com/Adblock4limbo.conf"
+    },
+    {
+      "action_summary": {
+        "actions": {
+          "script-request-body": 1
+        },
+        "url_rows": 1
+      },
+      "coverage": {
+        "audit_file": "remaining-audit.json",
+        "audited_snapshot_status": "fetched",
+        "enabled": true,
+        "has_confirmed_ad_configuration": false,
+        "id": "21_rewrite",
+        "original_fetch_status": "fetched",
+        "original_http_status": 200
+      },
+      "enabled": true,
+      "evidence": {
+        "bytes": 331,
+        "final_url": "https://raw.githubusercontent.com/NobyDa/Script/master/QuantumultX/TestFlightDownload.conf",
+        "http_status": 200,
+        "sha256": "4561f0b240b770b141d0bf19ce9d7f7946d3546c738d1749cc022a0074a6024b",
+        "status": "fetched"
+      },
+      "id": "21_rewrite",
+      "interpretation": "Read TestFlight install request-body hook. No whole-host plain reject.",
+      "migration": "Feature/dependency resource or unavailable original; not represented as an ad-domain provider.",
+      "name": "TestFlight区域限制解除",
+      "url": "https://raw.githubusercontent.com/NobyDa/Script/master/QuantumultX/TestFlightDownload.conf"
+    },
+    {
+      "action_summary": {
+        "actions": {
+          "header": 1,
+          "http-response": 1,
+          "reject": 5
+        },
+        "active_url_and_script_rows": 7,
+        "mitm_host_entries": 5,
+        "route_rule_rows": [
+          {
+            "line": 5,
+            "text": "AND,((PROTOCOL,UDP),(DEST-PORT,443),(DOMAIN-SUFFIX,googlevideo.com)),REJECT-NO-DROP"
+          }
+        ],
+        "script_hook_rows": 1,
+        "url_reject_rows_including_response_stubs": 5
+      },
+      "coverage": {
+        "audit_file": "audit.json",
+        "audited_snapshot_status": "fetched",
+        "enabled": true,
+        "has_confirmed_ad_configuration": true,
+        "id": "22_rewrite",
+        "original_fetch_status": "fetched",
+        "original_http_status": 200
+      },
+      "enabled": true,
+      "evidence": {
+        "bytes": 1020,
+        "http_status": 200,
+        "sha256": "074a95980dcfc01844bbc9ec02421ac35c06851ec7b6ac28f26f2d24487a9808",
+        "url": "https://raw.githubusercontent.com/ConnersHua/RuleGo/master/Surge/Module/Block/YouTubeAds.sgmodule",
+        "variant": "original"
+      },
+      "id": "22_rewrite",
+      "migration": "Audited whole-host subset only; path-specific rejection, response changes and script hooks require an HTTP rewrite runtime.",
+      "name": "YouTube去广告",
+      "original_http_status": 200,
+      "url": "https://raw.githubusercontent.com/ConnersHua/RuleGo/master/Surge/Module/Block/YouTubeAds.sgmodule"
+    },
+    {
+      "action_summary": {
+        "actions": {
+          "echo-response": 1,
+          "reject": 2,
+          "reject-200": 407,
+          "reject-dict": 4,
+          "reject-img": 7,
+          "request-body": 1,
+          "response-body": 12,
+          "script-analyze-echo-response": 1,
+          "script-response-body": 25,
+          "script-response-header": 3
+        },
+        "active_url_and_script_rows": 463,
+        "mitm_host_entries": 398,
+        "route_rule_rows": [],
+        "script_hook_rows": 29,
+        "url_reject_rows_including_response_stubs": 420
+      },
+      "author_deletion_history": {
+        "deletion_commit": "bbcd2bb37278894224220d95ba540146cbbb21be",
+        "last_public_ref": "086996af225df055cfdc95080bc4fbffad46f671",
+        "url": "https://github.com/ddgksf2013/Rewrite/commit/bbcd2bb37278894224220d95ba540146cbbb21be"
+      },
+      "coverage": {
+        "audit_file": "audit.json",
+        "audited_snapshot_status": "fetched",
+        "enabled": true,
+        "has_confirmed_ad_configuration": true,
+        "id": "23_rewrite",
+        "original_fetch_status": "http_error",
+        "original_http_status": 404
+      },
+      "enabled": true,
+      "evidence": {
+        "bytes": 57833,
+        "http_status": 200,
+        "sha256": "b33fab1a665c037336b149dfe1b7bd266eaec45dd07074205c28015e7267076e",
+        "url": "https://raw.githubusercontent.com/ddgksf2013/Rewrite/086996af225df055cfdc95080bc4fbffad46f671/AdBlock/StartUp.conf",
+        "variant": "last-public-before-author-deletion-not-user-cache"
+      },
+      "id": "23_rewrite",
+      "migration": "Audited whole-host subset only; path-specific rejection, response changes and script hooks require an HTTP rewrite runtime.",
+      "name": "墨鱼去开屏",
+      "original_http_status": 404,
+      "url": "https://raw.githubusercontent.com/ddgksf2013/Rewrite/master/AdBlock/StartUp.conf"
+    },
+    {
+      "action_summary": {
+        "actions": {
+          "script-response-body": 2
+        },
+        "active_url_and_script_rows": 2,
+        "mitm_host_entries": 1,
+        "route_rule_rows": [],
+        "script_hook_rows": 2,
+        "url_reject_rows_including_response_stubs": 0
+      },
+      "coverage": {
+        "audit_file": "audit.json",
+        "audited_snapshot_status": "fetched",
+        "enabled": true,
+        "has_confirmed_ad_configuration": true,
+        "id": "24_rewrite",
+        "original_fetch_status": "fetched",
+        "original_http_status": 200
+      },
+      "enabled": true,
+      "evidence": {
+        "bytes": 967,
+        "http_status": 200,
+        "sha256": "4b8070ddc17a013d7cd38ac92550b3d9eade6660129fc27f01f06e3f260fb6f1",
+        "url": "https://raw.githubusercontent.com/app2smile/rules/master/module/tieba-qx.conf",
+        "variant": "original"
+      },
+      "id": "24_rewrite",
+      "migration": "Audited whole-host subset only; path-specific rejection, response changes and script hooks require an HTTP rewrite runtime.",
+      "name": "贴吧去广告",
+      "original_http_status": 200,
+      "url": "https://raw.githubusercontent.com/app2smile/rules/master/module/tieba-qx.conf"
+    },
+    {
+      "action_summary": {
+        "actions": {
+          "reject": 113
+        },
+        "active_url_and_script_rows": 113,
+        "mitm_host_entries": 111,
+        "route_rule_rows": [],
+        "script_hook_rows": 0,
+        "url_reject_rows_including_response_stubs": 113
+      },
+      "coverage": {
+        "audit_file": "audit.json",
+        "audited_snapshot_status": "fetched",
+        "enabled": true,
+        "has_confirmed_ad_configuration": true,
+        "id": "25_rewrite",
+        "original_fetch_status": "fetched",
+        "original_http_status": 200
+      },
+      "enabled": true,
+      "evidence": {
+        "bytes": 13994,
+        "http_status": 200,
+        "sha256": "8a7f32cc052a16e147001c04d3c63a95585108d4823ada0eecb6505da52dd025",
+        "url": "https://raw.githubusercontent.com/ConnersHua/RuleGo/master/Surge/Module/Block/Advertising.sgmodule",
+        "variant": "original"
+      },
+      "id": "25_rewrite",
+      "migration": "Audited whole-host subset only; path-specific rejection, response changes and script hooks require an HTTP rewrite runtime.",
+      "name": "神机去广告",
+      "original_http_status": 200,
+      "url": "https://raw.githubusercontent.com/ConnersHua/RuleGo/master/Surge/Module/Block/Advertising.sgmodule"
+    }
+  ],
+  "schema_version": 1
+}

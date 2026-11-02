@@ -1,0 +1,174 @@
+{
+  "counts": {
+    "extra_rows": 139,
+    "mrs_sources": 10,
+    "stages": 6
+  },
+  "generator_sha256": "440f3442775654f671c780e51d2599459c08f64cedaed3eb12a040a102a8e453",
+  "inputs": {
+    "rules/advanced-fragment.yaml": "9938f571cf0cfd6094cd4793eb5cb14e6f96729f913bca9cd08143e324cfa89a"
+  },
+  "limitations": [
+    "Allow matches return to airport main routing; original QX forced global-acceleration/DIRECT exits are intentionally not reproduced.",
+    "Within-stage type grouping preserves the matched action but can change when DNS lookup occurs; IP no-resolve options remain explicit.",
+    "This optional fragment requires full config merging and cannot be imported via the domain/ipcidr rule-set dialog.",
+    "Disable the aggregate domain/IP UI ad rules when activating this ordered guard so they cannot defeat stage-specific allows.",
+    "No QX USER-AGENT, URL rewrite, MITM or JavaScript behavior is implemented.",
+    "ASN/GeoIP extras require compatible lookup data; native Mihomo validation does not certify AppsConnect support or iOS memory use."
+  ],
+  "main_rule": "SUB-RULE,(OR,((NETWORK,tcp),(NETWORK,udp))),personal_ads",
+  "mode": "allow-pass-preserve-airport-routing",
+  "mrs_sources": [
+    {
+      "behavior": "domain",
+      "mrs_path": "rules/advanced/stage-01-domain.mrs",
+      "rule_count": 168607,
+      "yaml_path": "rules/advanced/stage-01-domain.yaml"
+    },
+    {
+      "behavior": "ipcidr",
+      "mrs_path": "rules/advanced/stage-01-ip.mrs",
+      "rule_count": 206,
+      "yaml_path": "rules/advanced/stage-01-ip.yaml"
+    },
+    {
+      "behavior": "domain",
+      "mrs_path": "rules/advanced/stage-02-domain.mrs",
+      "rule_count": 195,
+      "yaml_path": "rules/advanced/stage-02-domain.yaml"
+    },
+    {
+      "behavior": "domain",
+      "mrs_path": "rules/advanced/stage-03-domain.mrs",
+      "rule_count": 124,
+      "yaml_path": "rules/advanced/stage-03-domain.yaml"
+    },
+    {
+      "behavior": "ipcidr",
+      "mrs_path": "rules/advanced/stage-03-ip.mrs",
+      "rule_count": 18,
+      "yaml_path": "rules/advanced/stage-03-ip.yaml"
+    },
+    {
+      "behavior": "domain",
+      "mrs_path": "rules/advanced/stage-04-domain.mrs",
+      "rule_count": 105053,
+      "yaml_path": "rules/advanced/stage-04-domain.yaml"
+    },
+    {
+      "behavior": "ipcidr",
+      "mrs_path": "rules/advanced/stage-04-ip.mrs",
+      "rule_count": 53,
+      "yaml_path": "rules/advanced/stage-04-ip.yaml"
+    },
+    {
+      "behavior": "domain",
+      "mrs_path": "rules/advanced/stage-05-domain.mrs",
+      "rule_count": 51,
+      "yaml_path": "rules/advanced/stage-05-domain.yaml"
+    },
+    {
+      "behavior": "domain",
+      "mrs_path": "rules/advanced/stage-06-domain.mrs",
+      "rule_count": 1055,
+      "yaml_path": "rules/advanced/stage-06-domain.yaml"
+    },
+    {
+      "behavior": "ipcidr",
+      "mrs_path": "rules/advanced/stage-06-ip-no-resolve.mrs",
+      "rule_count": 4,
+      "yaml_path": "rules/advanced/stage-06-ip-no-resolve.yaml"
+    }
+  ],
+  "outputs": {
+    "rules/advanced-merge.yaml": "22f59b967e46881e66a0b4d1df015ef37631fd876c513fa6abd98643a4003884",
+    "rules/advanced/stage-01-domain.yaml": "48b57980e44b928902293be07366ba94455749065fa2c4c5caba67a8275f548c",
+    "rules/advanced/stage-01-extra.txt": "87391dabd2f9a7cc3f1dee5e48e68f40512775c02b35490620474fa9c3f81d24",
+    "rules/advanced/stage-01-ip.yaml": "13efc0d01ee45f3425ecbf75d2c500c1f3795b08462cda780845d15fe1375b73",
+    "rules/advanced/stage-02-domain.yaml": "f387ec54a29dc2c38f48307beaf91bc99588b61a8e0681ddc2ced11b1d762f85",
+    "rules/advanced/stage-02-extra.txt": "9abb6df4122bdf3c49d6a554f797086fcc5c843ade132e30110e2ab32b2445f4",
+    "rules/advanced/stage-03-domain.yaml": "1caa4296c50c3fcb392e24b3733fdde2e7d8faa3dd909c50af06da5b917eea8c",
+    "rules/advanced/stage-03-ip.yaml": "8158d91d18c963b6d42a45ad657d618706ba9c334fb5f54f27d809ab9ae227e1",
+    "rules/advanced/stage-04-domain.yaml": "5717e47d63f332fe9f64d35d2137d371a057322c64996645e09940b86455034a",
+    "rules/advanced/stage-04-extra.txt": "f7911d447f503b26093c954d8ed1cdea230abc0ae336a768dfda14b7c4a2415f",
+    "rules/advanced/stage-04-ip.yaml": "8362c1cc64d29b312463e678609e68b8753bfde954309fc55f021f22431b9e77",
+    "rules/advanced/stage-05-domain.yaml": "8cbea6a1e746e40a6dc816ed4298452ff9ccfc38deeca69fa4df939bd15dbfc0",
+    "rules/advanced/stage-05-extra.txt": "413574e3d5dcb0b196ce645144eb601c6052103fc506e4197b049df75f13e846",
+    "rules/advanced/stage-06-domain.yaml": "4f1c6e3d0572068d65ff97125b25f01e6a1fa1a8a6efa38c06b2caf6c4b5f9ef",
+    "rules/advanced/stage-06-extra.txt": "544f904ad53bb78e9269c014b19b14f96b9367b023c583531cfc7cc88cf7be28",
+    "rules/advanced/stage-06-ip-no-resolve.yaml": "ab3de30861da774d97546f2e64aa2413f318efe83529d5c38d617b07ad906e37"
+  },
+  "schema_version": 1,
+  "stages": [
+    {
+      "action": "REJECT",
+      "classical_rows": 209178,
+      "extra_rows": 86,
+      "original_policy": "REJECT",
+      "providers_in_order": [
+        "personal_ads_s01_domain",
+        "personal_ads_s01_extra",
+        "personal_ads_s01_ip"
+      ],
+      "source_stage": "personal_stage_01"
+    },
+    {
+      "action": "PASS",
+      "classical_rows": 231,
+      "extra_rows": 36,
+      "original_policy": "全球加速",
+      "providers_in_order": [
+        "personal_ads_s02_domain",
+        "personal_ads_s02_extra"
+      ],
+      "source_stage": "personal_stage_02"
+    },
+    {
+      "action": "PASS",
+      "classical_rows": 142,
+      "extra_rows": 0,
+      "original_policy": "DIRECT",
+      "providers_in_order": [
+        "personal_ads_s03_domain",
+        "personal_ads_s03_ip"
+      ],
+      "source_stage": "personal_stage_03"
+    },
+    {
+      "action": "REJECT",
+      "classical_rows": 115958,
+      "extra_rows": 9,
+      "original_policy": "REJECT",
+      "providers_in_order": [
+        "personal_ads_s04_domain",
+        "personal_ads_s04_extra",
+        "personal_ads_s04_ip"
+      ],
+      "source_stage": "personal_stage_04"
+    },
+    {
+      "action": "PASS",
+      "classical_rows": 62,
+      "extra_rows": 1,
+      "original_policy": "DIRECT",
+      "providers_in_order": [
+        "personal_ads_s05_domain",
+        "personal_ads_s05_extra"
+      ],
+      "source_stage": "personal_stage_05"
+    },
+    {
+      "action": "REJECT",
+      "classical_rows": 1067,
+      "extra_rows": 7,
+      "original_policy": "REJECT",
+      "providers_in_order": [
+        "personal_ads_s06_domain",
+        "personal_ads_s06_extra",
+        "personal_ads_s06_ip_no_resolve"
+      ],
+      "source_stage": "personal_stage_06"
+    }
+  ],
+  "sub_rule_name": "personal_ads"
+}

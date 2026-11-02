@@ -1,0 +1,8 @@
+# Optional advanced ads / personal_ads_s06_extra
+DOMAIN-KEYWORD,adservice
+DOMAIN-KEYWORD,hoisin.coocaa.com
+DOMAIN-KEYWORD,hoisin.coocaatv.com
+DOMAIN-KEYWORD,stsdk.vivo.com.cn
+DOMAIN-KEYWORD,stsdk.vivoglobal.com
+DOMAIN-WILDCARD,*.kingsoft-office-service.com
+DOMAIN-WILDCARD,*.pglstatp-toutiao.com

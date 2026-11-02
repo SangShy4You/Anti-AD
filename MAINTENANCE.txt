@@ -13,9 +13,15 @@ rules/ 和 data/ 的产物更新不会触发源码变更检查。
 MRS 编译另需固定版本的官方 Mihomo 工具；工作流校验官方发布包 SHA256 后使用。
 每次先运行一次离线单元测试，再下载、解析、去重和验证规则。
 YAML 更新成功后，再运行 scripts/build_mrs.py 编译两份 MRS，回读并核对完整条目集合。
+当前完整流水线为 update.py → advanced.py → build_mrs.py → validate_native.py。
+advanced.py 将有序阶段拆成小型远程 MRS 与 classical/text，避免一次加载大份 inline YAML。
+build_mrs.py 同时编译主列表和高级阶段，并对每一份 MRS 回读核对。
+validate_native.py 校验真实 provider 加载计数，并把 warning/error 和静默跳过视为失败。
 仅当两步均成功后，工作流才允许一起提交 rules/ 和 data/；MRS 失败也不发布新版 YAML。
 data/upstream-state.json 保存稳定的上游哈希，data/report.json 保存审计结果。
 data/mrs-state.json 保存 MRS 对应的 YAML 哈希、工具版本和输出哈希，不含每次检查时间。
+data/advanced-state.json 记录阶段顺序、远程提供者及完整 YAML 合并片段的生成状态。
+data/rewrite-audit.json 是这次对25个原重写资源的审计快照；实时全域白名单证据由report.json保存。
 不要往这些文件添加每次检查时间，否则即使规则未变也会产生提交。
 rules/ 和 data/ 均无变更时，运行保持成功，不创建空提交，不发送自定义状态消息。
 上游状态变更而最终规则内容相同时，仍可能生成一条仅更新审计状态的提交。
@@ -45,7 +51,9 @@ GitHub 定时任务不是精确闹钟，繁忙时可能延迟，极端情况下�
 在仓库根目录执行：
   python -m unittest discover -s tests
   python scripts/update.py
+  python scripts/advanced.py
   python scripts/build_mrs.py --mihomo /path/to/mihomo
+  python scripts/validate_native.py --mihomo /path/to/mihomo --home /path/to/validation-cache --download-asn
 检查 rules/、data/ 的差异后再提交。不要修改生成文件来永久维护自定义规则，
 应调整配置或生成逻辑，避免下一次更新覆盖手动变更。
 

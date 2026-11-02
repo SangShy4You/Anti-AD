@@ -78,6 +78,13 @@ def _parse_source(source, body, priority, issues):
     if not isinstance(body, str) or not body.strip():
         raise ValueError(f"empty source {source['id']}")
     fmt = source.get("source_format", "mixed").lower().replace("-", "_")
+    if fmt == "audited_qx_rewrite_domains":
+        if __package__:
+            from .rewrite_domains import extract_rule_source
+        else:
+            from rewrite_domains import extract_rule_source
+        body = extract_rule_source(body)
+        fmt = "domain_text"
     domainset = fmt in {"domainset", "surge_domainset"}
     native_domain = fmt in {"domain", "domain_text", "domain_yaml"}
     native_ip = fmt in {"ipcidr", "ipcidr_text", "ipcidr_yaml"}
@@ -363,9 +370,16 @@ def compile_profile(catalog: dict, bodies: dict[str, str], personal: dict):
             raise ValueError(f"missing body for active source {source['id']}")
         parsed = _parse_source(source, bodies[source["id"]], priority, issues)
         records.extend(parsed)
-        source_reports.append({"id": source["id"], "status": "compiled", "role": role,
-                               "policy": _policy(source), "rules": len(parsed),
-                               "types": dict(Counter(r.kind for r in parsed))})
+        source_report = {"id": source["id"], "status": "compiled", "role": role,
+                         "policy": _policy(source), "rules": len(parsed),
+                         "types": dict(Counter(r.kind for r in parsed))}
+        if source.get("source_format") == "audited_qx_rewrite_domains":
+            if __package__:
+                from .rewrite_domains import audit_rule_source
+            else:
+                from rewrite_domains import audit_rule_source
+            source_report["derivation"] = audit_rule_source(bodies[source["id"]])
+        source_reports.append(source_report)
     if not any(r.role == "block" for r in records):
         raise ValueError("profile has no supported block rules")
     domains = [r for r in records if r.kind in DOMAIN_KINDS]
