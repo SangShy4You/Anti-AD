@@ -15,11 +15,11 @@
   "counts": {
     "advanced_only_rule_rows": 138,
     "advanced_stages": 6,
-    "distinct_reject_domain_patterns": 248775,
+    "distinct_reject_domain_patterns": 249417,
     "issues": 5,
-    "source_local_unique_reject_domain_rows": 377915,
-    "source_local_unique_rules": 378780,
-    "ui_domain_patterns": 196561,
+    "source_local_unique_reject_domain_rows": 378543,
+    "source_local_unique_rules": 379408,
+    "ui_domain_patterns": 197202,
     "ui_ip_prefixes": 221
   },
   "issues": [
@@ -155,10 +155,10 @@
       "id": "08_filter",
       "policy": "REJECT",
       "role": "block",
-      "rules": 102440,
+      "rules": 103068,
       "status": "compiled",
       "types": {
-        "DOMAIN-SUFFIX": 102440
+        "DOMAIN-SUFFIX": 103068
       }
     },
     {
