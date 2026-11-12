@@ -251,7 +251,7 @@
             "domain_pattern": "fc-video.cdn.bcebos.com",
             "evidence": [
               {
-                "line": 882,
+                "line": 880,
                 "rule": "^https?:\\/\\/fc-video\\.cdn\\.bcebos\\.com url reject"
               }
             ],
@@ -262,7 +262,7 @@
             "domain_pattern": "api.htp.ad-scope.com.cn",
             "evidence": [
               {
-                "line": 1459,
+                "line": 1476,
                 "rule": "^https?:\\/\\/api\\.htp\\.ad-scope\\.com\\.cn.* url reject"
               }
             ],
@@ -273,7 +273,7 @@
             "domain_pattern": "sdk1xyajs.data.kuiniuca.com",
             "evidence": [
               {
-                "line": 3024,
+                "line": 3066,
                 "rule": "^https?:\\/\\/sdk1xyajs\\.data\\.kuiniuca\\.com url reject"
               }
             ],
@@ -284,7 +284,7 @@
             "domain_pattern": "stat.peopleapp.com",
             "evidence": [
               {
-                "line": 3860,
+                "line": 3913,
                 "rule": "^https?:\\/\\/stat\\.peopleapp\\.com\\/ url reject"
               }
             ],
@@ -295,7 +295,7 @@
             "domain_pattern": "adapi.izuiyou.com",
             "evidence": [
               {
-                "line": 6874,
+                "line": 6995,
                 "rule": "^https?:\\/\\/adapi\\.izuiyou\\.com\\/ url reject"
               }
             ],
@@ -306,7 +306,7 @@
             "domain_pattern": ".kingsoft-office-service.com",
             "evidence": [
               {
-                "line": 2414,
+                "line": 2449,
                 "rule": "^https?:\\/\\/.+?\\.kingsoft-office-service\\.com url reject"
               }
             ],
@@ -317,7 +317,7 @@
             "domain_pattern": ".pglstatp-toutiao.com",
             "evidence": [
               {
-                "line": 4079,
+                "line": 4137,
                 "rule": "^https?:\\/\\/.+\\.pglstatp-toutiao\\.com url reject"
               }
             ],
