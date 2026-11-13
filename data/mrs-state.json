@@ -1,6 +1,6 @@
 {
   "advanced_counts": {
-    "rules/advanced/stage-01-domain.mrs": 168607,
+    "rules/advanced/stage-01-domain.mrs": 168608,
     "rules/advanced/stage-01-ip.mrs": 206,
     "rules/advanced/stage-02-domain.mrs": 195,
     "rules/advanced/stage-03-domain.mrs": 124,
@@ -12,13 +12,13 @@
     "rules/advanced/stage-06-ip-no-resolve.mrs": 4
   },
   "counts": {
-    "domain": 196480,
+    "domain": 196481,
     "ipcidr": 221
   },
   "inputs": {
-    "rules/ads-domain.yaml": "8828916a52e83d0b88584de8bdbdb318ee62aa3cd3081eadc6b1a17235cd99d9",
+    "rules/ads-domain.yaml": "ac8f327d69b2ca9d5e466529b16de064c45231e2357ee3d459dc10dcc1c27519",
     "rules/ads-ip.yaml": "fc61e24a981e1bf384a622f6917a1a4f494243a2d476faf2bf6f3970718ca0a3",
-    "rules/advanced/stage-01-domain.yaml": "48b57980e44b928902293be07366ba94455749065fa2c4c5caba67a8275f548c",
+    "rules/advanced/stage-01-domain.yaml": "fd22fe43d520402289607d07f7f5adfdbe849cd43016252d197db67bc00bc52d",
     "rules/advanced/stage-01-ip.yaml": "13efc0d01ee45f3425ecbf75d2c500c1f3795b08462cda780845d15fe1375b73",
     "rules/advanced/stage-02-domain.yaml": "f387ec54a29dc2c38f48307beaf91bc99588b61a8e0681ddc2ced11b1d762f85",
     "rules/advanced/stage-03-domain.yaml": "1caa4296c50c3fcb392e24b3733fdde2e7d8faa3dd909c50af06da5b917eea8c",
@@ -31,9 +31,9 @@
   },
   "mihomo_version": "Meta v1.19.33",
   "outputs": {
-    "rules/ads-domain.mrs": "52d85ab88302c0ef18e302c8a30373f459bb3f0666b5e6d5762112d36033bbe1",
+    "rules/ads-domain.mrs": "52f00c217a9a2607d1ee33d3d82ed4dce08f908d90e29d472cd9e6c9f38f22e7",
     "rules/ads-ip.mrs": "cfc528c05b87b565dcdc1b3239b0ac2074b48a8e43c90000219aa215d1e89c66",
-    "rules/advanced/stage-01-domain.mrs": "ab7bc015acdba6c027b0086c64c98860b226b8c5e3531cde18d972fa75f24055",
+    "rules/advanced/stage-01-domain.mrs": "0f37c4832a7cb0807bdb457eb3078df82dee36af8b8c84cba4c3f81ee1199926",
     "rules/advanced/stage-01-ip.mrs": "2b88bd8088033027e8e89f20366e16e11743a0a3d2a06ea347271d2fbc60efdd",
     "rules/advanced/stage-02-domain.mrs": "6773a40df4b9641aa5efc058ccc91007397bb54208bc68aab3b85cfb187c7db5",
     "rules/advanced/stage-03-domain.mrs": "00e601cdbbb13a8c426d7b89d210f1bd8c2b53f800daccb7de62f1a10eebf0c1",

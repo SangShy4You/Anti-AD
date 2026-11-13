@@ -17,9 +17,9 @@
         "url": "https://raw.githubusercontent.com/sve1r/Rules-For-Quantumult-X/refs/heads/main/Rules/Advertising/AdReject.list"
       },
       {
-        "bytes": 23953,
+        "bytes": 24070,
         "id": "03_filter",
-        "raw_sha256": "bf012d57a8beadbac1c824f3afca3f3fff1b9f2d58e319717781c854a672118b",
+        "raw_sha256": "c12417f0d3a880c15591270aabaeef434e764129eefa92a6f7448faa99a4fdc7",
         "url": "https://limbopro.com/Adblock4limbo.list"
       },
       {
@@ -103,10 +103,10 @@
     ]
   },
   "outputs": {
-    "data/report.json": "cad98cf376137e0870ffbd6a68531f3d34d21126954e675d46b4e5986c6c373b",
-    "rules/ads-domain.yaml": "8828916a52e83d0b88584de8bdbdb318ee62aa3cd3081eadc6b1a17235cd99d9",
+    "data/report.json": "a6e2083441af8bf1491e4756cacde933171f950e49fb0c78512d779e3ea09b92",
+    "rules/ads-domain.yaml": "ac8f327d69b2ca9d5e466529b16de064c45231e2357ee3d459dc10dcc1c27519",
     "rules/ads-ip.yaml": "fc61e24a981e1bf384a622f6917a1a4f494243a2d476faf2bf6f3970718ca0a3",
-    "rules/advanced-fragment.yaml": "7d32446c8efbec9a70f83dca7c73d404c372c279cd60a6960a68d4f504492455"
+    "rules/advanced-fragment.yaml": "0ec6513385623e8114f80a01afb90457bd679ca3b2e6d1e6e6b0864eb49d9bd0"
   },
   "schema_version": 1
 }
