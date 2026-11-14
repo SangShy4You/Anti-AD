@@ -6,7 +6,7 @@
   },
   "generator_sha256": "440f3442775654f671c780e51d2599459c08f64cedaed3eb12a040a102a8e453",
   "inputs": {
-    "rules/advanced-fragment.yaml": "0ec6513385623e8114f80a01afb90457bd679ca3b2e6d1e6e6b0864eb49d9bd0"
+    "rules/advanced-fragment.yaml": "638f9589dd4d285cf8442abd5932e10bd895cf0feb3bd4f575c17d4b4f44a95b"
   },
   "limitations": [
     "Allow matches return to airport main routing; original QX forced global-acceleration/DIRECT exits are intentionally not reproduced.",
@@ -52,7 +52,7 @@
     {
       "behavior": "domain",
       "mrs_path": "rules/advanced/stage-04-domain.mrs",
-      "rule_count": 104905,
+      "rule_count": 106162,
       "yaml_path": "rules/advanced/stage-04-domain.yaml"
     },
     {
@@ -89,7 +89,7 @@
     "rules/advanced/stage-02-extra.txt": "9abb6df4122bdf3c49d6a554f797086fcc5c843ade132e30110e2ab32b2445f4",
     "rules/advanced/stage-03-domain.yaml": "1caa4296c50c3fcb392e24b3733fdde2e7d8faa3dd909c50af06da5b917eea8c",
     "rules/advanced/stage-03-ip.yaml": "8158d91d18c963b6d42a45ad657d618706ba9c334fb5f54f27d809ab9ae227e1",
-    "rules/advanced/stage-04-domain.yaml": "b0b9fc7be3ff155ea166bed7e24453816619bf63d477edd59d88f73d449c5bcf",
+    "rules/advanced/stage-04-domain.yaml": "8a48e53db2dffbea6fd378bd40359b45fadf26bf7f029942469c055af8b40fa6",
     "rules/advanced/stage-04-extra.txt": "f7911d447f503b26093c954d8ed1cdea230abc0ae336a768dfda14b7c4a2415f",
     "rules/advanced/stage-04-ip.yaml": "8362c1cc64d29b312463e678609e68b8753bfde954309fc55f021f22431b9e77",
     "rules/advanced/stage-05-domain.yaml": "8cbea6a1e746e40a6dc816ed4298452ff9ccfc38deeca69fa4df939bd15dbfc0",
@@ -136,7 +136,7 @@
     },
     {
       "action": "REJECT",
-      "classical_rows": 115810,
+      "classical_rows": 117068,
       "extra_rows": 9,
       "original_policy": "REJECT",
       "providers_in_order": [
