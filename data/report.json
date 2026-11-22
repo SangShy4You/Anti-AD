@@ -295,7 +295,7 @@
             "domain_pattern": "adapi.izuiyou.com",
             "evidence": [
               {
-                "line": 6995,
+                "line": 6994,
                 "rule": "^https?:\\/\\/adapi\\.izuiyou\\.com\\/ url reject"
               }
             ],
