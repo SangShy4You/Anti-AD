@@ -1,0 +1,12 @@
+# Personal Quantumult X ordered filter partition
+# Part 1/6: ads-allow-first.list
+# Preserve every rule's own policy; do not force a uniform REJECT.
+# Personal Quantumult X ordered filters
+# Source order and explicit policies are preserved; exact matches deduplicated.
+
+# Source: personal_overrides
+host, safebrowsing.googleapis.com, proxy
+host, safebrowsing.googleapis-cn.com, direct
+host, safebrowsing.urlsec.qq.com, direct
+host, token.safebrowsing.apple, direct
+host, appcloud2.zhihu.com, direct

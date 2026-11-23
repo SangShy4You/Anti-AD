@@ -19,7 +19,7 @@
       "url": "https://cdn.jsdelivr.net/gh/limbopro/Adblock4limbo@f38fec9a7630b561c76932af053d24bd541372fe/Adguard/elementBlocker.user.js"
     }
   ],
-  "config_sha256": "721a03f0fa99e76c7532ba519ec8009cc686b3f8fa980aa6c4c06101d3c8962d",
+  "config_sha256": "8bbcc9ae68e1f40b0f828f5ee6d9eb40b658905dec5529e3695f9d248be9f848",
   "data_dependencies": [
     {
       "bytes": 711,
@@ -28,6 +28,107 @@
       "url": "https://raw.githubusercontent.com/fmz200/wool_scripts/main/Scripts/hengdian.json"
     }
   ],
+  "filter_partitions": {
+    "ads.list": {
+      "active_rule_rows_preserved_exactly": true,
+      "contract": "Every contiguous plain-reject/preserved-policy run has a reviewed resource; topology or policy drift aborts publication.",
+      "input_parser_issues": [
+        {
+          "kind": "trailing-dot-preserved",
+          "location": "ordered-partition-input:108269",
+          "value": "abbp1.space."
+        }
+      ],
+      "input_rules": 252383,
+      "output_rules": 252383,
+      "partition_count": 6,
+      "partitions": [
+        {
+          "first_source_line": 5,
+          "force_policy": null,
+          "kind": "preserve",
+          "last_source_line": 9,
+          "name": "必要放行·基础",
+          "output": "ads-allow-first.list",
+          "policy_counts": {
+            "direct": 4,
+            "proxy": 1
+          },
+          "rule_count": 5,
+          "sha256": "3f7b9616ad744d82c0f97a2911f81952b4b3e8155ad044b85eb4936948454a7b"
+        },
+        {
+          "first_source_line": 12,
+          "force_policy": "reject",
+          "kind": "reject",
+          "last_source_line": 209188,
+          "name": "个人去广告与防追踪",
+          "output": "ads-reject-main.list",
+          "policy_counts": {
+            "reject": 209167
+          },
+          "rule_count": 209167,
+          "sha256": "c967ddb2afd7a70304cb211b30a4ff55b1b9ac26ab534a5095fb3e23841399bd"
+        },
+        {
+          "first_source_line": 209191,
+          "force_policy": null,
+          "kind": "preserve",
+          "last_source_line": 209556,
+          "name": "必要放行·路由",
+          "output": "ads-allow-routing.list",
+          "policy_counts": {
+            "direct": 142,
+            "全球加速": 222
+          },
+          "rule_count": 364,
+          "sha256": "54b3beb323a2432b0c7313cba51758b99d29ee52c21909a8a7f35637ad70fffe"
+        },
+        {
+          "first_source_line": 209559,
+          "force_policy": "reject",
+          "kind": "reject",
+          "last_source_line": 252103,
+          "name": "去广告与防追踪·补充",
+          "output": "ads-reject-extra.list",
+          "policy_counts": {
+            "reject": 42539
+          },
+          "rule_count": 42539,
+          "sha256": "b653302aa1a09433c06637afce023529126157189f0586517b5e6098bbabc77a"
+        },
+        {
+          "first_source_line": 252106,
+          "force_policy": null,
+          "kind": "preserve",
+          "last_source_line": 252148,
+          "name": "必要放行·微信",
+          "output": "ads-allow-services.list",
+          "policy_counts": {
+            "direct": 41
+          },
+          "rule_count": 41,
+          "sha256": "9db1e787ae695a831c15087abf3bc9544a225d27da64976e976070dab5e62007"
+        },
+        {
+          "first_source_line": 252151,
+          "force_policy": "reject",
+          "kind": "reject",
+          "last_source_line": 252425,
+          "name": "去广告与防追踪·增强",
+          "output": "ads-reject-supplement.list",
+          "policy_counts": {
+            "reject": 267
+          },
+          "rule_count": 267,
+          "sha256": "2e52a5d033f6e87fd934e068a94d3f3a2cb81f3b6488aa6358d570e6c31232d6"
+        }
+      ],
+      "schema_version": 1,
+      "source_body_reconstructed_exactly": true,
+      "source_sha256": "7aaa32698efc6882fad2eb5a572c700c74e0fe3dc9fe645ee069940496d6df6d"
+    }
+  },
   "filters": {
     "ads.list": {
       "conflict_rules_removed_first_match_wins": 41,
@@ -1911,7 +2012,7 @@
       }
     }
   },
-  "generator_sha256": "417d9744e3a4a847298258234d9abaa095dbc4002cf0638edb07ab86780915e2",
+  "generator_sha256": "ac8d724d7d763fde81208d07b8c8c307d8db3cf0ac80a73187f90b0724d71e94",
   "mixed_remote_reference_guards": [
     {
       "expected_selected": 4,
@@ -2046,6 +2147,30 @@
     }
   ],
   "outputs": {
+    "rules/quantumultx/ads-allow-first.list": {
+      "bytes": 499,
+      "sha256": "3f7b9616ad744d82c0f97a2911f81952b4b3e8155ad044b85eb4936948454a7b"
+    },
+    "rules/quantumultx/ads-allow-routing.list": {
+      "bytes": 14566,
+      "sha256": "54b3beb323a2432b0c7313cba51758b99d29ee52c21909a8a7f35637ad70fffe"
+    },
+    "rules/quantumultx/ads-allow-services.list": {
+      "bytes": 1570,
+      "sha256": "9db1e787ae695a831c15087abf3bc9544a225d27da64976e976070dab5e62007"
+    },
+    "rules/quantumultx/ads-reject-extra.list": {
+      "bytes": 1741117,
+      "sha256": "b653302aa1a09433c06637afce023529126157189f0586517b5e6098bbabc77a"
+    },
+    "rules/quantumultx/ads-reject-main.list": {
+      "bytes": 7628811,
+      "sha256": "c967ddb2afd7a70304cb211b30a4ff55b1b9ac26ab534a5095fb3e23841399bd"
+    },
+    "rules/quantumultx/ads-reject-supplement.list": {
+      "bytes": 9474,
+      "sha256": "2e52a5d033f6e87fd934e068a94d3f3a2cb81f3b6488aa6358d570e6c31232d6"
+    },
     "rules/quantumultx/ads.conf": {
       "bytes": 220638,
       "sha256": "48afa0afcd230747834b15e6af0a9cdb94bbdcca8276160cdf616fb5ab7ec37f"
@@ -2059,8 +2184,8 @@
       "sha256": "43739c566e26fd7cb88f69d3864ea34740372f5ee99acac169e090beffbce5c6"
     },
     "rules/quantumultx/import.snippet": {
-      "bytes": 2209,
-      "sha256": "244eb6f22513fd417f18e5c9845320517ba434754144296df5cf9d5e1bedf16b"
+      "bytes": 3209,
+      "sha256": "196cf65db4bce8839a41b5122cbd193346a8484676a6144e8d999289e757e632"
     },
     "rules/quantumultx/miniapps.conf": {
       "bytes": 12542,
@@ -2119,8 +2244,20 @@
     {
       "duplicates_removed": 0,
       "examples": [],
-      "file": "ads.conf",
+      "file": "youtube.conf",
       "order_index": 0,
+      "policy": "exact canonical rule only; first active profile resource wins",
+      "profile_example_limit": 100,
+      "removed_source_counts": {},
+      "requires_earlier_products": [],
+      "rules_after": 7,
+      "rules_before": 7
+    },
+    {
+      "duplicates_removed": 0,
+      "examples": [],
+      "file": "ads.conf",
+      "order_index": 1,
       "policy": "exact canonical rule only; first active profile resource wins",
       "profile_example_limit": 100,
       "removed_source_counts": {},
@@ -3993,7 +4130,7 @@
         }
       ],
       "file": "miniapps.conf",
-      "order_index": 1,
+      "order_index": 2,
       "policy": "exact canonical rule only; first active profile resource wins",
       "profile_example_limit": 100,
       "removed_source_counts": {
@@ -4009,7 +4146,7 @@
       "duplicates_removed": 0,
       "examples": [],
       "file": "mixed-web.conf",
-      "order_index": 2,
+      "order_index": 3,
       "policy": "exact canonical rule only; first active profile resource wins",
       "profile_example_limit": 100,
       "removed_source_counts": {},
@@ -4021,25 +4158,13 @@
       "duplicates_removed": 0,
       "examples": [],
       "file": "web.conf",
-      "order_index": 3,
+      "order_index": 4,
       "policy": "exact canonical rule only; first active profile resource wins",
       "profile_example_limit": 100,
       "removed_source_counts": {},
       "requires_earlier_products": [],
       "rules_after": 130,
       "rules_before": 130
-    },
-    {
-      "duplicates_removed": 0,
-      "examples": [],
-      "file": "youtube.conf",
-      "order_index": 4,
-      "policy": "exact canonical rule only; first active profile resource wins",
-      "profile_example_limit": 100,
-      "removed_source_counts": {},
-      "requires_earlier_products": [],
-      "rules_after": 7,
-      "rules_before": 7
     }
   ],
   "resolved_refs": {
@@ -52258,7 +52383,7 @@
         "duplicates_removed": 0,
         "examples": [],
         "file": "ads.conf",
-        "order_index": 0,
+        "order_index": 1,
         "policy": "exact canonical rule only; first active profile resource wins",
         "profile_example_limit": 100,
         "removed_source_counts": {},
@@ -92519,7 +92644,7 @@
           }
         ],
         "file": "miniapps.conf",
-        "order_index": 1,
+        "order_index": 2,
         "policy": "exact canonical rule only; first active profile resource wins",
         "profile_example_limit": 100,
         "removed_source_counts": {
@@ -94109,7 +94234,7 @@
         "duplicates_removed": 0,
         "examples": [],
         "file": "mixed-web.conf",
-        "order_index": 2,
+        "order_index": 3,
         "policy": "exact canonical rule only; first active profile resource wins",
         "profile_example_limit": 100,
         "removed_source_counts": {},
@@ -98887,7 +99012,7 @@
         "duplicates_removed": 0,
         "examples": [],
         "file": "web.conf",
-        "order_index": 3,
+        "order_index": 4,
         "policy": "exact canonical rule only; first active profile resource wins",
         "profile_example_limit": 100,
         "removed_source_counts": {},
@@ -102017,7 +102142,7 @@
         "duplicates_removed": 0,
         "examples": [],
         "file": "youtube.conf",
-        "order_index": 4,
+        "order_index": 0,
         "policy": "exact canonical rule only; first active profile resource wins",
         "profile_example_limit": 100,
         "removed_source_counts": {},
