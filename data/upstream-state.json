@@ -19,7 +19,7 @@
       {
         "bytes": 24070,
         "id": "03_filter",
-        "raw_sha256": "c0c454a7b447ae40e7a9191e6a653f8eb1c03ade6f6a57b13a73254b251fa61a",
+        "raw_sha256": "5aa0f203bb876e82e87d8616e679d1c49016c925b64c05e2c535860b244c04eb",
         "url": "https://limbopro.com/Adblock4limbo.list"
       },
       {
@@ -47,9 +47,9 @@
         "url": "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/QuantumultX/Lan/Lan.list"
       },
       {
-        "bytes": 2062625,
+        "bytes": 2075478,
         "id": "08_filter",
-        "raw_sha256": "84a307467586ad95d1face61d2fd6bfd06c8f7e848d8e6d61cbb9b5e93f73685",
+        "raw_sha256": "a1082b143a026d0bdc3a90bac94cbf728da4b07db85811ca5fa02ca388c6abbc",
         "url": "https://raw.githubusercontent.com/privacy-protection-tools/anti-AD/master/anti-ad-surge2.txt"
       },
       {
@@ -103,10 +103,10 @@
     ]
   },
   "outputs": {
-    "data/report.json": "33302daa21a77bdc93ef3272032cca67d4fc5bd93198400295864bba0402e14e",
-    "rules/ads-domain.yaml": "5f14134496dc48407ae941c257178a9a4c07b14ae17d002da9bdcc472fede033",
+    "data/report.json": "4ef5497e5a9af6076df4f27f475f26ea4982cca0a075aa8bbcbbd109c2b92aaf",
+    "rules/ads-domain.yaml": "2e97cce4e43e5cfe1ac26b9fb82c18e773ebf217523b3b824b5e9a1ec3532bbb",
     "rules/ads-ip.yaml": "fc61e24a981e1bf384a622f6917a1a4f494243a2d476faf2bf6f3970718ca0a3",
-    "rules/advanced-fragment.yaml": "94c977da150e19a33010dc7d83106a830844444eef3a0a7b19f6effe24a82b79"
+    "rules/advanced-fragment.yaml": "9cd9779216cb37529abae41dfcf0dfa7bbd7591a87adebdfeadafb10bf7be144"
   },
   "schema_version": 1
 }
