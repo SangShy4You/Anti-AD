@@ -1,7 +1,7 @@
 {
   "inputs": {
     "catalog_sha256": "6e6f5cc9bd8211b1035844a38ffe771c66f9bc97bc9bdc2e0c14bb8d9df0ef00",
-    "generator_sha256": "194dbe038a05eef5a61842fd6ffb3271d65f28e7d473193c11234abe19380b83",
+    "generator_sha256": "1d25f17e784756cf21157315c029aab8eec12797bf8e8b74482f2ddf7570c297",
     "personal_sha256": "a2d8bc3430ab2eb790e84d90931309eeea82d82399dbc5dc5578dc450551ac29",
     "sources": [
       {
@@ -19,7 +19,7 @@
       {
         "bytes": 24070,
         "id": "03_filter",
-        "raw_sha256": "5aa0f203bb876e82e87d8616e679d1c49016c925b64c05e2c535860b244c04eb",
+        "raw_sha256": "abc18971dfe84da86fb411e48249c8ddfcfa90c69f605334581af8a30a8985c6",
         "url": "https://limbopro.com/Adblock4limbo.list"
       },
       {
