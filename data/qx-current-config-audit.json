@@ -1,0 +1,1803 @@
+{
+  "schema_version": 1,
+  "review_date": "2026-11-23",
+  "private_configuration_published": false,
+  "original_configuration_modified": false,
+  "scripts_executed": false,
+  "counts": {
+    "direct_github_repositories": 22,
+    "associated_website_author_repository": 1,
+    "filter_remote": 25,
+    "filter_remote_enabled": 25,
+    "rewrite_remote": 25,
+    "rewrite_remote_enabled": 18,
+    "rewrite_remote_disabled": 7,
+    "local_filters_to_preserve": 79,
+    "local_rewrites_to_preserve": 3
+  },
+  "repositories": [
+    {
+      "repository": "app2smile/rules",
+      "sections": [
+        "rewrite_remote"
+      ],
+      "reference_count": 1,
+      "enabled_reference_count": 1,
+      "current_integration": "direct"
+    },
+    {
+      "repository": "blackmatrix7/ios_rule_script",
+      "sections": [
+        "filter_remote"
+      ],
+      "reference_count": 5,
+      "enabled_reference_count": 5,
+      "current_integration": "direct"
+    },
+    {
+      "repository": "chavyleung/scripts",
+      "sections": [
+        "rewrite_remote"
+      ],
+      "reference_count": 1,
+      "enabled_reference_count": 1,
+      "current_integration": "not-in-current-aggregate"
+    },
+    {
+      "repository": "chxm1023/Script_X",
+      "sections": [
+        "rewrite_remote"
+      ],
+      "reference_count": 1,
+      "enabled_reference_count": 1,
+      "current_integration": "not-in-current-aggregate"
+    },
+    {
+      "repository": "ConnersHua/RuleGo",
+      "sections": [
+        "filter_remote",
+        "rewrite_remote"
+      ],
+      "reference_count": 15,
+      "enabled_reference_count": 15,
+      "current_integration": "partial: original ad filters selected; ten routes and two modules not completely migrated"
+    },
+    {
+      "repository": "ddgksf2013/Rewrite",
+      "sections": [
+        "rewrite_remote"
+      ],
+      "reference_count": 7,
+      "enabled_reference_count": 3,
+      "current_integration": "not-in-current-aggregate"
+    },
+    {
+      "repository": "DivineEngine/Profiles",
+      "sections": [
+        "rewrite_remote"
+      ],
+      "reference_count": 1,
+      "enabled_reference_count": 0,
+      "current_integration": "not-in-current-aggregate"
+    },
+    {
+      "repository": "DoracisMu/quanX_rewirte",
+      "sections": [
+        "rewrite_remote"
+      ],
+      "reference_count": 1,
+      "enabled_reference_count": 1,
+      "current_integration": "not-in-current-aggregate"
+    },
+    {
+      "repository": "fmz200/wool_scripts",
+      "sections": [
+        "rewrite_remote"
+      ],
+      "reference_count": 2,
+      "enabled_reference_count": 2,
+      "current_integration": "current author ad collection selected; miniapp profile is optional; old cache not compared"
+    },
+    {
+      "repository": "id77/QuantumultX",
+      "sections": [
+        "rewrite_remote"
+      ],
+      "reference_count": 1,
+      "enabled_reference_count": 1,
+      "current_integration": "not-in-current-aggregate"
+    },
+    {
+      "repository": "KOP-XIAO/QuantumultX",
+      "sections": [
+        "general",
+        "task_local"
+      ],
+      "reference_count": 2,
+      "enabled_reference_count": 2,
+      "current_integration": "not-in-current-aggregate"
+    },
+    {
+      "repository": "limbopro/Adblock4limbo",
+      "sections": [
+        "filter_remote",
+        "rewrite_remote"
+      ],
+      "reference_count": 2,
+      "enabled_reference_count": 2,
+      "current_integration": "filter-author-mirror-only; original website rewrite not selected",
+      "relationship": "associated author repository for the two original website references"
+    },
+    {
+      "repository": "mieqq/mieqq",
+      "sections": [
+        "filter_remote"
+      ],
+      "reference_count": 1,
+      "enabled_reference_count": 1,
+      "current_integration": "direct"
+    },
+    {
+      "repository": "NobyDa/ND-AD",
+      "sections": [
+        "filter_remote"
+      ],
+      "reference_count": 2,
+      "enabled_reference_count": 2,
+      "current_integration": "direct"
+    },
+    {
+      "repository": "NobyDa/Script",
+      "sections": [
+        "rewrite_remote"
+      ],
+      "reference_count": 2,
+      "enabled_reference_count": 2,
+      "current_integration": "an unrelated script dependency is selected; the two original TestFlight resources are standalone"
+    },
+    {
+      "repository": "Orz-3/mini",
+      "sections": [
+        "policy"
+      ],
+      "reference_count": 16,
+      "enabled_reference_count": 16,
+      "current_integration": "not-in-current-aggregate"
+    },
+    {
+      "repository": "Orz-3/Orz-3",
+      "sections": [
+        "general"
+      ],
+      "reference_count": 1,
+      "enabled_reference_count": 1,
+      "current_integration": "not-in-current-aggregate"
+    },
+    {
+      "repository": "Orz-3/QuantumultX",
+      "sections": [
+        "rewrite_remote"
+      ],
+      "reference_count": 2,
+      "enabled_reference_count": 1,
+      "current_integration": "not-in-current-aggregate"
+    },
+    {
+      "repository": "Peng-YM/Sub-Store",
+      "sections": [
+        "rewrite_remote"
+      ],
+      "reference_count": 1,
+      "enabled_reference_count": 1,
+      "current_integration": "not-in-current-aggregate"
+    },
+    {
+      "repository": "privacy-protection-tools/anti-AD",
+      "sections": [
+        "filter_remote"
+      ],
+      "reference_count": 1,
+      "enabled_reference_count": 1,
+      "current_integration": "direct"
+    },
+    {
+      "repository": "RuCu6/QuanX",
+      "sections": [
+        "rewrite_remote"
+      ],
+      "reference_count": 1,
+      "enabled_reference_count": 0,
+      "current_integration": "not-in-current-aggregate"
+    },
+    {
+      "repository": "sve1r/Rules-For-Quantumult-X",
+      "sections": [
+        "filter_remote"
+      ],
+      "reference_count": 2,
+      "enabled_reference_count": 2,
+      "current_integration": "direct"
+    },
+    {
+      "repository": "zZPiglet/Task",
+      "sections": [
+        "rewrite_remote"
+      ],
+      "reference_count": 1,
+      "enabled_reference_count": 1,
+      "current_integration": "not-in-current-aggregate"
+    }
+  ],
+  "additional_confirmed_function_dependency_repositories": [
+    "chxm1023/Rewrite",
+    "ddgksf2013/Scripts",
+    "sub-store-org/Sub-Store",
+    "wf021325/qx",
+    "yichahucha/surge"
+  ],
+  "resources": [
+    {
+      "section": "general",
+      "line": 6,
+      "repository": "Orz-3/Orz-3",
+      "url": "https://raw.githubusercontent.com/Orz-3/Orz-3/master/QuantumultX/IP.js",
+      "tag": null,
+      "enabled": true,
+      "force_policy": null,
+      "had_url_parameters": false,
+      "options": {},
+      "integration": {
+        "status": "keep-original-tool",
+        "action": "Not an advertisement rule; keep its original configuration key/task."
+      },
+      "current_fetch": {
+        "status": 200,
+        "bytes": 422,
+        "sha256": "6d9cebfbdda1676656e16b5342d26b92321061c8fe90172a4922518ff8e19bcf"
+      }
+    },
+    {
+      "section": "general",
+      "line": 7,
+      "repository": "KOP-XIAO/QuantumultX",
+      "url": "https://fastly.jsdelivr.net/gh/KOP-XIAO/QuantumultX@master/Scripts/resource-parser.js",
+      "tag": null,
+      "enabled": true,
+      "force_policy": null,
+      "had_url_parameters": false,
+      "options": {},
+      "integration": {
+        "status": "keep-original-tool",
+        "action": "Not an advertisement rule; keep its original configuration key/task."
+      },
+      "current_fetch": {
+        "status": 200,
+        "bytes": 299177,
+        "sha256": "6c94e9f1db33bd1ebaa396692d99dcbb3874a193e2d9fedc19ffa526b2e282cd"
+      }
+    },
+    {
+      "section": "filter_remote",
+      "line": 47,
+      "repository": "sve1r/Rules-For-Quantumult-X",
+      "url": "https://raw.githubusercontent.com/sve1r/Rules-For-Quantumult-X/refs/heads/main/Rules/Advertising/antiAD-V4.list",
+      "tag": "sve1r-AntiAD-V4",
+      "enabled": true,
+      "force_policy": "reject",
+      "had_url_parameters": false,
+      "options": {
+        "opt-parser": "true",
+        "update-interval": "172800"
+      },
+      "integration": {
+        "original_index": 1,
+        "integration_status": "direct-source-present-with-documented-scope-exclusions",
+        "current_source_ids": [
+          "01_filter"
+        ],
+        "current_policies": {
+          "01_filter": "reject"
+        },
+        "policy_preserved_exactly": true,
+        "scope_exclusions": {
+          "01_filter": 6
+        }
+      },
+      "current_fetch": {
+        "http_status": 200,
+        "evidence": "Read in the same-day native QX source build"
+      }
+    },
+    {
+      "section": "filter_remote",
+      "line": 48,
+      "repository": "sve1r/Rules-For-Quantumult-X",
+      "url": "https://raw.githubusercontent.com/sve1r/Rules-For-Quantumult-X/refs/heads/main/Rules/Advertising/AdReject.list",
+      "tag": "sve1r分流",
+      "enabled": true,
+      "force_policy": "reject",
+      "had_url_parameters": false,
+      "options": {
+        "opt-parser": "true",
+        "update-interval": "172800"
+      },
+      "integration": {
+        "original_index": 2,
+        "integration_status": "direct-source-present-with-documented-scope-exclusions",
+        "current_source_ids": [
+          "02_filter"
+        ],
+        "current_policies": {
+          "02_filter": "reject"
+        },
+        "policy_preserved_exactly": true,
+        "scope_exclusions": {
+          "02_filter": 15
+        }
+      },
+      "current_fetch": {
+        "http_status": 200,
+        "evidence": "Read in the same-day native QX source build"
+      }
+    },
+    {
+      "section": "filter_remote",
+      "line": 49,
+      "public_host": "limbopro.com",
+      "repository": "limbopro/Adblock4limbo",
+      "url": "https://limbopro.com/Adblock4limbo.list",
+      "tag": "毒奶分流",
+      "enabled": true,
+      "options": {
+        "opt-parser": "true",
+        "update-interval": "172800"
+      },
+      "repository_relationship": "original-website-associated-with-author-github-repository",
+      "original_fetch": {
+        "http_status": 403
+      },
+      "author_mirror": "https://raw.githubusercontent.com/limbopro/Adblock4limbo/main/Adblock4limbo.list",
+      "author_mirror_fetch": {
+        "http_status": 200
+      },
+      "integration": {
+        "original_index": 3,
+        "integration_status": "author-github-alternative-not-original-website-byte-proof",
+        "current_source_ids": [
+          "03_filter"
+        ]
+      }
+    },
+    {
+      "section": "filter_remote",
+      "line": 50,
+      "repository": "NobyDa/ND-AD",
+      "url": "https://raw.githubusercontent.com/NobyDa/ND-AD/master/QuantumultX/AD_Block.txt",
+      "tag": "野比分流",
+      "enabled": true,
+      "force_policy": "reject",
+      "had_url_parameters": false,
+      "options": {
+        "opt-parser": "true",
+        "update-interval": "172800"
+      },
+      "integration": {
+        "original_index": 4,
+        "integration_status": "direct-source-present-with-documented-scope-exclusions",
+        "current_source_ids": [
+          "04_filter"
+        ],
+        "current_policies": {
+          "04_filter": "reject"
+        },
+        "policy_preserved_exactly": true,
+        "scope_exclusions": {
+          "04_filter": 15
+        }
+      },
+      "current_fetch": {
+        "http_status": 200,
+        "evidence": "Read in the same-day native QX source build"
+      }
+    },
+    {
+      "section": "filter_remote",
+      "line": 51,
+      "repository": "NobyDa/ND-AD",
+      "url": "https://raw.githubusercontent.com/NobyDa/ND-AD/master/QuantumultX/AD_Block_Plus.txt",
+      "tag": "野比分流Plus",
+      "enabled": true,
+      "force_policy": "reject",
+      "had_url_parameters": false,
+      "options": {
+        "opt-parser": "false",
+        "update-interval": "172800"
+      },
+      "integration": {
+        "original_index": 5,
+        "integration_status": "direct-source-present-with-documented-scope-exclusions",
+        "current_source_ids": [
+          "05_filter"
+        ],
+        "current_policies": {
+          "05_filter": "reject"
+        },
+        "policy_preserved_exactly": true,
+        "scope_exclusions": {
+          "05_filter": 4
+        }
+      },
+      "current_fetch": {
+        "http_status": 200,
+        "evidence": "Read in the same-day native QX source build"
+      }
+    },
+    {
+      "section": "filter_remote",
+      "line": 52,
+      "repository": "blackmatrix7/ios_rule_script",
+      "url": "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/QuantumultX/Direct/Direct.list",
+      "tag": "规则修正@blackmatrix7",
+      "enabled": true,
+      "force_policy": "全球加速",
+      "had_url_parameters": false,
+      "options": {
+        "opt-parser": "false",
+        "update-interval": "172800"
+      },
+      "integration": {
+        "original_index": 6,
+        "integration_status": "direct-source-present-with-documented-scope-exclusions",
+        "current_source_ids": [
+          "06_filter"
+        ],
+        "current_policies": {
+          "06_filter": "proxy"
+        },
+        "policy_preserved_exactly": false,
+        "scope_exclusions": {
+          "06_filter": 0
+        }
+      },
+      "current_fetch": {
+        "http_status": 200,
+        "evidence": "Read in the same-day native QX source build"
+      }
+    },
+    {
+      "section": "filter_remote",
+      "line": 53,
+      "repository": "blackmatrix7/ios_rule_script",
+      "url": "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/QuantumultX/Lan/Lan.list",
+      "tag": "本地局域网@blackmatrix7",
+      "enabled": true,
+      "force_policy": "direct",
+      "had_url_parameters": false,
+      "options": {
+        "opt-parser": "false",
+        "update-interval": "172800"
+      },
+      "integration": {
+        "original_index": 7,
+        "integration_status": "direct-source-present-with-documented-scope-exclusions",
+        "current_source_ids": [
+          "07_filter"
+        ],
+        "current_policies": {
+          "07_filter": "direct"
+        },
+        "policy_preserved_exactly": true,
+        "scope_exclusions": {
+          "07_filter": 0
+        }
+      },
+      "current_fetch": {
+        "http_status": 200,
+        "evidence": "Read in the same-day native QX source build"
+      }
+    },
+    {
+      "section": "filter_remote",
+      "line": 54,
+      "repository": "privacy-protection-tools/anti-AD",
+      "url": "https://raw.githubusercontent.com/privacy-protection-tools/anti-AD/master/anti-ad-surge2.txt",
+      "tag": "广告终结者@anti-ad",
+      "enabled": true,
+      "force_policy": "reject",
+      "had_url_parameters": false,
+      "options": {
+        "opt-parser": "true",
+        "update-interval": "172800"
+      },
+      "integration": {
+        "original_index": 8,
+        "integration_status": "direct-source-present-with-documented-scope-exclusions",
+        "current_source_ids": [
+          "08_filter"
+        ],
+        "current_policies": {
+          "08_filter": "reject"
+        },
+        "policy_preserved_exactly": true,
+        "scope_exclusions": {
+          "08_filter": 6
+        }
+      },
+      "current_fetch": {
+        "http_status": 200,
+        "evidence": "Read in the same-day native QX source build"
+      }
+    },
+    {
+      "section": "filter_remote",
+      "line": 55,
+      "repository": "blackmatrix7/ios_rule_script",
+      "url": "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/QuantumultX/Privacy/Privacy.list",
+      "tag": "隐私保护@blackmatrix7",
+      "enabled": true,
+      "force_policy": "reject",
+      "had_url_parameters": false,
+      "options": {
+        "opt-parser": "false",
+        "update-interval": "172800"
+      },
+      "integration": {
+        "original_index": 9,
+        "integration_status": "direct-source-present-with-documented-scope-exclusions",
+        "current_source_ids": [
+          "09_filter"
+        ],
+        "current_policies": {
+          "09_filter": "reject"
+        },
+        "policy_preserved_exactly": true,
+        "scope_exclusions": {
+          "09_filter": 0
+        }
+      },
+      "current_fetch": {
+        "http_status": 200,
+        "evidence": "Read in the same-day native QX source build"
+      }
+    },
+    {
+      "section": "filter_remote",
+      "line": 56,
+      "repository": "blackmatrix7/ios_rule_script",
+      "url": "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/QuantumultX/Hijacking/Hijacking.list",
+      "tag": "反劫持@blackmatrix7",
+      "enabled": true,
+      "force_policy": "reject",
+      "had_url_parameters": false,
+      "options": {
+        "opt-parser": "false",
+        "update-interval": "172800"
+      },
+      "integration": {
+        "original_index": 10,
+        "integration_status": "direct-source-present-with-documented-scope-exclusions",
+        "current_source_ids": [
+          "10_filter"
+        ],
+        "current_policies": {
+          "10_filter": "reject"
+        },
+        "policy_preserved_exactly": true,
+        "scope_exclusions": {
+          "10_filter": 0
+        }
+      },
+      "current_fetch": {
+        "http_status": 200,
+        "evidence": "Read in the same-day native QX source build"
+      }
+    },
+    {
+      "section": "filter_remote",
+      "line": 57,
+      "repository": "mieqq/mieqq",
+      "url": "https://raw.githubusercontent.com/mieqq/mieqq/master/In-AppTracker.txt",
+      "tag": "应用内防追踪@mieqq",
+      "enabled": true,
+      "force_policy": "reject",
+      "had_url_parameters": false,
+      "options": {
+        "opt-parser": "true",
+        "update-interval": "172800"
+      },
+      "integration": {
+        "original_index": 11,
+        "integration_status": "direct-source-present-with-documented-scope-exclusions",
+        "current_source_ids": [
+          "11_filter"
+        ],
+        "current_policies": {
+          "11_filter": "reject"
+        },
+        "policy_preserved_exactly": true,
+        "scope_exclusions": {
+          "11_filter": 0
+        }
+      },
+      "current_fetch": {
+        "http_status": 200,
+        "evidence": "Read in the same-day native QX source build"
+      }
+    },
+    {
+      "section": "filter_remote",
+      "line": 58,
+      "repository": "blackmatrix7/ios_rule_script",
+      "url": "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/QuantumultX/WeChat/WeChat.list",
+      "tag": "微信直连@blackmatrix7",
+      "enabled": true,
+      "force_policy": "direct",
+      "had_url_parameters": false,
+      "options": {
+        "opt-parser": "true",
+        "update-interval": "172800"
+      },
+      "integration": {
+        "original_index": 12,
+        "integration_status": "direct-source-present-with-documented-scope-exclusions",
+        "current_source_ids": [
+          "12_filter",
+          "bm-wechat"
+        ],
+        "current_policies": {
+          "12_filter": "direct",
+          "bm-wechat": "direct"
+        },
+        "policy_preserved_exactly": true,
+        "scope_exclusions": {
+          "12_filter": 0,
+          "bm-wechat": 0
+        }
+      },
+      "current_fetch": {
+        "http_status": 200,
+        "evidence": "Read in the same-day native QX source build"
+      }
+    },
+    {
+      "section": "filter_remote",
+      "line": 59,
+      "repository": "ConnersHua/RuleGo",
+      "url": "https://raw.githubusercontent.com/ConnersHua/RuleGo/master/Surge/Ruleset/Direct+.list",
+      "tag": "直连修正",
+      "enabled": true,
+      "force_policy": "direct",
+      "had_url_parameters": false,
+      "options": {
+        "opt-parser": "true",
+        "update-interval": "172800"
+      },
+      "integration": {
+        "original_index": 13,
+        "integration_status": "direct-source-present-with-documented-scope-exclusions",
+        "current_source_ids": [
+          "13_filter"
+        ],
+        "current_policies": {
+          "13_filter": "direct"
+        },
+        "policy_preserved_exactly": true,
+        "scope_exclusions": {
+          "13_filter": 0
+        }
+      },
+      "current_fetch": {
+        "http_status": 200,
+        "evidence": "Read in the same-day native QX source build"
+      }
+    },
+    {
+      "section": "filter_remote",
+      "line": 60,
+      "repository": "ConnersHua/RuleGo",
+      "url": "https://raw.githubusercontent.com/ConnersHua/RuleGo/master/Surge/Ruleset/Extra/Reject/Advertising.list",
+      "tag": "广告拦截",
+      "enabled": true,
+      "force_policy": "reject",
+      "had_url_parameters": false,
+      "options": {
+        "opt-parser": "true",
+        "update-interval": "172800"
+      },
+      "integration": {
+        "original_index": 14,
+        "integration_status": "direct-source-present-with-documented-scope-exclusions",
+        "current_source_ids": [
+          "14_filter"
+        ],
+        "current_policies": {
+          "14_filter": "reject"
+        },
+        "policy_preserved_exactly": true,
+        "scope_exclusions": {
+          "14_filter": 0
+        }
+      },
+      "current_fetch": {
+        "http_status": 200,
+        "evidence": "Read in the same-day native QX source build"
+      }
+    },
+    {
+      "section": "filter_remote",
+      "line": 61,
+      "repository": "ConnersHua/RuleGo",
+      "url": "https://raw.githubusercontent.com/ConnersHua/RuleGo/master/Surge/Ruleset/Extra/Reject/Tracking.list",
+      "tag": "隐私保护",
+      "enabled": true,
+      "force_policy": "reject",
+      "had_url_parameters": false,
+      "options": {
+        "opt-parser": "true",
+        "update-interval": "172800"
+      },
+      "integration": {
+        "original_index": 15,
+        "integration_status": "direct-source-present-with-documented-scope-exclusions",
+        "current_source_ids": [
+          "15_filter"
+        ],
+        "current_policies": {
+          "15_filter": "reject"
+        },
+        "policy_preserved_exactly": true,
+        "scope_exclusions": {
+          "15_filter": 0
+        }
+      },
+      "current_fetch": {
+        "http_status": 200,
+        "evidence": "Read in the same-day native QX source build"
+      }
+    },
+    {
+      "section": "filter_remote",
+      "line": 62,
+      "repository": "ConnersHua/RuleGo",
+      "url": "https://raw.githubusercontent.com/ConnersHua/RuleGo/master/Surge/Ruleset/Extra/Streaming/Video/TikTok.list",
+      "tag": "海外抖音",
+      "enabled": true,
+      "force_policy": "全球加速",
+      "had_url_parameters": false,
+      "options": {
+        "opt-parser": "true",
+        "update-interval": "172800"
+      },
+      "integration": {
+        "original_index": 16,
+        "integration_status": "not-in-current-source-selection",
+        "current_source_ids": []
+      },
+      "current_fetch": {
+        "http_status": 200,
+        "bytes": 311,
+        "sha256": "5827f7446fcedddf16152d4b0bbaf8bddb26dcb93700d619385d6f121f5a1483"
+      }
+    },
+    {
+      "section": "filter_remote",
+      "line": 63,
+      "repository": "ConnersHua/RuleGo",
+      "url": "https://raw.githubusercontent.com/ConnersHua/RuleGo/master/Surge/Ruleset/Extra/Google/GoogleVoice.list",
+      "tag": "谷歌语音",
+      "enabled": true,
+      "force_policy": "美国节点",
+      "had_url_parameters": false,
+      "options": {
+        "opt-parser": "true",
+        "update-interval": "172800"
+      },
+      "integration": {
+        "original_index": 17,
+        "integration_status": "not-in-current-source-selection",
+        "current_source_ids": []
+      },
+      "current_fetch": {
+        "http_status": 200,
+        "bytes": 41,
+        "sha256": "ac185af27e084d945c5b771ca93835a80100851585cb94ba6e1b6cde45f7490e"
+      }
+    },
+    {
+      "section": "filter_remote",
+      "line": 64,
+      "repository": "ConnersHua/RuleGo",
+      "url": "https://raw.githubusercontent.com/ConnersHua/RuleGo/master/Surge/Ruleset/Extra/Telegram.list",
+      "tag": "电报代理",
+      "enabled": true,
+      "force_policy": "电报代理",
+      "had_url_parameters": false,
+      "options": {
+        "opt-parser": "true",
+        "update-interval": "172800"
+      },
+      "integration": {
+        "original_index": 18,
+        "integration_status": "not-in-current-source-selection",
+        "current_source_ids": []
+      },
+      "current_fetch": {
+        "http_status": 200,
+        "bytes": 920,
+        "sha256": "e8f75858be3a7da883a796d97c8490acb100404aabb500fde7f23703de5e000c"
+      }
+    },
+    {
+      "section": "filter_remote",
+      "line": 65,
+      "repository": "ConnersHua/RuleGo",
+      "url": "https://raw.githubusercontent.com/ConnersHua/RuleGo/master/Surge/Ruleset/Extra/Streaming/!CN.list",
+      "tag": "国际媒体",
+      "enabled": true,
+      "force_policy": "国际媒体",
+      "had_url_parameters": false,
+      "options": {
+        "opt-parser": "true",
+        "update-interval": "172800"
+      },
+      "integration": {
+        "original_index": 19,
+        "integration_status": "not-in-current-source-selection",
+        "current_source_ids": []
+      },
+      "current_fetch": {
+        "http_status": 200,
+        "bytes": 7796,
+        "sha256": "8e3a7945de96310575837ad55fd724aecaf3b3894a7eac2a979311d6d5fa88ce"
+      }
+    },
+    {
+      "section": "filter_remote",
+      "line": 66,
+      "repository": "ConnersHua/RuleGo",
+      "url": "https://raw.githubusercontent.com/ConnersHua/RuleGo/master/Surge/Ruleset/Extra/Streaming/CN.list",
+      "tag": "港台番剧",
+      "enabled": true,
+      "force_policy": "港台番剧",
+      "had_url_parameters": false,
+      "options": {
+        "opt-parser": "true",
+        "update-interval": "172800"
+      },
+      "integration": {
+        "original_index": 20,
+        "integration_status": "not-in-current-source-selection",
+        "current_source_ids": []
+      },
+      "current_fetch": {
+        "http_status": 200,
+        "bytes": 505,
+        "sha256": "8a79fd534b92d7ac33e9290bd141b423822dc50525a525938486a340b6b5bcda"
+      }
+    },
+    {
+      "section": "filter_remote",
+      "line": 67,
+      "repository": "ConnersHua/RuleGo",
+      "url": "https://raw.githubusercontent.com/ConnersHua/RuleGo/master/Surge/Ruleset/Proxy.list",
+      "tag": "全球加速",
+      "enabled": true,
+      "force_policy": "全球加速",
+      "had_url_parameters": false,
+      "options": {
+        "opt-parser": "true",
+        "update-interval": "172800"
+      },
+      "integration": {
+        "original_index": 21,
+        "integration_status": "not-in-current-source-selection",
+        "current_source_ids": []
+      },
+      "current_fetch": {
+        "http_status": 200,
+        "bytes": 14686,
+        "sha256": "2292abb55f20caf031ffbb7011c84b85c2246f54ae050fe416323da1fd2b8ead"
+      }
+    },
+    {
+      "section": "filter_remote",
+      "line": 68,
+      "repository": "ConnersHua/RuleGo",
+      "url": "https://raw.githubusercontent.com/ConnersHua/RuleGo/master/Surge/Ruleset/Extra/Apple/Apple.list",
+      "tag": "苹果服务",
+      "enabled": true,
+      "force_policy": "苹果服务",
+      "had_url_parameters": false,
+      "options": {
+        "opt-parser": "true",
+        "update-interval": "172800"
+      },
+      "integration": {
+        "original_index": 22,
+        "integration_status": "not-in-current-source-selection",
+        "current_source_ids": []
+      },
+      "current_fetch": {
+        "http_status": 200,
+        "bytes": 603,
+        "sha256": "8ecf4183ed7153f4d7f84f1f397005b4f16cfd9058ccdcce8762d3eb562a5e82"
+      }
+    },
+    {
+      "section": "filter_remote",
+      "line": 69,
+      "repository": "ConnersHua/RuleGo",
+      "url": "https://raw.githubusercontent.com/ConnersHua/RuleGo/master/Surge/Ruleset/Direct.list",
+      "tag": "国内网站",
+      "enabled": true,
+      "force_policy": "direct",
+      "had_url_parameters": false,
+      "options": {
+        "opt-parser": "true",
+        "update-interval": "172800"
+      },
+      "integration": {
+        "original_index": 23,
+        "integration_status": "not-in-current-source-selection",
+        "current_source_ids": []
+      },
+      "current_fetch": {
+        "http_status": 200,
+        "bytes": 897,
+        "sha256": "35aae672ccde5534afd5d30344bd1ee4c75ddd383c099eda3babee3202ca5630"
+      }
+    },
+    {
+      "section": "filter_remote",
+      "line": 70,
+      "repository": "ConnersHua/RuleGo",
+      "url": "https://raw.githubusercontent.com/ConnersHua/RuleGo/master/Surge/Ruleset/Extra/WeChat.list",
+      "tag": "微信直连",
+      "enabled": true,
+      "force_policy": "direct",
+      "had_url_parameters": false,
+      "options": {
+        "opt-parser": "true",
+        "update-interval": "172800"
+      },
+      "integration": {
+        "original_index": 24,
+        "integration_status": "not-in-current-source-selection",
+        "current_source_ids": []
+      },
+      "current_fetch": {
+        "http_status": 200,
+        "bytes": 816,
+        "sha256": "3404f16f0226b9e13e2bee7b22ed2c9d36efbaae3c4251a19457c3dabe43c746"
+      }
+    },
+    {
+      "section": "filter_remote",
+      "line": 71,
+      "repository": "ConnersHua/RuleGo",
+      "url": "https://raw.githubusercontent.com/ConnersHua/RuleGo/master/Surge/Ruleset/Proxy+.list",
+      "tag": "代理修正",
+      "enabled": true,
+      "force_policy": "proxy",
+      "had_url_parameters": false,
+      "options": {
+        "opt-parser": "true",
+        "update-interval": "172800"
+      },
+      "integration": {
+        "original_index": 25,
+        "integration_status": "not-in-current-source-selection",
+        "current_source_ids": []
+      },
+      "current_fetch": {
+        "http_status": 200,
+        "bytes": 32,
+        "sha256": "2d4f4e156663de6b5d1e4d49be23799f8a0a08ef7c061cb0d133e194be07bf7c"
+      }
+    },
+    {
+      "section": "rewrite_remote",
+      "line": 74,
+      "repository": "DoracisMu/quanX_rewirte",
+      "url": "https://raw.githubusercontent.com/DoracisMu/quanX_rewirte/master/JdTb.conf",
+      "tag": "购物比价",
+      "enabled": true,
+      "force_policy": null,
+      "had_url_parameters": false,
+      "options": {
+        "opt-parser": "true",
+        "update-interval": "172800"
+      },
+      "integration": {
+        "status": "independent-original-functional-or-disabled-resource",
+        "action": "Preserve original enablement and parser options; not part of the ad subscription."
+      },
+      "current_fetch": {
+        "http_status": 200,
+        "bytes": 558,
+        "sha256": "8fc670b6dbbe0c71f478ddc1da27857ca20bd44f161ed465a1d9e1ffd89a5c0e",
+        "format": "native-qx-rewrite",
+        "notes": [
+          "Three native QX rules: JD response body plus Taobao request/response bodies.",
+          "Real script provider is yichahucha/surge, not the wrapper repository.",
+          "Price scripts call price.icharle.com. This audit did not call the price service or test actual shopping App pages.",
+          "Matcher overlap with the disabled Orz-3 price wrapper is exact; preserve this active selection and do not enable both wrappers."
+        ]
+      },
+      "dependencies": [
+        {
+          "url": "https://raw.githubusercontent.com/yichahucha/surge/master/jd_price.js",
+          "http_status": 200,
+          "bytes": 12243,
+          "sha256": "25e5394757e778ecf26042dd1e00ed379014a13773fdf7af7733540999d7c89a"
+        },
+        {
+          "url": "https://raw.githubusercontent.com/yichahucha/surge/master/tb_price.js",
+          "http_status": 200,
+          "bytes": 18559,
+          "sha256": "85c6b942d87e705aa1ea38b97b5c3fc5b368369305aac3fa179f1bd9bc9f4ed9"
+        }
+      ]
+    },
+    {
+      "section": "rewrite_remote",
+      "line": 75,
+      "repository": "chxm1023/Script_X",
+      "url": "https://raw.githubusercontent.com/chxm1023/Script_X/main/Collections.conf",
+      "tag": "app解锁合集@chxm1023",
+      "enabled": true,
+      "force_policy": null,
+      "had_url_parameters": false,
+      "options": {
+        "opt-parser": "true",
+        "update-interval": "172800"
+      },
+      "integration": {
+        "status": "independent-original-functional-or-disabled-resource",
+        "action": "Preserve original enablement and parser options; not part of the ad subscription."
+      },
+      "current_fetch": {
+        "status": 200,
+        "bytes": 48076,
+        "sha256": "e44e392d97acdc2e0ff868c91f53b5a9d649396ba726e9fff69ba815908d74b6"
+      }
+    },
+    {
+      "section": "rewrite_remote",
+      "line": 76,
+      "repository": "fmz200/wool_scripts",
+      "url": "https://raw.githubusercontent.com/fmz200/wool_scripts/main/QuantumultX/rewrite/chongxie.txt",
+      "tag": "去广告合集@chxm1023",
+      "enabled": true,
+      "force_policy": null,
+      "had_url_parameters": false,
+      "options": {
+        "opt-parser": "true",
+        "update-interval": "-1"
+      },
+      "current_fetch": {
+        "http_status": 404
+      },
+      "integration": {
+        "status": "current-author-replacement",
+        "replacement_url": "https://raw.githubusercontent.com/fmz200/wool_scripts/main/QuantumultX/rewrite/rewrite.snippet",
+        "note": "Old frozen QX cache is not available from this private profile; replacement is not a byte-equivalence claim."
+      }
+    },
+    {
+      "section": "rewrite_remote",
+      "line": 77,
+      "repository": "fmz200/wool_scripts",
+      "url": "https://raw.githubusercontent.com/fmz200/wool_scripts/main/QuantumultX/rewrite/cleanup.snippet",
+      "tag": "App&小程序净化合集@fmz200",
+      "enabled": true,
+      "force_policy": null,
+      "had_url_parameters": false,
+      "options": {
+        "opt-parser": "true",
+        "update-interval": "172800"
+      },
+      "integration": {
+        "status": "selected-native-resource",
+        "products": [
+          {
+            "file": "miniapps.conf",
+            "default_enabled": false
+          }
+        ]
+      },
+      "current_fetch": {
+        "http_status": 200,
+        "evidence": "Read in native QX or public tool audit"
+      }
+    },
+    {
+      "section": "rewrite_remote",
+      "line": 78,
+      "repository": "RuCu6/QuanX",
+      "url": "https://raw.githubusercontent.com/RuCu6/QuanX/main/Rewrites/Cube/bdmap.snippet",
+      "tag": "百度地图净化[卸载重装]@RuCu6",
+      "enabled": false,
+      "force_policy": null,
+      "had_url_parameters": false,
+      "options": {
+        "opt-parser": "false",
+        "update-interval": "172800"
+      },
+      "integration": {
+        "status": "independent-original-functional-or-disabled-resource",
+        "action": "Preserve original enablement and parser options; not part of the ad subscription."
+      },
+      "current_fetch": {
+        "http_status": 404,
+        "format": "unavailable",
+        "notes": [
+          "Current original raw URL returned 404; the user currently has it disabled.",
+          "Keep this repository/resource object in the catalog; do not enable a guessed replacement."
+        ]
+      },
+      "dependencies": []
+    },
+    {
+      "section": "rewrite_remote",
+      "line": 79,
+      "repository": "ddgksf2013/Rewrite",
+      "url": "https://raw.githubusercontent.com/ddgksf2013/Rewrite/master/Html/WebAdBlock.conf",
+      "tag": "影视网站去广告@ddgksf2013",
+      "enabled": false,
+      "force_policy": null,
+      "had_url_parameters": false,
+      "options": {
+        "opt-parser": "true",
+        "update-interval": "172800"
+      },
+      "integration": {
+        "status": "independent-original-functional-or-disabled-resource",
+        "action": "Preserve original enablement and parser options; not part of the ad subscription."
+      },
+      "current_fetch": {
+        "http_status": 404,
+        "format": "unavailable",
+        "notes": [
+          "Current original raw URL returned 404; the user currently has it disabled.",
+          "An earlier audit recovered a public historical file at ddgksf2013/Rewrite commit c8e40ff852028c51f361e439a6e7f97b79d82b9a; this is not the live URL or the user cache."
+        ]
+      },
+      "dependencies": []
+    },
+    {
+      "section": "rewrite_remote",
+      "line": 80,
+      "repository": "DivineEngine/Profiles",
+      "url": "https://raw.githubusercontent.com/DivineEngine/Profiles/master/Quantumult/Rewrite/General.conf",
+      "tag": "神机重定向@DivineEngine",
+      "enabled": false,
+      "force_policy": null,
+      "had_url_parameters": false,
+      "options": {
+        "opt-parser": "true",
+        "update-interval": "172800",
+        "inserted-resource": "true"
+      },
+      "integration": {
+        "status": "independent-original-functional-or-disabled-resource",
+        "action": "Preserve original enablement and parser options; not part of the ad subscription."
+      },
+      "current_fetch": {
+        "http_status": 404,
+        "format": "unavailable",
+        "notes": [
+          "Current original raw URL returned 404; the user currently has it disabled."
+        ]
+      },
+      "dependencies": []
+    },
+    {
+      "section": "rewrite_remote",
+      "line": 81,
+      "repository": "ddgksf2013/Rewrite",
+      "url": "https://raw.githubusercontent.com/ddgksf2013/Rewrite/master/Html/Q-Search.conf",
+      "tag": "Safari超级搜索@ddgksf2013",
+      "enabled": true,
+      "force_policy": null,
+      "had_url_parameters": false,
+      "options": {
+        "opt-parser": "true",
+        "update-interval": "172800"
+      },
+      "integration": {
+        "status": "independent-original-functional-or-disabled-resource",
+        "action": "Preserve original enablement and parser options; not part of the ad subscription."
+      },
+      "current_fetch": {
+        "http_status": 200,
+        "bytes": 11074,
+        "sha256": "a714d37e2b367971dc5bffa54edf47ad72d9e975e0e27d4cc182abdc2391d6af",
+        "format": "native-qx-rewrite",
+        "notes": [
+          "83 native QX URL 302 redirects; MitM host duckduckgo.com.",
+          "Author requires Safari default search engine DuckDuckGo for keyword commands.",
+          "Rules include App Store region switches, app URL schemes, dictionary/search routes and an adult-site search shortcut; preserve as a separate opt-in functional resource rather than silently adding it to ad blocking.",
+          "No second-level script dependency."
+        ]
+      },
+      "dependencies": []
+    },
+    {
+      "section": "rewrite_remote",
+      "line": 82,
+      "repository": "ddgksf2013/Rewrite",
+      "url": "https://raw.githubusercontent.com/ddgksf2013/Rewrite/master/Html/EndlessGoogle.conf",
+      "tag": "Google自动翻页@ddgksf2013",
+      "enabled": true,
+      "force_policy": null,
+      "had_url_parameters": false,
+      "options": {
+        "opt-parser": "true",
+        "update-interval": "172800"
+      },
+      "integration": {
+        "status": "independent-original-functional-or-disabled-resource",
+        "action": "Preserve original enablement and parser options; not part of the ad subscription."
+      },
+      "current_fetch": {
+        "http_status": 200,
+        "bytes": 537,
+        "sha256": "465e5fcb1bbee4cc88cf70218f9e85c7fedc51bf1fa9ad2f1f4af4994ff6bf5d",
+        "format": "native-qx-rewrite",
+        "notes": [
+          "One QX response-body script hook, MitM www.google.*.",
+          "Actual dependency is ddgksf2013/Scripts/endlessgoogle.js; current raw and JS dependency both available.",
+          "DOM-dependent functionality has not been tested against current Google pages."
+        ]
+      },
+      "dependencies": [
+        {
+          "url": "https://raw.githubusercontent.com/ddgksf2013/Scripts/master/endlessgoogle.js",
+          "http_status": 200,
+          "bytes": 4498,
+          "sha256": "1ec5f22a913832d1229384b2c8ae048946e2cbcd12880c342b38b92fdbce5b45"
+        }
+      ]
+    },
+    {
+      "section": "rewrite_remote",
+      "line": 83,
+      "repository": "id77/QuantumultX",
+      "url": "https://raw.githubusercontent.com/id77/QuantumultX/master/rewrite/Youtube_CC.conf",
+      "tag": "油管字幕翻译@id77",
+      "enabled": true,
+      "force_policy": null,
+      "had_url_parameters": true,
+      "options": {
+        "opt-parser": "true",
+        "update-interval": "172800"
+      },
+      "integration": {
+        "status": "independent-original-functional-or-disabled-resource",
+        "action": "Preserve original enablement and parser options; not part of the ad subscription."
+      },
+      "current_fetch": {
+        "http_status": 200,
+        "bytes": 743,
+        "sha256": "039c9c94705dee2e1dd0256bd30c1b34d40ada11a73b5220d676f7c9783f6e8c",
+        "format": "native-qx-rewrite-with-parser-parameter",
+        "notes": [
+          "Two request-header rewrites in source; MitM www.youtube.com.",
+          "Source comments explicitly specify #out=Hant or #out=Hans for parser-driven conversion.",
+          "The sanitized inventory records that the current URL has parameters but intentionally omits their values. The parent must retain the actual current fragment locally; this audit did not read the private configuration.",
+          "Do not blindly concatenate both language variants or strip the fragment."
+        ]
+      },
+      "dependencies": [],
+      "public_fragment_to_preserve": "out=Hant",
+      "parameter_note": "Keep this exact parser filter parameter; do not infer language merely from the token."
+    },
+    {
+      "section": "rewrite_remote",
+      "line": 84,
+      "repository": "Orz-3/QuantumultX",
+      "url": "https://raw.githubusercontent.com/Orz-3/QuantumultX/master/Netflix_ratings.conf",
+      "tag": "Netflix评分@Orz-3",
+      "enabled": true,
+      "force_policy": null,
+      "had_url_parameters": false,
+      "options": {
+        "opt-parser": "true",
+        "update-interval": "172800"
+      },
+      "integration": {
+        "status": "independent-original-functional-or-disabled-resource",
+        "action": "Preserve original enablement and parser options; not part of the ad subscription."
+      },
+      "current_fetch": {
+        "http_status": 200,
+        "bytes": 525,
+        "sha256": "e0b44fbc59390f0a30e4c0b064b0b584312372b4aaa188e3fd2960bd01c3faee",
+        "format": "native-qx-rewrite",
+        "notes": [
+          "Same URL matcher has both a request-header and a response-body hook; these are different processing stages and must both survive deduplication.",
+          "Actual provider is yichahucha/surge/nf_rating.js.",
+          "Script references OMDb and Douban services; their live APIs and Netflix App compatibility were not tested."
+        ]
+      },
+      "dependencies": [
+        {
+          "url": "https://raw.githubusercontent.com/yichahucha/surge/master/nf_rating.js",
+          "http_status": 200,
+          "bytes": 20555,
+          "sha256": "1c79eae76d42dd3441de7ad27e6aab7bcebc59485e7a73841accb66ba95d595f"
+        }
+      ]
+    },
+    {
+      "section": "rewrite_remote",
+      "line": 85,
+      "repository": "Orz-3/QuantumultX",
+      "url": "https://raw.githubusercontent.com/Orz-3/QuantumultX/master/JD_TB_price.conf",
+      "tag": "比价脚本@Orz-3",
+      "enabled": false,
+      "force_policy": null,
+      "had_url_parameters": false,
+      "options": {
+        "opt-parser": "true",
+        "update-interval": "172800"
+      },
+      "integration": {
+        "status": "independent-original-functional-or-disabled-resource",
+        "action": "Preserve original enablement and parser options; not part of the ad subscription."
+      },
+      "current_fetch": {
+        "http_status": 200,
+        "bytes": 560,
+        "sha256": "777bcc9d0525e47012b17438236a8d73e84a7c39a472d0bb6e582b08522fe5c5",
+        "format": "native-qx-rewrite",
+        "notes": [
+          "User currently has this wrapper disabled.",
+          "The three URL patterns overlap exactly with active DoracisMu JdTb.conf, but use another script provider.",
+          "Its non-GitHub dependency service.2ti.st currently failed TLS download with UNEXPECTED_EOF_WHILE_READING; do not mark it usable based on wrapper HTTP 200."
+        ]
+      },
+      "dependencies": []
+    },
+    {
+      "section": "rewrite_remote",
+      "line": 86,
+      "repository": "NobyDa/Script",
+      "url": "https://raw.githubusercontent.com/NobyDa/Script/master/TestFlight/TestFlightAccount.js",
+      "tag": "Testflight解锁限制@NobyDa",
+      "enabled": true,
+      "force_policy": null,
+      "had_url_parameters": false,
+      "options": {
+        "opt-parser": "true",
+        "update-interval": "172800"
+      },
+      "integration": {
+        "status": "independent-original-functional-or-disabled-resource",
+        "action": "Preserve original enablement and parser options; not part of the ad subscription."
+      },
+      "current_fetch": {
+        "http_status": 200,
+        "bytes": 19268,
+        "sha256": "30fbd3001671beb349190fe0214b1a23f4628fec922ece2227247b2f31170d09",
+        "format": "javascript-resource-needs-parser",
+        "notes": [
+          "This is a JavaScript body with embedded installation documentation, not an ordinary native-QX rewrite list.",
+          "Author explicitly says the direct rewrite-resource URL needs the KOP-XIAO parser, or the documented script-analyze-echo-response hook must be supplied separately.",
+          "Features include storing multiple TestFlight account request headers locally, combining app lists and experimental sharing/import of test apps.",
+          "It already includes the regional-download workaround; author explicitly says to disable the separate TF regional script.",
+          "Both this resource and TestFlightDownload.conf are currently enabled in the uploaded inventory. This is an actual documented configuration conflict."
+        ]
+      },
+      "dependencies": []
+    },
+    {
+      "section": "rewrite_remote",
+      "line": 87,
+      "repository": "zZPiglet/Task",
+      "url": "https://raw.githubusercontent.com/zZPiglet/Task/master/UnblockURLinWeChat.conf",
+      "tag": "解除微信链接屏蔽@zZPiglet",
+      "enabled": true,
+      "force_policy": null,
+      "had_url_parameters": false,
+      "options": {
+        "opt-parser": "false",
+        "update-interval": "172800"
+      },
+      "integration": {
+        "status": "independent-original-functional-or-disabled-resource",
+        "action": "Preserve original enablement and parser options; not part of the ad subscription."
+      },
+      "current_fetch": {
+        "http_status": 200,
+        "bytes": 550,
+        "sha256": "722f3c349f03020175f718730d22a1f503b9770d8af5b162017b0eab29a797f3",
+        "format": "native-qx-rewrite",
+        "notes": [
+          "One response-body hook for weixin110.qq.com and security.wechat.com.",
+          "BoxJS/persistent settings control cached-page display and forced redirect; changing these settings can affect behavior.",
+          "Current source has argument parser comparison forceRedirect === \"ture\". The literal typo affects an explicit $argument forceRedirect=true; the ordinary persistent-setting branch uses \"true\". No patch was applied in this audit.",
+          "The source includes bundled he and Base64 libraries; they are in the same file, not runtime downloads.",
+          "Optional archive fallback uses web.archive.org; no target URLs were queried during this audit."
+        ]
+      },
+      "dependencies": [
+        {
+          "url": "https://raw.githubusercontent.com/zZPiglet/Task/master/asset/UnblockURLinWeChat.js",
+          "http_status": 200,
+          "bytes": 86443,
+          "sha256": "79098ac4d2eb7932c9b2b45ac7891469703626855e5d13ab4374af52cc48983e"
+        }
+      ]
+    },
+    {
+      "section": "rewrite_remote",
+      "line": 88,
+      "repository": "ddgksf2013/Rewrite",
+      "url": "https://raw.githubusercontent.com/ddgksf2013/Rewrite/master/Function/BaiduCloud.conf",
+      "tag": "百度网盘倍速@ddgksf2013",
+      "enabled": false,
+      "force_policy": null,
+      "had_url_parameters": false,
+      "options": {
+        "opt-parser": "false",
+        "update-interval": "172800"
+      },
+      "integration": {
+        "status": "independent-original-functional-or-disabled-resource",
+        "action": "Preserve original enablement and parser options; not part of the ad subscription."
+      },
+      "current_fetch": {
+        "http_status": 404,
+        "format": "unavailable",
+        "notes": [
+          "Current original raw URL returned 404; the user currently has it disabled."
+        ]
+      },
+      "dependencies": []
+    },
+    {
+      "section": "rewrite_remote",
+      "line": 89,
+      "repository": "ddgksf2013/Rewrite",
+      "url": "https://raw.githubusercontent.com/ddgksf2013/Rewrite/master/Function/BilibiliAutoRegion.conf",
+      "tag": "B站换区脚本[不会配置boxjs请勿勾选]@ddgksf2013",
+      "enabled": false,
+      "force_policy": null,
+      "had_url_parameters": false,
+      "options": {
+        "opt-parser": "false",
+        "update-interval": "172800"
+      },
+      "integration": {
+        "status": "independent-original-functional-or-disabled-resource",
+        "action": "Preserve original enablement and parser options; not part of the ad subscription."
+      },
+      "current_fetch": {
+        "http_status": 404,
+        "format": "unavailable",
+        "notes": [
+          "Current original raw URL returned 404; the user currently has it disabled.",
+          "Original tag states BoxJS configuration is required. No replacement was guessed."
+        ]
+      },
+      "dependencies": []
+    },
+    {
+      "section": "rewrite_remote",
+      "line": 90,
+      "repository": "ddgksf2013/Rewrite",
+      "url": "https://raw.githubusercontent.com/ddgksf2013/Rewrite/master/Html/Douban.conf",
+      "tag": "豆瓣电影网页快捷跳转@ddgksf2013",
+      "enabled": true,
+      "force_policy": null,
+      "had_url_parameters": false,
+      "options": {
+        "opt-parser": "false",
+        "update-interval": "172800"
+      },
+      "integration": {
+        "status": "independent-original-functional-or-disabled-resource",
+        "action": "Preserve original enablement and parser options; not part of the ad subscription."
+      },
+      "current_fetch": {
+        "http_status": 200,
+        "bytes": 957,
+        "sha256": "ee9f285059e0e0e478a2585c91e53188135775a68a9795b1dd39df979abbc757",
+        "format": "native-qx-rewrite",
+        "notes": [
+          "One response-body hook for mobile Douban home/movie/tv/book/group/music pages.",
+          "This is both webpage ad cleanup and navigation enhancement, not merely a quick-jump helper.",
+          "Actual dependency is ddgksf2013/Scripts/douban.js."
+        ]
+      },
+      "dependencies": [
+        {
+          "url": "https://raw.githubusercontent.com/ddgksf2013/Scripts/refs/heads/master/douban.js",
+          "http_status": 200,
+          "bytes": 51247,
+          "sha256": "ee2de7bbbf4cd8aee45956f8ddda2945db8fd5d7377934be9497c6138ed5d583"
+        }
+      ]
+    },
+    {
+      "section": "rewrite_remote",
+      "line": 91,
+      "repository": "chavyleung/scripts",
+      "url": "https://raw.githubusercontent.com/chavyleung/scripts/master/box/rewrite/boxjs.rewrite.quanx.conf",
+      "tag": "boxjs@chavyleung",
+      "enabled": true,
+      "force_policy": null,
+      "had_url_parameters": false,
+      "options": {
+        "opt-parser": "false",
+        "update-interval": "172800"
+      },
+      "integration": {
+        "status": "independent-original-functional-or-disabled-resource",
+        "action": "Preserve original enablement and parser options; not part of the ad subscription."
+      },
+      "current_fetch": {
+        "status": 200,
+        "bytes": 207,
+        "sha256": "39bbc01168931bc67f333468c743b8022d770e240d41b36847bc96a2aa5510f5"
+      }
+    },
+    {
+      "section": "rewrite_remote",
+      "line": 92,
+      "repository": "Peng-YM/Sub-Store",
+      "url": "https://raw.githubusercontent.com/Peng-YM/Sub-Store/master/config/QX.snippet",
+      "tag": "Sub-Store@Peng-YM",
+      "enabled": true,
+      "force_policy": null,
+      "had_url_parameters": false,
+      "options": {
+        "opt-parser": "false",
+        "update-interval": "172800"
+      },
+      "integration": {
+        "status": "independent-original-functional-or-disabled-resource",
+        "action": "Preserve original enablement and parser options; not part of the ad subscription."
+      },
+      "current_fetch": {
+        "status": 200,
+        "bytes": 358,
+        "sha256": "8dfced1a4709e5897be2733aab3749600b0119201d4a62cdcf930f5b1d8f753f"
+      }
+    },
+    {
+      "section": "rewrite_remote",
+      "line": 93,
+      "public_host": "limbopro.com",
+      "repository": "limbopro/Adblock4limbo",
+      "url": "https://limbopro.com/Adblock4limbo.conf",
+      "tag": "毒奶重写",
+      "enabled": true,
+      "options": {
+        "opt-parser": "true",
+        "update-interval": "172800"
+      },
+      "repository_relationship": "original-website-associated-with-author-github-repository",
+      "original_fetch": {
+        "http_status": 403
+      },
+      "author_mirror": "https://raw.githubusercontent.com/limbopro/Adblock4limbo/main/Adblock4limbo.conf",
+      "author_mirror_fetch": {
+        "http_status": 200
+      },
+      "integration": {
+        "status": "not-selected-web-rewrite",
+        "action": "Preserve as a separate original functional resource; author mirror was read."
+      },
+      "current_fetch": {
+        "http_status": 403
+      }
+    },
+    {
+      "section": "rewrite_remote",
+      "line": 94,
+      "repository": "NobyDa/Script",
+      "url": "https://raw.githubusercontent.com/NobyDa/Script/master/QuantumultX/TestFlightDownload.conf",
+      "tag": "TestFlight区域限制解除",
+      "enabled": true,
+      "force_policy": null,
+      "had_url_parameters": false,
+      "options": {
+        "opt-parser": "true",
+        "update-interval": "172800"
+      },
+      "integration": {
+        "status": "independent-original-functional-or-disabled-resource",
+        "action": "Preserve original enablement and parser options; not part of the ad subscription."
+      },
+      "current_fetch": {
+        "http_status": 200,
+        "bytes": 331,
+        "sha256": "4561f0b240b770b141d0bf19ce9d7f7946d3546c738d1749cc022a0074a6024b",
+        "format": "native-qx-rewrite",
+        "notes": [
+          "One request-body hook for the TestFlight /install endpoint.",
+          "Dependency is a NobyDa public Gist, not a separate GitHub repository.",
+          "The current 106-byte script only changes storefrontId to 143441-19,29.",
+          "This logic is already included in active TestFlightAccount.js, whose author requests disabling this older companion to avoid installation anomalies."
+        ]
+      },
+      "dependencies": [
+        {
+          "url": "https://gist.githubusercontent.com/NobyDa/9be418b93afc5e9c8a8f4d28ae403cf2/raw/TF_Download.js",
+          "http_status": 200,
+          "bytes": 106,
+          "sha256": "c4a470faadd6f7400685d8153fab3d3b4a4acb0f461ddaadcc2876f19b995cdf"
+        }
+      ]
+    },
+    {
+      "section": "rewrite_remote",
+      "line": 95,
+      "repository": "ConnersHua/RuleGo",
+      "url": "https://raw.githubusercontent.com/ConnersHua/RuleGo/master/Surge/Module/Block/YouTubeAds.sgmodule",
+      "tag": "YouTube去广告",
+      "enabled": true,
+      "force_policy": null,
+      "had_url_parameters": false,
+      "options": {
+        "opt-parser": "true",
+        "update-interval": "172800"
+      },
+      "integration": {
+        "status": "not-completely-migrated",
+        "action": "Preserve original standalone resource and opt-parser until full native conversion is verified."
+      },
+      "current_fetch": {
+        "http_status": 200,
+        "bytes": 1020,
+        "sha256": "074a95980dcfc01844bbc9ec02421ac35c06851ec7b6ac28f26f2d24487a9808",
+        "format": "surge-sgmodule"
+      }
+    },
+    {
+      "section": "rewrite_remote",
+      "line": 96,
+      "repository": "ddgksf2013/Rewrite",
+      "url": "https://raw.githubusercontent.com/ddgksf2013/Rewrite/master/AdBlock/StartUp.conf",
+      "tag": "墨鱼去开屏",
+      "enabled": false,
+      "force_policy": null,
+      "had_url_parameters": false,
+      "options": {
+        "opt-parser": "true",
+        "update-interval": "172800"
+      },
+      "integration": {
+        "status": "independent-original-functional-or-disabled-resource",
+        "action": "Preserve original enablement and parser options; not part of the ad subscription."
+      },
+      "current_fetch": {
+        "http_status": 404,
+        "format": "unavailable",
+        "notes": [
+          "Current original raw URL returned 404; the user currently has it disabled.",
+          "An earlier audit recovered a public historical file at ddgksf2013/Rewrite commit 086996af225df055cfdc95080bc4fbffad46f671; this is not the live URL or the user cache."
+        ]
+      },
+      "dependencies": []
+    },
+    {
+      "section": "rewrite_remote",
+      "line": 97,
+      "repository": "app2smile/rules",
+      "url": "https://raw.githubusercontent.com/app2smile/rules/master/module/tieba-qx.conf",
+      "tag": "贴吧去广告",
+      "enabled": true,
+      "force_policy": null,
+      "had_url_parameters": false,
+      "options": {
+        "opt-parser": "true",
+        "update-interval": "172800"
+      },
+      "integration": {
+        "status": "selected-native-resource",
+        "products": [
+          {
+            "file": "ads.conf",
+            "default_enabled": true
+          }
+        ]
+      },
+      "current_fetch": {
+        "http_status": 200,
+        "evidence": "Read in native QX or public tool audit"
+      }
+    },
+    {
+      "section": "rewrite_remote",
+      "line": 98,
+      "repository": "ConnersHua/RuleGo",
+      "url": "https://raw.githubusercontent.com/ConnersHua/RuleGo/master/Surge/Module/Block/Advertising.sgmodule",
+      "tag": "神机去广告",
+      "enabled": true,
+      "force_policy": null,
+      "had_url_parameters": false,
+      "options": {
+        "opt-parser": "true",
+        "update-interval": "172800"
+      },
+      "integration": {
+        "status": "not-completely-migrated",
+        "action": "Preserve original standalone resource and opt-parser until full native conversion is verified."
+      },
+      "current_fetch": {
+        "http_status": 200,
+        "bytes": 13994,
+        "sha256": "8a7f32cc052a16e147001c04d3c63a95585108d4823ada0eecb6505da52dd025",
+        "format": "surge-sgmodule"
+      }
+    },
+    {
+      "section": "task_local",
+      "line": 199,
+      "repository": "KOP-XIAO/QuantumultX",
+      "url": "https://raw.githubusercontent.com/KOP-XIAO/QuantumultX/master/Scripts/streaming-ui-check.js",
+      "tag": "流媒体解锁查询",
+      "enabled": true,
+      "force_policy": null,
+      "had_url_parameters": false,
+      "options": {},
+      "integration": {
+        "status": "keep-original-tool",
+        "action": "Not an advertisement rule; keep its original configuration key/task."
+      },
+      "current_fetch": {
+        "status": 200,
+        "bytes": 25217,
+        "sha256": "64970f9a7b230da08d7d5989605c9a9f73fbb7b94c3b3c01b2cab3eea8f09783"
+      }
+    }
+  ],
+  "local_preservation": {
+    "filter_count": 79,
+    "rewrite_count": 3,
+    "values_exported": false,
+    "minus_url_marker": "Observed in one local record. Enablement meaning not verified; preserve unchanged."
+  },
+  "findings": [
+    {
+      "id": "global-parser",
+      "detail": "Keep the existing global KOP resource parser. opt-parser=false applies only to the new native aggregate resources; original Surge modules, raw-JS imports and subtitle filtering still need their original parser settings."
+    },
+    {
+      "id": "testflight-conflict",
+      "detail": "Both TestFlightAccount.js and TestFlightDownload.conf are enabled. The current original author explicitly asks users of the merged Account script to disable the older regional-download script.",
+      "source": "https://raw.githubusercontent.com/NobyDa/Script/master/TestFlight/TestFlightAccount.js",
+      "source_line": 15,
+      "action_applied": false
+    },
+    {
+      "id": "subtitle-parameter",
+      "detail": "Preserve #out=Hant and opt-parser=true from the user's active subtitle resource. This is parser filtering, not a fragment that may be discarded."
+    },
+    {
+      "id": "routes",
+      "detail": "Original ten service routes and their named policies are not completely replaced by the optional blackmatrix lists. Keep original routing until a semantic migration is verified."
+    },
+    {
+      "id": "ad-rewrite-gaps",
+      "detail": "The two original RuleGo modules and the original Limbo web rewrite are not completely migrated. Of 113 RuleGo plain-reject candidates, 78 are text-identical to current output and 35 differ; this is not proof that the latter are all unblocked."
+    },
+    {
+      "id": "frozen-old-source",
+      "detail": "The active old fmz chongxie URL is 404. The new native ad profile reads the author's current rewrite.snippet; the original update-interval=-1 cache cannot be recovered from this config alone."
+    },
+    {
+      "id": "enabled-state",
+      "detail": "Preserve current 18 enabled and 7 disabled rewrite resources. Six disabled original raw files are 404; the disabled old price wrapper is readable but its external script download failed."
+    },
+    {
+      "id": "mixed-collections",
+      "detail": "Collections includes both ad cleanup and entitlement changes and prohibits republication. Its source object and actual script repositories are recorded; its body is not copied into this public audit."
+    }
+  ],
+  "coverage_statement": "This is a complete direct-reference inventory and a recorded coverage comparison, not a claim that all configuration functions were merged or tested on iOS. Personal node, subscription, certificate and local rule values are not published."
+}
