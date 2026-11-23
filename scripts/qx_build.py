@@ -28,6 +28,7 @@ if __package__:
     from .qx_extra_filters import extract_fmz_ad_filters
     from .qx_mixed_guard import validate_mixed_reference
     from .qx_profile_dedup import deduplicate_profile
+    from .qx_filter_partition import partition_ordered_filters
 else:
     import update
     from qx_filters import compile_filters
@@ -38,12 +39,13 @@ else:
     from qx_extra_filters import extract_fmz_ad_filters
     from qx_mixed_guard import validate_mixed_reference
     from qx_profile_dedup import deduplicate_profile
+    from qx_filter_partition import partition_ordered_filters
 
 ROOT = Path(__file__).resolve().parents[1]
 PREFIX = "rules/quantumultx/"
 PUBLIC = "https://raw.githubusercontent.com/SangShy4You/Anti-AD/main/"
 IDENTIFIER = re.compile(r"[a-zA-Z0-9][a-zA-Z0-9_-]{0,100}\Z")
-GENERATOR_MODULES = ("qx_build.py", "qx_filters.py", "qx_rewrites.py", "qx_dependencies.py", "qx_surge_ads.py", "qx_web_ads.py", "qx_extra_filters.py", "qx_mixed_guard.py", "qx_profile_dedup.py")
+GENERATOR_MODULES = ("qx_build.py", "qx_filters.py", "qx_rewrites.py", "qx_dependencies.py", "qx_surge_ads.py", "qx_web_ads.py", "qx_extra_filters.py", "qx_mixed_guard.py", "qx_profile_dedup.py", "qx_filter_partition.py")
 
 
 def dump(value):
@@ -189,6 +191,20 @@ def build(root=ROOT, *, offline_dir=None, dependency_dir=None, fetcher=None, res
                 raise ValueError(f"{item['id']}: rule count below its reviewed minimum {minimum}")
         products[PREFIX + output] = text.encode("utf-8")
 
+    partition_reports, partition_imports = {}, {}
+    partition_specs = config.get("filter_partitions", {})
+    if not isinstance(partition_specs, dict):
+        raise ValueError("Filter partitions must map compiled filter products to ordered specifications")
+    for output, specs in partition_specs.items():
+        if output not in filter_reports:
+            raise ValueError("Filter partition source is not a compiled filter product")
+        derived, imports, partition_report = partition_ordered_filters(products[PREFIX + output].decode("utf-8"), specs)
+        if any(PREFIX + name in products for name in derived):
+            raise ValueError("Filter partition output collides with an existing product")
+        products.update({PREFIX + name: text.encode("utf-8") for name, text in derived.items()})
+        partition_reports[output] = partition_report
+        partition_imports[output] = imports
+
     profile_dedup = (deduplicate_profile(products, rewrite_reports, config["profile_rewrite_order"])
                      if config.get("profile_rewrite_order") else [])
     script_urls = sorted({url for report in rewrite_reports.values() for url in report["script_urls"]})
@@ -302,12 +318,23 @@ def build(root=ROOT, *, offline_dir=None, dependency_dir=None, fetcher=None, res
     for output, selection in config["products"].items():
         if selection["kind"] == "filter":
             enabled = str(selection.get("default_enabled", True)).lower()
-            imports.append(f"{PUBLIC}{PREFIX}{output}, tag={selection['name']}, update-interval=86400, opt-parser=false, enabled={enabled}")
+            if output in partition_imports:
+                for item in partition_imports[output]:
+                    force = f", force-policy={item['force_policy']}" if item["force_policy"] else ""
+                    imports.append(f"{PUBLIC}{PREFIX}{item['output']}, tag={item['name']}{force}, update-interval=86400, opt-parser=false, enabled={enabled}")
+            else:
+                imports.append(f"{PUBLIC}{PREFIX}{output}, tag={selection['name']}, update-interval=86400, opt-parser=false, enabled={enabled}")
     imports += ["", "[rewrite_remote]"]
-    for output, selection in config["products"].items():
-        if selection["kind"] == "rewrite":
-            enabled = str(selection.get("default_enabled", True)).lower()
-            imports.append(f"{PUBLIC}{PREFIX}{output}, tag={selection['name']}, update-interval=86400, opt-parser=false, enabled={enabled}")
+    rewrite_outputs = [output for output, selection in config["products"].items() if selection["kind"] == "rewrite"]
+    reviewed_order = config.get("profile_rewrite_order") or []
+    # The same first-match order drives cross-product deduplication and imports.
+    # Unlisted optional resources remain present after the reviewed active set;
+    # configurations without an order retain their original product ordering.
+    rewrite_import_order = [*reviewed_order, *(output for output in rewrite_outputs if output not in reviewed_order)]
+    for output in rewrite_import_order:
+        selection = config["products"][output]
+        enabled = str(selection.get("default_enabled", True)).lower()
+        imports.append(f"{PUBLIC}{PREFIX}{output}, tag={selection['name']}, update-interval=86400, opt-parser=false, enabled={enabled}")
     products[PREFIX + "import.snippet"] = ("\n".join(imports) + "\n").encode("utf-8")
     report = {
         "schema_version": 1,
@@ -319,6 +346,7 @@ def build(root=ROOT, *, offline_dir=None, dependency_dir=None, fetcher=None, res
                      "sha256": digest(raw_bodies[s["id"]]), "name": s["name"],
                      "license": s.get("license", "See third-party notices")} for s in active],
         "filters": filter_reports, "rewrites": rewrite_reports,
+        "filter_partitions": partition_reports,
         "script_dependencies": dependencies,
         "data_dependencies": resources,
         "browser_asset_dependencies": browser_assets,

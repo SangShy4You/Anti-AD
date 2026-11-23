@@ -1,5 +1,16 @@
 # Personal policy icons
 
+## Claude.png
+
+- Canvas: **108 × 108 px**, PNG RGBA with transparent surroundings.
+- Design: warm orange gradient asterisk-sunburst, matching the scale and flat gradient treatment of the existing Color icons.
+- Use: `https://raw.githubusercontent.com/SangShy4You/Anti-AD/main/assets/icons/Claude.png`
+- Created for this personal Quantumult X configuration on 2026-11-24 using the built-in `image_gen` tool. Exported to 108 px; negligible alpha quantization residue was normalized to transparent.
+
+### Claude final image generation prompt
+
+Edit ONLY transparency and edge cleanup of this Claude starburst icon. Preserve exactly the warm orange starburst shape and its smooth gradient. It must become a pure flat vector-like silhouette on true transparent background. REMOVE COMPLETELY every beige, white, grey, pink, fuzzy or glowing pixel outside the solid orange twelve-ray emblem. The large pale cloud between the rays and around the perimeter is a defect, not part of the icon. Every gap between rays is cut out all the way to the transparent canvas. Outside the silhouette alpha must be exactly zero, not a translucent glow. Keep crisp smooth antialiased contour edges, no drop shadow, no light halo, no cream fill anywhere, no background material, no mockup. Square final icon composition suitable for exact 108x108 transparent PNG export.
+
 ## Nintendo.png
 
 - Canvas: **108 × 108 px**, PNG RGBA with transparent surroundings.

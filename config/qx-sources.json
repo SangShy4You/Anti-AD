@@ -508,6 +508,46 @@
       "license": "Reuse with attribution; upstream JS referenced, not redistributed"
     }
   ],
+  "filter_partitions": {
+    "ads.list": [
+      {
+        "output": "ads-allow-first.list",
+        "name": "必要放行·基础",
+        "kind": "preserve",
+        "allowed_policies": ["proxy", "direct"]
+      },
+      {
+        "output": "ads-reject-main.list",
+        "name": "个人去广告与防追踪",
+        "kind": "reject",
+        "allowed_policies": ["reject"]
+      },
+      {
+        "output": "ads-allow-routing.list",
+        "name": "必要放行·路由",
+        "kind": "preserve",
+        "allowed_policies": ["全球加速", "direct"]
+      },
+      {
+        "output": "ads-reject-extra.list",
+        "name": "去广告与防追踪·补充",
+        "kind": "reject",
+        "allowed_policies": ["reject"]
+      },
+      {
+        "output": "ads-allow-services.list",
+        "name": "必要放行·微信",
+        "kind": "preserve",
+        "allowed_policies": ["direct"]
+      },
+      {
+        "output": "ads-reject-supplement.list",
+        "name": "去广告与防追踪·增强",
+        "kind": "reject",
+        "allowed_policies": ["reject"]
+      }
+    ]
+  },
   "products": {
     "ads.list": {
       "kind": "filter",
@@ -821,10 +861,10 @@
     }
   ],
   "profile_rewrite_order": [
+    "youtube.conf",
     "ads.conf",
     "miniapps.conf",
     "mixed-web.conf",
-    "web.conf",
-    "youtube.conf"
+    "web.conf"
   ]
 }

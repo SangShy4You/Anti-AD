@@ -268,6 +268,119 @@ class BuildTests(unittest.TestCase):
             self.assertIn("/scripts/patched-fixture.js?mode=AbC#argument", rewrite)
             self.assertIn("'{}'", self.bodies[self.script_download].decode())
 
+    def prepare_partitioned_filter(self, root):
+        config = self.prepare(root)
+        config["sources"][0]["force_policy"] = None
+        config["filter_partitions"] = {"ads.list": [
+            {"output": "ads-allow-first.list", "name": "necessary-first", "kind": "preserve", "allowed_policies": ["direct"]},
+            {"output": "ads-reject-main.list", "name": "advertising", "kind": "reject", "allowed_policies": ["reject"]},
+            {"output": "ads-allow-last.list", "name": "necessary-last", "kind": "preserve", "allowed_policies": ["direct"]},
+        ]}
+        self.bodies[self.filters] = (b"host,safe.example.com,direct\n"
+                                     b"host-suffix,example.com,reject\n"
+                                     b"host-suffix,other.example,direct\n")
+        (root / "config/qx-sources.json").write_text(json.dumps(config), encoding="utf-8")
+        return config
+
+    def test_partitioned_import_forces_only_reject_and_preserves_legacy_mixed_resource(self):
+        with tempfile.TemporaryDirectory(prefix=".test-update-", dir=qx_build.ROOT) as directory:
+            root = Path(directory)
+            self.prepare_partitioned_filter(root)
+            self.build(root)
+            prefix = root / "rules/quantumultx"
+            legacy = (prefix / "ads.list").read_text(encoding="utf-8")
+            self.assertIn("host, safe.example.com, direct", legacy)
+            self.assertIn("host-suffix, example.com, reject", legacy)
+            imports = (prefix / "import.snippet").read_text(encoding="utf-8")
+            rows = [line for line in imports.splitlines() if "/ads-" in line]
+            self.assertEqual(len(rows), 3)
+            self.assertIn("ads-allow-first.list", rows[0])
+            self.assertNotIn("force-policy", rows[0])
+            self.assertIn("ads-reject-main.list", rows[1])
+            self.assertIn("force-policy=reject", rows[1])
+            self.assertIn("ads-allow-last.list", rows[2])
+            self.assertNotIn("force-policy", rows[2])
+            self.assertNotIn("/ads.list,", imports)
+            report = json.loads((prefix / "manifest.json").read_bytes())
+            partitions = report["filter_partitions"]["ads.list"]
+            self.assertTrue(partitions["active_rule_rows_preserved_exactly"])
+            self.assertEqual(partitions["output_rules"], 3)
+            snapshot = self.snapshot(root)
+            self.assertEqual(self.build(root)["changed_files"], [])
+            self.assertEqual(snapshot, self.snapshot(root))
+
+    def test_partition_drift_stops_before_any_product_or_manifest_is_published(self):
+        with tempfile.TemporaryDirectory(prefix=".test-update-", dir=qx_build.ROOT) as directory:
+            root = Path(directory)
+            self.prepare_partitioned_filter(root)
+            self.build(root)
+            snapshot = self.snapshot(root)
+            self.bodies[self.filters] += b"host,unexpected.other.example,reject\n"
+            with self.assertRaisesRegex(ValueError, "topology changed"):
+                self.build(root)
+            self.assertEqual(snapshot, self.snapshot(root))
+            self.bodies[self.filters] = (b"host,safe.example.com,unreviewed\n"
+                                         b"host-suffix,example.com,reject\n"
+                                         b"host-suffix,other.example,direct\n")
+            with self.assertRaisesRegex(ValueError, "policy changed"):
+                self.build(root)
+            self.assertEqual(snapshot, self.snapshot(root))
+
+    def test_partition_collision_and_non_filter_source_do_not_publish(self):
+        for invalid in ("collision", "non-filter"):
+            with self.subTest(invalid=invalid), tempfile.TemporaryDirectory(prefix=".test-update-", dir=qx_build.ROOT) as directory:
+                root = Path(directory)
+                config = self.prepare_partitioned_filter(root)
+                self.build(root)
+                snapshot = self.snapshot(root)
+                if invalid == "collision":
+                    config["filter_partitions"]["ads.list"][0]["output"] = "ads.list"
+                    message = "collides"
+                else:
+                    config["filter_partitions"]["ads.conf"] = config["filter_partitions"].pop("ads.list")
+                    message = "not a compiled filter"
+                (root / "config/qx-sources.json").write_text(json.dumps(config), encoding="utf-8")
+                with self.assertRaisesRegex(ValueError, message):
+                    self.build(root)
+                self.assertEqual(snapshot, self.snapshot(root))
+
+    def test_rewrite_imports_follow_reviewed_dedup_order_and_keep_optional_resources(self):
+        for explicit_order in (True, False):
+            with self.subTest(explicit_order=explicit_order), tempfile.TemporaryDirectory(prefix=".test-update-", dir=qx_build.ROOT) as directory:
+                root = Path(directory)
+                config = self.prepare(root)
+                priority_url = "https://raw.githubusercontent.com/example/r/main/priority.conf"
+                optional_url = "https://raw.githubusercontent.com/example/r/main/optional.conf"
+                config["sources"] += [{"id": "priority", "name": "priority", "url": priority_url},
+                                      {"id": "optional", "name": "optional", "url": optional_url}]
+                config["products"]["priority.conf"] = {"kind": "rewrite", "sources": ["priority"], "name": "priority"}
+                config["products"]["optional.conf"] = {"kind": "rewrite", "sources": ["optional"], "name": "optional", "default_enabled": False}
+                shared = self.bodies[self.rewrites]
+                self.bodies[self.rewrites] = shared + b"^https://ads-only.example.com/ad url reject\n"
+                self.bodies[priority_url] = shared + b"^https://priority.example.com/ad url reject\n"
+                self.bodies[optional_url] = b"^https://optional.example.com/ad url reject\n"
+                if explicit_order:
+                    config["profile_rewrite_order"] = ["priority.conf", "ads.conf"]
+                (root / "config/qx-sources.json").write_text(json.dumps(config), encoding="utf-8")
+                self.build(root)
+                prefix = root / "rules/quantumultx"
+                rewrite_rows = (prefix / "import.snippet").read_text(encoding="utf-8").split("[rewrite_remote]\n", 1)[1].splitlines()
+                filenames = [line.split(",", 1)[0].rsplit("/", 1)[1] for line in rewrite_rows]
+                expected = ["priority.conf", "ads.conf", "optional.conf"] if explicit_order else ["ads.conf", "priority.conf", "optional.conf"]
+                self.assertEqual(filenames, expected)
+                self.assertIn("enabled=false", rewrite_rows[-1])
+                self.assertIn(self.pinned_script, (prefix / "priority.conf").read_text(encoding="utf-8"))
+                ads_text = (prefix / "ads.conf").read_text(encoding="utf-8")
+                manifest = json.loads((prefix / "manifest.json").read_bytes())
+                if explicit_order:
+                    self.assertNotIn(self.pinned_script, ads_text)
+                    self.assertIn("ads-only.example.com", ads_text)
+                    self.assertEqual([entry["file"] for entry in manifest["profile_rewrite_deduplication"]], ["priority.conf", "ads.conf"])
+                    self.assertEqual(manifest["profile_rewrite_deduplication"][1]["duplicates_removed"], 1)
+                else:
+                    self.assertIn(self.pinned_script, ads_text)
+                    self.assertEqual(manifest["profile_rewrite_deduplication"], [])
+
     def test_raw_url_canonicalization_never_drops_query_but_strips_download_fragment(self):
         self.assertEqual(qx_build.download_url("https://github.com/o/r/raw/main/a.js?q=1#x"),
                          "https://raw.githubusercontent.com/o/r/main/a.js?q=1")

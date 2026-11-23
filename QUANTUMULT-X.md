@@ -4,6 +4,19 @@
 
 ## 远程广告资源
 
+新配置将混合分流按原始连续顺序拆成六项，使拦截项能够明确使用 **REJECT**，同时保留必要放行。应按下表完整订阅，不交换顺序：
+
+| 顺序 | 文件 | 强制策略 |
+| --- | --- | --- |
+| 1 | [ads-allow-first.list](https://raw.githubusercontent.com/SangShy4You/Anti-AD/main/rules/quantumultx/ads-allow-first.list) | 不指定，保留逐条策略 |
+| 2 | [ads-reject-main.list](https://raw.githubusercontent.com/SangShy4You/Anti-AD/main/rules/quantumultx/ads-reject-main.list) | **REJECT** |
+| 3 | [ads-allow-routing.list](https://raw.githubusercontent.com/SangShy4You/Anti-AD/main/rules/quantumultx/ads-allow-routing.list) | 不指定，保留逐条策略 |
+| 4 | [ads-reject-extra.list](https://raw.githubusercontent.com/SangShy4You/Anti-AD/main/rules/quantumultx/ads-reject-extra.list) | **REJECT** |
+| 5 | [ads-allow-services.list](https://raw.githubusercontent.com/SangShy4You/Anti-AD/main/rules/quantumultx/ads-allow-services.list) | 不指定，保留逐条策略 |
+| 6 | [ads-reject-supplement.list](https://raw.githubusercontent.com/SangShy4You/Anti-AD/main/rules/quantumultx/ads-reject-supplement.list) | **REJECT** |
+
+拆分不改写、删除或重排任何有效规则行。更新时若连续策略段的数量、顺序或允许策略发生未审变化，构建会停止并保留旧快照。旧 `ads.list` 继续生成，供已有配置兼容使用；新 `import.snippet` 默认引用上述六项。
+
 | 文件 | 用途 |
 | --- | --- |
 | [ads.list](https://raw.githubusercontent.com/SangShy4You/Anti-AD/main/rules/quantumultx/ads.list) | 原广告／追踪分流、必要放行和已审补充 |
@@ -13,7 +26,7 @@
 | [web.conf](https://raw.githubusercontent.com/SangShy4You/Anti-AD/main/rules/quantumultx/web.conf) | 毒奶网页净化 |
 | [youtube.conf](https://raw.githubusercontent.com/SangShy4You/Anti-AD/main/rules/quantumultx/youtube.conf) | 原 YouTube 去广告路线 |
 
-上述个人原生资源使用 opt-parser=false，主分流不加统一 force-policy。主文件按用户原配置保留“全球加速”策略组；新完整配置已经保留此组。
+上述个人原生资源使用 opt-parser=false。三项纯拦截资源明确使用 force-policy=reject；三项必要放行和兼容用的混合 ads.list 不加统一 force-policy，以保留微信等正常连接。主文件按用户原配置保留“全球加速”策略组；完整配置也需保留此组。
 
 **保留原全局 KOP 解析器。** 原来的服务路由、字幕筛选、TestFlight JS 直引、Collections／cleanup 功能保留仍需要原解析设置。
 
