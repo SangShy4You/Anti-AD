@@ -1,0 +1,12 @@
+# Reviewed public local ad rules; private profile keeps originals as priority guards.
+host, 118.89.204.198, reject
+host-keyword, 118.89.204.198, reject
+ip-cidr, 118.89.204.198/32, reject
+host, appcloud2.in.zhihu.com, reject
+host, mqtt.zhihu.com, reject
+host, sugar.zhihu.com, reject
+user-agent, AVOS*, reject
+host-keyword, adview, reject
+host-suffix, gdt.qq.com, reject
+host-suffix, u3.ucweb.com, reject
+host, amdc.m.taobao.com, reject

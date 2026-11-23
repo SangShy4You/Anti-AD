@@ -1,0 +1,134 @@
+{
+  "schema_version": 1,
+  "date": "2026-11-23",
+  "private_full_configuration_published": false,
+  "original_configuration_changed": false,
+  "private_output": {
+    "filter_remote": 11,
+    "rewrite_remote": 24,
+    "rewrite_enabled": 16,
+    "rewrite_disabled": 8,
+    "local_filter_count_preserved": 79,
+    "local_rewrite_count_preserved": 3,
+    "protected_sections_byte_identical": true
+  },
+  "ad_products": {
+    "ads.conf": {
+      "rules": 2099,
+      "default_enabled": true
+    },
+    "miniapps.conf": {
+      "rules": 60,
+      "default_enabled": true
+    },
+    "mixed-web.conf": {
+      "rules": 1,
+      "default_enabled": true
+    },
+    "web.conf": {
+      "rules": 130,
+      "default_enabled": true
+    },
+    "youtube.conf": {
+      "rules": 7,
+      "default_enabled": true
+    }
+  },
+  "native_filter_rules": 252383,
+  "original_active_ad_objects": [
+    {
+      "original": "Original first fifteen ad/privacy/necessary-exception filters",
+      "replacement": "ads.list",
+      "policy": "Original global policy group retained; safety exceptions explicitly recorded."
+    },
+    {
+      "original": "fmz old chongxie + app2smile Tieba + RuleGo Advertising",
+      "replacement": "ads.conf",
+      "note": "Author current replacement, native module conversion and full script references; old frozen cache not available for byte comparison."
+    },
+    {
+      "original": "fmz cleanup ad/UI rules",
+      "replacement": "miniapps.conf",
+      "preservation": {
+        "original_url": "https://raw.githubusercontent.com/fmz200/wool_scripts/main/QuantumultX/rewrite/cleanup.snippet",
+        "replacement_url": "https://raw.githubusercontent.com/fmz200/wool_scripts/main/QuantumultX/rewrite/cleanup.snippet#in=manhuatailite.js+xiaodaka.js+getUpgradeStrategy&inhn=comic.321mh.com+uranus.sharedaka.com+api.ulife.group&hide=1",
+        "fragment": "in=manhuatailite.js+xiaodaka.js+getUpgradeStrategy&inhn=comic.321mh.com+uranus.sharedaka.com+api.ulife.group&hide=1",
+        "opt_parser": true,
+        "keep_enabled": true,
+        "input_active_rules": 151,
+        "remaining_functional_rules": 3,
+        "ad_rules_migrated_to_personal_miniapps": 148,
+        "in_substrings": [
+          "manhuatailite.js",
+          "xiaodaka.js",
+          "getUpgradeStrategy"
+        ],
+        "hostname_in_substrings": [
+          "comic.321mh.com",
+          "uranus.sharedaka.com",
+          "api.ulife.group"
+        ],
+        "retained_source_rule_lines": [
+          306,
+          473,
+          499
+        ],
+        "note": "Personal miniapps.conf must be enabled, and cyys.js/image dependency restored there, to retain all 148 original ad/UI cleanup rows. This upstream functional reference keeps only the three originally enabled entitlement/update behaviors; it does not newly enable a feature."
+      }
+    },
+    {
+      "original": "Limbo web ad cleanup",
+      "replacement": "web.conf",
+      "note": "Read author's GitHub version. Maintained entry patch uses three available immutable browser engines and original dynamic CSS paths; missing optional tags omitted."
+    },
+    {
+      "original": "RuleGo YouTube",
+      "replacement": "youtube.conf",
+      "note": "Native app2smile entry plus original URL/header rules. Original UDP setting stays in private full configuration; no global UDP change is invented."
+    },
+    {
+      "original": "Collections four independent ad rules",
+      "replacement": "ads.conf",
+      "preservation": {
+        "original_url": "https://raw.githubusercontent.com/chxm1023/Script_X/main/Collections.conf",
+        "replacement_url": "https://raw.githubusercontent.com/chxm1023/Script_X/main/Collections.conf#out=trial_card%5C%2Finfo%7Centries%7Cfriend_cards%7Ctoken%5C%2Fdevice+oss4bpc+ad_space%5C.index+ad_impression&hide=1",
+        "fragment": "out=trial_card%5C%2Finfo%7Centries%7Cfriend_cards%7Ctoken%5C%2Fdevice+oss4bpc+ad_space%5C.index+ad_impression&hide=1",
+        "opt_parser": true,
+        "keep_enabled": true,
+        "input_active_rules": 198,
+        "pure_ad_rules_filtered": 4,
+        "remaining_active_rules": 194,
+        "remaining_script_rules": 192,
+        "remaining_other_reject_rules": 2,
+        "out_substrings": [
+          "trial_card\\/info|entries|friend_cards|token\\/device",
+          "oss4bpc",
+          "ad_space\\.index",
+          "ad_impression"
+        ],
+        "parser_evidence": {
+          "url": "https://raw.githubusercontent.com/KOP-XIAO/QuantumultX/master/Scripts/resource-parser.js",
+          "parameter_parse_line": 595,
+          "default_hide_line": 620,
+          "rewrite_filter_start_line": 2228,
+          "rcheck_start_line": 2341,
+          "logic": "Split out on literal +, then decodeURIComponent, case-insensitive literal substring check against full rule text. hide=1 suppresses excluded rules."
+        }
+      }
+    },
+    {
+      "original": "Douban mixed ad/quick-view",
+      "replacement": "mixed-web.conf",
+      "note": "Retain the single original mixed handler; no duplicate original remote wrapper."
+    }
+  ],
+  "mixed_behavior_retained": "Inseparable ad-and-entitlement/application-function branches remain in the original filtered remote collection. Pure ad rules are moved without deleting unrelated functionality.",
+  "local_priority": "Original local rules remain as private priority guards. Eleven rules with confirmed public provenance are also maintained in the aggregate; four unconfirmed custom rejects are not published.",
+  "testflight": {
+    "account_enabled": true,
+    "legacy_download_enabled": false
+  },
+  "sources": 36,
+  "script_dependencies": 87,
+  "validation": "Static native compilation, full script downloads and parse checks, source/parameter guards and private section preservation. No iOS on-device execution."
+}

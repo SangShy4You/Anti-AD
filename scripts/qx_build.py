@@ -12,24 +12,38 @@ import json
 from pathlib import Path
 import re
 import subprocess
+import struct
+import zlib
 import sys
 from urllib.parse import quote, urlsplit, urlunsplit
+import urllib.request
 
 if __package__:
     from . import update
     from .qx_filters import compile_filters
     from .qx_rewrites import compile_rewrites
     from .qx_dependencies import pin_url, resolve_ref
+    from .qx_surge_ads import adapt_surge_ad_source
+    from .qx_web_ads import patch_limbo_entry
+    from .qx_extra_filters import extract_fmz_ad_filters
+    from .qx_mixed_guard import validate_mixed_reference
+    from .qx_profile_dedup import deduplicate_profile
 else:
     import update
     from qx_filters import compile_filters
     from qx_rewrites import compile_rewrites
     from qx_dependencies import pin_url, resolve_ref
+    from qx_surge_ads import adapt_surge_ad_source
+    from qx_web_ads import patch_limbo_entry
+    from qx_extra_filters import extract_fmz_ad_filters
+    from qx_mixed_guard import validate_mixed_reference
+    from qx_profile_dedup import deduplicate_profile
 
 ROOT = Path(__file__).resolve().parents[1]
 PREFIX = "rules/quantumultx/"
 PUBLIC = "https://raw.githubusercontent.com/SangShy4You/Anti-AD/main/"
 IDENTIFIER = re.compile(r"[a-zA-Z0-9][a-zA-Z0-9_-]{0,100}\Z")
+GENERATOR_MODULES = ("qx_build.py", "qx_filters.py", "qx_rewrites.py", "qx_dependencies.py", "qx_surge_ads.py", "qx_web_ads.py", "qx_extra_filters.py", "qx_mixed_guard.py", "qx_profile_dedup.py")
 
 
 def dump(value):
@@ -40,11 +54,36 @@ def digest(raw):
     return hashlib.sha256(raw).hexdigest()
 
 
+def transparent_png():
+    def chunk(kind, data):
+        return struct.pack(">I", len(data)) + kind + data + struct.pack(">I", zlib.crc32(kind + data) & 0xffffffff)
+    return (b"\x89PNG\r\n\x1a\n" + chunk(b"IHDR", struct.pack(">IIBBBBB", 1, 1, 8, 6, 0, 0, 0))
+            + chunk(b"IDAT", zlib.compress(b"\0" * 5)) + chunk(b"IEND", b""))
+
+
 def check_javascript(raw, url):
     result = subprocess.run(["node", "--check"], input=raw, capture_output=True,
                             timeout=15, creationflags=0x08000000 if sys.platform == "win32" else 0)
     if result.returncode:
         raise ValueError("JavaScript syntax check failed: " + url)
+
+
+def fetch_binary_url(url, *, browser=False):
+    if browser:
+        parsed = urlsplit(url)
+        if parsed.scheme != "https" or parsed.netloc != "cdn.jsdelivr.net" or not parsed.path.startswith("/gh/limbopro/Adblock4limbo@"):
+            raise ValueError("Unreviewed browser asset URL")
+    else:
+        url = download_url(url)
+    request = urllib.request.Request(url, headers={"User-Agent": "Anti-AD-QX-assets/1", "Accept-Encoding": "identity"})
+    with urllib.request.urlopen(request, timeout=30) as response:
+        raw = response.read(5 * 1024 * 1024 + 1)
+        mime = response.headers.get("Content-Type", "").split(";", 1)[0].strip().lower()
+        if response.status != 200 or not raw or len(raw) > 5 * 1024 * 1024:
+            raise ValueError("Invalid static asset download")
+    if browser and mime not in {"application/javascript", "text/javascript"}:
+        raise ValueError("Browser script is not served with a JavaScript MIME type")
+    return raw, mime
 
 
 def download_url(url):
@@ -77,23 +116,58 @@ def build(root=ROOT, *, offline_dir=None, dependency_dir=None, fetcher=None, res
 
     def obtain(source):
         url = download_url(source["url"])
-        raw = ((Path(offline_dir) / (source["id"] + ".txt")).read_bytes()
-               if offline_dir else (fetcher or update.fetch_url)(url))
+        if source.get("local_path"):
+            if not source["local_path"].startswith("config/"):
+                raise ValueError("Local reviewed rules must be inside config/")
+            local = update._path(root, source["local_path"])
+            try:
+                local.resolve().relative_to((root / "config").resolve())
+            except ValueError as exc:
+                raise ValueError("Local reviewed rules escape config/") from exc
+            raw = local.read_bytes()
+        else:
+            raw = ((Path(offline_dir) / (source["id"] + ".txt")).read_bytes()
+                   if offline_dir else (fetcher or update.fetch_url)(url))
         return source["id"], raw, update.validate_body(raw)
 
     with ThreadPoolExecutor(max_workers=6) as pool:
         fetched = list(pool.map(obtain, active))
     raw_bodies = {name: raw for name, raw, _ in fetched}
     bodies = {name: body for name, _, body in fetched}
+    mixed_guards = []
+    for spec in config.get("validation_sources", []):
+        guard_url = download_url(spec["url"])
+        reused = next((raw_bodies[s["id"]] for s in active if s["url"] == spec["url"]), None)
+        if reused is not None:
+            guard_raw = reused
+        elif offline_dir:
+            if not IDENTIFIER.fullmatch(spec["id"]):
+                raise ValueError("Invalid validation source ID")
+            guard_raw = (Path(offline_dir) / (spec["id"] + ".txt")).read_bytes()
+        else:
+            guard_raw = (fetcher or update.fetch_url)(guard_url)
+        mixed_guards.append({"id": spec["id"], "url": spec["url"],
+                             **validate_mixed_reference(update.validate_body(guard_raw), spec)})
+    adaptations = {}
+    for source in active:
+        if source.get("source_format") == "surge_ad_module":
+            bodies[source["id"]], adaptations[source["id"]] = adapt_surge_ad_source(source, bodies[source["id"]])
+        elif source.get("source_format") == "fmz_ad_filter_tail":
+            bodies[source["id"]], adaptations[source["id"]] = extract_fmz_ad_filters(bodies[source["id"]])
     products, filter_reports, rewrite_reports = {}, {}, {}
     for output, selection in config["products"].items():
         if not re.fullmatch(r"[a-z][a-z0-9-]*\.(?:list|conf)", output):
             raise ValueError("Unsafe product filename: " + output)
         selected = [next(s for s in active if s["id"] == name) for name in selection["sources"]]
         if selection["kind"] == "filter":
-            text, report = compile_filters(selected, bodies, overrides=selection.get("overrides", []))
+            prepared = [dict(s, source_format="qx") if s.get("source_format") == "fmz_ad_filter_tail" else s for s in selected]
+            text, report = compile_filters(prepared, bodies, overrides=selection.get("overrides", []))
             filter_reports[output] = report
         elif selection["kind"] == "rewrite":
+            for source in selected:
+                for required in adaptations.get(source["id"], {}).get("required_sources", []):
+                    if required not in {s["url"] for s in selected}:
+                        raise ValueError(f"{output}: missing adapted source dependency {required}")
             text, report = compile_rewrites(selected, bodies)
             for key in ("local_script_references", "local_data_references", "hostname_conflicts"):
                 if report.get(key):
@@ -115,6 +189,8 @@ def build(root=ROOT, *, offline_dir=None, dependency_dir=None, fetcher=None, res
                 raise ValueError(f"{item['id']}: rule count below its reviewed minimum {minimum}")
         products[PREFIX + output] = text.encode("utf-8")
 
+    profile_dedup = (deduplicate_profile(products, rewrite_reports, config["profile_rewrite_order"])
+                     if config.get("profile_rewrite_order") else [])
     script_urls = sorted({url for report in rewrite_reports.values() for url in report["script_urls"]})
     approved_data = {item["url"] for item in config.get("data_dependencies", [])}
     for report in rewrite_reports.values():
@@ -134,6 +210,7 @@ def build(root=ROOT, *, offline_dir=None, dependency_dir=None, fetcher=None, res
             resolved[key] = (resolver or resolve_ref)(key)
         return resolved[key]
     pinned = {url: pin_url(url, resolve) for url in script_urls}
+    pinned_data = {item["url"]: pin_url(item["url"], resolve) for item in config.get("data_dependencies", [])}
     patches = config.get("script_patches", {})
     patched_products = {}
 
@@ -153,13 +230,18 @@ def build(root=ROOT, *, offline_dir=None, dependency_dir=None, fetcher=None, res
             name = patch["filename"]
             if not re.fullmatch(r"[a-z][a-z0-9-]*\.js", name):
                 raise ValueError("Unsafe script patch filename")
-            if text.count(patch["old"]) == 1:
-                text = text.replace(patch["old"], patch["new"])
+            if patch.get("mode") == "limbo-browser":
+                text, record["browser_patch"] = patch_limbo_entry(text, pinned[url])
                 record["patch_applied"] = True
-            elif text.count(patch["old"]) == 0 and text.count(patch["new"]) == 1:
-                record["patch_applied"] = False
             else:
-                raise ValueError("Upstream script changed around an audited patch; review needed: " + url)
+                replacement = pinned_data[patch["replacement_url"]] if "replacement_url" in patch else patch["new"]
+                if text.count(patch["old"]) == 1:
+                    text = text.replace(patch["old"], replacement)
+                    record["patch_applied"] = True
+                elif text.count(patch["old"]) == 0 and text.count(replacement) == 1:
+                    record["patch_applied"] = False
+                else:
+                    raise ValueError("Upstream script changed around an audited patch; review needed: " + url)
             text = ("// Personal integration: " + patch["reason"] + "\n// Upstream: " + pinned[url] + "\n" + text)
             relative = PREFIX + "scripts/" + name
             payload = text.encode("utf-8")
@@ -183,15 +265,29 @@ def build(root=ROOT, *, offline_dir=None, dependency_dir=None, fetcher=None, res
     resources = []
     for resource in config.get("data_dependencies", []):
         url = resource["url"]
-        pinned_resource = pin_url(url, resolve)
+        pinned_resource = pinned_data[url]
         fetch_url = download_url(pinned_resource)
         raw = ((Path(dependency_dir) / (digest(fetch_url.encode()) + ".data")).read_bytes()
-               if dependency_dir else (fetcher or update.fetch_url)(fetch_url))
-        if resource["kind"] != "json":
+               if dependency_dir else (fetch_binary_url(fetch_url)[0] if resource["kind"] == "jpeg" else (fetcher or update.fetch_url)(fetch_url)))
+        if resource["kind"] == "json":
+            json.loads(update.validate_body(raw))
+        elif resource["kind"] == "jpeg":
+            if not raw.startswith(b"\xff\xd8\xff") or not raw.endswith(b"\xff\xd9"):
+                raise ValueError("Invalid reviewed JPEG resource")
+        else:
             raise ValueError("Unknown reviewed static resource format")
-        json.loads(update.validate_body(raw))
         resources.append({"url": url, "pinned_url": pinned_resource, "bytes": len(raw), "sha256": digest(raw)})
         replacements[url] = pinned_resource
+    browser_assets = []
+    for url in sorted({u for item in dependencies for u in item.get("browser_patch", {}).get("browser_assets", [])}):
+        if dependency_dir:
+            raw = (Path(dependency_dir) / (digest(url.encode()) + ".browser")).read_bytes()
+            mime = "application/javascript"
+        else:
+            raw, mime = fetch_binary_url(url, browser=True)
+        update.validate_body(raw)
+        check_javascript(raw, url)
+        browser_assets.append({"url": url, "bytes": len(raw), "sha256": digest(raw), "content_type": mime})
     for name in rewrite_reports:
         path = PREFIX + name
         text = products[path].decode("utf-8")
@@ -199,6 +295,8 @@ def build(root=ROOT, *, offline_dir=None, dependency_dir=None, fetcher=None, res
             text = text.replace(" " + original + "\n", " " + replacement + "\n")
         products[path] = text.encode("utf-8")
     products.update(patched_products)
+    if any(patch.get("transparent_asset") for patch in patches.values()):
+        products[PREFIX + "assets/transparent.png"] = transparent_png()
 
     imports = ["# 合并到现有配置的同名段；不是完整 VPN 配置，勿覆盖节点、DNS 或证书。", "[filter_remote]"]
     for output, selection in config["products"].items():
@@ -216,14 +314,17 @@ def build(root=ROOT, *, offline_dir=None, dependency_dir=None, fetcher=None, res
         "scope": config["scope"],
         "validation": "static structure and all referenced script downloads; not an iOS Quantumult X execution test",
         "config_sha256": digest(config_raw),
-        "generator_sha256": digest(b"\n".join((root / "scripts" / name).read_bytes() for name in
-                                              ("qx_build.py", "qx_filters.py", "qx_rewrites.py", "qx_dependencies.py"))),
+        "generator_sha256": digest(b"\n".join((root / "scripts" / name).read_bytes() for name in GENERATOR_MODULES)),
         "sources": [{"id": s["id"], "url": s["url"], "bytes": len(raw_bodies[s["id"]]),
                      "sha256": digest(raw_bodies[s["id"]]), "name": s["name"],
                      "license": s.get("license", "See third-party notices")} for s in active],
         "filters": filter_reports, "rewrites": rewrite_reports,
         "script_dependencies": dependencies,
         "data_dependencies": resources,
+        "browser_asset_dependencies": browser_assets,
+        "source_adaptations": adaptations,
+        "mixed_remote_reference_guards": mixed_guards,
+        "profile_rewrite_deduplication": profile_dedup,
         "resolved_refs": resolved,
         "script_policy": "Upstream JavaScript is pinned to full immutable commits; new script URLs require review. A documented local bug fix is maintained for Zhihu. Scripts are read and statically checked, never executed by this builder.",
         "omitted_candidates": config.get("omitted_candidates", []),

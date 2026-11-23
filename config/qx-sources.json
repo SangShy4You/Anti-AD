@@ -102,9 +102,9 @@
       "name": "规则修正@blackmatrix7",
       "url": "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/QuantumultX/Direct/Direct.list",
       "source_format": "mixed",
-      "expected_policy": "proxy",
+      "expected_policy": "全球加速",
       "original_policy": "全球加速",
-      "policy_mapping_note": "Map the old user-specific proxy group to the QX built-in proxy policy; no new policy group is required.",
+      "policy_mapping_note": "Preserve the original user's existing globally accelerated policy group.",
       "exclude_rules": {},
       "license": "See THIRD_PARTY_NOTICES.md and licenses/",
       "min_rules": 150
@@ -352,7 +352,8 @@
         "^https?:\\/\\/.+?\\.(pipi|fuli|xiang(jiao|xiang))apps\\.com\\/(ucp\\/index|getGlobalData|(\\/|)vod\\/reqplay\\/) url script-response-body https://raw.githubusercontent.com/NobyDa/Script/master/QuantumultX/File/xjsp.js": "Changes isvip/gid/viewing limits; not ad-only.",
         "^https:\\/\\/link\\.zhihu\\.com\\/\\?target=(https?)?(%3A|:)?(\\/\\/|%2F%2F)?(.*?)(&source.*)?$ url 302 http://$4": "Unwraps Zhihu outgoing links and downgrades to http; functional redirect outside ad-only scope.",
         "^https?:\\/\\/zjdr666\\.com\\/zjdr\\.php\\/v\\d\\/(version|top_notice\\?|advert\\?position=[^2]+) url reject": "Combined version/notice/advert expression; omit whole source line rather than changing semantics.",
-        "^https?:\\/\\/wrapper\\.cyapi\\.cn\\/v1\\/activity\\? url echo-response application/json echo-response https://raw.githubusercontent.com/Keywos/rule/main/mocks/caiyun.json": "Requires a separate local echo-response data resource; not silently omitted at runtime."
+        "^https?:\\/\\/wrapper\\.cyapi\\.cn\\/v1\\/activity\\? url echo-response application/json echo-response https://raw.githubusercontent.com/Keywos/rule/main/mocks/caiyun.json": "Requires a separate local echo-response data resource; not silently omitted at runtime.",
+        "^https:\\/\\/youtubei\\.googleapis\\.com\\/youtubei\\/v1\\/(browse|next|player|search|reel\\/reel_watch_sequence|guide|account\\/get_setting|get_watch) url script-response-body https://raw.githubusercontent.com/Maasea/sgmodule/refs/heads/master/Script/Youtube/youtube.response.js": "Use the original profile's app2smile YouTube pipeline in youtube.conf; avoid two overlapping protobuf response processors."
       },
       "excluded_lines": {
         "^https?:\\/\\/static.psbc.com:8090\\/mbank_f\\/images\\/[0-9]+\\.png - reject-200": "Surge syntax mixed into QX source; not silently translated."
@@ -367,8 +368,7 @@
       "exclude_rules": {
         "^https?:\\/\\/comic\\.321mh\\.com\\/app_api\\/v\\d\\/getcomicinfo_body url script-response-body https://raw.githubusercontent.com/fmz200/wool_scripts/main/Scripts/manhuatailite.js": "Header and body unlock manga member permissions.",
         "^https?:\\/\\/uranus\\.sharedaka\\.com\\/api\\/v3\\/user\\/info\\/get url script-response-body https://raw.githubusercontent.com/fmz200/wool_scripts/main/Scripts/xiaodaka.js": "Unlock VIP/member permissions; not ad-only.",
-        "^https:\\/\\/api\\.ulife\\.group\\/auth\\/account\\/getUpgradeStrategy url reject-dict": "Suppresses app upgrade strategy endpoint.",
-        "^https:\\/\\/miniapp\\.sexytea2013\\.com\\/cms\\/slot\\/queryByCodes\\?codes=INDEX_TOP_BANNER url script-response-body https://raw.githubusercontent.com/fmz200/wool_scripts/main/Scripts/cyys.js": "Optional miniapp UI replacement depends on an unmaintained external image asset; excluded from this profile."
+        "^https:\\/\\/api\\.ulife\\.group\\/auth\\/account\\/getUpgradeStrategy url reject-dict": "Suppresses app upgrade strategy endpoint."
       },
       "excluded_lines": {},
       "min_rules": 98
@@ -429,12 +429,90 @@
       "exclude_rules": {},
       "excluded_lines": {},
       "min_rules": 1
+    },
+    {
+      "id": "fmz_extra_filters",
+      "name": "fmz 重写尾部经审计的广告与追踪分流",
+      "url": "https://raw.githubusercontent.com/fmz200/wool_scripts/main/QuantumultX/rewrite/rewrite.snippet",
+      "source_format": "fmz_ad_filter_tail",
+      "expected_policy": "reject",
+      "min_rules": 380,
+      "license": "GPL-3.0"
+    },
+    {
+      "id": "local_public_ads",
+      "name": "已核实公开来源的个人本地广告规则",
+      "url": "https://raw.githubusercontent.com/SangShy4You/Anti-AD/main/config/qx-local-ad.list",
+      "local_path": "config/qx-local-ad.list",
+      "source_format": "qx",
+      "force_policy": null,
+      "min_rules": 11,
+      "license": "Individual public-source rule provenance retained in the consolidation report"
+    },
+    {
+      "id": "collections_ad_only",
+      "name": "Collections 独立广告触发",
+      "url": "https://raw.githubusercontent.com/SangShy4You/Anti-AD/main/config/qx-collections-ad.conf",
+      "local_path": "config/qx-collections-ad.conf",
+      "source_format": "qx",
+      "min_rules": 4,
+      "license": "Independent endpoint expressions; upstream JS referenced, not redistributed"
+    },
+    {
+      "id": "rulego_advertising",
+      "name": "神机广告模块原生转换",
+      "url": "https://raw.githubusercontent.com/ConnersHua/RuleGo/master/Surge/Module/Block/Advertising.sgmodule",
+      "source_format": "surge_ad_module",
+      "surge_ad_kind": "advertising",
+      "min_rules": 75,
+      "license": "Retain original author provenance; no blanket MIT claim"
+    },
+    {
+      "id": "rulego_youtube",
+      "name": "神机 YouTube 原模块补充",
+      "url": "https://raw.githubusercontent.com/ConnersHua/RuleGo/master/Surge/Module/Block/YouTubeAds.sgmodule",
+      "source_format": "surge_ad_module",
+      "surge_ad_kind": "youtube",
+      "youtube_script_mode": "author-native",
+      "min_rules": 6,
+      "license": "Retain original author provenance; no blanket MIT claim"
+    },
+    {
+      "id": "author_youtube",
+      "name": "app2smile YouTube 原生 QX 脚本入口",
+      "url": "https://raw.githubusercontent.com/app2smile/rules/master/module/youtube-qx.conf",
+      "source_format": "qx",
+      "min_rules": 1,
+      "license": "Original author reference; script not redistributed"
+    },
+    {
+      "id": "limbo_web",
+      "name": "毒奶网页净化（作者 GitHub 版）",
+      "url": "https://raw.githubusercontent.com/limbopro/Adblock4limbo/main/Adblock4limbo.conf",
+      "source_format": "qx",
+      "min_rules": 85,
+      "license": "MIT"
+    },
+    {
+      "id": "douban_mixed",
+      "name": "豆瓣移动网页去广告与快捷观影（原功能保留）",
+      "url": "https://raw.githubusercontent.com/ddgksf2013/Rewrite/master/Html/Douban.conf",
+      "source_format": "qx",
+      "min_rules": 1,
+      "include_rules": [
+        "^https?:\\/\\/m\\.douban\\.com\\/(home_guide|movie|tv|book|group|music) url script-response-body https://raw.githubusercontent.com/ddgksf2013/Scripts/refs/heads/master/douban.js"
+      ],
+      "include_hostnames": [
+        "m.douban.com"
+      ],
+      "license": "Reuse with attribution; upstream JS referenced, not redistributed"
     }
   ],
   "products": {
     "ads.list": {
       "kind": "filter",
       "sources": [
+        "local_public_ads",
         "01_filter",
         "02_filter",
         "03_filter",
@@ -451,7 +529,8 @@
         "14_filter",
         "15_filter",
         "antiad_current",
-        "tieba_filter"
+        "tieba_filter",
+        "fmz_extra_filters"
       ],
       "name": "个人去广告与防追踪",
       "overrides": [
@@ -513,10 +592,12 @@
     "ads.conf": {
       "kind": "rewrite",
       "sources": [
+        "collections_ad_only",
         "fmz_rewrite",
         "bm_scripts",
         "tieba",
-        "bm_advertising"
+        "bm_advertising",
+        "rulego_advertising"
       ],
       "name": "个人去广告重写（含脚本）",
       "additional_hostnames": {
@@ -529,12 +610,36 @@
         "fmz_cleanup"
       ],
       "name": "小程序净化（可选）",
-      "default_enabled": false
+      "default_enabled": true
+    },
+    "web.conf": {
+      "kind": "rewrite",
+      "sources": [
+        "limbo_web"
+      ],
+      "name": "个人网页去广告",
+      "default_enabled": true
+    },
+    "youtube.conf": {
+      "kind": "rewrite",
+      "sources": [
+        "rulego_youtube",
+        "author_youtube"
+      ],
+      "name": "个人 YouTube 去广告",
+      "default_enabled": true
+    },
+    "mixed-web.conf": {
+      "kind": "rewrite",
+      "sources": [
+        "douban_mixed"
+      ],
+      "name": "豆瓣网页净化与快捷观影",
+      "default_enabled": true
     }
   },
   "approved_script_urls": [
     "https://github.com/fmz200/wool_scripts/raw/main/Scripts/xiaohongshu/xiaohongshu.js",
-    "https://raw.githubusercontent.com/Maasea/sgmodule/refs/heads/master/Script/Youtube/youtube.response.js",
     "https://raw.githubusercontent.com/NobyDa/Script/master/Bahamut/BahamutAnimeAds.js",
     "https://raw.githubusercontent.com/Sliverkiss/QuantumultX/main/AdBlock/xmApp/wnbz.js",
     "https://raw.githubusercontent.com/Sliverkiss/QuantumultX/main/AdBlock/xmApp/xmApp.js",
@@ -544,7 +649,10 @@
     "https://raw.githubusercontent.com/app2smile/rules/master/js/tieba-json.js",
     "https://raw.githubusercontent.com/app2smile/rules/master/js/tieba-proto.js",
     "https://raw.githubusercontent.com/app2smile/rules/master/js/vgtime.js",
+    "https://raw.githubusercontent.com/app2smile/rules/master/js/youtube.js",
     "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/script/startup/startup.js",
+    "https://raw.githubusercontent.com/chxm1023/Rewrite/main/caiyuntianqi.js",
+    "https://raw.githubusercontent.com/ddgksf2013/Scripts/refs/heads/master/douban.js",
     "https://raw.githubusercontent.com/fmz200/wool_scripts/main/Scripts/51card.js",
     "https://raw.githubusercontent.com/fmz200/wool_scripts/main/Scripts/555Ad.js",
     "https://raw.githubusercontent.com/fmz200/wool_scripts/main/Scripts/FamilyMart.js",
@@ -563,6 +671,7 @@
     "https://raw.githubusercontent.com/fmz200/wool_scripts/main/Scripts/cnftp.js",
     "https://raw.githubusercontent.com/fmz200/wool_scripts/main/Scripts/coco.js",
     "https://raw.githubusercontent.com/fmz200/wool_scripts/main/Scripts/coolapk.js",
+    "https://raw.githubusercontent.com/fmz200/wool_scripts/main/Scripts/cyys.js",
     "https://raw.githubusercontent.com/fmz200/wool_scripts/main/Scripts/dianyinglieshou.js",
     "https://raw.githubusercontent.com/fmz200/wool_scripts/main/Scripts/didi/didiAds.js",
     "https://raw.githubusercontent.com/fmz200/wool_scripts/main/Scripts/ems.js",
@@ -601,6 +710,7 @@
     "https://raw.githubusercontent.com/fmz200/wool_scripts/refs/heads/main/Scripts/miguvideo/miguvideo_ads.js",
     "https://raw.githubusercontent.com/ishowshu/qx/refs/heads/main/script/goofish.js",
     "https://raw.githubusercontent.com/kokoryh/Script/master/js/12306.js",
+    "https://raw.githubusercontent.com/limbopro/Adblock4limbo/main/Adguard/Adblock4limbo.js",
     "https://raw.githubusercontent.com/zirawell/R-Store/main/Res/Scripts/AntiAd/airchina.js",
     "https://raw.githubusercontent.com/zirawell/R-Store/main/Res/Scripts/AntiAd/alicdn.js",
     "https://raw.githubusercontent.com/zirawell/R-Store/main/Res/Scripts/AntiAd/bilibiliManga.js",
@@ -639,10 +749,6 @@
     {
       "name": "fmz200 mixed native filter tail",
       "reason": "Mixed site/activation/security blocking; not imported wholesale. Native ad sources and tieba dependency supplied separately."
-    },
-    {
-      "name": "Weibo, zheye extra UI, web injection",
-      "reason": "Not enabled by default; keep focused default profile and avoid overlapping application scripts."
     }
   ],
   "known_limitations": [
@@ -668,6 +774,57 @@
       "old": "getUrlParamValue(item.fields.header.url, \"videoID\")",
       "new": "getUrlParamValue(i.fields.header.url, \"videoID\")",
       "reason": "Fix callback variable ReferenceError in market_card videoID extraction; retain upstream GPL-3.0 attribution."
+    },
+    "https://raw.githubusercontent.com/limbopro/Adblock4limbo/main/Adguard/Adblock4limbo.js": {
+      "filename": "limbo-web.js",
+      "mode": "limbo-browser",
+      "reason": "Use immutable MIME-correct browser engines, omit two unavailable optional tags, and close the original BODY script element. Original MIT attribution retained."
+    },
+    "https://raw.githubusercontent.com/fmz200/wool_scripts/main/Scripts/cyys.js": {
+      "filename": "cyys.js",
+      "old": "https://raw.githubusercontent.com/jizhi0520/QX/main/cyyss.jpg",
+      "new": "https://raw.githubusercontent.com/SangShy4You/Anti-AD/main/rules/quantumultx/assets/transparent.png",
+      "transparent_asset": true,
+      "reason": "Replace the unavailable upstream replacement picture with a maintained transparent PNG; keep the miniapp's original ad-response cleanup and GPL attribution."
     }
-  }
+  },
+  "consolidation": {
+    "original_ads_sources": "All originally enabled standalone ad sources have a personal native product. Pure ads extracted from mixed resources use precise KOP filters; inseparable mixed ad/function branches remain in original remote references.",
+    "original_local_rules": "Keep all 79 filters and 3 rewrites in the private output as priority and behavior guards; eleven public ad rules are additionally maintained here.",
+    "youtube": "Use the original app2smile route; remove the overlapping Maasea response hook. The original global UDP setting is preserved in the private profile; no additional UDP rule is invented."
+  },
+  "validation_sources": [
+    {
+      "id": "validation_collections",
+      "title": "Collections pure-ad exclusion guard",
+      "url": "https://raw.githubusercontent.com/chxm1023/Script_X/main/Collections.conf",
+      "mode": "out",
+      "keys": [
+        "trial_card\\/info|entries|friend_cards|token\\/device",
+        "oss4bpc",
+        "ad_space\\.index",
+        "ad_impression"
+      ],
+      "expected_selected": 4
+    },
+    {
+      "id": "validation_cleanup",
+      "title": "cleanup functional preservation guard",
+      "url": "https://raw.githubusercontent.com/fmz200/wool_scripts/main/QuantumultX/rewrite/cleanup.snippet",
+      "mode": "in",
+      "keys": [
+        "manhuatailite.js",
+        "xiaodaka.js",
+        "getUpgradeStrategy"
+      ],
+      "expected_selected": 3
+    }
+  ],
+  "profile_rewrite_order": [
+    "ads.conf",
+    "miniapps.conf",
+    "mixed-web.conf",
+    "web.conf",
+    "youtube.conf"
+  ]
 }

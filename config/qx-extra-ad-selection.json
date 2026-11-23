@@ -1,0 +1,278 @@
+{
+  "schema_version": 1,
+  "collections_ad_only": {
+    "id": "collections_ad_only",
+    "name": "Collections 中独立的广告处理",
+    "origin_repository": "https://github.com/chxm1023/Script_X",
+    "origin_url": "https://raw.githubusercontent.com/chxm1023/Script_X/main/Collections.conf",
+    "origin_script_repository": "https://github.com/chxm1023/Rewrite",
+    "source_format": "personally-authored-native-qx",
+    "native_text": "# Personally authored ad-only endpoint selection; source provenance is retained in the selection manifest.\n^https?://(?:ad|biz|wrapper|starplucker)[.]cyapi[.]cn/.+/(?:(?:activity[?]app_name|operation|config|req[?]app_name=weather)|v[0-9]/(?:trial_card/info|entries|friend_cards|token/device)) url script-response-body https://raw.githubusercontent.com/chxm1023/Rewrite/main/caiyuntianqi.js\n^http://oss4bpc[.]moji[.]com/.[0-9]+/.[0-9]+/.[0-9]+/.+[.]jpg url reject\n^http://api[.]love[.]823123[.]com/facades/ad_space[.]index url reject-200\n^https?://ftmailbox[.]cn/ad_impression url reject-200\nhostname = *.cyapi.cn, ftmailbox.cn\n",
+    "native_rules": [
+      "^https?://(?:ad|biz|wrapper|starplucker)[.]cyapi[.]cn/.+/(?:(?:activity[?]app_name|operation|config|req[?]app_name=weather)|v[0-9]/(?:trial_card/info|entries|friend_cards|token/device)) url script-response-body https://raw.githubusercontent.com/chxm1023/Rewrite/main/caiyuntianqi.js",
+      "^http://oss4bpc[.]moji[.]com/.[0-9]+/.[0-9]+/.[0-9]+/.+[.]jpg url reject",
+      "^http://api[.]love[.]823123[.]com/facades/ad_space[.]index url reject-200",
+      "^https?://ftmailbox[.]cn/ad_impression url reject-200"
+    ],
+    "script_urls": [
+      "https://raw.githubusercontent.com/chxm1023/Rewrite/main/caiyuntianqi.js"
+    ],
+    "licensing_note": "The original Collections and script carry no-republication notices and no repository LICENSE was found. Do not copy their complete configuration or JavaScript into the public repository. These are independently expressed endpoint matches; upstream JavaScript is referenced, not redistributed.",
+    "semantic_notes": [
+      "The Caiyun trigger is response-only and excludes the user, vip_info, user_detail, satellite and nafp/origin_images routes. The inspected script entitlement branches are not selected by this ad-only trigger.",
+      "The original Moji image rule used http? rather than https?; this preserves valid HTTP behavior and does not silently widen the rule to HTTPS.",
+      "The original Love phrase ad rule has a malformed single slash after http:. This independently written rule uses the intended normal HTTP endpoint; record this as a specific repair.",
+      "Mixed single-line scripts also covering user/payment endpoints remain in the original remote collection; no claim is made that their ad-related branches have been wholly moved."
+    ]
+  },
+  "collections_functional_reference": {
+    "original_url": "https://raw.githubusercontent.com/chxm1023/Script_X/main/Collections.conf",
+    "replacement_url": "https://raw.githubusercontent.com/chxm1023/Script_X/main/Collections.conf#out=trial_card%5C%2Finfo%7Centries%7Cfriend_cards%7Ctoken%5C%2Fdevice+oss4bpc+ad_space%5C.index+ad_impression&hide=1",
+    "fragment": "out=trial_card%5C%2Finfo%7Centries%7Cfriend_cards%7Ctoken%5C%2Fdevice+oss4bpc+ad_space%5C.index+ad_impression&hide=1",
+    "opt_parser": true,
+    "keep_enabled": true,
+    "input_active_rules": 198,
+    "pure_ad_rules_filtered": 4,
+    "remaining_active_rules": 194,
+    "remaining_script_rules": 192,
+    "remaining_other_reject_rules": 2,
+    "out_substrings": [
+      "trial_card\\/info|entries|friend_cards|token\\/device",
+      "oss4bpc",
+      "ad_space\\.index",
+      "ad_impression"
+    ],
+    "parser_evidence": {
+      "url": "https://raw.githubusercontent.com/KOP-XIAO/QuantumultX/master/Scripts/resource-parser.js",
+      "parameter_parse_line": 595,
+      "default_hide_line": 620,
+      "rewrite_filter_start_line": 2228,
+      "rcheck_start_line": 2341,
+      "logic": "Split out on literal +, then decodeURIComponent, case-insensitive literal substring check against full rule text. hide=1 suppresses excluded rules."
+    }
+  },
+  "douban_mixed_enhancement": {
+    "id": "douban_mixed",
+    "name": "豆瓣移动网页去广告与快捷观影（原功能保留）",
+    "url": "https://raw.githubusercontent.com/ddgksf2013/Rewrite/master/Html/Douban.conf",
+    "source_format": "qx",
+    "min_rules": 1,
+    "include_rules": [
+      "^https?:\\/\\/m\\.douban\\.com\\/(home_guide|movie|tv|book|group|music) url script-response-body https://raw.githubusercontent.com/ddgksf2013/Scripts/refs/heads/master/douban.js"
+    ],
+    "include_hostnames": [
+      "m.douban.com"
+    ],
+    "script_urls": [
+      "https://raw.githubusercontent.com/ddgksf2013/Scripts/refs/heads/master/douban.js"
+    ],
+    "default_enabled": true,
+    "product_suggestion": "mixed-web.conf",
+    "original_reference_action": "Replace the original Douban.conf remote reference with this personal mixed-enhancement product, preserving the existing ad cleanup and quick-view behavior without duplicate response processing.",
+    "licensing_note": "Wrapper and script permit reuse with attribution; keep ddgksf2013 attribution. No repository LICENSE was found, so do not claim MIT. Reference the upstream script pinned to a complete commit; do not republish its obfuscated body.",
+    "validation": "Current wrapper and script were read. Script parses with node --check; no JavaScript business logic or iOS browser behavior was executed. The script is obfuscated, so ad removal and quick-view cannot be safely separated by a superficial text edit."
+  },
+  "cleanup_functional_reference": {
+    "original_url": "https://raw.githubusercontent.com/fmz200/wool_scripts/main/QuantumultX/rewrite/cleanup.snippet",
+    "replacement_url": "https://raw.githubusercontent.com/fmz200/wool_scripts/main/QuantumultX/rewrite/cleanup.snippet#in=manhuatailite.js+xiaodaka.js+getUpgradeStrategy&inhn=comic.321mh.com+uranus.sharedaka.com+api.ulife.group&hide=1",
+    "fragment": "in=manhuatailite.js+xiaodaka.js+getUpgradeStrategy&inhn=comic.321mh.com+uranus.sharedaka.com+api.ulife.group&hide=1",
+    "opt_parser": true,
+    "keep_enabled": true,
+    "input_active_rules": 151,
+    "remaining_functional_rules": 3,
+    "ad_rules_migrated_to_personal_miniapps": 148,
+    "in_substrings": [
+      "manhuatailite.js",
+      "xiaodaka.js",
+      "getUpgradeStrategy"
+    ],
+    "hostname_in_substrings": [
+      "comic.321mh.com",
+      "uranus.sharedaka.com",
+      "api.ulife.group"
+    ],
+    "retained_source_rule_lines": [
+      306,
+      473,
+      499
+    ],
+    "note": "Personal miniapps.conf must be enabled, and cyys.js/image dependency restored there, to retain all 148 original ad/UI cleanup rows. This upstream functional reference keeps only the three originally enabled entitlement/update behaviors; it does not newly enable a feature."
+  },
+  "original_rewrite_actions": [
+    {
+      "original_line": 74,
+      "tag": "购物比价",
+      "repository": "DoracisMu/quanX_rewirte",
+      "original_enabled": true,
+      "action": "keep-functional-remote"
+    },
+    {
+      "original_line": 75,
+      "tag": "app解锁合集@chxm1023",
+      "repository": "chxm1023/Script_X",
+      "original_enabled": true,
+      "action": "keep-functional-remote-with-ad-only-out-filter"
+    },
+    {
+      "original_line": 76,
+      "tag": "去广告合集@chxm1023",
+      "repository": "fmz200/wool_scripts",
+      "original_enabled": true,
+      "action": "replace-with-personal-main-ad-rewrite"
+    },
+    {
+      "original_line": 77,
+      "tag": "App&小程序净化合集@fmz200",
+      "repository": "fmz200/wool_scripts",
+      "original_enabled": true,
+      "action": "enable-personal-miniapps-and-keep-three-filtered-functional-rows"
+    },
+    {
+      "original_line": 78,
+      "tag": "百度地图净化[卸载重装]@RuCu6",
+      "repository": "RuCu6/QuanX",
+      "original_enabled": false,
+      "action": "keep-original-disabled-reference"
+    },
+    {
+      "original_line": 79,
+      "tag": "影视网站去广告@ddgksf2013",
+      "repository": "ddgksf2013/Rewrite",
+      "original_enabled": false,
+      "action": "keep-original-disabled-reference"
+    },
+    {
+      "original_line": 80,
+      "tag": "神机重定向@DivineEngine",
+      "repository": "DivineEngine/Profiles",
+      "original_enabled": false,
+      "action": "keep-original-disabled-reference"
+    },
+    {
+      "original_line": 81,
+      "tag": "Safari超级搜索@ddgksf2013",
+      "repository": "ddgksf2013/Rewrite",
+      "original_enabled": true,
+      "action": "keep-functional-remote"
+    },
+    {
+      "original_line": 82,
+      "tag": "Google自动翻页@ddgksf2013",
+      "repository": "ddgksf2013/Rewrite",
+      "original_enabled": true,
+      "action": "keep-functional-remote"
+    },
+    {
+      "original_line": 83,
+      "tag": "油管字幕翻译@id77",
+      "repository": "id77/QuantumultX",
+      "original_enabled": true,
+      "action": "keep-functional-remote-and-exact-out-Hant-parameter"
+    },
+    {
+      "original_line": 84,
+      "tag": "Netflix评分@Orz-3",
+      "repository": "Orz-3/QuantumultX",
+      "original_enabled": true,
+      "action": "keep-functional-remote"
+    },
+    {
+      "original_line": 85,
+      "tag": "比价脚本@Orz-3",
+      "repository": "Orz-3/QuantumultX",
+      "original_enabled": false,
+      "action": "keep-original-disabled-reference"
+    },
+    {
+      "original_line": 86,
+      "tag": "Testflight解锁限制@NobyDa",
+      "repository": "NobyDa/Script",
+      "original_enabled": true,
+      "action": "keep-functional-remote-enabled"
+    },
+    {
+      "original_line": 87,
+      "tag": "解除微信链接屏蔽@zZPiglet",
+      "repository": "zZPiglet/Task",
+      "original_enabled": true,
+      "action": "keep-functional-remote-enabled"
+    },
+    {
+      "original_line": 88,
+      "tag": "百度网盘倍速@ddgksf2013",
+      "repository": "ddgksf2013/Rewrite",
+      "original_enabled": false,
+      "action": "keep-original-disabled-reference"
+    },
+    {
+      "original_line": 89,
+      "tag": "B站换区脚本[不会配置boxjs请勿勾选]@ddgksf2013",
+      "repository": "ddgksf2013/Rewrite",
+      "original_enabled": false,
+      "action": "keep-original-disabled-reference"
+    },
+    {
+      "original_line": 90,
+      "tag": "豆瓣电影网页快捷跳转@ddgksf2013",
+      "repository": "ddgksf2013/Rewrite",
+      "original_enabled": true,
+      "action": "replace-with-personal-douban-mixed-enhancement"
+    },
+    {
+      "original_line": 91,
+      "tag": "boxjs@chavyleung",
+      "repository": "chavyleung/scripts",
+      "original_enabled": true,
+      "action": "keep-functional-remote-enabled"
+    },
+    {
+      "original_line": 92,
+      "tag": "Sub-Store@Peng-YM",
+      "repository": "Peng-YM/Sub-Store",
+      "original_enabled": true,
+      "action": "keep-functional-remote-enabled"
+    },
+    {
+      "original_line": 93,
+      "tag": "毒奶重写",
+      "repository": null,
+      "original_enabled": true,
+      "action": "replace-with-personal-limbo-web-ad-resource"
+    },
+    {
+      "original_line": 94,
+      "tag": "TestFlight区域限制解除",
+      "repository": "NobyDa/Script",
+      "original_enabled": true,
+      "action": "disable-author-deprecated-testflight-overlap"
+    },
+    {
+      "original_line": 95,
+      "tag": "YouTube去广告",
+      "repository": "ConnersHua/RuleGo",
+      "original_enabled": true,
+      "action": "replace-with-reviewed-personal-youtube-ad-resource"
+    },
+    {
+      "original_line": 96,
+      "tag": "墨鱼去开屏",
+      "repository": "ddgksf2013/Rewrite",
+      "original_enabled": false,
+      "action": "keep-original-disabled-reference"
+    },
+    {
+      "original_line": 97,
+      "tag": "贴吧去广告",
+      "repository": "app2smile/rules",
+      "original_enabled": true,
+      "action": "replace-with-personal-main-ad-rewrite"
+    },
+    {
+      "original_line": 98,
+      "tag": "神机去广告",
+      "repository": "ConnersHua/RuleGo",
+      "original_enabled": true,
+      "action": "replace-with-personal-main-ad-rewrite-after-reviewed-surge-conversion"
+    }
+  ]
+}

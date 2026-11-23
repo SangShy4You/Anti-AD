@@ -79,6 +79,10 @@ blackmatrix7 的随附文件为其仓库原始 GNU GPL version 2 完整文本。
 | [licenses/privacy-protection-tools-anti-AD-MIT.txt](licenses/privacy-protection-tools-anti-AD-MIT.txt) | [上游原文](https://raw.githubusercontent.com/privacy-protection-tools/anti-AD/master/LICENSE) | `e38459549a64f11ecf1477053768ef89eb2939a9aa5573f51a31461086357a34` |
 # Quantumult X 原生整合补充
 
+后续完整整理另纳入原配置的 RuleGo Advertising／YouTube 模块及 app2smile 原生 YouTube 入口、Limbo 网页净化和 ddgksf2013 豆瓣混合网页功能。Surge 模块只转换经过审计的字段，原作者及原始路径记录于 manifest。Collections 完整内容不转载；独立表达的四个广告端点仅引用其原作者脚本，保留原功能的远程集合继续由原作者提供。
+
+`scripts/limbo-web.js`（生成于 `rules/quantumultx/scripts/`）基于 limbopro/Adblock4limbo 的 MIT 代码，修改不可变浏览器资源地址、移除当前公开 Git 树缺失的可选标签，并修复 script 闭合；许可证见现有 Limbo MIT 副本。三个网页引擎仅引用上游固定版本 CDN，不在本仓库复制。`cyys.js` 基于 fmz200/wool_scripts 的 GPL-3.0 代码，将失效外部图片引用改为本仓库生成的透明像素；来源和修改说明保留。1×1 PNG 由本仓库原创代码生成。
+
 `rules/quantumultx/` 由 `config/qx-sources.json` 列明的公开原始文件生成。fmz200/wool_scripts（GPL-3.0）、blackmatrix7/ios_rule_script（GPL-2.0）、privacy-protection-tools/anti-AD（MIT）和原十五个分流作者分别保留其许可与归属。现有 `licenses/` 中对应的许可证副本继续适用。app2smile/rules 的贴吧分流及两条重写保留作者和上游链接，不宣称获得 MIT 授权。原作者明确禁止转载的 chxm1023/AppAd 集合未复制进本聚合。
 
 绝大多数第三方脚本仅引用其原仓库不可变提交地址，不在此重新分发。唯一维护的脚本副本 `rules/quantumultx/scripts/zhihu.js` 来源于 fmz200/wool_scripts，沿用 GPL-3.0（见 `licenses/fmz200-wool_scripts-GPL-3.0.txt`），修正回调中误写的一个变量引用，并保留原作者代码、来源和个人修改说明。上游完整提交及原文件 SHA256 记录于 `rules/quantumultx/manifest.json`。本仓库的原创编译器许可不覆盖这些第三方内容。
