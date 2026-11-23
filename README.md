@@ -1,5 +1,7 @@
 # 个人去广告与防追踪规则
 
+**Quantumult X 原生分流与重写现已单独提供：见 [QX 使用说明](QUANTUMULT-X.md)。** 主要订阅为 [`rules/quantumultx/ads.list`](https://raw.githubusercontent.com/SangShy4You/Anti-AD/main/rules/quantumultx/ads.list) 和 [`rules/quantumultx/ads.conf`](https://raw.githubusercontent.com/SangShy4You/Anti-AD/main/rules/quantumultx/ads.conf)。QX 文件包含原生路径／响应重写和固定版本的脚本引用。
+
 将原 Quantumult X 配置中的广告、追踪拦截与必要放行来源整合为少量可订阅文件，供 Apps Connect 的规则集入口使用。机场客户端原有的国内外分流保持由客户端配置管理。
 
 ## 在 Apps Connect 使用

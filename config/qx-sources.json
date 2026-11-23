@@ -1,0 +1,673 @@
+{
+  "schema_version": 1,
+  "scope": "personal-QX-ads-tracking-and-optional-service-routing",
+  "sources": [
+    {
+      "id": "01_filter",
+      "name": "sve1r-AntiAD-V4",
+      "url": "https://raw.githubusercontent.com/sve1r/Rules-For-Quantumult-X/refs/heads/main/Rules/Advertising/antiAD-V4.list",
+      "source_format": "mixed",
+      "expected_policy": "reject",
+      "exclude_rules": {
+        "host-suffix,activate-sea.adobe.com,reject": "Software activation, registration or licensing endpoint is outside the personal ads-and-tracking scope; let the existing QX routing decide its connection.",
+        "host-suffix,activate-sjc0.adobe.com,reject": "Software activation, registration or licensing endpoint is outside the personal ads-and-tracking scope; let the existing QX routing decide its connection.",
+        "host-suffix,adobe-dns-2.adobe.com,reject": "Software activation, registration or licensing endpoint is outside the personal ads-and-tracking scope; let the existing QX routing decide its connection.",
+        "host-suffix,adobe-dns-3.adobe.com,reject": "Software activation, registration or licensing endpoint is outside the personal ads-and-tracking scope; let the existing QX routing decide its connection.",
+        "host-suffix,adobe-dns.adobe.com,reject": "Software activation, registration or licensing endpoint is outside the personal ads-and-tracking scope; let the existing QX routing decide its connection.",
+        "host-suffix,practivate.adobe.com,reject": "Software activation, registration or licensing endpoint is outside the personal ads-and-tracking scope; let the existing QX routing decide its connection."
+      },
+      "license": "See THIRD_PARTY_NOTICES.md and licenses/",
+      "min_rules": 66764
+    },
+    {
+      "id": "02_filter",
+      "name": "sve1r分流",
+      "url": "https://raw.githubusercontent.com/sve1r/Rules-For-Quantumult-X/refs/heads/main/Rules/Advertising/AdReject.list",
+      "source_format": "mixed",
+      "expected_policy": "reject",
+      "exclude_rules": {
+        "host-suffix,activate.adobe.com,reject": "Software activation, registration or licensing endpoint is outside the personal ads-and-tracking scope; let the existing QX routing decide its connection.",
+        "host-suffix,activate.wip3.adobe.com,reject": "Software activation, registration or licensing endpoint is outside the personal ads-and-tracking scope; let the existing QX routing decide its connection.",
+        "host-suffix,activate-sea.adobe.com,reject": "Software activation, registration or licensing endpoint is outside the personal ads-and-tracking scope; let the existing QX routing decide its connection.",
+        "host-suffix,activate-sjc0.adobe.com,reject": "Software activation, registration or licensing endpoint is outside the personal ads-and-tracking scope; let the existing QX routing decide its connection.",
+        "host-suffix,adobe-dns.adobe.com,reject": "Software activation, registration or licensing endpoint is outside the personal ads-and-tracking scope; let the existing QX routing decide its connection.",
+        "host-suffix,adobe-dns-2.adobe.com,reject": "Software activation, registration or licensing endpoint is outside the personal ads-and-tracking scope; let the existing QX routing decide its connection.",
+        "host-suffix,adobe-dns-3.adobe.com,reject": "Software activation, registration or licensing endpoint is outside the personal ads-and-tracking scope; let the existing QX routing decide its connection.",
+        "host-suffix,ereg.adobe.com,reject": "Software activation, registration or licensing endpoint is outside the personal ads-and-tracking scope; let the existing QX routing decide its connection.",
+        "host-suffix,ereg.wip3.adobe.com,reject": "Software activation, registration or licensing endpoint is outside the personal ads-and-tracking scope; let the existing QX routing decide its connection.",
+        "host-suffix,license.lumion3d.com,reject": "Software activation, registration or licensing endpoint is outside the personal ads-and-tracking scope; let the existing QX routing decide its connection.",
+        "host-suffix,license.lumion3d.net,reject": "Software activation, registration or licensing endpoint is outside the personal ads-and-tracking scope; let the existing QX routing decide its connection.",
+        "host-suffix,licenses.ashampoo.com,reject": "Software activation, registration or licensing endpoint is outside the personal ads-and-tracking scope; let the existing QX routing decide its connection.",
+        "host-suffix,lm.licenses.adobe.com,reject": "Software activation, registration or licensing endpoint is outside the personal ads-and-tracking scope; let the existing QX routing decide its connection.",
+        "host-suffix,lmlicenses.wip4.adobe.com,reject": "Software activation, registration or licensing endpoint is outside the personal ads-and-tracking scope; let the existing QX routing decide its connection.",
+        "host-suffix,practivate.adobe.com,reject": "Software activation, registration or licensing endpoint is outside the personal ads-and-tracking scope; let the existing QX routing decide its connection."
+      },
+      "license": "See THIRD_PARTY_NOTICES.md and licenses/",
+      "min_rules": 5346
+    },
+    {
+      "id": "03_filter",
+      "name": "毒奶分流",
+      "url": "https://raw.githubusercontent.com/limbopro/Adblock4limbo/main/Adblock4limbo.list",
+      "source_format": "mixed",
+      "expected_policy": "reject",
+      "note": "作者GitHub同名版本，替代曾403的网站地址",
+      "exclude_rules": {},
+      "license": "See THIRD_PARTY_NOTICES.md and licenses/",
+      "min_rules": 356
+    },
+    {
+      "id": "04_filter",
+      "name": "野比分流",
+      "url": "https://raw.githubusercontent.com/NobyDa/ND-AD/master/QuantumultX/AD_Block.txt",
+      "source_format": "mixed",
+      "expected_policy": "reject",
+      "exclude_rules": {
+        "DOMAIN-SUFFIX,activate.adobe.com,REJECT": "Software activation, registration or licensing endpoint is outside the personal ads-and-tracking scope; let the existing QX routing decide its connection.",
+        "DOMAIN-SUFFIX,activate.wip3.adobe.com,REJECT": "Software activation, registration or licensing endpoint is outside the personal ads-and-tracking scope; let the existing QX routing decide its connection.",
+        "DOMAIN-SUFFIX,activate-sea.adobe.com,REJECT": "Software activation, registration or licensing endpoint is outside the personal ads-and-tracking scope; let the existing QX routing decide its connection.",
+        "DOMAIN-SUFFIX,activate-sjc0.adobe.com,REJECT": "Software activation, registration or licensing endpoint is outside the personal ads-and-tracking scope; let the existing QX routing decide its connection.",
+        "DOMAIN-SUFFIX,adobe-dns.adobe.com,REJECT": "Software activation, registration or licensing endpoint is outside the personal ads-and-tracking scope; let the existing QX routing decide its connection.",
+        "DOMAIN-SUFFIX,adobe-dns-2.adobe.com,REJECT": "Software activation, registration or licensing endpoint is outside the personal ads-and-tracking scope; let the existing QX routing decide its connection.",
+        "DOMAIN-SUFFIX,adobe-dns-3.adobe.com,REJECT": "Software activation, registration or licensing endpoint is outside the personal ads-and-tracking scope; let the existing QX routing decide its connection.",
+        "DOMAIN-SUFFIX,ereg.adobe.com,REJECT": "Software activation, registration or licensing endpoint is outside the personal ads-and-tracking scope; let the existing QX routing decide its connection.",
+        "DOMAIN-SUFFIX,ereg.wip3.adobe.com,REJECT": "Software activation, registration or licensing endpoint is outside the personal ads-and-tracking scope; let the existing QX routing decide its connection.",
+        "DOMAIN-SUFFIX,license.lumion3d.com,REJECT": "Software activation, registration or licensing endpoint is outside the personal ads-and-tracking scope; let the existing QX routing decide its connection.",
+        "DOMAIN-SUFFIX,license.lumion3d.net,REJECT": "Software activation, registration or licensing endpoint is outside the personal ads-and-tracking scope; let the existing QX routing decide its connection.",
+        "DOMAIN-SUFFIX,licenses.ashampoo.com,REJECT": "Software activation, registration or licensing endpoint is outside the personal ads-and-tracking scope; let the existing QX routing decide its connection.",
+        "DOMAIN-SUFFIX,lm.licenses.adobe.com,REJECT": "Software activation, registration or licensing endpoint is outside the personal ads-and-tracking scope; let the existing QX routing decide its connection.",
+        "DOMAIN-SUFFIX,lmlicenses.wip4.adobe.com,REJECT": "Software activation, registration or licensing endpoint is outside the personal ads-and-tracking scope; let the existing QX routing decide its connection.",
+        "DOMAIN-SUFFIX,practivate.adobe.com,REJECT": "Software activation, registration or licensing endpoint is outside the personal ads-and-tracking scope; let the existing QX routing decide its connection."
+      },
+      "license": "See THIRD_PARTY_NOTICES.md and licenses/",
+      "min_rules": 28359
+    },
+    {
+      "id": "05_filter",
+      "name": "野比分流Plus",
+      "url": "https://raw.githubusercontent.com/NobyDa/ND-AD/master/QuantumultX/AD_Block_Plus.txt",
+      "source_format": "mixed",
+      "expected_policy": "reject",
+      "exclude_rules": {
+        "DOMAIN,license.piriform.com,REJECT": "Software activation, registration or licensing endpoint is outside the personal ads-and-tracking scope; let the existing QX routing decide its connection.",
+        "DOMAIN,license.bluesoleil.com,REJECT": "Software activation, registration or licensing endpoint is outside the personal ads-and-tracking scope; let the existing QX routing decide its connection.",
+        "DOMAIN,license3.bluesoleil.com,REJECT": "Software activation, registration or licensing endpoint is outside the personal ads-and-tracking scope; let the existing QX routing decide its connection.",
+        "DOMAIN,license2.bluesoleil.com,REJECT": "Software activation, registration or licensing endpoint is outside the personal ads-and-tracking scope; let the existing QX routing decide its connection."
+      },
+      "license": "See THIRD_PARTY_NOTICES.md and licenses/",
+      "min_rules": 45074
+    },
+    {
+      "id": "06_filter",
+      "name": "规则修正@blackmatrix7",
+      "url": "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/QuantumultX/Direct/Direct.list",
+      "source_format": "mixed",
+      "expected_policy": "proxy",
+      "original_policy": "全球加速",
+      "policy_mapping_note": "Map the old user-specific proxy group to the QX built-in proxy policy; no new policy group is required.",
+      "exclude_rules": {},
+      "license": "See THIRD_PARTY_NOTICES.md and licenses/",
+      "min_rules": 150
+    },
+    {
+      "id": "07_filter",
+      "name": "本地局域网@blackmatrix7",
+      "url": "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/QuantumultX/Lan/Lan.list",
+      "source_format": "mixed",
+      "expected_policy": "direct",
+      "exclude_rules": {},
+      "license": "See THIRD_PARTY_NOTICES.md and licenses/",
+      "min_rules": 92
+    },
+    {
+      "id": "08_filter",
+      "name": "广告终结者@anti-ad",
+      "url": "https://raw.githubusercontent.com/privacy-protection-tools/anti-AD/master/anti-ad-surge2.txt",
+      "source_format": "surge_domainset",
+      "expected_policy": "reject",
+      "exclude_rules": {
+        ".activate-sea.adobe.com": "Software activation, registration or licensing endpoint is outside the personal ads-and-tracking scope; let the existing QX routing decide its connection.",
+        ".activate-sjc0.adobe.com": "Software activation, registration or licensing endpoint is outside the personal ads-and-tracking scope; let the existing QX routing decide its connection.",
+        ".adobe-dns-2.adobe.com": "Software activation, registration or licensing endpoint is outside the personal ads-and-tracking scope; let the existing QX routing decide its connection.",
+        ".adobe-dns-3.adobe.com": "Software activation, registration or licensing endpoint is outside the personal ads-and-tracking scope; let the existing QX routing decide its connection.",
+        ".adobe-dns.adobe.com": "Software activation, registration or licensing endpoint is outside the personal ads-and-tracking scope; let the existing QX routing decide its connection.",
+        ".practivate.adobe.com": "Software activation, registration or licensing endpoint is outside the personal ads-and-tracking scope; let the existing QX routing decide its connection."
+      },
+      "license": "See THIRD_PARTY_NOTICES.md and licenses/",
+      "min_rules": 66156
+    },
+    {
+      "id": "09_filter",
+      "name": "隐私保护@blackmatrix7",
+      "url": "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/QuantumultX/Privacy/Privacy.list",
+      "source_format": "mixed",
+      "expected_policy": "reject",
+      "exclude_rules": {},
+      "license": "See THIRD_PARTY_NOTICES.md and licenses/",
+      "min_rules": 25958
+    },
+    {
+      "id": "10_filter",
+      "name": "反劫持@blackmatrix7",
+      "url": "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/QuantumultX/Hijacking/Hijacking.list",
+      "source_format": "mixed",
+      "expected_policy": "reject",
+      "exclude_rules": {},
+      "license": "See THIRD_PARTY_NOTICES.md and licenses/",
+      "min_rules": 148
+    },
+    {
+      "id": "11_filter",
+      "name": "应用内防追踪@mieqq",
+      "url": "https://raw.githubusercontent.com/mieqq/mieqq/master/In-AppTracker.txt",
+      "source_format": "surge_domainset",
+      "expected_policy": "reject",
+      "exclude_rules": {},
+      "license": "See THIRD_PARTY_NOTICES.md and licenses/",
+      "min_rules": 6624
+    },
+    {
+      "id": "12_filter",
+      "name": "微信直连@blackmatrix7",
+      "url": "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/QuantumultX/WeChat/WeChat.list",
+      "source_format": "mixed",
+      "expected_policy": "direct",
+      "exclude_rules": {},
+      "license": "See THIRD_PARTY_NOTICES.md and licenses/",
+      "min_rules": 27
+    },
+    {
+      "id": "13_filter",
+      "name": "直连修正",
+      "url": "https://raw.githubusercontent.com/ConnersHua/RuleGo/master/Surge/Ruleset/Direct+.list",
+      "source_format": "mixed",
+      "expected_policy": "direct",
+      "exclude_rules": {},
+      "license": "See THIRD_PARTY_NOTICES.md and licenses/",
+      "min_rules": 13
+    },
+    {
+      "id": "14_filter",
+      "name": "广告拦截",
+      "url": "https://raw.githubusercontent.com/ConnersHua/RuleGo/master/Surge/Ruleset/Extra/Reject/Advertising.list",
+      "source_format": "mixed",
+      "expected_policy": "reject",
+      "exclude_rules": {},
+      "license": "See THIRD_PARTY_NOTICES.md and licenses/",
+      "min_rules": 634
+    },
+    {
+      "id": "15_filter",
+      "name": "隐私保护",
+      "url": "https://raw.githubusercontent.com/ConnersHua/RuleGo/master/Surge/Ruleset/Extra/Reject/Tracking.list",
+      "source_format": "mixed",
+      "expected_policy": "reject",
+      "exclude_rules": {},
+      "license": "See THIRD_PARTY_NOTICES.md and licenses/",
+      "min_rules": 58
+    },
+    {
+      "id": "antiad_current",
+      "name": "anti-AD 当前原生QX版",
+      "url": "https://raw.githubusercontent.com/privacy-protection-tools/anti-AD/master/anti-ad-quanx.txt",
+      "source_format": "qx",
+      "expected_policy": "reject",
+      "license": "MIT",
+      "min_rules": 65000
+    },
+    {
+      "id": "tieba_filter",
+      "name": "贴吧去广告配套分流",
+      "url": "https://raw.githubusercontent.com/app2smile/rules/master/rule/tieba-ad-qx.list",
+      "source_format": "qx",
+      "expected_policy": "reject",
+      "license": "Upstream attribution; no blanket MIT claim",
+      "min_rules": 1
+    },
+    {
+      "id": "bm-wechat",
+      "name": "微信直连",
+      "url": "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/QuantumultX/WeChat/WeChat.list",
+      "source_format": "qx",
+      "expected_policy": "direct",
+      "license": "GPL-2.0",
+      "min_rules": 27
+    },
+    {
+      "id": "bm-apple",
+      "name": "苹果服务",
+      "url": "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/QuantumultX/Apple/Apple.list",
+      "source_format": "qx",
+      "expected_policy": "direct",
+      "license": "GPL-2.0",
+      "min_rules": 1222
+    },
+    {
+      "id": "bm-telegram",
+      "name": "电报代理",
+      "url": "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/QuantumultX/Telegram/Telegram.list",
+      "source_format": "qx",
+      "expected_policy": "proxy",
+      "license": "GPL-2.0",
+      "min_rules": 26
+    },
+    {
+      "id": "bm-openai",
+      "name": "OpenAI",
+      "url": "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/QuantumultX/OpenAI/OpenAI.list",
+      "source_format": "qx",
+      "expected_policy": "proxy",
+      "license": "GPL-2.0",
+      "min_rules": 22
+    },
+    {
+      "id": "bm-streaming",
+      "name": "国际媒体",
+      "url": "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/QuantumultX/GlobalMedia/GlobalMedia.list",
+      "source_format": "qx",
+      "expected_policy": "proxy",
+      "license": "GPL-2.0",
+      "min_rules": 1521
+    },
+    {
+      "id": "bm-china",
+      "name": "国内网站",
+      "url": "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/QuantumultX/China/China.list",
+      "source_format": "qx",
+      "expected_policy": "direct",
+      "license": "GPL-2.0",
+      "min_rules": 2439
+    },
+    {
+      "id": "fmz_rewrite",
+      "url": "https://raw.githubusercontent.com/fmz200/wool_scripts/main/QuantumultX/rewrite/rewrite.snippet",
+      "license": "GPL-3.0",
+      "name": "fmz200 综合去广告",
+      "exclude_rules": {
+        "^https?:\\/\\/sdk\\.alibaba\\.com\\.ailbaba\\.me\\/xgapp\\.php\\/v\\d\\/version url reject-200": "Suppresses app version/update endpoint.",
+        "^https?:\\/\\/sdk\\.alibaba\\.com\\.ailbaba\\.me\\/(dsx|xgapp)\\.php\\/v\\d\\/(top_notice\\?|version|advert\\?position=[^2]+) url reject-200": "Combined notice/version and advertising expression; excluded whole original line to avoid widening or altering regex semantics.",
+        "^https?:\\/\\/capis(-?\\w*)?\\.didapinche\\.com\\/publish\\/api\\/upgrade url reject-dict": "Suppresses app upgrade endpoint.",
+        "^https?:\\/\\/app\\.ceair\\.com\\/customize\\/security\\/update url reject-200": "Suppresses security update endpoint.",
+        "^https?:\\/\\/capi\\.douyucdn\\.cn\\/api\\/ios_app\\/check_update url reject-img": "Suppresses app check_update endpoint.",
+        "^https?:\\/\\/gsp\\.gacmotor\\.com\\/gateway\\/app-api\\/app\\/version\\/latestupdate\\?flatform=2&innerVersion= url reject-dict": "Suppresses latest app version endpoint.",
+        "^https?:\\/\\/hweb-manager\\.huazhu\\.com\\/bundle\\/upgrade\\/check url reject-dict": "Suppresses app upgrade endpoint.",
+        "^https?:\\/\\/m\\.prod\\.app\\.hsbcfts\\.com\\.cn\\/api\\/sapp\\/biz\\/config\\/open\\/queryappversion\\?channelCode= url reject-dict": "Suppresses app-version endpoint.",
+        "^https?:\\/\\/(mgxhtj|nmobi|searchrecterm)\\.kuwo\\.cn\\/(mgxh|mobi|recterm)\\.s url script-response-body https://raw.githubusercontent.com/fmz200/wool_scripts/main/Scripts/kuwo/kuwo.js": "Changes playright/downright, bought_vip, expiration, music.pay and SVIP flags.",
+        "^https?:\\/\\/audiobookpay\\.kuwo\\.cn\\/a\\.p url script-response-body https://raw.githubusercontent.com/fmz200/wool_scripts/main/Scripts/kuwo/kuwo.js": "Changes playright/downright, bought_vip, expiration, music.pay and SVIP flags.",
+        "^https?:\\/\\/musicpay\\.kuwo\\.cn\\/music\\.pay url script-response-body https://raw.githubusercontent.com/fmz200/wool_scripts/main/Scripts/kuwo/kuwo.js": "Changes playright/downright, bought_vip, expiration, music.pay and SVIP flags.",
+        "^https?:\\/\\/vip1\\.kuwo\\.cn\\/vip\\/(enc\\/user\\/vip\\?op=ui|v\\d\\/theme\\?op=gd) url script-response-body https://raw.githubusercontent.com/fmz200/wool_scripts/main/Scripts/kuwo/kuwo.js": "Changes playright/downright, bought_vip, expiration, music.pay and SVIP flags.",
+        "^https?:\\/\\/vip1\\.kuwo\\.cn\\/vip\\/v\\d\\/user\\/vip\\?op=ui url script-response-body https://raw.githubusercontent.com/fmz200/wool_scripts/main/Scripts/kuwo/kuwo.js": "Changes playright/downright, bought_vip, expiration, music.pay and SVIP flags.",
+        "^https?:\\/\\/api\\.gotokeep\\.com\\/anno\\/v\\d\\/upgrade\\/check url reject": "Suppresses app upgrade endpoint.",
+        "^http:\\/\\/ebk\\.17u\\.cn\\/tctrafficappversionadmin\\/api\\/getLatestVersionApp url reject-dict": "Suppresses latest app version endpoint.",
+        "^https?:\\/\\/mapi\\.mafengwo\\.cn\\/system\\/update\\/check_update url reject-dict": "Suppresses app update endpoint.",
+        "^https?:\\/\\/creditcardapp\\.bankcomm\\.(com|cn)\\/mappweb_interaction\\/appInfo\\/appNewestVersion url reject-200": "Suppresses app newest-version endpoint.",
+        "^https?:\\/\\/mobile\\.api\\.mgtv\\.com\\/v2\\/mobile\\/checkUpdate\\? url reject-dict": "Suppresses app checkUpdate endpoint.",
+        "^https:\\/\\/api\\.bevol\\.com\\/(?:appmain\\/app\\/home\\/page|usercenter\\/account\\/info|personal\\/page|appmain\\/app\\/home\\/launch|trialbox\\/shop\\/app\\/homePage)$ url script-response-body https://github.com/fmz200/wool_scripts/raw/main/Scripts/mlxx/mlxx.js": "Changes isMember/isMlxxMember and membership labels as well as ads.",
+        "^https?:\\/\\/blog\\.nilbt\\.com\\/static\\/api\\/update url reject-200": "Suppresses update endpoint.",
+        "^https?:\\/\\/appapi\\.51job(app)?\\.com\\/api\\/util\\/get_version url reject-dict": "Suppresses get_version endpoint.",
+        "^https?:\\/\\/cupid\\.51job(app)?\\.com\\/open\\/noauth\\/index\\/last-version url reject-dict": "Suppresses last-version endpoint.",
+        "^https?:\\/\\/cupid\\.51job(app)?\\.com\\/open\\/noauth\\/recommend\\/job-tab-dynamic url script-response-body https://raw.githubusercontent.com/zirawell/R-Store/main/Res/Scripts/AntiAd/51job.js": "Sets vipInfo.isVip=true on my-page; omit mixed script as a unit.",
+        "^https?:\\/\\/cupid\\.51job(app)?\\.com\\/open\\/my-page\\/ url script-response-body https://raw.githubusercontent.com/zirawell/R-Store/main/Res/Scripts/AntiAd/51job.js": "Sets vipInfo.isVip=true on my-page; omit mixed script as a unit.",
+        "^https?:\\/\\/fmapp\\.chinafamilymart\\.com\\.cn\\/api\\/app\\/biz\\/base\\/appversion\\/latest url reject": "Suppresses latest app-version endpoint.",
+        "^https?:\\/\\/api\\.rr\\.tv\\/\\w{3}\\/level\\/info url script-response-body https://raw.githubusercontent.com/fmz200/wool_scripts/main/Scripts/rrtv_json.js": "Changes canPlay, user privilegeList/vipInfo and expiredTime as well as ad removal.",
+        "^https?:\\/\\/api\\.rr\\.tv\\/.*?Version url reject": "Broad Version endpoint rejection.",
+        "https://api.rr.tv/v3plus/index/channel\\?pageNum=1&position=CHANNEL_INDEX url script-response-body https://raw.githubusercontent.com/fmz200/wool_scripts/main/Scripts/rrtv_json.js": "Changes canPlay, user privilegeList/vipInfo and expiredTime as well as ad removal.",
+        "^https?:\\/\\/api\\.rr\\.tv\\/app\\/config\\/h5NativeBar url script-response-body https://raw.githubusercontent.com/fmz200/wool_scripts/main/Scripts/rrtv_json.js": "Changes canPlay, user privilegeList/vipInfo and expiredTime as well as ad removal.",
+        "^https?:\\/\\/api\\.rr\\.tv\\/v3plus\\/index\\/channel\\?pageNum=1&position=CHANNEL_MY url script-response-body https://raw.githubusercontent.com/fmz200/wool_scripts/main/Scripts/rrtv_json.js": "Changes canPlay, user privilegeList/vipInfo and expiredTime as well as ad removal.",
+        "^https?:\\/\\/api\\.rr\\.tv\\/user\\/privilege\\/list url script-response-body https://raw.githubusercontent.com/fmz200/wool_scripts/main/Scripts/rrtv_json.js": "Changes canPlay, user privilegeList/vipInfo and expiredTime as well as ad removal.",
+        "^https?:\\/\\/api\\.rr\\.tv\\/ad\\/getAll url script-response-body https://raw.githubusercontent.com/fmz200/wool_scripts/main/Scripts/rrtv_json.js": "Changes canPlay, user privilegeList/vipInfo and expiredTime as well as ad removal.",
+        "^https?:\\/\\/api\\.rr\\.tv\\/drama\\/app\\/get_combined_drama_detail url script-response-body https://raw.githubusercontent.com/fmz200/wool_scripts/main/Scripts/rrtv_json.js": "Changes canPlay, user privilegeList/vipInfo and expiredTime as well as ad removal.",
+        "https://api.rr.tv/watch/v4 url script-response-body https://raw.githubusercontent.com/fmz200/wool_scripts/main/Scripts/rrtv_json.js": "Changes canPlay, user privilegeList/vipInfo and expiredTime as well as ad removal.",
+        "https://api.rr.tv/user/profile url script-response-body https://raw.githubusercontent.com/fmz200/wool_scripts/main/Scripts/rrtv_json.js": "Changes canPlay, user privilegeList/vipInfo and expiredTime as well as ad removal.",
+        "^https?:\\/\\/api-sams\\.walmartmobile\\.cn\\/api\\/v\\d\\/sams\\/configuration\\/appVersionUpdate\\/getAppVersionUpdateInfo url reject-dict": "Suppresses app-version-update endpoint.",
+        "^https?:\\/\\/api-sams\\.walmartmobile\\.cn\\/api\\/v1\\/sams\\/configuration\\/portal\\/beUpdate url reject-dict": "Suppresses beUpdate endpoint.",
+        "^https?:\\/\\/szdmobile\\.suzhou\\.gov\\.cn\\/thirdapp-center\\/appUpdate\\/update url reject-dict": "Suppresses appUpdate endpoint.",
+        "^https?:\\/\\/api-account\\.soulapp\\.cn\\/teenager\\/config url script-response-body https://raw.githubusercontent.com/fmz200/wool_scripts/main/Scripts/soul/soul_ads.js": "Mixed ad removal with chat limit=false, teenager config and version removal.",
+        "^https?:\\/\\/api-a\\.soulapp\\.cn\\/v2\\/post\\/gift\\/list url script-response-body https://raw.githubusercontent.com/fmz200/wool_scripts/main/Scripts/soul/soul_ads.js": "Mixed ad removal with chat limit=false, teenager config and version removal.",
+        "^https?:\\/\\/api-a\\.soulapp\\.cn\\/official\\/scene\\/module url script-response-body https://raw.githubusercontent.com/fmz200/wool_scripts/main/Scripts/soul/soul_ads.js": "Mixed ad removal with chat limit=false, teenager config and version removal.",
+        "^https?:\\/\\/api-user\\.soulapp\\.cn\\/furion\\/position\\/content url script-response-body https://raw.githubusercontent.com/fmz200/wool_scripts/main/Scripts/soul/soul_ads.js": "Mixed ad removal with chat limit=false, teenager config and version removal.",
+        "^https?:\\/\\/api-user\\.soulapp\\.cn\\/v\\d\\/planet\\/config url script-response-body https://raw.githubusercontent.com/fmz200/wool_scripts/main/Scripts/soul/soul_ads.js": "Mixed ad removal with chat limit=false, teenager config and version removal.",
+        "^https?:\\/\\/api-chat\\.soulapp\\.cn\\/chat\\/limitInfo url script-response-body https://raw.githubusercontent.com/fmz200/wool_scripts/main/Scripts/soul/soul_ads.js": "Mixed ad removal with chat limit=false, teenager config and version removal.",
+        "^https?:\\/\\/post\\.soulapp\\.cn\\/hot\\/soul\\/rank url script-response-body https://raw.githubusercontent.com/fmz200/wool_scripts/main/Scripts/soul/soul_ads.js": "Mixed ad removal with chat limit=false, teenager config and version removal.",
+        "^https?:\\/\\/post\\.soulapp\\.cn\\/v\\d\\/post\\/homepage\\/guide\\/card url script-response-body https://raw.githubusercontent.com/fmz200/wool_scripts/main/Scripts/soul/soul_ads.js": "Mixed ad removal with chat limit=false, teenager config and version removal.",
+        "^https?:\\/\\/post\\.soulapp\\.cn\\/v\\d\\/post\\/recSquare\\/subTabs url script-response-body https://raw.githubusercontent.com/fmz200/wool_scripts/main/Scripts/soul/soul_ads.js": "Mixed ad removal with chat limit=false, teenager config and version removal.",
+        "^https?:\\/\\/chat-live\\.soulapp\\.cn\\/chatroom\\/chatClassifyRoomList url script-response-body https://raw.githubusercontent.com/fmz200/wool_scripts/main/Scripts/soul/soul_ads.js": "Mixed ad removal with chat limit=false, teenager config and version removal.",
+        "^https?:\\/\\/gateway-mobile-gray\\.soulapp\\.cn\\/mobile\\/app\\/version\\/queryIos url script-response-body https://raw.githubusercontent.com/fmz200/wool_scripts/main/Scripts/soul/soul_ads.js": "Mixed ad removal with chat limit=false, teenager config and version removal.",
+        "^https?:\\/\\/47\\.110\\.187\\.87\\/winterfell\\/v2\\/getIpByDomain url script-response-body https://raw.githubusercontent.com/fmz200/wool_scripts/main/Scripts/soul/soul_ads.js": "Mixed ad removal with chat limit=false, teenager config and version removal.",
+        "^https:\\/\\/(spclient\\.wg\\.spotify\\.com|.*-spclient\\.spotify\\.com(:443)?)\\/user-customization-service\\/v1\\/customize$ url script-request-header https://raw.githubusercontent.com/app2smile/rules/master/js/spotify-qx-header.js": "Part of mixed Spotify unlock chain; omit chain as a unit.",
+        "^https:\\/\\/(spclient\\.wg\\.spotify\\.com|.*-spclient\\.spotify\\.com(:443)?)\\/(bootstrap\\/v1\\/bootstrap|user-customization-service\\/v1\\/customize)$ url script-response-body https://raw.githubusercontent.com/app2smile/rules/master/js/spotify-proto.js": "Sets account type/catalogue/premium entitlement flags; not ad-only.",
+        "^https:\\/\\/(spclient\\.wg\\.spotify\\.com|.*-spclient\\.spotify\\.com(:443)?)\\/(artistview\\/v1\\/artist|album-entity-view\\/v2\\/album)\\/ url script-request-header https://raw.githubusercontent.com/app2smile/rules/master/js/spotify-json.js": "Part of mixed Spotify unlock chain; omit chain as a unit.",
+        "^https?:\\/\\/tfsmy\\.chengdu\\.gov\\.cn\\/api\\/v5\\/core\\/version url reject-200": "Suppresses core/version endpoint.",
+        "^https?:\\/\\/(?>csc|osg)-service\\.sgcc\\.com\\.cn:\\d+\\/emss-pfa-appset-front\\/appForceUpdate url reject": "Suppresses force-update endpoint.",
+        "^https?:\\/\\/(?>csc|osg)-service\\.sgcc\\.com\\.cn:\\d+\\/emss-pfa-appset-front\\/appSync\\/getAppForceUpgrade url reject": "Suppresses force-upgrade endpoint.",
+        "https?:\\/\\/interface\\d?\\.music\\.163.com\\/eapi\\/(mlivestream\\/entrance\\/playpage|link\\/(position\\/show\\/strategy|scene\\/show)|ios\\/version|v\\d\\/content\\/exposure\\/comment\\/banner) url reject-dict": "Combines ios/version rejection with other endpoints; omit original combined rule without modifying regex.",
+        "https?:\\/\\/(ipv4|interface\\d?)\\.music\\.163\\.com\\/e?api\\/(batch|v\\d\\/resource\\/comment\\/floor\\/get) url script-response-body https://raw.githubusercontent.com/Keywos/rule/main/script/wy/js/wyres.js": "Modifies musicPackage/associator/voiceBookVip vipLevel/expireTime; not ad-only.",
+        "https?:\\/\\/(ipv4|interface\\d?)\\.music\\.163\\.com\\/e?api\\/link\\/home\\/framework\\/tab url script-response-body https://raw.githubusercontent.com/Keywos/rule/main/script/wy/js/wyres.js": "Modifies musicPackage/associator/voiceBookVip vipLevel/expireTime; not ad-only.",
+        "https?:\\/\\/(ipv4|interface\\d?)\\.music\\.163\\.com\\/e?api\\/(homepage\\/block\\/page|link\\/page\\/rcmd\\/(resource\\/show|block\\/resource\\/multi\\/refresh)) url script-response-body https://raw.githubusercontent.com/Keywos/rule/main/script/wy/js/wyres.js": "Modifies musicPackage/associator/voiceBookVip vipLevel/expireTime; not ad-only.",
+        "https?:\\/\\/(ipv4|interface\\d?)\\.music\\.163\\.com\\/e?api\\/link\\/page\\/discovery\\/resource\\/show url script-response-body https://raw.githubusercontent.com/Keywos/rule/main/script/wy/js/wyres.js": "Modifies musicPackage/associator/voiceBookVip vipLevel/expireTime; not ad-only.",
+        "https?:\\/\\/(ipv4|interface\\d?)\\.music\\.163\\.com\\/e?api\\/song\\/play\\/more\\/list\\/v\\d url script-response-body https://raw.githubusercontent.com/Keywos/rule/main/script/wy/js/wyres.js": "Modifies musicPackage/associator/voiceBookVip vipLevel/expireTime; not ad-only.",
+        "https?:\\/\\/(ipv4|interface\\d?)\\.music\\.163\\.com\\/e?api\\/link\\/position\\/show\\/resource url script-response-body https://raw.githubusercontent.com/Keywos/rule/main/script/wy/js/wyres.js": "Modifies musicPackage/associator/voiceBookVip vipLevel/expireTime; not ad-only.",
+        "https?:\\/\\/(ipv4|interface\\d?)\\.music\\.163\\.com\\/e?api\\/user\\/follow\\/users\\/mixed\\/get url script-response-body https://raw.githubusercontent.com/Keywos/rule/main/script/wy/js/wyres.js": "Modifies musicPackage/associator/voiceBookVip vipLevel/expireTime; not ad-only.",
+        "^https\\:\\/\\/(weixin110\\.qq|security.wechat)\\.com\\/cgi-bin\\/mmspamsupport-bin\\/newredirectconfirmcgi\\? url script-response-body https://raw.githubusercontent.com/zZPiglet/Task/master/asset/UnblockURLinWeChat.js": "Link-block bypass feature outside ad/tracking scope.",
+        "^https?:\\/\\/.+?\\.(pipi|fuli|xiang(jiao|xiang))apps\\.com\\/(ucp\\/index|getGlobalData|(\\/|)vod\\/reqplay\\/) url script-response-body https://raw.githubusercontent.com/NobyDa/Script/master/QuantumultX/File/xjsp.js": "Changes isvip/gid/viewing limits; not ad-only.",
+        "^https:\\/\\/link\\.zhihu\\.com\\/\\?target=(https?)?(%3A|:)?(\\/\\/|%2F%2F)?(.*?)(&source.*)?$ url 302 http://$4": "Unwraps Zhihu outgoing links and downgrades to http; functional redirect outside ad-only scope.",
+        "^https?:\\/\\/zjdr666\\.com\\/zjdr\\.php\\/v\\d\\/(version|top_notice\\?|advert\\?position=[^2]+) url reject": "Combined version/notice/advert expression; omit whole source line rather than changing semantics.",
+        "^https?:\\/\\/wrapper\\.cyapi\\.cn\\/v1\\/activity\\? url echo-response application/json echo-response https://raw.githubusercontent.com/Keywos/rule/main/mocks/caiyun.json": "Requires a separate local echo-response data resource; not silently omitted at runtime."
+      },
+      "excluded_lines": {
+        "^https?:\\/\\/static.psbc.com:8090\\/mbank_f\\/images\\/[0-9]+\\.png - reject-200": "Surge syntax mixed into QX source; not silently translated."
+      },
+      "min_rules": 1052
+    },
+    {
+      "id": "fmz_cleanup",
+      "url": "https://raw.githubusercontent.com/fmz200/wool_scripts/main/QuantumultX/rewrite/cleanup.snippet",
+      "license": "GPL-3.0",
+      "name": "fmz200 小程序界面净化（可选）",
+      "exclude_rules": {
+        "^https?:\\/\\/comic\\.321mh\\.com\\/app_api\\/v\\d\\/getcomicinfo_body url script-response-body https://raw.githubusercontent.com/fmz200/wool_scripts/main/Scripts/manhuatailite.js": "Header and body unlock manga member permissions.",
+        "^https?:\\/\\/uranus\\.sharedaka\\.com\\/api\\/v3\\/user\\/info\\/get url script-response-body https://raw.githubusercontent.com/fmz200/wool_scripts/main/Scripts/xiaodaka.js": "Unlock VIP/member permissions; not ad-only.",
+        "^https:\\/\\/api\\.ulife\\.group\\/auth\\/account\\/getUpgradeStrategy url reject-dict": "Suppresses app upgrade strategy endpoint.",
+        "^https:\\/\\/miniapp\\.sexytea2013\\.com\\/cms\\/slot\\/queryByCodes\\?codes=INDEX_TOP_BANNER url script-response-body https://raw.githubusercontent.com/fmz200/wool_scripts/main/Scripts/cyys.js": "Optional miniapp UI replacement depends on an unmaintained external image asset; excluded from this profile."
+      },
+      "excluded_lines": {},
+      "min_rules": 98
+    },
+    {
+      "id": "bm_advertising",
+      "url": "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rewrite/QuantumultX/Advertising/Advertising.conf",
+      "license": "GPL-2.0",
+      "name": "blackmatrix7 路径去广告",
+      "exclude_rules": {
+        "^https:\\/\\/api\\.ulife\\.group\\/auth\\/account\\/getUpgradeStrategy url reject-dict": "Suppresses app upgrade strategy endpoint.",
+        "^https?:\\/\\/api\\.gotokeep\\.com\\/anno\\/v\\d\\/upgrade\\/check url reject": "Suppresses Keep app upgrade check.",
+        "^https?:\\/\\/ccsp-egmas\\.sf-express\\.com\\/cx-app-base\\/base\\/app\\/appVersion\\/detectionUpgrade url reject-dict": "Suppresses SF app detectionUpgrade endpoint.",
+        "^https?:\\/\\/edith\\.xiaohongshu\\.com\\/api\\/sns\\/v\\d\\/user\\/teenager\\/status url reject-dict": "Suppresses teenager-mode status; outside ad-only scope."
+      },
+      "excluded_lines": {},
+      "min_rules": 488
+    },
+    {
+      "id": "bm_scripts",
+      "url": "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rewrite/QuantumultX/AdvertisingScript/AdvertisingScript.conf",
+      "license": "GPL-2.0",
+      "name": "blackmatrix7 去广告脚本",
+      "exclude_rules": {
+        "^https?:\\/\\/api\\.zhihu\\.com\\/feed-root\\/block url script-request-body https://gist.githubusercontent.com/blackmatrix7/f5f780d0f56b319b6ad9848fd080bb18/raw/zheye.min.js": "Mixed local VIP/keyword-unlock and blacklist features; use pure Zhihu ad endpoints instead of enabling entire mixed script.",
+        "^https?:\\/\\/zhiyou\\.m\\.smzdm\\.com\\/user\\/vip\\/ajax_get_banner url script-response-body https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/script/smzdm/smzdm_remove_ads.js": "Referenced dependency does not return usable source (HTTP 404).",
+        "^https?:\\/\\/haojia-api\\.smzdm\\.com\\/home\\/list\\? url script-response-body https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/script/smzdm/smzdm_remove_ads.js": "Referenced dependency does not return usable source (HTTP 404).",
+        "^https?:\\/\\/haojia\\.m\\.smzdm\\.com\\/detail_modul\\/article_releated_modul url script-response-body https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/script/smzdm/smzdm_remove_ads.js": "Referenced dependency does not return usable source (HTTP 404).",
+        "^https?:\\/\\/app-api\\.smzdm\\.com\\/util\\/loading url script-response-body https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/script/smzdm/smzdm_remove_ads.js": "Referenced dependency does not return usable source (HTTP 404).",
+        "^https?:\\/\\/s-api\\.smzdm\\.com\\/sou\\/filter\\/tags\\/hot_tags url script-response-body https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/script/smzdm/smzdm_remove_ads.js": "Referenced dependency does not return usable source (HTTP 404).",
+        "^https?:\\/\\/s-api\\.smzdm\\.com\\/sou\\/list_v10 url script-response-body https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/script/smzdm/smzdm_remove_ads.js": "Referenced dependency does not return usable source (HTTP 404).",
+        "^https?:\\/\\/baike-api\\.smzdm\\.com\\/home_v3\\/list url script-response-body https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/script/smzdm/smzdm_remove_ads.js": "Referenced dependency does not return usable source (HTTP 404).",
+        "^https?:\\/\\/homepage-api\\.smzdm\\.com\\/v3\\/home url script-response-body https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/script/smzdm/smzdm_remove_ads.js": "Referenced dependency does not return usable source (HTTP 404).",
+        "^https?:\\/\\/api\\.zhihu\\.com\\/root\\/tab\\/v2 url script-response-body https://gist.githubusercontent.com/blackmatrix7/f5f780d0f56b319b6ad9848fd080bb18/raw/zheye.min.js": "Mixed local VIP/keyword-unlock and blacklist features; use pure Zhihu ad endpoints instead of enabling entire mixed script.",
+        "^https?:\\/\\/api\\.zhihu\\.com\\/moments\\/tab_v2 url script-response-body https://gist.githubusercontent.com/blackmatrix7/f5f780d0f56b319b6ad9848fd080bb18/raw/zheye.min.js": "Mixed local VIP/keyword-unlock and blacklist features; use pure Zhihu ad endpoints instead of enabling entire mixed script.",
+        "^https?:\\/\\/api\\.zhihu\\.com\\/settings\\/blocked_users url script-response-body https://gist.githubusercontent.com/blackmatrix7/f5f780d0f56b319b6ad9848fd080bb18/raw/zheye.min.js": "Mixed local VIP/keyword-unlock and blacklist features; use pure Zhihu ad endpoints instead of enabling entire mixed script.",
+        "^https?:\\/\\/api\\.zhihu\\.com\\/next-render url script-response-body https://gist.githubusercontent.com/blackmatrix7/f5f780d0f56b319b6ad9848fd080bb18/raw/zheye.min.js": "Mixed local VIP/keyword-unlock and blacklist features; use pure Zhihu ad endpoints instead of enabling entire mixed script.",
+        "^https?:\\/\\/api\\.zhihu\\.com\\/(v4\\/)?questions\\/\\d+ url script-response-body https://gist.githubusercontent.com/blackmatrix7/f5f780d0f56b319b6ad9848fd080bb18/raw/zheye.min.js": "Mixed local VIP/keyword-unlock and blacklist features; use pure Zhihu ad endpoints instead of enabling entire mixed script.",
+        "^https:\\/\\/(page-info|api)\\.zhihu\\.com\\/answers\\/v2\\/\\d+ url script-response-body https://gist.githubusercontent.com/blackmatrix7/f5f780d0f56b319b6ad9848fd080bb18/raw/zheye.min.js": "Mixed local VIP/keyword-unlock and blacklist features; use pure Zhihu ad endpoints instead of enabling entire mixed script.",
+        "^https?:\\/\\/api\\.zhihu\\.com\\/people url script-response-body https://gist.githubusercontent.com/blackmatrix7/f5f780d0f56b319b6ad9848fd080bb18/raw/zheye.min.js": "Mixed local VIP/keyword-unlock and blacklist features; use pure Zhihu ad endpoints instead of enabling entire mixed script.",
+        "^https:\\/\\/(api|web-render)\\.zhihu\\.com\\/topstory\\/recommend url script-response-body https://gist.githubusercontent.com/blackmatrix7/f5f780d0f56b319b6ad9848fd080bb18/raw/zheye.min.js": "Mixed local VIP/keyword-unlock and blacklist features; use pure Zhihu ad endpoints instead of enabling entire mixed script.",
+        "^https:\\/\\/api\\.zhihu\\.com\\/articles\\/v\\d\\/\\d+ url script-response-body https://gist.githubusercontent.com/blackmatrix7/f5f780d0f56b319b6ad9848fd080bb18/raw/zheye.min.js": "Mixed local VIP/keyword-unlock and blacklist features; use pure Zhihu ad endpoints instead of enabling entire mixed script.",
+        "^https?:\\/\\/api\\.zhihu\\.com\\/notifications\\/v3\\/(message\\?|timeline\\/entry\\/system_message) url script-response-body https://gist.githubusercontent.com/blackmatrix7/f5f780d0f56b319b6ad9848fd080bb18/raw/zheye.min.js": "Mixed local VIP/keyword-unlock and blacklist features; use pure Zhihu ad endpoints instead of enabling entire mixed script.",
+        "^https?:\\/\\/api\\.zhihu\\.com\\/topstory\\/hot-lists?(\\?|\\/) url script-response-body https://gist.githubusercontent.com/blackmatrix7/f5f780d0f56b319b6ad9848fd080bb18/raw/zheye.min.js": "Mixed local VIP/keyword-unlock and blacklist features; use pure Zhihu ad endpoints instead of enabling entire mixed script.",
+        "^https?:\\/\\/api\\.zhihu\\.com\\/search\\/recommend_query url script-response-body https://gist.githubusercontent.com/blackmatrix7/f5f780d0f56b319b6ad9848fd080bb18/raw/zheye.min.js": "Mixed local VIP/keyword-unlock and blacklist features; use pure Zhihu ad endpoints instead of enabling entire mixed script.",
+        "^https?:\\/\\/api\\.zhihu\\.com\\/(comment_v5\\/)?(answers|comments?|articles|pins)\\/\\d+\\/(root_|child_)?comments? url script-response-body https://gist.githubusercontent.com/blackmatrix7/f5f780d0f56b319b6ad9848fd080bb18/raw/zheye.min.js": "Mixed local VIP/keyword-unlock and blacklist features; use pure Zhihu ad endpoints instead of enabling entire mixed script.",
+        "^https?:\\/\\/www\\.zhihu\\.com\\/api\\/v4\\/comment_v5\\/answers\\/\\d+\\/abstract_comment\\? url script-response-body https://gist.githubusercontent.com/blackmatrix7/f5f780d0f56b319b6ad9848fd080bb18/raw/zheye.min.js": "Mixed local VIP/keyword-unlock and blacklist features; use pure Zhihu ad endpoints instead of enabling entire mixed script.",
+        "^https?:\\/\\/api\\.zhihu\\.com\\/search\\/preset_words\\? url script-response-body https://gist.githubusercontent.com/blackmatrix7/f5f780d0f56b319b6ad9848fd080bb18/raw/zheye.min.js": "Mixed local VIP/keyword-unlock and blacklist features; use pure Zhihu ad endpoints instead of enabling entire mixed script."
+      },
+      "excluded_lines": {},
+      "min_rules": 22
+    },
+    {
+      "id": "tieba",
+      "url": "https://raw.githubusercontent.com/app2smile/rules/master/module/tieba-qx.conf",
+      "license": "No LICENSE found; keep upstream references/attribution; do not claim MIT.",
+      "name": "app2smile 贴吧去广告",
+      "exclude_rules": {},
+      "excluded_lines": {},
+      "min_rules": 1
+    }
+  ],
+  "products": {
+    "ads.list": {
+      "kind": "filter",
+      "sources": [
+        "01_filter",
+        "02_filter",
+        "03_filter",
+        "04_filter",
+        "05_filter",
+        "06_filter",
+        "07_filter",
+        "08_filter",
+        "09_filter",
+        "10_filter",
+        "11_filter",
+        "12_filter",
+        "13_filter",
+        "14_filter",
+        "15_filter",
+        "antiad_current",
+        "tieba_filter"
+      ],
+      "name": "个人去广告与防追踪",
+      "overrides": [
+        "host, safebrowsing.googleapis.com, proxy",
+        "host, safebrowsing.googleapis-cn.com, direct",
+        "host, safebrowsing.urlsec.qq.com, direct",
+        "host, token.safebrowsing.apple, direct",
+        "host, appcloud2.zhihu.com, direct"
+      ]
+    },
+    "route-wechat.list": {
+      "kind": "filter",
+      "sources": [
+        "bm-wechat"
+      ],
+      "name": "微信直连",
+      "default_enabled": false
+    },
+    "route-apple.list": {
+      "kind": "filter",
+      "sources": [
+        "bm-apple"
+      ],
+      "name": "苹果服务",
+      "default_enabled": false
+    },
+    "route-telegram.list": {
+      "kind": "filter",
+      "sources": [
+        "bm-telegram"
+      ],
+      "name": "电报代理",
+      "default_enabled": false
+    },
+    "route-openai.list": {
+      "kind": "filter",
+      "sources": [
+        "bm-openai"
+      ],
+      "name": "OpenAI",
+      "default_enabled": false
+    },
+    "route-streaming.list": {
+      "kind": "filter",
+      "sources": [
+        "bm-streaming"
+      ],
+      "name": "国际媒体",
+      "default_enabled": false
+    },
+    "route-china.list": {
+      "kind": "filter",
+      "sources": [
+        "bm-china"
+      ],
+      "name": "国内网站",
+      "default_enabled": false
+    },
+    "ads.conf": {
+      "kind": "rewrite",
+      "sources": [
+        "fmz_rewrite",
+        "bm_scripts",
+        "tieba",
+        "bm_advertising"
+      ],
+      "name": "个人去广告重写（含脚本）",
+      "additional_hostnames": {
+        "c.tieba.baidu.com": "The paired upstream regex also matches this exact host; supply its missing MitM dependency."
+      }
+    },
+    "miniapps.conf": {
+      "kind": "rewrite",
+      "sources": [
+        "fmz_cleanup"
+      ],
+      "name": "小程序净化（可选）",
+      "default_enabled": false
+    }
+  },
+  "approved_script_urls": [
+    "https://github.com/fmz200/wool_scripts/raw/main/Scripts/xiaohongshu/xiaohongshu.js",
+    "https://raw.githubusercontent.com/Maasea/sgmodule/refs/heads/master/Script/Youtube/youtube.response.js",
+    "https://raw.githubusercontent.com/NobyDa/Script/master/Bahamut/BahamutAnimeAds.js",
+    "https://raw.githubusercontent.com/Sliverkiss/QuantumultX/main/AdBlock/xmApp/wnbz.js",
+    "https://raw.githubusercontent.com/Sliverkiss/QuantumultX/main/AdBlock/xmApp/xmApp.js",
+    "https://raw.githubusercontent.com/app2smile/rules/master/js/adsense.js",
+    "https://raw.githubusercontent.com/app2smile/rules/master/js/qidian.js",
+    "https://raw.githubusercontent.com/app2smile/rules/master/js/qq-news.js",
+    "https://raw.githubusercontent.com/app2smile/rules/master/js/tieba-json.js",
+    "https://raw.githubusercontent.com/app2smile/rules/master/js/tieba-proto.js",
+    "https://raw.githubusercontent.com/app2smile/rules/master/js/vgtime.js",
+    "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/script/startup/startup.js",
+    "https://raw.githubusercontent.com/fmz200/wool_scripts/main/Scripts/51card.js",
+    "https://raw.githubusercontent.com/fmz200/wool_scripts/main/Scripts/555Ad.js",
+    "https://raw.githubusercontent.com/fmz200/wool_scripts/main/Scripts/FamilyMart.js",
+    "https://raw.githubusercontent.com/fmz200/wool_scripts/main/Scripts/PupuSplashAds.js",
+    "https://raw.githubusercontent.com/fmz200/wool_scripts/main/Scripts/QuDa.js",
+    "https://raw.githubusercontent.com/fmz200/wool_scripts/main/Scripts/T3.js",
+    "https://raw.githubusercontent.com/fmz200/wool_scripts/main/Scripts/adrive/adrive.js",
+    "https://raw.githubusercontent.com/fmz200/wool_scripts/main/Scripts/alittle-tea.js",
+    "https://raw.githubusercontent.com/fmz200/wool_scripts/main/Scripts/applet.js",
+    "https://raw.githubusercontent.com/fmz200/wool_scripts/main/Scripts/baidumap.js",
+    "https://raw.githubusercontent.com/fmz200/wool_scripts/main/Scripts/blued.js",
+    "https://raw.githubusercontent.com/fmz200/wool_scripts/main/Scripts/bohe/bohe_ads.js",
+    "https://raw.githubusercontent.com/fmz200/wool_scripts/main/Scripts/cainiao/cainiao.js",
+    "https://raw.githubusercontent.com/fmz200/wool_scripts/main/Scripts/caixin/caixinAd.js",
+    "https://raw.githubusercontent.com/fmz200/wool_scripts/main/Scripts/cmschina/cmschina.js",
+    "https://raw.githubusercontent.com/fmz200/wool_scripts/main/Scripts/cnftp.js",
+    "https://raw.githubusercontent.com/fmz200/wool_scripts/main/Scripts/coco.js",
+    "https://raw.githubusercontent.com/fmz200/wool_scripts/main/Scripts/coolapk.js",
+    "https://raw.githubusercontent.com/fmz200/wool_scripts/main/Scripts/dianyinglieshou.js",
+    "https://raw.githubusercontent.com/fmz200/wool_scripts/main/Scripts/didi/didiAds.js",
+    "https://raw.githubusercontent.com/fmz200/wool_scripts/main/Scripts/ems.js",
+    "https://raw.githubusercontent.com/fmz200/wool_scripts/main/Scripts/fenbi.js",
+    "https://raw.githubusercontent.com/fmz200/wool_scripts/main/Scripts/fly.js",
+    "https://raw.githubusercontent.com/fmz200/wool_scripts/main/Scripts/heytea.js",
+    "https://raw.githubusercontent.com/fmz200/wool_scripts/main/Scripts/huifutianxia_ads.js",
+    "https://raw.githubusercontent.com/fmz200/wool_scripts/main/Scripts/ithome/ithome.js",
+    "https://raw.githubusercontent.com/fmz200/wool_scripts/main/Scripts/jabi.js",
+    "https://raw.githubusercontent.com/fmz200/wool_scripts/main/Scripts/jingdong/jingdong.js",
+    "https://raw.githubusercontent.com/fmz200/wool_scripts/main/Scripts/jingxiAd.js",
+    "https://raw.githubusercontent.com/fmz200/wool_scripts/main/Scripts/keep.js",
+    "https://raw.githubusercontent.com/fmz200/wool_scripts/main/Scripts/kff.js",
+    "https://raw.githubusercontent.com/fmz200/wool_scripts/main/Scripts/lawson.js",
+    "https://raw.githubusercontent.com/fmz200/wool_scripts/main/Scripts/lvtusuishenting/ltsst-ad.js",
+    "https://raw.githubusercontent.com/fmz200/wool_scripts/main/Scripts/maimai/maimai_ads.js",
+    "https://raw.githubusercontent.com/fmz200/wool_scripts/main/Scripts/meiyou/meiyou_ads.js",
+    "https://raw.githubusercontent.com/fmz200/wool_scripts/main/Scripts/ming.js",
+    "https://raw.githubusercontent.com/fmz200/wool_scripts/main/Scripts/myBlockAds.js",
+    "https://raw.githubusercontent.com/fmz200/wool_scripts/main/Scripts/picc/picc_ads.js",
+    "https://raw.githubusercontent.com/fmz200/wool_scripts/main/Scripts/qingju.js",
+    "https://raw.githubusercontent.com/fmz200/wool_scripts/main/Scripts/quark.js",
+    "https://raw.githubusercontent.com/fmz200/wool_scripts/main/Scripts/reddit.js",
+    "https://raw.githubusercontent.com/fmz200/wool_scripts/main/Scripts/smzdm/Smzdm.js",
+    "https://raw.githubusercontent.com/fmz200/wool_scripts/main/Scripts/smzdm/smzdm_ads.js",
+    "https://raw.githubusercontent.com/fmz200/wool_scripts/main/Scripts/soda.js",
+    "https://raw.githubusercontent.com/fmz200/wool_scripts/main/Scripts/template/req_replace_body.js",
+    "https://raw.githubusercontent.com/fmz200/wool_scripts/main/Scripts/umetrip/umetrip_ads.js",
+    "https://raw.githubusercontent.com/fmz200/wool_scripts/main/Scripts/watsons.js",
+    "https://raw.githubusercontent.com/fmz200/wool_scripts/main/Scripts/xiaotucc.js",
+    "https://raw.githubusercontent.com/fmz200/wool_scripts/main/Scripts/youdao/dict-youdao-ad.js",
+    "https://raw.githubusercontent.com/fmz200/wool_scripts/main/Scripts/yx.js",
+    "https://raw.githubusercontent.com/fmz200/wool_scripts/main/Scripts/zhangshanggongjiao.js",
+    "https://raw.githubusercontent.com/fmz200/wool_scripts/main/Scripts/zhihu/zhihu.js",
+    "https://raw.githubusercontent.com/fmz200/wool_scripts/main/Scripts/zhuanzhuan/zhuanzhuan.js",
+    "https://raw.githubusercontent.com/fmz200/wool_scripts/refs/heads/main/Scripts/miguvideo/miguvideo_ads.js",
+    "https://raw.githubusercontent.com/ishowshu/qx/refs/heads/main/script/goofish.js",
+    "https://raw.githubusercontent.com/kokoryh/Script/master/js/12306.js",
+    "https://raw.githubusercontent.com/zirawell/R-Store/main/Res/Scripts/AntiAd/airchina.js",
+    "https://raw.githubusercontent.com/zirawell/R-Store/main/Res/Scripts/AntiAd/alicdn.js",
+    "https://raw.githubusercontent.com/zirawell/R-Store/main/Res/Scripts/AntiAd/bilibiliManga.js",
+    "https://raw.githubusercontent.com/zirawell/R-Store/main/Res/Scripts/AntiAd/ccblife.js",
+    "https://raw.githubusercontent.com/zirawell/R-Store/main/Res/Scripts/AntiAd/ddxq.js",
+    "https://raw.githubusercontent.com/zirawell/R-Store/main/Res/Scripts/AntiAd/dianping.js",
+    "https://raw.githubusercontent.com/zirawell/R-Store/main/Res/Scripts/AntiAd/flyert.js",
+    "https://raw.githubusercontent.com/zirawell/R-Store/main/Res/Scripts/AntiAd/foliday.js",
+    "https://raw.githubusercontent.com/zirawell/R-Store/main/Res/Scripts/AntiAd/freshippo.js",
+    "https://raw.githubusercontent.com/zirawell/R-Store/main/Res/Scripts/AntiAd/mafengwo.js",
+    "https://raw.githubusercontent.com/zirawell/R-Store/main/Res/Scripts/AntiAd/mdb.js",
+    "https://raw.githubusercontent.com/zirawell/R-Store/main/Res/Scripts/AntiAd/qmai.js",
+    "https://raw.githubusercontent.com/zirawell/R-Store/main/Res/Scripts/AntiAd/tuhu.js",
+    "https://raw.githubusercontent.com/zirawell/R-Store/main/Res/Scripts/AntiAd/usmile.js",
+    "https://raw.githubusercontent.com/zirawell/R-Store/main/Res/Scripts/AntiAd/wechatApplet.js"
+  ],
+  "personal_exceptions": [
+    {
+      "rules": 4,
+      "reason": "Preserve explicitly identified safe-browsing services; proxy for the Google global endpoint, direct for the China/Apple/Tencent endpoints. These are exact-host exceptions, not broad domain allows."
+    },
+    {
+      "rule": "host, appcloud2.zhihu.com, direct",
+      "reason": "The original NobyDa legacy list rejects this entire configuration API. The audited Zhihu response cleanup needs a connection to this host; allow its connection while keeping path/body rewrites active. No broad zhihu.com allow."
+    }
+  ],
+  "omitted_candidates": [
+    {
+      "name": "ddgksf2013 StartUp.conf",
+      "reason": "Original raw URL currently 404; use reviewed active author collections instead."
+    },
+    {
+      "name": "chxm1023 AppAd.conf",
+      "reason": "Author explicitly prohibits republication; not copied into this public aggregate."
+    },
+    {
+      "name": "fmz200 mixed native filter tail",
+      "reason": "Mixed site/activation/security blocking; not imported wholesale. Native ad sources and tieba dependency supplied separately."
+    },
+    {
+      "name": "Weibo, zheye extra UI, web injection",
+      "reason": "Not enabled by default; keep focused default profile and avoid overlapping application scripts."
+    }
+  ],
+  "known_limitations": [
+    "No iOS QX runtime available: native syntax/static checks do not prove current App ad removal.",
+    "Generic FMZ source contains 2760 mixed filter rows; exclude these from rewrite file and have separate audited filter stage; never convert shared-business-host path rules to domain blocks.",
+    "FMZ unknown line 6397 is Surge-style: do not append to native QX output.",
+    "FMZ 3 url-and-header rows and FMZ Weibo 34 url-and-header rows are native QX syntax per official sample; URL and header conditions must both survive dedup.",
+    "FMZ Zhihu script current source has item.fields.header.url inside a callback whose variable is i; potential ReferenceError when a market_card condition is encountered. Needs explicit reviewed patch or alternative before claiming flawless Zhihu feed coverage.",
+    "PokeHub literal name/SDK not identified in reviewed sources; generic SDK rules may work but no exclusive PokeHub claim is warranted.",
+    "bm AdvertisingScript labels hd.mina.mi.com splashscreen as JD, but this is not api.m.jd.com; do not count that row as JD coverage.",
+    "Plain reject/reject-dict/reject-img/reject-200 are different response semantics; dedup cannot treat them as interchangeable.",
+    "Exact-match regex conflicts need explicit priority resolution. URL path regex implication cannot be safely inferred by string prefix."
+  ],
+  "data_dependencies": [
+    {
+      "url": "https://raw.githubusercontent.com/fmz200/wool_scripts/main/Scripts/hengdian.json",
+      "kind": "json"
+    }
+  ],
+  "script_patches": {
+    "https://raw.githubusercontent.com/fmz200/wool_scripts/main/Scripts/zhihu/zhihu.js": {
+      "filename": "zhihu.js",
+      "old": "getUrlParamValue(item.fields.header.url, \"videoID\")",
+      "new": "getUrlParamValue(i.fields.header.url, \"videoID\")",
+      "reason": "Fix callback variable ReferenceError in market_card videoID extraction; retain upstream GPL-3.0 attribution."
+    }
+  }
+}

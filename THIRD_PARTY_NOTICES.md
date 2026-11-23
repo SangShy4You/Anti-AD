@@ -77,3 +77,9 @@ blackmatrix7 的随附文件为其仓库原始 GNU GPL version 2 完整文本。
 | [licenses/NobyDa-ND-AD-MIT.txt](licenses/NobyDa-ND-AD-MIT.txt) | [上游原文](https://raw.githubusercontent.com/NobyDa/ND-AD/master/LICENSE) | `c8ed6510961a32a955526d9dc2f577cd448fdc91f744c0788bdd9425418aa64c` |
 | [licenses/blackmatrix7-ios_rule_script-GPL-2.0.txt](licenses/blackmatrix7-ios_rule_script-GPL-2.0.txt) | [上游原文](https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/LICENSE) | `8177f97513213526df2cf6184d8ff986c675afb514d4e68a404010521b880643` |
 | [licenses/privacy-protection-tools-anti-AD-MIT.txt](licenses/privacy-protection-tools-anti-AD-MIT.txt) | [上游原文](https://raw.githubusercontent.com/privacy-protection-tools/anti-AD/master/LICENSE) | `e38459549a64f11ecf1477053768ef89eb2939a9aa5573f51a31461086357a34` |
+# Quantumult X 原生整合补充
+
+`rules/quantumultx/` 由 `config/qx-sources.json` 列明的公开原始文件生成。fmz200/wool_scripts（GPL-3.0）、blackmatrix7/ios_rule_script（GPL-2.0）、privacy-protection-tools/anti-AD（MIT）和原十五个分流作者分别保留其许可与归属。现有 `licenses/` 中对应的许可证副本继续适用。app2smile/rules 的贴吧分流及两条重写保留作者和上游链接，不宣称获得 MIT 授权。原作者明确禁止转载的 chxm1023/AppAd 集合未复制进本聚合。
+
+绝大多数第三方脚本仅引用其原仓库不可变提交地址，不在此重新分发。唯一维护的脚本副本 `rules/quantumultx/scripts/zhihu.js` 来源于 fmz200/wool_scripts，沿用 GPL-3.0（见 `licenses/fmz200-wool_scripts-GPL-3.0.txt`），修正回调中误写的一个变量引用，并保留原作者代码、来源和个人修改说明。上游完整提交及原文件 SHA256 记录于 `rules/quantumultx/manifest.json`。本仓库的原创编译器许可不覆盖这些第三方内容。
+

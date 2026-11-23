@@ -1,0 +1,13 @@
+# 合并到现有配置的同名段；不是完整 VPN 配置，勿覆盖节点、DNS 或证书。
+[filter_remote]
+https://raw.githubusercontent.com/SangShy4You/Anti-AD/main/rules/quantumultx/ads.list, tag=个人去广告与防追踪, update-interval=86400, opt-parser=false, enabled=true
+https://raw.githubusercontent.com/SangShy4You/Anti-AD/main/rules/quantumultx/route-wechat.list, tag=微信直连, update-interval=86400, opt-parser=false, enabled=false
+https://raw.githubusercontent.com/SangShy4You/Anti-AD/main/rules/quantumultx/route-apple.list, tag=苹果服务, update-interval=86400, opt-parser=false, enabled=false
+https://raw.githubusercontent.com/SangShy4You/Anti-AD/main/rules/quantumultx/route-telegram.list, tag=电报代理, update-interval=86400, opt-parser=false, enabled=false
+https://raw.githubusercontent.com/SangShy4You/Anti-AD/main/rules/quantumultx/route-openai.list, tag=OpenAI, update-interval=86400, opt-parser=false, enabled=false
+https://raw.githubusercontent.com/SangShy4You/Anti-AD/main/rules/quantumultx/route-streaming.list, tag=国际媒体, update-interval=86400, opt-parser=false, enabled=false
+https://raw.githubusercontent.com/SangShy4You/Anti-AD/main/rules/quantumultx/route-china.list, tag=国内网站, update-interval=86400, opt-parser=false, enabled=false
+
+[rewrite_remote]
+https://raw.githubusercontent.com/SangShy4You/Anti-AD/main/rules/quantumultx/ads.conf, tag=个人去广告重写（含脚本）, update-interval=86400, opt-parser=false, enabled=true
+https://raw.githubusercontent.com/SangShy4You/Anti-AD/main/rules/quantumultx/miniapps.conf, tag=小程序净化（可选）, update-interval=86400, opt-parser=false, enabled=false
