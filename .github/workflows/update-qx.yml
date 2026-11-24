@@ -8,8 +8,12 @@ on:
   push:
     paths:
       - 'config/qx-sources.json'
+      - 'config/qx-*.list'
+      - 'config/qx-*.conf'
+      - 'config/qx-*.json'
       - 'scripts/qx_*.py'
       - 'tests/test_qx_*.py'
+      - 'tests/fixtures/**'
       - '.github/workflows/update-qx.yml'
 
 permissions: {}

@@ -1,0 +1,1221 @@
+{
+  "schema_version": 1,
+  "audit_date": "2026-11-24",
+  "status": "reviewed_repairs_compiled_and_selection_verified",
+  "reviewed_previous_repository_commit": "c0397accf5c1029d1c6993b0680e56a5e7da253f",
+  "scope": "Original 25 public filter references and 25 rewrite references, plus requested service unification and independently reviewed author replacements. This is a source-and-semantics audit, not an iPhone runtime certificate.",
+  "private_configuration_or_hashes_published": false,
+  "iphone_runtime_verified": false,
+  "summary": {
+    "original_filters": 25,
+    "original_rewrites": 25,
+    "original_enabled_rewrites": 18,
+    "original_disabled_rewrites": 7,
+    "personal_service_resources": 17,
+    "ordered_ads_partitions": 6,
+    "original_resources_without_recorded_destination": 0,
+    "known_repair_work_items_implemented": 6
+  },
+  "repairs": [
+    {
+      "id": "distinct_rewrite_actions_retained",
+      "change": "Only exact canonical duplicates are removed. Different action/body/header/script arguments remain in original input order. Earlier 121 conflict occurrences were not 121 distinct missing rules.",
+      "current_ads_conf_non_equivalent_overlaps_retained": 105,
+      "current_ads_conf_exact_duplicates_removed": 225,
+      "current_ads_conf_rules": 2205,
+      "net_ads_conf_rule_change_this_audit": 106,
+      "net_change_explanation": "105 distinct non-equivalent rules plus the one reviewed PSBC native conversion. Retention does not imply QX executes overlapping rewrites sequentially."
+    },
+    {
+      "id": "fmz_mixed_and_original_functions_restored",
+      "change": "A precise upstream reference retains 39 mixed ad/function hooks and 28 additional original-function hooks. Nine script-path keys and 28 unique pattern-substring keys select 67 native rows in original order; 49 existing author hostname entries are retained.",
+      "native_hook_count": 67,
+      "mixed_hook_count": 39,
+      "additional_function_hook_count": 28,
+      "actual_kop_verified": true,
+      "script_bodies_republished": false,
+      "import_snippet_requirement": "The mandatory FMZ complement is emitted before the broad personal ads.conf resource."
+    },
+    {
+      "id": "shopping_price_restored",
+      "change": "Restore the original enabled DoracisMu wrapper in the private full profile, retaining all three JD/Taobao hooks and both hostname entries.",
+      "wrapper_url": "https://raw.githubusercontent.com/DoracisMu/quanX_rewirte/master/JdTb.conf",
+      "script_urls": [
+        "https://raw.githubusercontent.com/yichahucha/surge/master/jd_price.js",
+        "https://raw.githubusercontent.com/yichahucha/surge/master/tb_price.js"
+      ],
+      "actual_kop_verified": true,
+      "part_of_public_ad_only_import_snippet": false
+    },
+    {
+      "id": "fmz_tail_ad_tracking_selection_completed",
+      "change": "Add 62 individually reviewed advertising/telemetry entries that the old label predicate omitted. Keep existing necessary allow rules ahead of later reject rows.",
+      "source_selection_before": 590,
+      "source_selection_after": 652,
+      "reviewed_supplement_rows": 62,
+      "net_aggregate_filter_rule_change_this_audit": 58,
+      "decision_counts": {
+        "exclude-licensing": 4,
+        "exclude-push-chat": 12,
+        "exclude-security": 8,
+        "exclude-shared-business": 128,
+        "include": 62,
+        "unverified-endpoint": 20,
+        "unverified-ip": 18
+      },
+      "evidence_file": "config/qx-extra-tail-reviewed.json",
+      "all_selected_entries_guaranteed_to_win_routing": false
+    },
+    {
+      "id": "psbc_native_rewrite_conversion",
+      "change": "Convert the exact reviewed port8090 PNG Surge-format reject-200 row to the native syntax already produced by the original KOP parser. Its source line is guarded against drift.",
+      "source_id": "fmz_rewrite",
+      "native_rules_added": 1
+    },
+    {
+      "id": "original_filter_parser_ip_compatibility",
+      "change": "For the original opt-parser=true RuleGo Advertising source, preserve the actual KOP behavior that drops no-resolve. The same four IP networks are already rejected earlier without that qualifier; normalized copies now deduplicate instead of adding redundant variants.",
+      "source_id": "14_filter",
+      "copies_deduplicated": 4
+    }
+  ],
+  "previous_youtube_repair": {
+    "status": "retained_and_feature_regression_tested",
+    "personal_product": "https://raw.githubusercontent.com/SangShy4You/Anti-AD/main/rules/quantumultx/youtube.conf",
+    "script_product": "https://raw.githubusercontent.com/SangShy4You/Anti-AD/main/rules/quantumultx/scripts/youtube-background.js",
+    "single_player_response_pipeline": true,
+    "verified_fixture_features": [
+      "player ad removal",
+      "background playback flags",
+      "picture-in-picture flags",
+      "get_watch nested response",
+      "settings flags",
+      "Quantumult X ArrayBuffer bridge",
+      "unknown-field preservation",
+      "malformed-response fail-open",
+      "no external request forwarding"
+    ],
+    "iphone_runtime_verified": false
+  },
+  "deduplication_contract": {
+    "filters": "Same matcher, policy and qualifiers only. Preserve original source order and necessary allow policies.",
+    "rewrites": "Exact canonical rule only, including stage, operation and arguments. Different actions are retained, with overlaps recorded rather than silently discarded.",
+    "cross_product_rewrites": "Remove only exact copies already provided by an earlier active personal resource; manifest records the dependency and origin.",
+    "functional_script_groups": "Partial feature overlap is not proof that scripts are interchangeable. Use specific feature evidence or retain an upstream functional complement."
+  },
+  "original_filter_matrix": [
+    {
+      "original_index": 1,
+      "original_url": "https://raw.githubusercontent.com/sve1r/Rules-For-Quantumult-X/refs/heads/main/Rules/Advertising/antiAD-V4.list",
+      "enabled": true,
+      "source_id": "01_filter",
+      "current_policy": "reject",
+      "original_policy": "reject",
+      "personal_products": [
+        "ads.list"
+      ],
+      "client_resources": [
+        "https://raw.githubusercontent.com/SangShy4You/Anti-AD/main/rules/quantumultx/ads-allow-first.list",
+        "https://raw.githubusercontent.com/SangShy4You/Anti-AD/main/rules/quantumultx/ads-reject-main.list",
+        "https://raw.githubusercontent.com/SangShy4You/Anti-AD/main/rules/quantumultx/ads-allow-routing.list",
+        "https://raw.githubusercontent.com/SangShy4You/Anti-AD/main/rules/quantumultx/ads-reject-extra.list",
+        "https://raw.githubusercontent.com/SangShy4You/Anti-AD/main/rules/quantumultx/ads-allow-services.list",
+        "https://raw.githubusercontent.com/SangShy4You/Anti-AD/main/rules/quantumultx/ads-reject-supplement.list"
+      ],
+      "status": "merged_with_exact_deduplication_and_explicit_scope_exclusions",
+      "policy_changed_by_requested_service_unification": false
+    },
+    {
+      "original_index": 2,
+      "original_url": "https://raw.githubusercontent.com/sve1r/Rules-For-Quantumult-X/refs/heads/main/Rules/Advertising/AdReject.list",
+      "enabled": true,
+      "source_id": "02_filter",
+      "current_policy": "reject",
+      "original_policy": "reject",
+      "personal_products": [
+        "ads.list"
+      ],
+      "client_resources": [
+        "https://raw.githubusercontent.com/SangShy4You/Anti-AD/main/rules/quantumultx/ads-allow-first.list",
+        "https://raw.githubusercontent.com/SangShy4You/Anti-AD/main/rules/quantumultx/ads-reject-main.list",
+        "https://raw.githubusercontent.com/SangShy4You/Anti-AD/main/rules/quantumultx/ads-allow-routing.list",
+        "https://raw.githubusercontent.com/SangShy4You/Anti-AD/main/rules/quantumultx/ads-reject-extra.list",
+        "https://raw.githubusercontent.com/SangShy4You/Anti-AD/main/rules/quantumultx/ads-allow-services.list",
+        "https://raw.githubusercontent.com/SangShy4You/Anti-AD/main/rules/quantumultx/ads-reject-supplement.list"
+      ],
+      "status": "merged_with_exact_deduplication_and_explicit_scope_exclusions",
+      "policy_changed_by_requested_service_unification": false
+    },
+    {
+      "original_index": 3,
+      "original_url": "https://limbopro.com/Adblock4limbo.list",
+      "enabled": true,
+      "source_id": "03_filter",
+      "current_policy": "reject",
+      "original_policy": null,
+      "personal_products": [
+        "ads.list"
+      ],
+      "client_resources": [
+        "https://raw.githubusercontent.com/SangShy4You/Anti-AD/main/rules/quantumultx/ads-allow-first.list",
+        "https://raw.githubusercontent.com/SangShy4You/Anti-AD/main/rules/quantumultx/ads-reject-main.list",
+        "https://raw.githubusercontent.com/SangShy4You/Anti-AD/main/rules/quantumultx/ads-allow-routing.list",
+        "https://raw.githubusercontent.com/SangShy4You/Anti-AD/main/rules/quantumultx/ads-reject-extra.list",
+        "https://raw.githubusercontent.com/SangShy4You/Anti-AD/main/rules/quantumultx/ads-allow-services.list",
+        "https://raw.githubusercontent.com/SangShy4You/Anti-AD/main/rules/quantumultx/ads-reject-supplement.list"
+      ],
+      "status": "merged_with_exact_deduplication_and_explicit_scope_exclusions",
+      "original_policy_evidence": "Not recorded for this non-GitHub URL in the redacted baseline inventory; do not interpret null as a proven strategy change."
+    },
+    {
+      "original_index": 4,
+      "original_url": "https://raw.githubusercontent.com/NobyDa/ND-AD/master/QuantumultX/AD_Block.txt",
+      "enabled": true,
+      "source_id": "04_filter",
+      "current_policy": "reject",
+      "original_policy": "reject",
+      "personal_products": [
+        "ads.list"
+      ],
+      "client_resources": [
+        "https://raw.githubusercontent.com/SangShy4You/Anti-AD/main/rules/quantumultx/ads-allow-first.list",
+        "https://raw.githubusercontent.com/SangShy4You/Anti-AD/main/rules/quantumultx/ads-reject-main.list",
+        "https://raw.githubusercontent.com/SangShy4You/Anti-AD/main/rules/quantumultx/ads-allow-routing.list",
+        "https://raw.githubusercontent.com/SangShy4You/Anti-AD/main/rules/quantumultx/ads-reject-extra.list",
+        "https://raw.githubusercontent.com/SangShy4You/Anti-AD/main/rules/quantumultx/ads-allow-services.list",
+        "https://raw.githubusercontent.com/SangShy4You/Anti-AD/main/rules/quantumultx/ads-reject-supplement.list"
+      ],
+      "status": "merged_with_exact_deduplication_and_explicit_scope_exclusions",
+      "policy_changed_by_requested_service_unification": false
+    },
+    {
+      "original_index": 5,
+      "original_url": "https://raw.githubusercontent.com/NobyDa/ND-AD/master/QuantumultX/AD_Block_Plus.txt",
+      "enabled": true,
+      "source_id": "05_filter",
+      "current_policy": "reject",
+      "original_policy": "reject",
+      "personal_products": [
+        "ads.list"
+      ],
+      "client_resources": [
+        "https://raw.githubusercontent.com/SangShy4You/Anti-AD/main/rules/quantumultx/ads-allow-first.list",
+        "https://raw.githubusercontent.com/SangShy4You/Anti-AD/main/rules/quantumultx/ads-reject-main.list",
+        "https://raw.githubusercontent.com/SangShy4You/Anti-AD/main/rules/quantumultx/ads-allow-routing.list",
+        "https://raw.githubusercontent.com/SangShy4You/Anti-AD/main/rules/quantumultx/ads-reject-extra.list",
+        "https://raw.githubusercontent.com/SangShy4You/Anti-AD/main/rules/quantumultx/ads-allow-services.list",
+        "https://raw.githubusercontent.com/SangShy4You/Anti-AD/main/rules/quantumultx/ads-reject-supplement.list"
+      ],
+      "status": "merged_with_exact_deduplication_and_explicit_scope_exclusions",
+      "policy_changed_by_requested_service_unification": false
+    },
+    {
+      "original_index": 6,
+      "original_url": "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/QuantumultX/Direct/Direct.list",
+      "enabled": true,
+      "source_id": "06_filter",
+      "current_policy": "全球加速",
+      "original_policy": "全球加速",
+      "personal_products": [
+        "ads.list"
+      ],
+      "client_resources": [
+        "https://raw.githubusercontent.com/SangShy4You/Anti-AD/main/rules/quantumultx/ads-allow-first.list",
+        "https://raw.githubusercontent.com/SangShy4You/Anti-AD/main/rules/quantumultx/ads-reject-main.list",
+        "https://raw.githubusercontent.com/SangShy4You/Anti-AD/main/rules/quantumultx/ads-allow-routing.list",
+        "https://raw.githubusercontent.com/SangShy4You/Anti-AD/main/rules/quantumultx/ads-reject-extra.list",
+        "https://raw.githubusercontent.com/SangShy4You/Anti-AD/main/rules/quantumultx/ads-allow-services.list",
+        "https://raw.githubusercontent.com/SangShy4You/Anti-AD/main/rules/quantumultx/ads-reject-supplement.list"
+      ],
+      "status": "merged_with_exact_deduplication_and_explicit_scope_exclusions",
+      "policy_changed_by_requested_service_unification": false
+    },
+    {
+      "original_index": 7,
+      "original_url": "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/QuantumultX/Lan/Lan.list",
+      "enabled": true,
+      "source_id": "07_filter",
+      "current_policy": "direct",
+      "original_policy": "direct",
+      "personal_products": [
+        "ads.list"
+      ],
+      "client_resources": [
+        "https://raw.githubusercontent.com/SangShy4You/Anti-AD/main/rules/quantumultx/ads-allow-first.list",
+        "https://raw.githubusercontent.com/SangShy4You/Anti-AD/main/rules/quantumultx/ads-reject-main.list",
+        "https://raw.githubusercontent.com/SangShy4You/Anti-AD/main/rules/quantumultx/ads-allow-routing.list",
+        "https://raw.githubusercontent.com/SangShy4You/Anti-AD/main/rules/quantumultx/ads-reject-extra.list",
+        "https://raw.githubusercontent.com/SangShy4You/Anti-AD/main/rules/quantumultx/ads-allow-services.list",
+        "https://raw.githubusercontent.com/SangShy4You/Anti-AD/main/rules/quantumultx/ads-reject-supplement.list"
+      ],
+      "status": "merged_with_exact_deduplication_and_explicit_scope_exclusions",
+      "policy_changed_by_requested_service_unification": false
+    },
+    {
+      "original_index": 8,
+      "original_url": "https://raw.githubusercontent.com/privacy-protection-tools/anti-AD/master/anti-ad-surge2.txt",
+      "enabled": true,
+      "source_id": "08_filter",
+      "current_policy": "reject",
+      "original_policy": "reject",
+      "personal_products": [
+        "ads.list"
+      ],
+      "client_resources": [
+        "https://raw.githubusercontent.com/SangShy4You/Anti-AD/main/rules/quantumultx/ads-allow-first.list",
+        "https://raw.githubusercontent.com/SangShy4You/Anti-AD/main/rules/quantumultx/ads-reject-main.list",
+        "https://raw.githubusercontent.com/SangShy4You/Anti-AD/main/rules/quantumultx/ads-allow-routing.list",
+        "https://raw.githubusercontent.com/SangShy4You/Anti-AD/main/rules/quantumultx/ads-reject-extra.list",
+        "https://raw.githubusercontent.com/SangShy4You/Anti-AD/main/rules/quantumultx/ads-allow-services.list",
+        "https://raw.githubusercontent.com/SangShy4You/Anti-AD/main/rules/quantumultx/ads-reject-supplement.list"
+      ],
+      "status": "merged_with_exact_deduplication_and_explicit_scope_exclusions",
+      "policy_changed_by_requested_service_unification": false
+    },
+    {
+      "original_index": 9,
+      "original_url": "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/QuantumultX/Privacy/Privacy.list",
+      "enabled": true,
+      "source_id": "09_filter",
+      "current_policy": "reject",
+      "original_policy": "reject",
+      "personal_products": [
+        "ads.list"
+      ],
+      "client_resources": [
+        "https://raw.githubusercontent.com/SangShy4You/Anti-AD/main/rules/quantumultx/ads-allow-first.list",
+        "https://raw.githubusercontent.com/SangShy4You/Anti-AD/main/rules/quantumultx/ads-reject-main.list",
+        "https://raw.githubusercontent.com/SangShy4You/Anti-AD/main/rules/quantumultx/ads-allow-routing.list",
+        "https://raw.githubusercontent.com/SangShy4You/Anti-AD/main/rules/quantumultx/ads-reject-extra.list",
+        "https://raw.githubusercontent.com/SangShy4You/Anti-AD/main/rules/quantumultx/ads-allow-services.list",
+        "https://raw.githubusercontent.com/SangShy4You/Anti-AD/main/rules/quantumultx/ads-reject-supplement.list"
+      ],
+      "status": "merged_with_exact_deduplication_and_explicit_scope_exclusions",
+      "policy_changed_by_requested_service_unification": false
+    },
+    {
+      "original_index": 10,
+      "original_url": "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/QuantumultX/Hijacking/Hijacking.list",
+      "enabled": true,
+      "source_id": "10_filter",
+      "current_policy": "reject",
+      "original_policy": "reject",
+      "personal_products": [
+        "ads.list"
+      ],
+      "client_resources": [
+        "https://raw.githubusercontent.com/SangShy4You/Anti-AD/main/rules/quantumultx/ads-allow-first.list",
+        "https://raw.githubusercontent.com/SangShy4You/Anti-AD/main/rules/quantumultx/ads-reject-main.list",
+        "https://raw.githubusercontent.com/SangShy4You/Anti-AD/main/rules/quantumultx/ads-allow-routing.list",
+        "https://raw.githubusercontent.com/SangShy4You/Anti-AD/main/rules/quantumultx/ads-reject-extra.list",
+        "https://raw.githubusercontent.com/SangShy4You/Anti-AD/main/rules/quantumultx/ads-allow-services.list",
+        "https://raw.githubusercontent.com/SangShy4You/Anti-AD/main/rules/quantumultx/ads-reject-supplement.list"
+      ],
+      "status": "merged_with_exact_deduplication_and_explicit_scope_exclusions",
+      "policy_changed_by_requested_service_unification": false
+    },
+    {
+      "original_index": 11,
+      "original_url": "https://raw.githubusercontent.com/mieqq/mieqq/master/In-AppTracker.txt",
+      "enabled": true,
+      "source_id": "11_filter",
+      "current_policy": "reject",
+      "original_policy": "reject",
+      "personal_products": [
+        "ads.list"
+      ],
+      "client_resources": [
+        "https://raw.githubusercontent.com/SangShy4You/Anti-AD/main/rules/quantumultx/ads-allow-first.list",
+        "https://raw.githubusercontent.com/SangShy4You/Anti-AD/main/rules/quantumultx/ads-reject-main.list",
+        "https://raw.githubusercontent.com/SangShy4You/Anti-AD/main/rules/quantumultx/ads-allow-routing.list",
+        "https://raw.githubusercontent.com/SangShy4You/Anti-AD/main/rules/quantumultx/ads-reject-extra.list",
+        "https://raw.githubusercontent.com/SangShy4You/Anti-AD/main/rules/quantumultx/ads-allow-services.list",
+        "https://raw.githubusercontent.com/SangShy4You/Anti-AD/main/rules/quantumultx/ads-reject-supplement.list"
+      ],
+      "status": "merged_with_exact_deduplication_and_explicit_scope_exclusions",
+      "policy_changed_by_requested_service_unification": false
+    },
+    {
+      "original_index": 12,
+      "original_url": "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/QuantumultX/WeChat/WeChat.list",
+      "enabled": true,
+      "source_id": "12_filter",
+      "current_policy": "direct",
+      "original_policy": "direct",
+      "personal_products": [
+        "ads.list"
+      ],
+      "client_resources": [
+        "https://raw.githubusercontent.com/SangShy4You/Anti-AD/main/rules/quantumultx/ads-allow-first.list",
+        "https://raw.githubusercontent.com/SangShy4You/Anti-AD/main/rules/quantumultx/ads-reject-main.list",
+        "https://raw.githubusercontent.com/SangShy4You/Anti-AD/main/rules/quantumultx/ads-allow-routing.list",
+        "https://raw.githubusercontent.com/SangShy4You/Anti-AD/main/rules/quantumultx/ads-reject-extra.list",
+        "https://raw.githubusercontent.com/SangShy4You/Anti-AD/main/rules/quantumultx/ads-allow-services.list",
+        "https://raw.githubusercontent.com/SangShy4You/Anti-AD/main/rules/quantumultx/ads-reject-supplement.list"
+      ],
+      "status": "merged_with_exact_deduplication_and_explicit_scope_exclusions",
+      "policy_changed_by_requested_service_unification": false
+    },
+    {
+      "original_index": 13,
+      "original_url": "https://raw.githubusercontent.com/ConnersHua/RuleGo/master/Surge/Ruleset/Direct+.list",
+      "enabled": true,
+      "source_id": "13_filter",
+      "current_policy": "direct",
+      "original_policy": "direct",
+      "personal_products": [
+        "ads.list"
+      ],
+      "client_resources": [
+        "https://raw.githubusercontent.com/SangShy4You/Anti-AD/main/rules/quantumultx/ads-allow-first.list",
+        "https://raw.githubusercontent.com/SangShy4You/Anti-AD/main/rules/quantumultx/ads-reject-main.list",
+        "https://raw.githubusercontent.com/SangShy4You/Anti-AD/main/rules/quantumultx/ads-allow-routing.list",
+        "https://raw.githubusercontent.com/SangShy4You/Anti-AD/main/rules/quantumultx/ads-reject-extra.list",
+        "https://raw.githubusercontent.com/SangShy4You/Anti-AD/main/rules/quantumultx/ads-allow-services.list",
+        "https://raw.githubusercontent.com/SangShy4You/Anti-AD/main/rules/quantumultx/ads-reject-supplement.list"
+      ],
+      "status": "merged_with_exact_deduplication_and_explicit_scope_exclusions",
+      "policy_changed_by_requested_service_unification": false
+    },
+    {
+      "original_index": 14,
+      "original_url": "https://raw.githubusercontent.com/ConnersHua/RuleGo/master/Surge/Ruleset/Extra/Reject/Advertising.list",
+      "enabled": true,
+      "source_id": "14_filter",
+      "current_policy": "reject",
+      "original_policy": "reject",
+      "personal_products": [
+        "ads.list"
+      ],
+      "client_resources": [
+        "https://raw.githubusercontent.com/SangShy4You/Anti-AD/main/rules/quantumultx/ads-allow-first.list",
+        "https://raw.githubusercontent.com/SangShy4You/Anti-AD/main/rules/quantumultx/ads-reject-main.list",
+        "https://raw.githubusercontent.com/SangShy4You/Anti-AD/main/rules/quantumultx/ads-allow-routing.list",
+        "https://raw.githubusercontent.com/SangShy4You/Anti-AD/main/rules/quantumultx/ads-reject-extra.list",
+        "https://raw.githubusercontent.com/SangShy4You/Anti-AD/main/rules/quantumultx/ads-allow-services.list",
+        "https://raw.githubusercontent.com/SangShy4You/Anti-AD/main/rules/quantumultx/ads-reject-supplement.list"
+      ],
+      "status": "merged_with_exact_deduplication_and_explicit_scope_exclusions",
+      "policy_changed_by_requested_service_unification": false
+    },
+    {
+      "original_index": 15,
+      "original_url": "https://raw.githubusercontent.com/ConnersHua/RuleGo/master/Surge/Ruleset/Extra/Reject/Tracking.list",
+      "enabled": true,
+      "source_id": "15_filter",
+      "current_policy": "reject",
+      "original_policy": "reject",
+      "personal_products": [
+        "ads.list"
+      ],
+      "client_resources": [
+        "https://raw.githubusercontent.com/SangShy4You/Anti-AD/main/rules/quantumultx/ads-allow-first.list",
+        "https://raw.githubusercontent.com/SangShy4You/Anti-AD/main/rules/quantumultx/ads-reject-main.list",
+        "https://raw.githubusercontent.com/SangShy4You/Anti-AD/main/rules/quantumultx/ads-allow-routing.list",
+        "https://raw.githubusercontent.com/SangShy4You/Anti-AD/main/rules/quantumultx/ads-reject-extra.list",
+        "https://raw.githubusercontent.com/SangShy4You/Anti-AD/main/rules/quantumultx/ads-allow-services.list",
+        "https://raw.githubusercontent.com/SangShy4You/Anti-AD/main/rules/quantumultx/ads-reject-supplement.list"
+      ],
+      "status": "merged_with_exact_deduplication_and_explicit_scope_exclusions",
+      "policy_changed_by_requested_service_unification": false
+    },
+    {
+      "original_index": 16,
+      "original_url": "https://raw.githubusercontent.com/ConnersHua/RuleGo/master/Surge/Ruleset/Extra/Streaming/Video/TikTok.list",
+      "enabled": true,
+      "source_id": "service-source-16",
+      "current_policy": "TikTok",
+      "original_policy": "全球加速",
+      "personal_products": [
+        "service-tiktok.list"
+      ],
+      "client_resources": [
+        "https://raw.githubusercontent.com/SangShy4You/Anti-AD/main/rules/quantumultx/service-tiktok.list"
+      ],
+      "status": "merged_into_requested_service_family",
+      "policy_changed_by_requested_service_unification": true
+    },
+    {
+      "original_index": 17,
+      "original_url": "https://raw.githubusercontent.com/ConnersHua/RuleGo/master/Surge/Ruleset/Extra/Google/GoogleVoice.list",
+      "enabled": true,
+      "source_id": "service-source-06",
+      "current_policy": "Google",
+      "original_policy": "美国节点",
+      "personal_products": [
+        "service-google.list"
+      ],
+      "client_resources": [
+        "https://raw.githubusercontent.com/SangShy4You/Anti-AD/main/rules/quantumultx/service-google.list"
+      ],
+      "status": "merged_into_requested_service_family",
+      "policy_changed_by_requested_service_unification": true
+    },
+    {
+      "original_index": 18,
+      "original_url": "https://raw.githubusercontent.com/ConnersHua/RuleGo/master/Surge/Ruleset/Extra/Telegram.list",
+      "enabled": true,
+      "source_id": "service-source-17",
+      "current_policy": "电报代理",
+      "original_policy": "电报代理",
+      "personal_products": [
+        "service-telegram.list"
+      ],
+      "client_resources": [
+        "https://raw.githubusercontent.com/SangShy4You/Anti-AD/main/rules/quantumultx/service-telegram.list"
+      ],
+      "status": "merged_into_requested_service_family",
+      "policy_changed_by_requested_service_unification": false
+    },
+    {
+      "original_index": 19,
+      "original_url": "https://raw.githubusercontent.com/ConnersHua/RuleGo/master/Surge/Ruleset/Extra/Streaming/!CN.list",
+      "enabled": true,
+      "source_id": "service-source-18",
+      "current_policy": "国际媒体",
+      "original_policy": "国际媒体",
+      "personal_products": [
+        "service-streaming.list"
+      ],
+      "client_resources": [
+        "https://raw.githubusercontent.com/SangShy4You/Anti-AD/main/rules/quantumultx/service-streaming.list"
+      ],
+      "status": "merged_into_requested_service_family",
+      "policy_changed_by_requested_service_unification": false
+    },
+    {
+      "original_index": 20,
+      "original_url": "https://raw.githubusercontent.com/ConnersHua/RuleGo/master/Surge/Ruleset/Extra/Streaming/CN.list",
+      "enabled": true,
+      "source_id": "service-source-19",
+      "current_policy": "港台番剧",
+      "original_policy": "港台番剧",
+      "personal_products": [
+        "service-cn-media.list"
+      ],
+      "client_resources": [
+        "https://raw.githubusercontent.com/SangShy4You/Anti-AD/main/rules/quantumultx/service-cn-media.list"
+      ],
+      "status": "merged_into_requested_service_family",
+      "policy_changed_by_requested_service_unification": false
+    },
+    {
+      "original_index": 21,
+      "original_url": "https://raw.githubusercontent.com/ConnersHua/RuleGo/master/Surge/Ruleset/Proxy.list",
+      "enabled": true,
+      "source_id": "service-source-20",
+      "current_policy": "全球加速",
+      "original_policy": "全球加速",
+      "personal_products": [
+        "service-global.list"
+      ],
+      "client_resources": [
+        "https://raw.githubusercontent.com/SangShy4You/Anti-AD/main/rules/quantumultx/service-global.list"
+      ],
+      "status": "merged_into_requested_service_family",
+      "policy_changed_by_requested_service_unification": false
+    },
+    {
+      "original_index": 22,
+      "original_url": "https://raw.githubusercontent.com/ConnersHua/RuleGo/master/Surge/Ruleset/Extra/Apple/Apple.list",
+      "enabled": true,
+      "source_id": "service-source-21",
+      "current_policy": "苹果服务",
+      "original_policy": "苹果服务",
+      "personal_products": [
+        "service-apple.list"
+      ],
+      "client_resources": [
+        "https://raw.githubusercontent.com/SangShy4You/Anti-AD/main/rules/quantumultx/service-apple.list"
+      ],
+      "status": "merged_into_requested_service_family",
+      "policy_changed_by_requested_service_unification": false
+    },
+    {
+      "original_index": 23,
+      "original_url": "https://raw.githubusercontent.com/ConnersHua/RuleGo/master/Surge/Ruleset/Direct.list",
+      "enabled": true,
+      "source_id": "service-source-22",
+      "current_policy": "direct",
+      "original_policy": "direct",
+      "personal_products": [
+        "service-china.list"
+      ],
+      "client_resources": [
+        "https://raw.githubusercontent.com/SangShy4You/Anti-AD/main/rules/quantumultx/service-china.list"
+      ],
+      "status": "merged_into_requested_service_family",
+      "policy_changed_by_requested_service_unification": false
+    },
+    {
+      "original_index": 24,
+      "original_url": "https://raw.githubusercontent.com/ConnersHua/RuleGo/master/Surge/Ruleset/Extra/WeChat.list",
+      "enabled": true,
+      "source_id": "service-source-23",
+      "current_policy": "direct",
+      "original_policy": "direct",
+      "personal_products": [
+        "service-wechat.list"
+      ],
+      "client_resources": [
+        "https://raw.githubusercontent.com/SangShy4You/Anti-AD/main/rules/quantumultx/service-wechat.list"
+      ],
+      "status": "merged_into_requested_service_family",
+      "policy_changed_by_requested_service_unification": false
+    },
+    {
+      "original_index": 25,
+      "original_url": "https://raw.githubusercontent.com/ConnersHua/RuleGo/master/Surge/Ruleset/Proxy+.list",
+      "enabled": true,
+      "source_id": "service-source-24",
+      "current_policy": "proxy",
+      "original_policy": "proxy",
+      "personal_products": [
+        "service-proxy-fix.list"
+      ],
+      "client_resources": [
+        "https://raw.githubusercontent.com/SangShy4You/Anti-AD/main/rules/quantumultx/service-proxy-fix.list"
+      ],
+      "status": "merged_into_requested_service_family",
+      "policy_changed_by_requested_service_unification": false
+    }
+  ],
+  "original_rewrite_matrix": [
+    {
+      "original_url": "https://raw.githubusercontent.com/DoracisMu/quanX_rewirte/master/JdTb.conf",
+      "original_tag": "购物比价",
+      "original_enabled": true,
+      "status": "original_external_reference_restored_in_private_complete_profile",
+      "original_index": 1,
+      "evidence": "Original wrapper and both yichahucha/surge script dependencies were read; actual KOP output preserves all three hooks and both original hostnames. Wrapper is kept upstream, outside the personal ad-only products.",
+      "current_url": "https://raw.githubusercontent.com/DoracisMu/quanX_rewirte/master/JdTb.conf",
+      "hook_count": 3,
+      "author": "DoracisMu"
+    },
+    {
+      "original_url": "https://raw.githubusercontent.com/chxm1023/Script_X/main/Collections.conf",
+      "original_tag": "app解锁合集@chxm1023",
+      "original_enabled": true,
+      "status": "original_external_non_ad_complement_retained_plus_four_owned_ad_hooks",
+      "original_index": 2,
+      "current_url": "https://raw.githubusercontent.com/chxm1023/Script_X/main/Collections.conf#out=trial_card%5C%2Finfo%7Centries%7Cfriend_cards%7Ctoken%5C%2Fdevice+oss4bpc+ad_space%5C.index+ad_impression&hide=1"
+    },
+    {
+      "original_url": "https://raw.githubusercontent.com/fmz200/wool_scripts/main/QuantumultX/rewrite/chongxie.txt",
+      "original_tag": "去广告合集@chxm1023",
+      "original_enabled": true,
+      "status": "author_replacement_split_into_personal_ads_and_precise_original_function_complement",
+      "original_index": 3,
+      "replacement_url": "https://raw.githubusercontent.com/fmz200/wool_scripts/main/QuantumultX/rewrite/rewrite.snippet",
+      "personal_product": "https://raw.githubusercontent.com/SangShy4You/Anti-AD/main/rules/quantumultx/ads.conf",
+      "retained_upstream_complement_hooks": 67,
+      "retained_upstream_complement_hostnames": 49,
+      "evidence": "Public source selector and per-key cardinality guard are in config/qx-sources.json. Actual KOP proves 67 selected native rules, their order and 49 original hostname entries.",
+      "historical_limit": "Original update-interval=-1 cache is unavailable; current replacement coverage does not prove byte-for-byte equivalence to that frozen cache."
+    },
+    {
+      "original_url": "https://raw.githubusercontent.com/fmz200/wool_scripts/main/QuantumultX/rewrite/cleanup.snippet",
+      "original_tag": "App&小程序净化合集@fmz200",
+      "original_enabled": true,
+      "status": "personal_ad_aggregate_plus_original_functional_complement",
+      "original_index": 4,
+      "replacement_url": "https://raw.githubusercontent.com/SangShy4You/Anti-AD/main/rules/quantumultx/miniapps.conf",
+      "retained_external_url": "https://raw.githubusercontent.com/fmz200/wool_scripts/main/QuantumultX/rewrite/cleanup.snippet#in=manhuatailite.js+xiaodaka.js+getUpgradeStrategy&inhn=comic.321mh.com+uranus.sharedaka.com+api.ulife.group&hide=1"
+    },
+    {
+      "original_url": "https://raw.githubusercontent.com/RuCu6/QuanX/main/Rewrites/Cube/bdmap.snippet",
+      "original_tag": "百度地图净化[卸载重装]@RuCu6",
+      "original_enabled": false,
+      "status": "originally_disabled_not_reactivated",
+      "original_index": 5
+    },
+    {
+      "original_url": "https://raw.githubusercontent.com/ddgksf2013/Rewrite/master/Html/WebAdBlock.conf",
+      "original_tag": "影视网站去广告@ddgksf2013",
+      "original_enabled": false,
+      "status": "originally_disabled_not_reactivated",
+      "original_index": 6
+    },
+    {
+      "original_url": "https://raw.githubusercontent.com/DivineEngine/Profiles/master/Quantumult/Rewrite/General.conf",
+      "original_tag": "神机重定向@DivineEngine",
+      "original_enabled": false,
+      "status": "originally_disabled_not_reactivated",
+      "original_index": 7
+    },
+    {
+      "original_url": "https://raw.githubusercontent.com/ddgksf2013/Rewrite/master/Html/Q-Search.conf",
+      "original_tag": "Safari超级搜索@ddgksf2013",
+      "original_enabled": true,
+      "status": "original_external_reference_retained",
+      "original_index": 8,
+      "current_url": "https://raw.githubusercontent.com/ddgksf2013/Rewrite/master/Html/Q-Search.conf"
+    },
+    {
+      "original_url": "https://raw.githubusercontent.com/ddgksf2013/Rewrite/master/Html/EndlessGoogle.conf",
+      "original_tag": "Google自动翻页@ddgksf2013",
+      "original_enabled": true,
+      "status": "original_external_reference_retained",
+      "original_index": 9,
+      "current_url": "https://raw.githubusercontent.com/ddgksf2013/Rewrite/master/Html/EndlessGoogle.conf"
+    },
+    {
+      "original_url": "https://raw.githubusercontent.com/id77/QuantumultX/master/rewrite/Youtube_CC.conf",
+      "original_tag": "油管字幕翻译@id77",
+      "original_enabled": true,
+      "status": "original_external_reference_retained",
+      "original_index": 10,
+      "current_url": "https://raw.githubusercontent.com/id77/QuantumultX/master/rewrite/Youtube_CC.conf#out=Hant",
+      "language_fragment_preserved": true
+    },
+    {
+      "original_url": "https://raw.githubusercontent.com/Orz-3/QuantumultX/master/Netflix_ratings.conf",
+      "original_tag": "Netflix评分@Orz-3",
+      "original_enabled": true,
+      "status": "original_external_reference_retained",
+      "original_index": 11,
+      "current_url": "https://raw.githubusercontent.com/Orz-3/QuantumultX/master/Netflix_ratings.conf"
+    },
+    {
+      "original_url": "https://raw.githubusercontent.com/Orz-3/QuantumultX/master/JD_TB_price.conf",
+      "original_tag": "比价脚本@Orz-3",
+      "original_enabled": false,
+      "status": "originally_disabled_not_reactivated",
+      "original_index": 12
+    },
+    {
+      "original_url": "https://raw.githubusercontent.com/NobyDa/Script/master/TestFlight/TestFlightAccount.js",
+      "original_tag": "Testflight解锁限制@NobyDa",
+      "original_enabled": true,
+      "status": "original_external_reference_retained",
+      "original_index": 13,
+      "current_url": "https://raw.githubusercontent.com/NobyDa/Script/master/TestFlight/TestFlightAccount.js"
+    },
+    {
+      "original_url": "https://raw.githubusercontent.com/zZPiglet/Task/master/UnblockURLinWeChat.conf",
+      "original_tag": "解除微信链接屏蔽@zZPiglet",
+      "original_enabled": true,
+      "status": "original_external_reference_retained",
+      "original_index": 14,
+      "current_url": "https://raw.githubusercontent.com/zZPiglet/Task/master/UnblockURLinWeChat.conf"
+    },
+    {
+      "original_url": "https://raw.githubusercontent.com/ddgksf2013/Rewrite/master/Function/BaiduCloud.conf",
+      "original_tag": "百度网盘倍速@ddgksf2013",
+      "original_enabled": false,
+      "status": "originally_disabled_not_reactivated",
+      "original_index": 15
+    },
+    {
+      "original_url": "https://raw.githubusercontent.com/ddgksf2013/Rewrite/master/Function/BilibiliAutoRegion.conf",
+      "original_tag": "B站换区脚本[不会配置boxjs请勿勾选]@ddgksf2013",
+      "original_enabled": false,
+      "status": "originally_disabled_not_reactivated",
+      "original_index": 16
+    },
+    {
+      "original_url": "https://raw.githubusercontent.com/ddgksf2013/Rewrite/master/Html/Douban.conf",
+      "original_tag": "豆瓣电影网页快捷跳转@ddgksf2013",
+      "original_enabled": true,
+      "status": "complete_original_hook_retained_with_pinned_script",
+      "original_index": 17,
+      "replacement_url": "https://raw.githubusercontent.com/SangShy4You/Anti-AD/main/rules/quantumultx/mixed-web.conf",
+      "functional_evidence": "Identical original movie/tv/book/group/music/home_guide response trigger and same complete douban.js implementation, pinned to reviewed commit. Cleanup and shortcut behavior are kept together."
+    },
+    {
+      "original_url": "https://raw.githubusercontent.com/chavyleung/scripts/master/box/rewrite/boxjs.rewrite.quanx.conf",
+      "original_tag": "boxjs@chavyleung",
+      "original_enabled": true,
+      "status": "original_external_reference_retained",
+      "original_index": 18,
+      "current_url": "https://raw.githubusercontent.com/chavyleung/scripts/master/box/rewrite/boxjs.rewrite.quanx.conf"
+    },
+    {
+      "original_url": "https://raw.githubusercontent.com/Peng-YM/Sub-Store/master/config/QX.snippet",
+      "original_tag": "Sub-Store@Peng-YM",
+      "original_enabled": true,
+      "status": "original_external_reference_retained",
+      "original_index": 19,
+      "current_url": "https://raw.githubusercontent.com/Peng-YM/Sub-Store/master/config/QX.snippet"
+    },
+    {
+      "original_url": "https://limbopro.com/Adblock4limbo.conf",
+      "original_tag": "毒奶重写",
+      "original_enabled": true,
+      "status": "personal_aggregate_with_adapter_and_original_non_ad_web_logic",
+      "original_index": 20,
+      "replacement_url": "https://raw.githubusercontent.com/SangShy4You/Anti-AD/main/rules/quantumultx/web.conf"
+    },
+    {
+      "original_url": "https://raw.githubusercontent.com/NobyDa/Script/master/QuantumultX/TestFlightDownload.conf",
+      "original_tag": "TestFlight区域限制解除",
+      "original_enabled": true,
+      "status": "author_documented_redundant_region_hook_removed",
+      "original_index": 21,
+      "replacement_url": "https://raw.githubusercontent.com/NobyDa/Script/master/TestFlight/TestFlightAccount.js",
+      "evidence": "Retained Account header explicitly states regional restriction handling merged; runs() install branch sets storefrontId=143441-19,29. Keeping both is author-documented conflict.",
+      "author_evidence": "https://raw.githubusercontent.com/NobyDa/Script/master/TestFlight/TestFlightAccount.js"
+    },
+    {
+      "original_url": "https://raw.githubusercontent.com/ConnersHua/RuleGo/master/Surge/Module/Block/YouTubeAds.sgmodule",
+      "original_tag": "YouTube去广告",
+      "original_enabled": true,
+      "status": "single_player_background_response_pipeline_restored",
+      "original_index": 22,
+      "replacement_url": "https://raw.githubusercontent.com/SangShy4You/Anti-AD/main/rules/quantumultx/youtube.conf"
+    },
+    {
+      "original_url": "https://raw.githubusercontent.com/ddgksf2013/Rewrite/master/AdBlock/StartUp.conf",
+      "original_tag": "墨鱼去开屏",
+      "original_enabled": false,
+      "status": "originally_disabled_not_reactivated",
+      "original_index": 23
+    },
+    {
+      "original_url": "https://raw.githubusercontent.com/app2smile/rules/master/module/tieba-qx.conf",
+      "original_tag": "贴吧去广告",
+      "original_enabled": true,
+      "status": "personal_aggregate",
+      "original_index": 24,
+      "replacement_url": "https://raw.githubusercontent.com/SangShy4You/Anti-AD/main/rules/quantumultx/ads.conf"
+    },
+    {
+      "original_url": "https://raw.githubusercontent.com/ConnersHua/RuleGo/master/Surge/Module/Block/Advertising.sgmodule",
+      "original_tag": "神机去广告",
+      "original_enabled": true,
+      "status": "personal_aggregate",
+      "original_index": 25,
+      "replacement_url": "https://raw.githubusercontent.com/SangShy4You/Anti-AD/main/rules/quantumultx/ads.conf"
+    }
+  ],
+  "reviewed_build_snapshot": {
+    "rules": {
+      "ads.list": 252441,
+      "ads.conf": 2205,
+      "miniapps.conf": 60,
+      "mixed-web.conf": 1,
+      "web.conf": 130,
+      "youtube.conf": 7
+    },
+    "sources": 63,
+    "personal_script_dependencies": 87,
+    "public_source_hashes": [
+      {
+        "id": "01_filter",
+        "url": "https://raw.githubusercontent.com/sve1r/Rules-For-Quantumult-X/refs/heads/main/Rules/Advertising/antiAD-V4.list",
+        "sha256": "c7a99c17a5ff6f16d83a260690663f91e00147b1fc40d8d0f7ee6a87738479d3",
+        "bytes": 3907538
+      },
+      {
+        "id": "02_filter",
+        "url": "https://raw.githubusercontent.com/sve1r/Rules-For-Quantumult-X/refs/heads/main/Rules/Advertising/AdReject.list",
+        "sha256": "b3b2b4730be9ff55b4c4045ff6f7a4cedb9de9c1e86c310f329b2e7fd85c2518",
+        "bytes": 284379
+      },
+      {
+        "id": "03_filter",
+        "url": "https://raw.githubusercontent.com/limbopro/Adblock4limbo/main/Adblock4limbo.list",
+        "sha256": "1a4e725ea8c63f7b455f1b98d5e412f641f0d290f20dea5db23a0bcb1fc888c4",
+        "bytes": 24070
+      },
+      {
+        "id": "04_filter",
+        "url": "https://raw.githubusercontent.com/NobyDa/ND-AD/master/QuantumultX/AD_Block.txt",
+        "sha256": "c531799c628e39c2b94e539e1d81c2c458cc164998b57bd67df2c76f0cc63dba",
+        "bytes": 1418962
+      },
+      {
+        "id": "05_filter",
+        "url": "https://raw.githubusercontent.com/NobyDa/ND-AD/master/QuantumultX/AD_Block_Plus.txt",
+        "sha256": "992d2e00c5bc362bce93bf851494e19991057a795915d37da6c9e15f2c223404",
+        "bytes": 2339360
+      },
+      {
+        "id": "06_filter",
+        "url": "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/QuantumultX/Direct/Direct.list",
+        "sha256": "5ba475db11bd85c7f92699760c15d935d6011616143c99fff54827783772dc7a",
+        "bytes": 7646
+      },
+      {
+        "id": "07_filter",
+        "url": "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/QuantumultX/Lan/Lan.list",
+        "sha256": "277c3bc624a0fac9cd5dda46bd3b4b9321559f638f4c6ec9a18005ea45aeb8f6",
+        "bytes": 4979
+      },
+      {
+        "id": "08_filter",
+        "url": "https://raw.githubusercontent.com/privacy-protection-tools/anti-AD/master/anti-ad-surge2.txt",
+        "sha256": "a1082b143a026d0bdc3a90bac94cbf728da4b07db85811ca5fa02ca388c6abbc",
+        "bytes": 2075478
+      },
+      {
+        "id": "09_filter",
+        "url": "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/QuantumultX/Privacy/Privacy.list",
+        "sha256": "2791fc2b3c4cf242caaa3e27f0393ea908aa82baa0b54b62c0ed2f4ec2d68198",
+        "bytes": 1684697
+      },
+      {
+        "id": "10_filter",
+        "url": "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/QuantumultX/Hijacking/Hijacking.list",
+        "sha256": "f876f136c51c3d646607eca74239a611410b796d5903f6bf36f3b211ff24cdb8",
+        "bytes": 8176
+      },
+      {
+        "id": "11_filter",
+        "url": "https://raw.githubusercontent.com/mieqq/mieqq/master/In-AppTracker.txt",
+        "sha256": "da0ccf083e577513fc80507eecf07ae467abb50a80abba60a195a469e99bfcee",
+        "bytes": 233459
+      },
+      {
+        "id": "12_filter",
+        "url": "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/QuantumultX/WeChat/WeChat.list",
+        "sha256": "f2b1097292162858845d3b4f99058f047e0715bef4a0e6202b40a10af5c38e2c",
+        "bytes": 1556
+      },
+      {
+        "id": "13_filter",
+        "url": "https://raw.githubusercontent.com/ConnersHua/RuleGo/master/Surge/Ruleset/Direct+.list",
+        "sha256": "467d7173ed8d0541ed2436c0f686aee63b8850c0f1452469a7c8439f542cfd32",
+        "bytes": 645
+      },
+      {
+        "id": "14_filter",
+        "url": "https://raw.githubusercontent.com/ConnersHua/RuleGo/master/Surge/Ruleset/Extra/Reject/Advertising.list",
+        "sha256": "2536aacb61b0d40b205d459df7f9beac4e3c0e23744a963e111a6147fabc8cc9",
+        "bytes": 27224
+      },
+      {
+        "id": "15_filter",
+        "url": "https://raw.githubusercontent.com/ConnersHua/RuleGo/master/Surge/Ruleset/Extra/Reject/Tracking.list",
+        "sha256": "b27f44faaf04388f5cf6effb82c9d4cdcf931a153f1d33c056f84855d20678f2",
+        "bytes": 2816
+      },
+      {
+        "id": "antiad_current",
+        "url": "https://raw.githubusercontent.com/privacy-protection-tools/anti-AD/master/anti-ad-quanx.txt",
+        "sha256": "0f03e931e3d0b072e45e9f057c4a7860d204426146271bceed1494a45ebd8568",
+        "bytes": 3934989
+      },
+      {
+        "id": "tieba_filter",
+        "url": "https://raw.githubusercontent.com/app2smile/rules/master/rule/tieba-ad-qx.list",
+        "sha256": "365203242b581b40288935313cae7ccf7454c830e3d08226497004b4956bc58b",
+        "bytes": 61
+      },
+      {
+        "id": "bm-wechat",
+        "url": "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/QuantumultX/WeChat/WeChat.list",
+        "sha256": "f2b1097292162858845d3b4f99058f047e0715bef4a0e6202b40a10af5c38e2c",
+        "bytes": 1556
+      },
+      {
+        "id": "bm-apple",
+        "url": "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/QuantumultX/Apple/Apple.list",
+        "sha256": "966cb314803464ea516243104ed97aaa695d44da71f46b4c72bf8a14e7c67931",
+        "bytes": 67255
+      },
+      {
+        "id": "bm-telegram",
+        "url": "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/QuantumultX/Telegram/Telegram.list",
+        "sha256": "986f8e7d587ce42c3bb472e6a2e9cffd42a413240d32c02cc363c4d6367141fe",
+        "bytes": 1494
+      },
+      {
+        "id": "bm-openai",
+        "url": "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/QuantumultX/OpenAI/OpenAI.list",
+        "sha256": "6ec16f5da986a15c62e80192f5b445dcdaf88607987923120761c1388eeb243d",
+        "bytes": 1495
+      },
+      {
+        "id": "bm-streaming",
+        "url": "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/QuantumultX/GlobalMedia/GlobalMedia.list",
+        "sha256": "3b0151ba6368818b30a8ded9c09311f1abdc3e8c5722bf4d43550988da7b1af7",
+        "bytes": 88663
+      },
+      {
+        "id": "bm-china",
+        "url": "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/QuantumultX/China/China.list",
+        "sha256": "d1db36ac45b3615ee989cc2294e49559cf7d2c7e9826b00d716bc2cb436c09e1",
+        "bytes": 115682
+      },
+      {
+        "id": "fmz_rewrite",
+        "url": "https://raw.githubusercontent.com/fmz200/wool_scripts/main/QuantumultX/rewrite/rewrite.snippet",
+        "sha256": "199c590a6cfa54b7f68b8468fb10bad7168bbd4499fe70e0bb64544429a5e34a",
+        "bytes": 356981
+      },
+      {
+        "id": "fmz_cleanup",
+        "url": "https://raw.githubusercontent.com/fmz200/wool_scripts/main/QuantumultX/rewrite/cleanup.snippet",
+        "sha256": "421fc9a1aa15035d54825011a4333c626ac2165d0469bed86bfcb154a223b17e",
+        "bytes": 26252
+      },
+      {
+        "id": "bm_advertising",
+        "url": "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rewrite/QuantumultX/Advertising/Advertising.conf",
+        "sha256": "ff534003519b8cc3365f0890634ee1cf7a388986d47f6ee1382847d778245430",
+        "bytes": 67654
+      },
+      {
+        "id": "bm_scripts",
+        "url": "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rewrite/QuantumultX/AdvertisingScript/AdvertisingScript.conf",
+        "sha256": "cf1a55ef0f600bea61456f1f77e64ceed67a0209add767eecf32936741522f3c",
+        "bytes": 7681
+      },
+      {
+        "id": "tieba",
+        "url": "https://raw.githubusercontent.com/app2smile/rules/master/module/tieba-qx.conf",
+        "sha256": "4b8070ddc17a013d7cd38ac92550b3d9eade6660129fc27f01f06e3f260fb6f1",
+        "bytes": 967
+      },
+      {
+        "id": "fmz_extra_filters",
+        "url": "https://raw.githubusercontent.com/fmz200/wool_scripts/main/QuantumultX/rewrite/rewrite.snippet",
+        "sha256": "199c590a6cfa54b7f68b8468fb10bad7168bbd4499fe70e0bb64544429a5e34a",
+        "bytes": 356981
+      },
+      {
+        "id": "local_public_ads",
+        "url": "https://raw.githubusercontent.com/SangShy4You/Anti-AD/main/config/qx-local-ad.list",
+        "sha256": "73a6d695e190edce31c82a2c17e014a2e872c23f8b5491f0228160444cc1b7f1",
+        "bytes": 448
+      },
+      {
+        "id": "collections_ad_only",
+        "url": "https://raw.githubusercontent.com/SangShy4You/Anti-AD/main/config/qx-collections-ad.conf",
+        "sha256": "d99906fd03b821b5f190453e03728d6fa9cf6be6765f78017ae927c48ed74cb4",
+        "bytes": 633
+      },
+      {
+        "id": "rulego_advertising",
+        "url": "https://raw.githubusercontent.com/ConnersHua/RuleGo/master/Surge/Module/Block/Advertising.sgmodule",
+        "sha256": "8a7f32cc052a16e147001c04d3c63a95585108d4823ada0eecb6505da52dd025",
+        "bytes": 13994
+      },
+      {
+        "id": "rulego_youtube",
+        "url": "https://raw.githubusercontent.com/ConnersHua/RuleGo/master/Surge/Module/Block/YouTubeAds.sgmodule",
+        "sha256": "074a95980dcfc01844bbc9ec02421ac35c06851ec7b6ac28f26f2d24487a9808",
+        "bytes": 1020
+      },
+      {
+        "id": "limbo_web",
+        "url": "https://raw.githubusercontent.com/limbopro/Adblock4limbo/main/Adblock4limbo.conf",
+        "sha256": "049e699364bdcad75972faa9f0a82a73ddf32baf4a966041336f3577c1400c89",
+        "bytes": 40398
+      },
+      {
+        "id": "douban_mixed",
+        "url": "https://raw.githubusercontent.com/ddgksf2013/Rewrite/master/Html/Douban.conf",
+        "sha256": "ee9f285059e0e0e478a2585c91e53188135775a68a9795b1dd39df979abbc757",
+        "bytes": 957
+      },
+      {
+        "id": "service-source-00",
+        "url": "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/QuantumultX/Nintendo/Nintendo.list#out=IP-CIDR%2C&hide=1&ntf=0",
+        "sha256": "9c4cd128da1fe44ef824faa8da6ac583017340b1fd888ae48645e721d59b3058",
+        "bytes": 4991
+      },
+      {
+        "id": "service-source-01",
+        "url": "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/QuantumultX/Claude/Claude.list",
+        "sha256": "bcf41ba79464a16d8305cf1c6f18c69d023ccd33ea1b84834daaa47cc0d5dfea",
+        "bytes": 255
+      },
+      {
+        "id": "service-source-02",
+        "url": "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/QuantumultX/OpenAI/OpenAI.list#out=IP-ASN%2C+%2Cai.com%2C+%2Cbrowser-intake-datadoghq.com%2C+%2Cstatic.cloudflareinsights.com%2C+%2Calgolia.net%2C+%2Capi.statsig.com%2C+%2Cauth0.com%2C+%2Cclient-api.arkoselabs.com%2C+%2Cevents.statsigapi.net%2C+%2Cfeaturegates.org%2C+%2Chost.livekit.cloud%2C+%2Cidentrust.com%2C+%2Cintercom.io%2C+%2Cintercomcdn.com%2C+%2Claunchdarkly.com%2C+%2Cobserveit.net%2C+%2Csegment.io%2C+%2Csentry.io%2C+%2Cstripe.com%2C+%2Cturn.livekit.cloud%2C&hide=1&ntf=0",
+        "sha256": "6ec16f5da986a15c62e80192f5b445dcdaf88607987923120761c1388eeb243d",
+        "bytes": 1495
+      },
+      {
+        "id": "service-source-03",
+        "url": "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/QuantumultX/Gemini/Gemini.list#out=%2Capis.google.com%2C&hide=1&ntf=0",
+        "sha256": "9e488fd027a55ec5bfeeeda1ab4a9022364c1d47dfd140293e02835d3303980f",
+        "bytes": 664
+      },
+      {
+        "id": "service-source-04",
+        "url": "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/QuantumultX/YouTube/YouTube.list",
+        "sha256": "6c011f1b2d03f664799bd8f01718bef9c8b071209d5602bfed18bb5db4a8c9e4",
+        "bytes": 6800
+      },
+      {
+        "id": "service-source-05",
+        "url": "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/QuantumultX/GoogleDrive/GoogleDrive.list#out=%2Cgoogleusercontent.com%2C+%2Cwww.googleapis.com%2C&hide=1&ntf=0",
+        "sha256": "4969e8ba55a0d03ba5dd13d8b626a28b73823c1e57991187e5c05a792b7f9144",
+        "bytes": 527
+      },
+      {
+        "id": "service-source-06",
+        "url": "https://raw.githubusercontent.com/ConnersHua/RuleGo/master/Surge/Ruleset/Extra/Google/GoogleVoice.list",
+        "sha256": "ac185af27e084d945c5b771ca93835a80100851585cb94ba6e1b6cde45f7490e",
+        "bytes": 41
+      },
+      {
+        "id": "service-source-07",
+        "url": "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/QuantumultX/GitHub/GitHub.list",
+        "sha256": "413f664aa29692e83879422ee6d35ced46dd135ebd85f67afaf554ab14391f77",
+        "bytes": 1268
+      },
+      {
+        "id": "service-source-08",
+        "url": "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/QuantumultX/OneDrive/OneDrive.list",
+        "sha256": "ff3c4a9b4bf9ff4a5095b653e8c9af69a90c4074b3d136a8a82f8cfbb701f676",
+        "bytes": 815
+      },
+      {
+        "id": "service-source-09",
+        "url": "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/QuantumultX/Copilot/Copilot.list#in=copilot.microsoft.com+sydney.bing.com+gateway.bingviz.microsoft.net+gateway.bingviz.microsoftapp.net+services.bingapis.com+edgeservices.bing.com+api.microsoftapp.net+bing-shopping.microsoft-falcon.io&hide=1&ntf=0",
+        "sha256": "b6bd07a9aaa109d44915b23b19d1d05948cc137dc7e2a5c3240d9a81c6e6b3a4",
+        "bytes": 2086
+      },
+      {
+        "id": "service-source-10",
+        "url": "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/QuantumultX/Bing/Bing.list",
+        "sha256": "104a58946d9e1411c3d18db64754ea667888ce42224209a3707888a9430655c6",
+        "bytes": 440
+      },
+      {
+        "id": "service-source-11",
+        "url": "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/QuantumultX/Microsoft/Microsoft.list",
+        "sha256": "7de40c9424a4a1ab793a38f58dbf64c25ef68f9e812618abf3751a853561c800",
+        "bytes": 27681
+      },
+      {
+        "id": "service-source-12",
+        "url": "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/QuantumultX/Google/Google.list",
+        "sha256": "eb56706413fab41ded77194ae73f690af583bd56ad7d470273e026fa5ccb7b93",
+        "bytes": 23684
+      },
+      {
+        "id": "service-source-13",
+        "url": "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/QuantumultX/Spotify/Spotify.list#out=IP-CIDR%2C+IP6-CIDR%2C&hide=1&ntf=0",
+        "sha256": "d29fa087d00317231e7de7c8cd4aa9ca91ed0c51660fbf76101b719d8ac5e78c",
+        "bytes": 1355
+      },
+      {
+        "id": "service-source-14",
+        "url": "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/QuantumultX/Netflix/Netflix.list#out=IP-CIDR%2C+IP6-CIDR%2C&hide=1&ntf=0",
+        "sha256": "eb95ba340fc9b3013e6b66a64270d20e4142b0f9b8cde1bac060725742331ec7",
+        "bytes": 37297
+      },
+      {
+        "id": "service-source-15",
+        "url": "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/QuantumultX/TikTok/TikTok.list",
+        "sha256": "b1a9cc643f72d4f105bf2eb1ba916ae7c56d34014355d97c1ff98f41006b9f75",
+        "bytes": 1357
+      },
+      {
+        "id": "service-source-16",
+        "url": "https://raw.githubusercontent.com/ConnersHua/RuleGo/master/Surge/Ruleset/Extra/Streaming/Video/TikTok.list",
+        "sha256": "5827f7446fcedddf16152d4b0bbaf8bddb26dcb93700d619385d6f121f5a1483",
+        "bytes": 311
+      },
+      {
+        "id": "service-source-17",
+        "url": "https://raw.githubusercontent.com/ConnersHua/RuleGo/master/Surge/Ruleset/Extra/Telegram.list",
+        "sha256": "e8f75858be3a7da883a796d97c8490acb100404aabb500fde7f23703de5e000c",
+        "bytes": 920
+      },
+      {
+        "id": "service-source-18",
+        "url": "https://raw.githubusercontent.com/ConnersHua/RuleGo/master/Surge/Ruleset/Extra/Streaming/!CN.list",
+        "sha256": "8e3a7945de96310575837ad55fd724aecaf3b3894a7eac2a979311d6d5fa88ce",
+        "bytes": 7796
+      },
+      {
+        "id": "service-source-19",
+        "url": "https://raw.githubusercontent.com/ConnersHua/RuleGo/master/Surge/Ruleset/Extra/Streaming/CN.list",
+        "sha256": "8a79fd534b92d7ac33e9290bd141b423822dc50525a525938486a340b6b5bcda",
+        "bytes": 505
+      },
+      {
+        "id": "service-source-20",
+        "url": "https://raw.githubusercontent.com/ConnersHua/RuleGo/master/Surge/Ruleset/Proxy.list",
+        "sha256": "2292abb55f20caf031ffbb7011c84b85c2246f54ae050fe416323da1fd2b8ead",
+        "bytes": 14686
+      },
+      {
+        "id": "service-source-21",
+        "url": "https://raw.githubusercontent.com/ConnersHua/RuleGo/master/Surge/Ruleset/Extra/Apple/Apple.list",
+        "sha256": "8ecf4183ed7153f4d7f84f1f397005b4f16cfd9058ccdcce8762d3eb562a5e82",
+        "bytes": 603
+      },
+      {
+        "id": "service-source-22",
+        "url": "https://raw.githubusercontent.com/ConnersHua/RuleGo/master/Surge/Ruleset/Direct.list",
+        "sha256": "35aae672ccde5534afd5d30344bd1ee4c75ddd383c099eda3babee3202ca5630",
+        "bytes": 897
+      },
+      {
+        "id": "service-source-23",
+        "url": "https://raw.githubusercontent.com/ConnersHua/RuleGo/master/Surge/Ruleset/Extra/WeChat.list",
+        "sha256": "3404f16f0226b9e13e2bee7b22ed2c9d36efbaae3c4251a19457c3dabe43c746",
+        "bytes": 816
+      },
+      {
+        "id": "service-source-24",
+        "url": "https://raw.githubusercontent.com/ConnersHua/RuleGo/master/Surge/Ruleset/Proxy+.list",
+        "sha256": "2d4f4e156663de6b5d1e4d49be23799f8a0a08ef7c061cb0d133e194be07bf7c",
+        "bytes": 32
+      },
+      {
+        "id": "service-nintendo-extra",
+        "url": "https://raw.githubusercontent.com/SangShy4You/Anti-AD/main/config/qx-nintendo-extra.list",
+        "sha256": "f89d709ba6f64f1e49a69d19f7ab311d6267fc191460ce94a856ff4f4a1c2845",
+        "bytes": 1590
+      },
+      {
+        "id": "youtube_background",
+        "url": "https://raw.githubusercontent.com/SangShy4You/Anti-AD/main/config/qx-youtube-player.conf",
+        "sha256": "d1a5cb3a7ccfa4c1dd261ab53c5aeb28a85a9aeda9ef2ffc62833a5669e0feb2",
+        "bytes": 614
+      },
+      {
+        "id": "service-claude-extra",
+        "url": "https://raw.githubusercontent.com/SangShy4You/Anti-AD/main/config/qx-claude-extra.list",
+        "sha256": "ad072a170e2ff5461b2d8aded45a8e0be66c292954ca25260c2237ad7b6e53b8",
+        "bytes": 171
+      }
+    ],
+    "source_of_current_daily_counts": "rules/quantumultx/manifest.json"
+  },
+  "automatic_guards": [
+    "Exact selected source rules and per-key expected cardinalities",
+    "Reviewed 62-entry source supplement and exact PSBC line conversion",
+    "Ordered six-part REJECT/allow partition contract",
+    "New script URL approval and immutable personal-product dependencies",
+    "Patch-context and static syntax checks",
+    "Required FMZ remote complement emitted before broad advertising rewrites",
+    "Regression fixtures for non-equivalent actions and YouTube player features"
+  ],
+  "source_evidence": {
+    "manifest": "rules/quantumultx/manifest.json",
+    "source_registry": "config/qx-sources.json",
+    "tail_classifications": "config/qx-extra-tail-reviewed.json",
+    "parser_source": "https://raw.githubusercontent.com/KOP-XIAO/QuantumultX/master/Scripts/resource-parser.js",
+    "testflight_merge_statement": "https://raw.githubusercontent.com/NobyDa/Script/master/TestFlight/TestFlightAccount.js",
+    "actual_kop_selection": {
+      "fmz": {
+        "hooks": 67,
+        "hostnames": 49,
+        "output_sha256": "915d8ed09046726dbcba732883e3f47d3bff220e91676b491b8b53eaab813d6e"
+      },
+      "shopping": {
+        "hooks": 3,
+        "hostnames": 2
+      }
+    }
+  },
+  "limits_and_explicit_decisions": [
+    "Original frozen chongxie.txt update-interval=-1 cache is unavailable. Current author replacement and last public source can be audited; complete equivalence to the effective old phone cache cannot be proved.",
+    "38 remaining tail candidates have unverified endpoint purpose or exclusive IP ownership. They are explicitly classified and are not added as blanket reject rules.",
+    "Original ad-filter software licensing blocks and shared business/security/push destinations are outside the declared ad/tracking scope; exclusions are recorded rather than described as duplicates.",
+    "The seven originally disabled rewrite references remain inactive, including WebAdBlock and StartUp; no feature is claimed restored from unavailable disabled sources.",
+    "TestFlightDownload remains inactive because the retained TestFlightAccount author explicitly merged its regional install handling and warns against enabling both.",
+    "The selected Caiyun response cleanup is a functional advertising alternative to the remote echo data rule, not a byte-identical echo response.",
+    "Service grouping can change precedence for constructed names that match several broad brand keywords. Synthetic overlap witnesses are not observations of broken real traffic. Existing concrete-domain checks pass; named GEOIP behavior still depends on the client database.",
+    "Static compilation, KOP execution, fixture tests and public downloads do not establish real iPhone/App-version behavior or guarantee every ad disappears."
+  ]
+}

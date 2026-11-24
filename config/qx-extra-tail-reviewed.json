@@ -1,0 +1,2034 @@
+{
+  "schema_version": 1,
+  "source_url": "https://raw.githubusercontent.com/fmz200/wool_scripts/main/QuantumultX/rewrite/rewrite.snippet",
+  "source_sha256_at_review": "199c590a6cfa54b7f68b8468fb10bad7168bbd4499fe70e0bb64544429a5e34a",
+  "review_scope": "252 conservative unmatched FMZ mixed-tail candidates from exhaustive selected-input audit; each row has an explicit decision, not a new matching heuristic.",
+  "selection_contract": "Only decision=include exact normalized native QX rows may supplement the existing selector. Never broaden a keyword, suffix or IP match. Explicit safety/licensing/business exclusions remain excluded.",
+  "decision_counts": {
+    "exclude-licensing": 4,
+    "exclude-push-chat": 12,
+    "exclude-security": 8,
+    "exclude-shared-business": 128,
+    "include": 62,
+    "unverified-endpoint": 20,
+    "unverified-ip": 18
+  },
+  "entries": [
+    {
+      "source_line_at_review": 218,
+      "source_section": "9to5Mac",
+      "original_rule": "host-suffix, spot.im, reject",
+      "normalized_rule": "host-suffix, spot.im, reject",
+      "decision": "exclude-shared-business",
+      "reason": "Business API, content/CDN, navigation, customer support or shared app infrastructure; whole-host rejection would remove non-ad functions."
+    },
+    {
+      "source_line_at_review": 222,
+      "source_section": "9to5Mac",
+      "original_rule": "host-suffix, temu.com, reject",
+      "normalized_rule": "host-suffix, temu.com, reject",
+      "decision": "exclude-shared-business",
+      "reason": "Business API, content/CDN, navigation, customer support or shared app infrastructure; whole-host rejection would remove non-ad functions."
+    },
+    {
+      "source_line_at_review": 234,
+      "source_section": "9to5Mac",
+      "original_rule": "host-suffix, aidemsrv.com, reject",
+      "normalized_rule": "host-suffix, aidemsrv.com, reject",
+      "decision": "include",
+      "reason": "Dedicated Aidem ad-serving domain in the reviewed upstream ad-host cluster."
+    },
+    {
+      "source_line_at_review": 245,
+      "source_section": "9to5Mac",
+      "original_rule": "host-suffix, mradx.net, reject",
+      "normalized_rule": "host-suffix, mradx.net, reject",
+      "decision": "include",
+      "reason": "Dedicated mobile real-time ad exchange domain in the upstream ad-host cluster."
+    },
+    {
+      "source_line_at_review": 386,
+      "source_section": "阿里云",
+      "original_rule": "IP-CIDR, 203.107.1.1/24, reject",
+      "normalized_rule": "ip-cidr, 203.107.1.0/24, reject",
+      "decision": "unverified-ip",
+      "reason": "No verified exclusive ad/telemetry ownership for this IP/network; IP reuse and shared hosting prevent a safe blanket block."
+    },
+    {
+      "source_line_at_review": 417,
+      "source_section": "爱奇艺",
+      "original_rule": "host, api.iqiyi.com, reject",
+      "normalized_rule": "host, api.iqiyi.com, reject",
+      "decision": "exclude-shared-business",
+      "reason": "Business API, content/CDN, navigation, customer support or shared app infrastructure; whole-host rejection would remove non-ad functions."
+    },
+    {
+      "source_line_at_review": 418,
+      "source_section": "爱奇艺",
+      "original_rule": "host, cr-status.iqiyi.com, reject",
+      "normalized_rule": "host, cr-status.iqiyi.com, reject",
+      "decision": "unverified-endpoint",
+      "reason": "Raw app-section rejection alone does not prove exclusive ads/tracking use; require request or script-branch evidence before adding a whole-host/keyword reject."
+    },
+    {
+      "source_line_at_review": 419,
+      "source_section": "爱奇艺",
+      "original_rule": "host, f74f7f7765f8a2f6.ngaa.net.cn, reject",
+      "normalized_rule": "host, f74f7f7765f8a2f6.ngaa.net.cn, reject",
+      "decision": "unverified-endpoint",
+      "reason": "Raw app-section rejection alone does not prove exclusive ads/tracking use; require request or script-branch evidence before adding a whole-host/keyword reject."
+    },
+    {
+      "source_line_at_review": 457,
+      "source_section": "爱奇艺",
+      "original_rule": "IP-CIDR, 203.107.63.154/32, reject",
+      "normalized_rule": "ip-cidr, 203.107.63.154/32, reject",
+      "decision": "unverified-ip",
+      "reason": "No verified exclusive ad/telemetry ownership for this IP/network; IP reuse and shared hosting prevent a safe blanket block."
+    },
+    {
+      "source_line_at_review": 539,
+      "source_section": "Adobe",
+      "original_rule": "host-suffix, activate.adobe.com, reject",
+      "normalized_rule": "host-suffix, activate.adobe.com, reject",
+      "decision": "exclude-licensing",
+      "reason": "License/activation endpoint; outside the requested ads/tracking scope."
+    },
+    {
+      "source_line_at_review": 545,
+      "source_section": "Adobe",
+      "original_rule": "host-suffix, ereg.adobe.com, reject",
+      "normalized_rule": "host-suffix, ereg.adobe.com, reject",
+      "decision": "exclude-licensing",
+      "reason": "License/activation endpoint; outside the requested ads/tracking scope."
+    },
+    {
+      "source_line_at_review": 551,
+      "source_section": "Adobe",
+      "original_rule": "host-suffix, lm.licenses.adobe.com, reject",
+      "normalized_rule": "host-suffix, lm.licenses.adobe.com, reject",
+      "decision": "exclude-licensing",
+      "reason": "License/activation endpoint; outside the requested ads/tracking scope."
+    },
+    {
+      "source_line_at_review": 557,
+      "source_section": "Adobe",
+      "original_rule": "host-suffix, lmlicenses.wip4.adobe.com, reject",
+      "normalized_rule": "host-suffix, lmlicenses.wip4.adobe.com, reject",
+      "decision": "exclude-licensing",
+      "reason": "License/activation endpoint; outside the requested ads/tracking scope."
+    },
+    {
+      "source_line_at_review": 606,
+      "source_section": "Apple",
+      "original_rule": "host, launch.apple.com, reject",
+      "normalized_rule": "host, launch.apple.com, reject",
+      "decision": "unverified-endpoint",
+      "reason": "Raw app-section rejection alone does not prove exclusive ads/tracking use; require request or script-branch evidence before adding a whole-host/keyword reject."
+    },
+    {
+      "source_line_at_review": 607,
+      "source_section": "Apple",
+      "original_rule": "host, metrics.apple.com, reject",
+      "normalized_rule": "host, metrics.apple.com, reject",
+      "decision": "include",
+      "reason": "Exact Apple metrics endpoint; measurement is within the requested tracking scope."
+    },
+    {
+      "source_line_at_review": 610,
+      "source_section": "Apple",
+      "original_rule": "host, webproxy-advp.iad-apple.com, reject",
+      "normalized_rule": "host, webproxy-advp.iad-apple.com, reject",
+      "decision": "include",
+      "reason": "Exact iAd advertising proxy endpoint; not the broad Apple domain."
+    },
+    {
+      "source_line_at_review": 611,
+      "source_section": "Apple",
+      "original_rule": "host, webproxy-advp.iad-apple.com.akadns.net, reject",
+      "normalized_rule": "host, webproxy-advp.iad-apple.com.akadns.net, reject",
+      "decision": "include",
+      "reason": "Exact iAd advertising proxy DNS alias; not a blanket akadns.net block."
+    },
+    {
+      "source_line_at_review": 612,
+      "source_section": "Apple",
+      "original_rule": "host-suffix, advp.apple.com, reject",
+      "normalized_rule": "host-suffix, advp.apple.com, reject",
+      "decision": "include",
+      "reason": "Apple advertising proxy suffix adjacent to the exact iAd proxy rows."
+    },
+    {
+      "source_line_at_review": 616,
+      "source_section": "Apple",
+      "original_rule": "host, proxy.safebrowsing.apple, reject",
+      "normalized_rule": "host, proxy.safebrowsing.apple, reject",
+      "decision": "exclude-security",
+      "reason": "Safe-browsing, fraud/security or user-protection service; no ad-only block is justified."
+    },
+    {
+      "source_line_at_review": 617,
+      "source_section": "Apple",
+      "original_rule": "host, safebrowsing.g.applimg.com, reject",
+      "normalized_rule": "host, safebrowsing.g.applimg.com, reject",
+      "decision": "exclude-security",
+      "reason": "Safe-browsing, fraud/security or user-protection service; no ad-only block is justified."
+    },
+    {
+      "source_line_at_review": 618,
+      "source_section": "Apple",
+      "original_rule": "host, safebrowsing.googleapis.com, reject",
+      "normalized_rule": "host, safebrowsing.googleapis.com, reject",
+      "decision": "exclude-security",
+      "reason": "Safe-browsing, fraud/security or user-protection service; no ad-only block is justified."
+    },
+    {
+      "source_line_at_review": 620,
+      "source_section": "Apple",
+      "original_rule": "host, token.safebrowsing.apple, reject",
+      "normalized_rule": "host, token.safebrowsing.apple, reject",
+      "decision": "exclude-security",
+      "reason": "Safe-browsing, fraud/security or user-protection service; no ad-only block is justified."
+    },
+    {
+      "source_line_at_review": 622,
+      "source_section": "Apple",
+      "original_rule": "host-suffix, safebrowsing.apple, reject",
+      "normalized_rule": "host-suffix, safebrowsing.apple, reject",
+      "decision": "exclude-security",
+      "reason": "Safe-browsing, fraud/security or user-protection service; no ad-only block is justified."
+    },
+    {
+      "source_line_at_review": 821,
+      "source_section": "百度地图",
+      "original_rule": "host, httpdns.baidubce.com, reject",
+      "normalized_rule": "host, httpdns.baidubce.com, reject",
+      "decision": "exclude-shared-business",
+      "reason": "Business API, content/CDN, navigation, customer support or shared app infrastructure; whole-host rejection would remove non-ad functions."
+    },
+    {
+      "source_line_at_review": 822,
+      "source_section": "百度地图",
+      "original_rule": "host, lc.map.baidu.com, reject",
+      "normalized_rule": "host, lc.map.baidu.com, reject",
+      "decision": "exclude-shared-business",
+      "reason": "Business API, content/CDN, navigation, customer support or shared app infrastructure; whole-host rejection would remove non-ad functions."
+    },
+    {
+      "source_line_at_review": 1390,
+      "source_section": "滴滴青桔",
+      "original_rule": "ip-cidr, 203.107.1.1/24, reject",
+      "normalized_rule": "ip-cidr, 203.107.1.0/24, reject",
+      "decision": "unverified-ip",
+      "reason": "No verified exclusive ad/telemetry ownership for this IP/network; IP reuse and shared hosting prevent a safe blanket block."
+    },
+    {
+      "source_line_at_review": 1435,
+      "source_section": "叮嗒出行",
+      "original_rule": "host-keyword, image.bianxianmao.com, reject",
+      "normalized_rule": "host-keyword, image.bianxianmao.com, reject",
+      "decision": "include",
+      "reason": "Reviewed Bianxianmao advertising-image endpoint; retain the original keyword match."
+    },
+    {
+      "source_line_at_review": 1442,
+      "source_section": "叮咚买菜",
+      "original_rule": "host, trackercollect.ddxq.mobi, reject",
+      "normalized_rule": "host, trackercollect.ddxq.mobi, reject",
+      "decision": "include",
+      "reason": "Exact Dingdong tracker collection endpoint."
+    },
+    {
+      "source_line_at_review": 1443,
+      "source_section": "叮咚买菜",
+      "original_rule": "host, ddfs-public.ddimg.mobi, reject",
+      "normalized_rule": "host, ddfs-public.ddimg.mobi, reject",
+      "decision": "exclude-shared-business",
+      "reason": "Business API, content/CDN, navigation, customer support or shared app infrastructure; whole-host rejection would remove non-ad functions."
+    },
+    {
+      "source_line_at_review": 1444,
+      "source_section": "叮咚买菜",
+      "original_rule": "host, rttrack.ddxq.mobi, reject",
+      "normalized_rule": "host, rttrack.ddxq.mobi, reject",
+      "decision": "include",
+      "reason": "Exact Dingdong real-time tracking endpoint."
+    },
+    {
+      "source_line_at_review": 1508,
+      "source_section": "懂车帝",
+      "original_rule": "host-keyword, p3-pack.byteimg.com, reject",
+      "normalized_rule": "host-keyword, p3-pack.byteimg.com, reject",
+      "decision": "exclude-shared-business",
+      "reason": "Business API, content/CDN, navigation, customer support or shared app infrastructure; whole-host rejection would remove non-ad functions."
+    },
+    {
+      "source_line_at_review": 1509,
+      "source_section": "懂车帝",
+      "original_rule": "host-keyword, p6-pack.byteimg.com, reject",
+      "normalized_rule": "host-keyword, p6-pack.byteimg.com, reject",
+      "decision": "exclude-shared-business",
+      "reason": "Business API, content/CDN, navigation, customer support or shared app infrastructure; whole-host rejection would remove non-ad functions."
+    },
+    {
+      "source_line_at_review": 1513,
+      "source_section": "懂球帝",
+      "original_rule": "host-keyword, apimg.qunliao.info, reject",
+      "normalized_rule": "host-keyword, apimg.qunliao.info, reject",
+      "decision": "exclude-shared-business",
+      "reason": "Business API, content/CDN, navigation, customer support or shared app infrastructure; whole-host rejection would remove non-ad functions."
+    },
+    {
+      "source_line_at_review": 1530,
+      "source_section": "抖音",
+      "original_rule": "host-keyword, bds.snssdk.com, reject",
+      "normalized_rule": "host-keyword, bds.snssdk.com, reject",
+      "decision": "unverified-endpoint",
+      "reason": "Raw app-section rejection alone does not prove exclusive ads/tracking use; require request or script-branch evidence before adding a whole-host/keyword reject."
+    },
+    {
+      "source_line_at_review": 1531,
+      "source_section": "抖音",
+      "original_rule": "host-keyword, p3.pstatp.com, reject",
+      "normalized_rule": "host-keyword, p3.pstatp.com, reject",
+      "decision": "exclude-shared-business",
+      "reason": "Business API, content/CDN, navigation, customer support or shared app infrastructure; whole-host rejection would remove non-ad functions."
+    },
+    {
+      "source_line_at_review": 1563,
+      "source_section": "多多视频",
+      "original_rule": "host-suffix, bayescom.com, reject",
+      "normalized_rule": "host-suffix, bayescom.com, reject",
+      "decision": "include",
+      "reason": "Dedicated Bayes advertising-provider domain in the upstream app ad selection."
+    },
+    {
+      "source_line_at_review": 1629,
+      "source_section": "番茄小说",
+      "original_rule": "host, i-lq.snssdk.com, reject",
+      "normalized_rule": "host, i-lq.snssdk.com, reject",
+      "decision": "exclude-shared-business",
+      "reason": "Business API, content/CDN, navigation, customer support or shared app infrastructure; whole-host rejection would remove non-ad functions."
+    },
+    {
+      "source_line_at_review": 1630,
+      "source_section": "番茄小说",
+      "original_rule": "host, is-lq.snssdk.com, reject",
+      "normalized_rule": "host, is-lq.snssdk.com, reject",
+      "decision": "exclude-shared-business",
+      "reason": "Business API, content/CDN, navigation, customer support or shared app infrastructure; whole-host rejection would remove non-ad functions."
+    },
+    {
+      "source_line_at_review": 1631,
+      "source_section": "番茄小说",
+      "original_rule": "host, ug-sinfonlinea.bytedance.com, reject",
+      "normalized_rule": "host, ug-sinfonlinea.bytedance.com, reject",
+      "decision": "exclude-shared-business",
+      "reason": "Business API, content/CDN, navigation, customer support or shared app infrastructure; whole-host rejection would remove non-ad functions."
+    },
+    {
+      "source_line_at_review": 1633,
+      "source_section": "番茄小说",
+      "original_rule": "host, activity-ag.awemeughun.com, reject",
+      "normalized_rule": "host, activity-ag.awemeughun.com, reject",
+      "decision": "exclude-shared-business",
+      "reason": "Business API, content/CDN, navigation, customer support or shared app infrastructure; whole-host rejection would remove non-ad functions."
+    },
+    {
+      "source_line_at_review": 1636,
+      "source_section": "番茄小说",
+      "original_rule": "host, security-lq.snssdk.com, reject",
+      "normalized_rule": "host, security-lq.snssdk.com, reject",
+      "decision": "exclude-security",
+      "reason": "Safe-browsing, fraud/security or user-protection service; no ad-only block is justified."
+    },
+    {
+      "source_line_at_review": 1640,
+      "source_section": "番茄小说",
+      "original_rule": "host, v6-novelapp.ixigua.com, reject",
+      "normalized_rule": "host, v6-novelapp.ixigua.com, reject",
+      "decision": "exclude-shared-business",
+      "reason": "Business API, content/CDN, navigation, customer support or shared app infrastructure; whole-host rejection would remove non-ad functions."
+    },
+    {
+      "source_line_at_review": 1641,
+      "source_section": "番茄小说",
+      "original_rule": "host-suffix, novelapp.ixigua.com, reject",
+      "normalized_rule": "host-suffix, novelapp.ixigua.com, reject",
+      "decision": "exclude-shared-business",
+      "reason": "Business API, content/CDN, navigation, customer support or shared app infrastructure; whole-host rejection would remove non-ad functions."
+    },
+    {
+      "source_line_at_review": 1642,
+      "source_section": "番茄小说",
+      "original_rule": "host-suffix, default.ixigua.com, reject",
+      "normalized_rule": "host-suffix, default.ixigua.com, reject",
+      "decision": "exclude-shared-business",
+      "reason": "Business API, content/CDN, navigation, customer support or shared app infrastructure; whole-host rejection would remove non-ad functions."
+    },
+    {
+      "source_line_at_review": 1643,
+      "source_section": "番茄小说",
+      "original_rule": "host, msync-im1-vip6-std.easemob.com, reject",
+      "normalized_rule": "host, msync-im1-vip6-std.easemob.com, reject",
+      "decision": "exclude-push-chat",
+      "reason": "Push, login or instant-messaging infrastructure may carry user messages; no ad-only request proof."
+    },
+    {
+      "source_line_at_review": 1645,
+      "source_section": "番茄小说",
+      "original_rule": "host, api.iegadp.qq.com, reject",
+      "normalized_rule": "host, api.iegadp.qq.com, reject",
+      "decision": "unverified-endpoint",
+      "reason": "Raw app-section rejection alone does not prove exclusive ads/tracking use; require request or script-branch evidence before adding a whole-host/keyword reject."
+    },
+    {
+      "source_line_at_review": 1646,
+      "source_section": "番茄小说",
+      "original_rule": "host-suffix, byteorge.com, reject",
+      "normalized_rule": "host-suffix, byteorge.com, reject",
+      "decision": "unverified-endpoint",
+      "reason": "Raw app-section rejection alone does not prove exclusive ads/tracking use; require request or script-branch evidence before adding a whole-host/keyword reject."
+    },
+    {
+      "source_line_at_review": 1650,
+      "source_section": "番茄小说",
+      "original_rule": "IP-CIDR, 49.71.37.101/32, reject",
+      "normalized_rule": "ip-cidr, 49.71.37.101/32, reject",
+      "decision": "unverified-ip",
+      "reason": "No verified exclusive ad/telemetry ownership for this IP/network; IP reuse and shared hosting prevent a safe blanket block."
+    },
+    {
+      "source_line_at_review": 1651,
+      "source_section": "番茄小说",
+      "original_rule": "IP-CIDR, 117.71.105.23/32, reject",
+      "normalized_rule": "ip-cidr, 117.71.105.23/32, reject",
+      "decision": "unverified-ip",
+      "reason": "No verified exclusive ad/telemetry ownership for this IP/network; IP reuse and shared hosting prevent a safe blanket block."
+    },
+    {
+      "source_line_at_review": 1652,
+      "source_section": "番茄小说",
+      "original_rule": "IP-CIDR, 218.94.207.205/32, reject",
+      "normalized_rule": "ip-cidr, 218.94.207.205/32, reject",
+      "decision": "unverified-ip",
+      "reason": "No verified exclusive ad/telemetry ownership for this IP/network; IP reuse and shared hosting prevent a safe blanket block."
+    },
+    {
+      "source_line_at_review": 1653,
+      "source_section": "番茄小说",
+      "original_rule": "IP-CIDR, 117.92.229.188/32, reject",
+      "normalized_rule": "ip-cidr, 117.92.229.188/32, reject",
+      "decision": "unverified-ip",
+      "reason": "No verified exclusive ad/telemetry ownership for this IP/network; IP reuse and shared hosting prevent a safe blanket block."
+    },
+    {
+      "source_line_at_review": 1654,
+      "source_section": "番茄小说",
+      "original_rule": "IP-CIDR, 101.36.166.16/32, reject",
+      "normalized_rule": "ip-cidr, 101.36.166.16/32, reject",
+      "decision": "unverified-ip",
+      "reason": "No verified exclusive ad/telemetry ownership for this IP/network; IP reuse and shared hosting prevent a safe blanket block."
+    },
+    {
+      "source_line_at_review": 1655,
+      "source_section": "番茄小说",
+      "original_rule": "IP-CIDR, 180.96.2.114/32, reject",
+      "normalized_rule": "ip-cidr, 180.96.2.114/32, reject",
+      "decision": "unverified-ip",
+      "reason": "No verified exclusive ad/telemetry ownership for this IP/network; IP reuse and shared hosting prevent a safe blanket block."
+    },
+    {
+      "source_line_at_review": 1823,
+      "source_section": "高德地图",
+      "original_rule": "host-suffix, adiu.amap.com, reject",
+      "normalized_rule": "host-suffix, adiu.amap.com, reject",
+      "decision": "include",
+      "reason": "Amap ADIU device-identification endpoint; retain the upstream suffix without blocking map APIs."
+    },
+    {
+      "source_line_at_review": 1909,
+      "source_section": "光大银行 阳光惠生活",
+      "original_rule": "host-keyword, talk.bz.getui.com, reject",
+      "normalized_rule": "host-keyword, talk.bz.getui.com, reject",
+      "decision": "exclude-push-chat",
+      "reason": "Push, login or instant-messaging infrastructure may carry user messages; no ad-only request proof."
+    },
+    {
+      "source_line_at_review": 1932,
+      "source_section": "广州地铁乘车码",
+      "original_rule": "host, apis.alenable.com, reject",
+      "normalized_rule": "host, apis.alenable.com, reject",
+      "decision": "exclude-shared-business",
+      "reason": "Business API, content/CDN, navigation, customer support or shared app infrastructure; whole-host rejection would remove non-ad functions."
+    },
+    {
+      "source_line_at_review": 1983,
+      "source_section": "Google",
+      "original_rule": "host, safebrowsing.googleapis.com, reject",
+      "normalized_rule": "host, safebrowsing.googleapis.com, reject",
+      "decision": "exclude-security",
+      "reason": "Safe-browsing, fraud/security or user-protection service; no ad-only block is justified."
+    },
+    {
+      "source_line_at_review": 2183,
+      "source_section": "虎牙直播",
+      "original_rule": "host, pp-cdnfile2pcdn.msstatic.com, reject",
+      "normalized_rule": "host, pp-cdnfile2pcdn.msstatic.com, reject",
+      "decision": "exclude-shared-business",
+      "reason": "Business API, content/CDN, navigation, customer support or shared app infrastructure; whole-host rejection would remove non-ad functions."
+    },
+    {
+      "source_line_at_review": 2185,
+      "source_section": "虎牙直播",
+      "original_rule": "host, huyafile.msstatic.com, reject",
+      "normalized_rule": "host, huyafile.msstatic.com, reject",
+      "decision": "exclude-shared-business",
+      "reason": "Business API, content/CDN, navigation, customer support or shared app infrastructure; whole-host rejection would remove non-ad functions."
+    },
+    {
+      "source_line_at_review": 2186,
+      "source_section": "虎牙直播",
+      "original_rule": "host, livewebbs2.msstatic.com, reject",
+      "normalized_rule": "host, livewebbs2.msstatic.com, reject",
+      "decision": "exclude-shared-business",
+      "reason": "Business API, content/CDN, navigation, customer support or shared app infrastructure; whole-host rejection would remove non-ad functions."
+    },
+    {
+      "source_line_at_review": 2187,
+      "source_section": "虎牙直播",
+      "original_rule": "host, business.msstatic.com, reject",
+      "normalized_rule": "host, business.msstatic.com, reject",
+      "decision": "exclude-shared-business",
+      "reason": "Business API, content/CDN, navigation, customer support or shared app infrastructure; whole-host rejection would remove non-ad functions."
+    },
+    {
+      "source_line_at_review": 2240,
+      "source_section": "华数TV",
+      "original_rule": "host-suffix, adwasu.tv, reject",
+      "normalized_rule": "host-suffix, adwasu.tv, reject",
+      "decision": "include",
+      "reason": "Dedicated Wasu advertising domain next to adsystem.wasu.tv."
+    },
+    {
+      "source_line_at_review": 2367,
+      "source_section": "建行生活",
+      "original_rule": "host, o2o-ad-log-gateway.alibaba.com, reject",
+      "normalized_rule": "host, o2o-ad-log-gateway.alibaba.com, reject",
+      "decision": "include",
+      "reason": "Exact advertising-log gateway; the old whole-label predicate missed its compound name."
+    },
+    {
+      "source_line_at_review": 2398,
+      "source_section": "今日头条",
+      "original_rule": "host-KEYWORD,clk.gentags.net, reject",
+      "normalized_rule": "host-keyword, clk.gentags.net, reject",
+      "decision": "include",
+      "reason": "Gentags click measurement endpoint; retain the original keyword match."
+    },
+    {
+      "source_line_at_review": 2399,
+      "source_section": "今日头条",
+      "original_rule": "host-KEYWORD,dm.pstatp.com, reject",
+      "normalized_rule": "host-keyword, dm.pstatp.com, reject",
+      "decision": "unverified-endpoint",
+      "reason": "Raw app-section rejection alone does not prove exclusive ads/tracking use; require request or script-branch evidence before adding a whole-host/keyword reject."
+    },
+    {
+      "source_line_at_review": 2400,
+      "source_section": "今日头条",
+      "original_rule": "host-KEYWORD,dm.bytedance.com, reject",
+      "normalized_rule": "host-keyword, dm.bytedance.com, reject",
+      "decision": "unverified-endpoint",
+      "reason": "Raw app-section rejection alone does not prove exclusive ads/tracking use; require request or script-branch evidence before adding a whole-host/keyword reject."
+    },
+    {
+      "source_line_at_review": 2401,
+      "source_section": "今日头条",
+      "original_rule": "host-KEYWORD,uop.umeng.com, reject",
+      "normalized_rule": "host-keyword, uop.umeng.com, reject",
+      "decision": "include",
+      "reason": "Umeng analytics endpoint; retain the original keyword rather than the whole app API."
+    },
+    {
+      "source_line_at_review": 2402,
+      "source_section": "今日头条",
+      "original_rule": "host-KEYWORD,m.suning.com, reject",
+      "normalized_rule": "host-keyword, m.suning.com, reject",
+      "decision": "exclude-shared-business",
+      "reason": "Business API, content/CDN, navigation, customer support or shared app infrastructure; whole-host rejection would remove non-ad functions."
+    },
+    {
+      "source_line_at_review": 2403,
+      "source_section": "今日头条",
+      "original_rule": "host-KEYWORD,adshare.toutiao.com, reject",
+      "normalized_rule": "host-keyword, adshare.toutiao.com, reject",
+      "decision": "include",
+      "reason": "Toutiao advertisement-sharing endpoint; preserve the exact reviewed keyword."
+    },
+    {
+      "source_line_at_review": 2404,
+      "source_section": "今日头条",
+      "original_rule": "host-KEYWORD,tunion-api.m.taobao.com, reject",
+      "normalized_rule": "host-keyword, tunion-api.m.taobao.com, reject",
+      "decision": "exclude-shared-business",
+      "reason": "Business API, content/CDN, navigation, customer support or shared app infrastructure; whole-host rejection would remove non-ad functions."
+    },
+    {
+      "source_line_at_review": 2405,
+      "source_section": "今日头条",
+      "original_rule": "host-KEYWORD,s1.pstatp.com, reject",
+      "normalized_rule": "host-keyword, s1.pstatp.com, reject",
+      "decision": "exclude-shared-business",
+      "reason": "Business API, content/CDN, navigation, customer support or shared app infrastructure; whole-host rejection would remove non-ad functions."
+    },
+    {
+      "source_line_at_review": 2406,
+      "source_section": "今日头条",
+      "original_rule": "host-KEYWORD,s2.pstatp.com, reject",
+      "normalized_rule": "host-keyword, s2.pstatp.com, reject",
+      "decision": "exclude-shared-business",
+      "reason": "Business API, content/CDN, navigation, customer support or shared app infrastructure; whole-host rejection would remove non-ad functions."
+    },
+    {
+      "source_line_at_review": 2407,
+      "source_section": "今日头条",
+      "original_rule": "host-KEYWORD,s3.pstatp.com, reject",
+      "normalized_rule": "host-keyword, s3.pstatp.com, reject",
+      "decision": "exclude-shared-business",
+      "reason": "Business API, content/CDN, navigation, customer support or shared app infrastructure; whole-host rejection would remove non-ad functions."
+    },
+    {
+      "source_line_at_review": 2408,
+      "source_section": "今日头条",
+      "original_rule": "host-KEYWORD,a3.pstatp.com, reject",
+      "normalized_rule": "host-keyword, a3.pstatp.com, reject",
+      "decision": "exclude-shared-business",
+      "reason": "Business API, content/CDN, navigation, customer support or shared app infrastructure; whole-host rejection would remove non-ad functions."
+    },
+    {
+      "source_line_at_review": 2409,
+      "source_section": "今日头条",
+      "original_rule": "host-KEYWORD,a3.bytecdn.cn, reject",
+      "normalized_rule": "host-keyword, a3.bytecdn.cn, reject",
+      "decision": "exclude-shared-business",
+      "reason": "Business API, content/CDN, navigation, customer support or shared app infrastructure; whole-host rejection would remove non-ad functions."
+    },
+    {
+      "source_line_at_review": 2418,
+      "source_section": "今日头条",
+      "original_rule": "host-suffix, s3a.pstatp.com, reject",
+      "normalized_rule": "host-suffix, s3a.pstatp.com, reject",
+      "decision": "exclude-shared-business",
+      "reason": "Business API, content/CDN, navigation, customer support or shared app infrastructure; whole-host rejection would remove non-ad functions."
+    },
+    {
+      "source_line_at_review": 2483,
+      "source_section": "金山系 (Kingsoft)",
+      "original_rule": "host-suffix, docer.com, reject",
+      "normalized_rule": "host-suffix, docer.com, reject",
+      "decision": "exclude-shared-business",
+      "reason": "Business API, content/CDN, navigation, customer support or shared app infrastructure; whole-host rejection would remove non-ad functions."
+    },
+    {
+      "source_line_at_review": 2484,
+      "source_section": "金山系 (Kingsoft)",
+      "original_rule": "host-suffix, iciba.com, reject",
+      "normalized_rule": "host-suffix, iciba.com, reject",
+      "decision": "exclude-shared-business",
+      "reason": "Business API, content/CDN, navigation, customer support or shared app infrastructure; whole-host rejection would remove non-ad functions."
+    },
+    {
+      "source_line_at_review": 2502,
+      "source_section": "京东",
+      "original_rule": "host-suffix, jddebug.com, reject",
+      "normalized_rule": "host-suffix, jddebug.com, reject",
+      "decision": "unverified-endpoint",
+      "reason": "Raw app-section rejection alone does not prove exclusive ads/tracking use; require request or script-branch evidence before adding a whole-host/keyword reject."
+    },
+    {
+      "source_line_at_review": 2504,
+      "source_section": "京东",
+      "original_rule": "host-suffix, kepler.jd.com, reject",
+      "normalized_rule": "host-suffix, kepler.jd.com, reject",
+      "decision": "exclude-shared-business",
+      "reason": "Business API, content/CDN, navigation, customer support or shared app infrastructure; whole-host rejection would remove non-ad functions."
+    },
+    {
+      "source_line_at_review": 2506,
+      "source_section": "京东",
+      "original_rule": "host-suffix, keplerapi.jd.com, reject",
+      "normalized_rule": "host-suffix, keplerapi.jd.com, reject",
+      "decision": "exclude-shared-business",
+      "reason": "Business API, content/CDN, navigation, customer support or shared app infrastructure; whole-host rejection would remove non-ad functions."
+    },
+    {
+      "source_line_at_review": 2512,
+      "source_section": "京东",
+      "original_rule": "IP-CIDR, 101.124.19.122/32, reject",
+      "normalized_rule": "ip-cidr, 101.124.19.122/32, reject",
+      "decision": "unverified-ip",
+      "reason": "No verified exclusive ad/telemetry ownership for this IP/network; IP reuse and shared hosting prevent a safe blanket block."
+    },
+    {
+      "source_line_at_review": 2513,
+      "source_section": "京东",
+      "original_rule": "IP6-CIDR, 2402:db40:5100:1011::5/128, reject",
+      "normalized_rule": "ip6-cidr, 2402:db40:5100:1011::5/128, reject",
+      "decision": "unverified-ip",
+      "reason": "No verified exclusive ad/telemetry ownership for this IP/network; IP reuse and shared hosting prevent a safe blanket block."
+    },
+    {
+      "source_line_at_review": 2623,
+      "source_section": "酷狗音乐",
+      "original_rule": "host-keyword, searchrecommend.kugou.com, reject",
+      "normalized_rule": "host-keyword, searchrecommend.kugou.com, reject",
+      "decision": "exclude-shared-business",
+      "reason": "Business API, content/CDN, navigation, customer support or shared app infrastructure; whole-host rejection would remove non-ad functions."
+    },
+    {
+      "source_line_at_review": 2624,
+      "source_section": "酷狗音乐",
+      "original_rule": "host-keyword, nbcollectretry.kugou.com, reject",
+      "normalized_rule": "host-keyword, nbcollectretry.kugou.com, reject",
+      "decision": "include",
+      "reason": "Kugou collection retry endpoint, paired with the primary nbcollect collector."
+    },
+    {
+      "source_line_at_review": 2625,
+      "source_section": "酷狗音乐",
+      "original_rule": "host-keyword, rtmretry.kugou.com, reject",
+      "normalized_rule": "host-keyword, rtmretry.kugou.com, reject",
+      "decision": "unverified-endpoint",
+      "reason": "Raw app-section rejection alone does not prove exclusive ads/tracking use; require request or script-branch evidence before adding a whole-host/keyword reject."
+    },
+    {
+      "source_line_at_review": 2626,
+      "source_section": "酷狗音乐",
+      "original_rule": "host-keyword, rt-m.kugou.com, reject",
+      "normalized_rule": "host-keyword, rt-m.kugou.com, reject",
+      "decision": "unverified-endpoint",
+      "reason": "Raw app-section rejection alone does not prove exclusive ads/tracking use; require request or script-branch evidence before adding a whole-host/keyword reject."
+    },
+    {
+      "source_line_at_review": 2627,
+      "source_section": "酷狗音乐",
+      "original_rule": "host-keyword, nbcollect.kugou.com, reject",
+      "normalized_rule": "host-keyword, nbcollect.kugou.com, reject",
+      "decision": "include",
+      "reason": "Kugou collection endpoint; not the search or music-resource endpoints."
+    },
+    {
+      "source_line_at_review": 2628,
+      "source_section": "酷狗音乐",
+      "original_rule": "host-keyword, c1img.ali.kugou.com, reject",
+      "normalized_rule": "host-keyword, c1img.ali.kugou.com, reject",
+      "decision": "exclude-shared-business",
+      "reason": "Business API, content/CDN, navigation, customer support or shared app infrastructure; whole-host rejection would remove non-ad functions."
+    },
+    {
+      "source_line_at_review": 2629,
+      "source_section": "酷狗音乐",
+      "original_rule": "host-keyword, kgstaticdlbssdlbig.tx.kugou.com, reject",
+      "normalized_rule": "host-keyword, kgstaticdlbssdlbig.tx.kugou.com, reject",
+      "decision": "exclude-shared-business",
+      "reason": "Business API, content/CDN, navigation, customer support or shared app infrastructure; whole-host rejection would remove non-ad functions."
+    },
+    {
+      "source_line_at_review": 2630,
+      "source_section": "酷狗音乐",
+      "original_rule": "host-keyword, adsfilebssdlbig.ali.kugou.com, reject",
+      "normalized_rule": "host-keyword, adsfilebssdlbig.ali.kugou.com, reject",
+      "decision": "include",
+      "reason": "Kugou advertising-file CDN hostname; do not block the generic music CDN."
+    },
+    {
+      "source_line_at_review": 2631,
+      "source_section": "酷狗音乐",
+      "original_rule": "host-keyword, splashimgbssdl.yun.kugou.com, reject",
+      "normalized_rule": "host-keyword, splashimgbssdl.yun.kugou.com, reject",
+      "decision": "include",
+      "reason": "Kugou splash-image CDN hostname; do not block the generic music CDN."
+    },
+    {
+      "source_line_at_review": 2632,
+      "source_section": "酷狗音乐",
+      "original_rule": "host-keyword, adservice.kugou.com, reject",
+      "normalized_rule": "host-keyword, adservice.kugou.com, reject",
+      "decision": "include",
+      "reason": "Kugou dedicated advertising service endpoint."
+    },
+    {
+      "source_line_at_review": 2633,
+      "source_section": "酷狗音乐",
+      "original_rule": "host-keyword, kgipadstat.kugou.com, reject",
+      "normalized_rule": "host-keyword, kgipadstat.kugou.com, reject",
+      "decision": "include",
+      "reason": "Kugou iPad statistics endpoint."
+    },
+    {
+      "source_line_at_review": 2634,
+      "source_section": "酷狗音乐",
+      "original_rule": "host-keyword, kgipadstatbak.kugou.com, reject",
+      "normalized_rule": "host-keyword, kgipadstatbak.kugou.com, reject",
+      "decision": "include",
+      "reason": "Kugou backup iPad statistics endpoint."
+    },
+    {
+      "source_line_at_review": 2635,
+      "source_section": "酷狗音乐",
+      "original_rule": "host-keyword, logwebs.kugou.com, reject",
+      "normalized_rule": "host-keyword, logwebs.kugou.com, reject",
+      "decision": "include",
+      "reason": "Kugou web-log collection endpoint."
+    },
+    {
+      "source_line_at_review": 2636,
+      "source_section": "酷狗音乐",
+      "original_rule": "host-keyword, tracker.kugou.com, reject",
+      "normalized_rule": "host-keyword, tracker.kugou.com, reject",
+      "decision": "include",
+      "reason": "Kugou tracking endpoint."
+    },
+    {
+      "source_line_at_review": 2637,
+      "source_section": "酷狗音乐",
+      "original_rule": "host-keyword, trackercdnbj.kugou.com, reject",
+      "normalized_rule": "host-keyword, trackercdnbj.kugou.com, reject",
+      "decision": "include",
+      "reason": "Kugou tracking-CDN endpoint."
+    },
+    {
+      "source_line_at_review": 2674,
+      "source_section": "酷我音乐",
+      "original_rule": "host-keyword, rich.kuwo.cn, reject",
+      "normalized_rule": "host-keyword, rich.kuwo.cn, reject",
+      "decision": "exclude-shared-business",
+      "reason": "Business API, content/CDN, navigation, customer support or shared app infrastructure; whole-host rejection would remove non-ad functions."
+    },
+    {
+      "source_line_at_review": 2675,
+      "source_section": "酷我音乐",
+      "original_rule": "host-keyword, mobilead.kuwo.cn, reject",
+      "normalized_rule": "host-keyword, mobilead.kuwo.cn, reject",
+      "decision": "include",
+      "reason": "Kuwo dedicated mobile advertising endpoint."
+    },
+    {
+      "source_line_at_review": 2730,
+      "source_section": "快手",
+      "original_rule": "host-suffix, cm.downloader.commercial.kuaishou.com, reject",
+      "normalized_rule": "host-suffix, cm.downloader.commercial.kuaishou.com, reject",
+      "decision": "include",
+      "reason": "Kuaishou commercial downloader ad endpoint in the upstream advertising cluster."
+    },
+    {
+      "source_line_at_review": 2732,
+      "source_section": "快手",
+      "original_rule": "host-suffix, cm.kwad.com, reject",
+      "normalized_rule": "host-suffix, cm.kwad.com, reject",
+      "decision": "include",
+      "reason": "Kuaishou KWAD advertising platform endpoint, paired with cm.ad.gifshow.com."
+    },
+    {
+      "source_line_at_review": 2824,
+      "source_section": "蓝基因",
+      "original_rule": "host-keyword, medicine.lanjiyin.com.cn, reject",
+      "normalized_rule": "host-keyword, medicine.lanjiyin.com.cn, reject",
+      "decision": "exclude-shared-business",
+      "reason": "Business API, content/CDN, navigation, customer support or shared app infrastructure; whole-host rejection would remove non-ad functions."
+    },
+    {
+      "source_line_at_review": 3105,
+      "source_section": "芒果TV",
+      "original_rule": "host, dflow.bz.mgtv.com, reject",
+      "normalized_rule": "host, dflow.bz.mgtv.com, reject",
+      "decision": "exclude-shared-business",
+      "reason": "Business API, content/CDN, navigation, customer support or shared app infrastructure; whole-host rejection would remove non-ad functions."
+    },
+    {
+      "source_line_at_review": 3106,
+      "source_section": "芒果TV",
+      "original_rule": "host, encounter.bz.mgtv.com, reject",
+      "normalized_rule": "host, encounter.bz.mgtv.com, reject",
+      "decision": "exclude-shared-business",
+      "reason": "Business API, content/CDN, navigation, customer support or shared app infrastructure; whole-host rejection would remove non-ad functions."
+    },
+    {
+      "source_line_at_review": 3107,
+      "source_section": "芒果TV",
+      "original_rule": "host, floor.bz.mgtv.com, reject",
+      "normalized_rule": "host, floor.bz.mgtv.com, reject",
+      "decision": "exclude-shared-business",
+      "reason": "Business API, content/CDN, navigation, customer support or shared app infrastructure; whole-host rejection would remove non-ad functions."
+    },
+    {
+      "source_line_at_review": 3109,
+      "source_section": "芒果TV",
+      "original_rule": "host, layer.bz.mgtv.com, reject",
+      "normalized_rule": "host, layer.bz.mgtv.com, reject",
+      "decision": "exclude-shared-business",
+      "reason": "Business API, content/CDN, navigation, customer support or shared app infrastructure; whole-host rejection would remove non-ad functions."
+    },
+    {
+      "source_line_at_review": 3110,
+      "source_section": "芒果TV",
+      "original_rule": "host, mob.bz.mgtv.com, reject",
+      "normalized_rule": "host, mob.bz.mgtv.com, reject",
+      "decision": "exclude-shared-business",
+      "reason": "Business API, content/CDN, navigation, customer support or shared app infrastructure; whole-host rejection would remove non-ad functions."
+    },
+    {
+      "source_line_at_review": 3112,
+      "source_section": "芒果TV",
+      "original_rule": "host, rc-topic-api.bz.mgtv.com, reject",
+      "normalized_rule": "host, rc-topic-api.bz.mgtv.com, reject",
+      "decision": "exclude-shared-business",
+      "reason": "Business API, content/CDN, navigation, customer support or shared app infrastructure; whole-host rejection would remove non-ad functions."
+    },
+    {
+      "source_line_at_review": 3115,
+      "source_section": "芒果TV",
+      "original_rule": "host, vip.bz.mgtv.com, reject",
+      "normalized_rule": "host, vip.bz.mgtv.com, reject",
+      "decision": "exclude-shared-business",
+      "reason": "Business API, content/CDN, navigation, customer support or shared app infrastructure; whole-host rejection would remove non-ad functions."
+    },
+    {
+      "source_line_at_review": 3207,
+      "source_section": "美团",
+      "original_rule": "host-suffix, meituan.xn, reject",
+      "normalized_rule": "host-suffix, meituan.xn, reject",
+      "decision": "exclude-shared-business",
+      "reason": "Business API, content/CDN, navigation, customer support or shared app infrastructure; whole-host rejection would remove non-ad functions."
+    },
+    {
+      "source_line_at_review": 3208,
+      "source_section": "美团",
+      "original_rule": "host-suffix, meituan.yoga, reject",
+      "normalized_rule": "host-suffix, meituan.yoga, reject",
+      "decision": "exclude-shared-business",
+      "reason": "Business API, content/CDN, navigation, customer support or shared app infrastructure; whole-host rejection would remove non-ad functions."
+    },
+    {
+      "source_line_at_review": 3209,
+      "source_section": "美团",
+      "original_rule": "host-suffix, meituangov.cn, reject",
+      "normalized_rule": "host-suffix, meituangov.cn, reject",
+      "decision": "exclude-shared-business",
+      "reason": "Business API, content/CDN, navigation, customer support or shared app infrastructure; whole-host rejection would remove non-ad functions."
+    },
+    {
+      "source_line_at_review": 3214,
+      "source_section": "美团",
+      "original_rule": "host-suffix, mads.meituan.com, reject",
+      "normalized_rule": "host-suffix, mads.meituan.com, reject",
+      "decision": "include",
+      "reason": "Meituan mobile advertising endpoint; no broad meituan.com allow/block."
+    },
+    {
+      "source_line_at_review": 3216,
+      "source_section": "美团",
+      "original_rule": "host-suffix, d.meituan.net, reject",
+      "normalized_rule": "host-suffix, d.meituan.net, reject",
+      "decision": "exclude-shared-business",
+      "reason": "Business API, content/CDN, navigation, customer support or shared app infrastructure; whole-host rejection would remove non-ad functions."
+    },
+    {
+      "source_line_at_review": 3289,
+      "source_section": "咪咕视频",
+      "original_rule": "host, ggadoffline.miguvideo.com, reject",
+      "normalized_rule": "host, ggadoffline.miguvideo.com, reject",
+      "decision": "include",
+      "reason": "Migu offline advertising endpoint next to the upstream ggmk advertising host."
+    },
+    {
+      "source_line_at_review": 3313,
+      "source_section": "民生银行",
+      "original_rule": "host-keyword, cm-10-134.getui.com, reject",
+      "normalized_rule": "host-keyword, cm-10-134.getui.com, reject",
+      "decision": "exclude-push-chat",
+      "reason": "Push, login or instant-messaging infrastructure may carry user messages; no ad-only request proof."
+    },
+    {
+      "source_line_at_review": 3314,
+      "source_section": "民生银行",
+      "original_rule": "host-keyword, sdk.open.talk.getui.com, reject",
+      "normalized_rule": "host-keyword, sdk.open.talk.getui.com, reject",
+      "decision": "exclude-push-chat",
+      "reason": "Push, login or instant-messaging infrastructure may carry user messages; no ad-only request proof."
+    },
+    {
+      "source_line_at_review": 3315,
+      "source_section": "民生银行",
+      "original_rule": "host-keyword, cm-10-35.getui.com, reject",
+      "normalized_rule": "host-keyword, cm-10-35.getui.com, reject",
+      "decision": "exclude-push-chat",
+      "reason": "Push, login or instant-messaging infrastructure may carry user messages; no ad-only request proof."
+    },
+    {
+      "source_line_at_review": 3316,
+      "source_section": "民生银行",
+      "original_rule": "host-keyword, c-hzgt2.getui.com, reject",
+      "normalized_rule": "host-keyword, c-hzgt2.getui.com, reject",
+      "decision": "exclude-push-chat",
+      "reason": "Push, login or instant-messaging infrastructure may carry user messages; no ad-only request proof."
+    },
+    {
+      "source_line_at_review": 3329,
+      "source_section": "墨迹天气",
+      "original_rule": "host-KEYWORD,me.api.moji.com, reject",
+      "normalized_rule": "host-keyword, me.api.moji.com, reject",
+      "decision": "exclude-shared-business",
+      "reason": "Business API, content/CDN, navigation, customer support or shared app infrastructure; whole-host rejection would remove non-ad functions."
+    },
+    {
+      "source_line_at_review": 3330,
+      "source_section": "墨迹天气",
+      "original_rule": "host-KEYWORD,android.bugly.qq.com, reject",
+      "normalized_rule": "host-keyword, android.bugly.qq.com, reject",
+      "decision": "include",
+      "reason": "Exact Android Bugly crash-reporting hostname; telemetry is within tracking scope."
+    },
+    {
+      "source_line_at_review": 3331,
+      "source_section": "墨迹天气",
+      "original_rule": "host-KEYWORD,av1.xdrig.com, reject",
+      "normalized_rule": "host-keyword, av1.xdrig.com, reject",
+      "decision": "unverified-endpoint",
+      "reason": "Raw app-section rejection alone does not prove exclusive ads/tracking use; require request or script-branch evidence before adding a whole-host/keyword reject."
+    },
+    {
+      "source_line_at_review": 3332,
+      "source_section": "墨迹天气",
+      "original_rule": "host-KEYWORD,adash.man.aliyuncs.com, reject",
+      "normalized_rule": "host-keyword, adash.man.aliyuncs.com, reject",
+      "decision": "include",
+      "reason": "Alibaba mobile analytics collector; retain the original keyword only."
+    },
+    {
+      "source_line_at_review": 3538,
+      "source_section": "皮皮虾",
+      "original_rule": "host-keyword, log-api.pangolin-sdk-toutiao-b.com, reject",
+      "normalized_rule": "host-keyword, log-api.pangolin-sdk-toutiao-b.com, reject",
+      "decision": "include",
+      "reason": "Pangolin advertising SDK log endpoint; retain original keyword semantics."
+    },
+    {
+      "source_line_at_review": 3539,
+      "source_section": "皮皮虾",
+      "original_rule": "host-keyword, log-api.pangolin-sdk-toutiao.com, reject",
+      "normalized_rule": "host-keyword, log-api.pangolin-sdk-toutiao.com, reject",
+      "decision": "include",
+      "reason": "Pangolin advertising SDK log endpoint; retain original keyword semantics."
+    },
+    {
+      "source_line_at_review": 3540,
+      "source_section": "皮皮虾",
+      "original_rule": "host-keyword, api-access.pangolin-sdk-toutiao.com, reject",
+      "normalized_rule": "host-keyword, api-access.pangolin-sdk-toutiao.com, reject",
+      "decision": "include",
+      "reason": "Pangolin advertising SDK access endpoint; retain original keyword semantics."
+    },
+    {
+      "source_line_at_review": 3676,
+      "source_section": "七猫小说",
+      "original_rule": "host, cdn-new-ad.wtzw.com, reject",
+      "normalized_rule": "host, cdn-new-ad.wtzw.com, reject",
+      "decision": "include",
+      "reason": "Qimao dedicated new-ad CDN hostname; do not reject the app API."
+    },
+    {
+      "source_line_at_review": 3677,
+      "source_section": "七猫小说",
+      "original_rule": "host, a-remad.qm989.com, reject",
+      "normalized_rule": "host, a-remad.qm989.com, reject",
+      "decision": "include",
+      "reason": "Qimao dedicated remote-ad hostname."
+    },
+    {
+      "source_line_at_review": 3731,
+      "source_section": "汽车之家",
+      "original_rule": "host-keyword, adm3.autoimg.cn, reject",
+      "normalized_rule": "host-keyword, adm3.autoimg.cn, reject",
+      "decision": "include",
+      "reason": "Autohome advertising-image endpoint."
+    },
+    {
+      "source_line_at_review": 3733,
+      "source_section": "汽车之家",
+      "original_rule": "host-keyword, collectionpv.che168.com, reject",
+      "normalized_rule": "host-keyword, collectionpv.che168.com, reject",
+      "decision": "include",
+      "reason": "Autohome/Che168 page-view collection endpoint."
+    },
+    {
+      "source_line_at_review": 3734,
+      "source_section": "汽车之家",
+      "original_rule": "host-keyword, adproxy.autohome.com, reject",
+      "normalized_rule": "host-keyword, adproxy.autohome.com, reject",
+      "decision": "include",
+      "reason": "Autohome advertising proxy endpoint."
+    },
+    {
+      "source_line_at_review": 3735,
+      "source_section": "汽车之家",
+      "original_rule": "host-keyword, applogapi.autohome.com, reject",
+      "normalized_rule": "host-keyword, applogapi.autohome.com, reject",
+      "decision": "include",
+      "reason": "Autohome app-log collection endpoint."
+    },
+    {
+      "source_line_at_review": 3895,
+      "source_section": "QQ音乐",
+      "original_rule": "host, amsweb-cdn-gz-1258344696.file.myqcloud.com, reject",
+      "normalized_rule": "host, amsweb-cdn-gz-1258344696.file.myqcloud.com, reject",
+      "decision": "exclude-shared-business",
+      "reason": "Business API, content/CDN, navigation, customer support or shared app infrastructure; whole-host rejection would remove non-ad functions."
+    },
+    {
+      "source_line_at_review": 3896,
+      "source_section": "QQ音乐",
+      "original_rule": "host, wallpaper-1258344696.file.myqcloud.com, reject",
+      "normalized_rule": "host, wallpaper-1258344696.file.myqcloud.com, reject",
+      "decision": "exclude-shared-business",
+      "reason": "Business API, content/CDN, navigation, customer support or shared app infrastructure; whole-host rejection would remove non-ad functions."
+    },
+    {
+      "source_line_at_review": 3898,
+      "source_section": "QQ音乐",
+      "original_rule": "IP-CIDR, 120.222.240.171/32, reject",
+      "normalized_rule": "ip-cidr, 120.222.240.171/32, reject",
+      "decision": "unverified-ip",
+      "reason": "No verified exclusive ad/telemetry ownership for this IP/network; IP reuse and shared hosting prevent a safe blanket block."
+    },
+    {
+      "source_line_at_review": 4207,
+      "source_section": "搜狗",
+      "original_rule": "host-suffix, jdqd.jd.com, reject",
+      "normalized_rule": "host-suffix, jdqd.jd.com, reject",
+      "decision": "exclude-shared-business",
+      "reason": "Business API, content/CDN, navigation, customer support or shared app infrastructure; whole-host rejection would remove non-ad functions."
+    },
+    {
+      "source_line_at_review": 4270,
+      "source_section": "搜狗输入法",
+      "original_rule": "host-suffix, push-service-ios.sginput.qq.com, reject",
+      "normalized_rule": "host-suffix, push-service-ios.sginput.qq.com, reject",
+      "decision": "exclude-push-chat",
+      "reason": "Push, login or instant-messaging infrastructure may carry user messages; no ad-only request proof."
+    },
+    {
+      "source_line_at_review": 4369,
+      "source_section": "Soul",
+      "original_rule": "host, soul-ad.soulapp.cn, reject",
+      "normalized_rule": "host, soul-ad.soulapp.cn, reject",
+      "decision": "include",
+      "reason": "Exact Soul dedicated ad hostname, separate from user/chat/payment hosts."
+    },
+    {
+      "source_line_at_review": 4372,
+      "source_section": "Soul",
+      "original_rule": "host-suffix, cdn.soulapp.cn, reject",
+      "normalized_rule": "host-suffix, cdn.soulapp.cn, reject",
+      "decision": "exclude-shared-business",
+      "reason": "Business API, content/CDN, navigation, customer support or shared app infrastructure; whole-host rejection would remove non-ad functions."
+    },
+    {
+      "source_line_at_review": 4373,
+      "source_section": "Soul",
+      "original_rule": "IP-CIDR, 47.56.131.76/32, reject",
+      "normalized_rule": "ip-cidr, 47.56.131.76/32, reject",
+      "decision": "unverified-ip",
+      "reason": "No verified exclusive ad/telemetry ownership for this IP/network; IP reuse and shared hosting prevent a safe blanket block."
+    },
+    {
+      "source_line_at_review": 4374,
+      "source_section": "Soul",
+      "original_rule": "IP-CIDR, 47.97.215.55/32, reject",
+      "normalized_rule": "ip-cidr, 47.97.215.55/32, reject",
+      "decision": "unverified-ip",
+      "reason": "No verified exclusive ad/telemetry ownership for this IP/network; IP reuse and shared hosting prevent a safe blanket block."
+    },
+    {
+      "source_line_at_review": 4375,
+      "source_section": "Soul",
+      "original_rule": "IP-CIDR, 47.99.42.29/32, reject",
+      "normalized_rule": "ip-cidr, 47.99.42.29/32, reject",
+      "decision": "unverified-ip",
+      "reason": "No verified exclusive ad/telemetry ownership for this IP/network; IP reuse and shared hosting prevent a safe blanket block."
+    },
+    {
+      "source_line_at_review": 4376,
+      "source_section": "Soul",
+      "original_rule": "IP-CIDR, 120.27.235.201/32, reject",
+      "normalized_rule": "ip-cidr, 120.27.235.201/32, reject",
+      "decision": "unverified-ip",
+      "reason": "No verified exclusive ad/telemetry ownership for this IP/network; IP reuse and shared hosting prevent a safe blanket block."
+    },
+    {
+      "source_line_at_review": 4377,
+      "source_section": "Soul",
+      "original_rule": "IP-CIDR, 121.196.197.147/32, reject",
+      "normalized_rule": "ip-cidr, 121.196.197.147/32, reject",
+      "decision": "unverified-ip",
+      "reason": "No verified exclusive ad/telemetry ownership for this IP/network; IP reuse and shared hosting prevent a safe blanket block."
+    },
+    {
+      "source_line_at_review": 4668,
+      "source_section": "天神",
+      "original_rule": "host, lf9-cdn-tos.bytegecko.com, reject",
+      "normalized_rule": "host, lf9-cdn-tos.bytegecko.com, reject",
+      "decision": "exclude-shared-business",
+      "reason": "Business API, content/CDN, navigation, customer support or shared app infrastructure; whole-host rejection would remove non-ad functions."
+    },
+    {
+      "source_line_at_review": 4730,
+      "source_section": "途虎养车",
+      "original_rule": "host, ta.tuhu.cn, reject",
+      "normalized_rule": "host, ta.tuhu.cn, reject",
+      "decision": "unverified-endpoint",
+      "reason": "Raw app-section rejection alone does not prove exclusive ads/tracking use; require request or script-branch evidence before adding a whole-host/keyword reject."
+    },
+    {
+      "source_line_at_review": 4757,
+      "source_section": "团油",
+      "original_rule": "host-keyword, img1.czb365.com, reject",
+      "normalized_rule": "host-keyword, img1.czb365.com, reject",
+      "decision": "exclude-shared-business",
+      "reason": "Business API, content/CDN, navigation, customer support or shared app infrastructure; whole-host rejection would remove non-ad functions."
+    },
+    {
+      "source_line_at_review": 4794,
+      "source_section": "Talkatone",
+      "original_rule": "host-suffix, fonts.gstatic.cn, reject",
+      "normalized_rule": "host-suffix, fonts.gstatic.cn, reject",
+      "decision": "exclude-shared-business",
+      "reason": "Business API, content/CDN, navigation, customer support or shared app infrastructure; whole-host rejection would remove non-ad functions."
+    },
+    {
+      "source_line_at_review": 4795,
+      "source_section": "Talkatone",
+      "original_rule": "host-suffix, pomodoromedia.com, reject",
+      "normalized_rule": "host-suffix, pomodoromedia.com, reject",
+      "decision": "unverified-endpoint",
+      "reason": "Raw app-section rejection alone does not prove exclusive ads/tracking use; require request or script-branch evidence before adding a whole-host/keyword reject."
+    },
+    {
+      "source_line_at_review": 4799,
+      "source_section": "Talkatone",
+      "original_rule": "host-suffix, trustarc.com, reject",
+      "normalized_rule": "host-suffix, trustarc.com, reject",
+      "decision": "exclude-shared-business",
+      "reason": "Business API, content/CDN, navigation, customer support or shared app infrastructure; whole-host rejection would remove non-ad functions."
+    },
+    {
+      "source_line_at_review": 4800,
+      "source_section": "Talkatone",
+      "original_rule": "host-suffix, truste.com, reject",
+      "normalized_rule": "host-suffix, truste.com, reject",
+      "decision": "exclude-shared-business",
+      "reason": "Business API, content/CDN, navigation, customer support or shared app infrastructure; whole-host rejection would remove non-ad functions."
+    },
+    {
+      "source_line_at_review": 4803,
+      "source_section": "Talkatone",
+      "original_rule": "host-suffix, inhousedsp.com, reject",
+      "normalized_rule": "host-suffix, inhousedsp.com, reject",
+      "decision": "include",
+      "reason": "Dedicated in-house demand-side advertising platform domain."
+    },
+    {
+      "source_line_at_review": 4804,
+      "source_section": "Talkatone",
+      "original_rule": "host-suffix, i.sng.link, reject",
+      "normalized_rule": "host-suffix, i.sng.link, reject",
+      "decision": "exclude-shared-business",
+      "reason": "Business API, content/CDN, navigation, customer support or shared app infrastructure; whole-host rejection would remove non-ad functions."
+    },
+    {
+      "source_line_at_review": 4806,
+      "source_section": "Talkatone",
+      "original_rule": "host-suffix, richmob.cn, reject",
+      "normalized_rule": "host-suffix, richmob.cn, reject",
+      "decision": "include",
+      "reason": "Dedicated Richmob mobile advertising-provider domain in the upstream ad cluster."
+    },
+    {
+      "source_line_at_review": 4820,
+      "source_section": "Talkatone",
+      "original_rule": "host-suffix, 4dvertible.com, reject",
+      "normalized_rule": "host-suffix, 4dvertible.com, reject",
+      "decision": "include",
+      "reason": "Dedicated 4dvertible advertising-provider domain in the upstream ad cluster."
+    },
+    {
+      "source_line_at_review": 4903,
+      "source_section": "UC浏览器",
+      "original_rule": "host, safe.ucweb.com, reject",
+      "normalized_rule": "host, safe.ucweb.com, reject",
+      "decision": "exclude-security",
+      "reason": "Safe-browsing, fraud/security or user-protection service; no ad-only block is justified."
+    },
+    {
+      "source_line_at_review": 4905,
+      "source_section": "UC浏览器",
+      "original_rule": "host, navigis.uc.cn, reject",
+      "normalized_rule": "host, navigis.uc.cn, reject",
+      "decision": "exclude-shared-business",
+      "reason": "Business API, content/CDN, navigation, customer support or shared app infrastructure; whole-host rejection would remove non-ad functions."
+    },
+    {
+      "source_line_at_review": 4906,
+      "source_section": "UC浏览器",
+      "original_rule": "host, order.sm.cn, reject",
+      "normalized_rule": "host, order.sm.cn, reject",
+      "decision": "exclude-shared-business",
+      "reason": "Business API, content/CDN, navigation, customer support or shared app infrastructure; whole-host rejection would remove non-ad functions."
+    },
+    {
+      "source_line_at_review": 4907,
+      "source_section": "UC浏览器",
+      "original_rule": "host, ucdc-upaas.uc.cn, reject",
+      "normalized_rule": "host, ucdc-upaas.uc.cn, reject",
+      "decision": "exclude-shared-business",
+      "reason": "Business API, content/CDN, navigation, customer support or shared app infrastructure; whole-host rejection would remove non-ad functions."
+    },
+    {
+      "source_line_at_review": 4908,
+      "source_section": "UC浏览器",
+      "original_rule": "host, access.open.uc.cn, reject",
+      "normalized_rule": "host, access.open.uc.cn, reject",
+      "decision": "exclude-shared-business",
+      "reason": "Business API, content/CDN, navigation, customer support or shared app infrastructure; whole-host rejection would remove non-ad functions."
+    },
+    {
+      "source_line_at_review": 4910,
+      "source_section": "UC浏览器",
+      "original_rule": "host, emoji.uc.cn, reject",
+      "normalized_rule": "host, emoji.uc.cn, reject",
+      "decision": "exclude-shared-business",
+      "reason": "Business API, content/CDN, navigation, customer support or shared app infrastructure; whole-host rejection would remove non-ad functions."
+    },
+    {
+      "source_line_at_review": 4912,
+      "source_section": "UC浏览器",
+      "original_rule": "host, voice-service.uc.cn, reject",
+      "normalized_rule": "host, voice-service.uc.cn, reject",
+      "decision": "exclude-shared-business",
+      "reason": "Business API, content/CDN, navigation, customer support or shared app infrastructure; whole-host rejection would remove non-ad functions."
+    },
+    {
+      "source_line_at_review": 4913,
+      "source_section": "UC浏览器",
+      "original_rule": "host, v.uc.cn, reject",
+      "normalized_rule": "host, v.uc.cn, reject",
+      "decision": "exclude-shared-business",
+      "reason": "Business API, content/CDN, navigation, customer support or shared app infrastructure; whole-host rejection would remove non-ad functions."
+    },
+    {
+      "source_line_at_review": 4914,
+      "source_section": "UC浏览器",
+      "original_rule": "host, coral.uc.cn, reject",
+      "normalized_rule": "host, coral.uc.cn, reject",
+      "decision": "exclude-shared-business",
+      "reason": "Business API, content/CDN, navigation, customer support or shared app infrastructure; whole-host rejection would remove non-ad functions."
+    },
+    {
+      "source_line_at_review": 4915,
+      "source_section": "UC浏览器",
+      "original_rule": "host, wolong-dsp.sm.cn, reject",
+      "normalized_rule": "host, wolong-dsp.sm.cn, reject",
+      "decision": "include",
+      "reason": "UC Wolong demand-side advertising endpoint; retain exact host only."
+    },
+    {
+      "source_line_at_review": 4916,
+      "source_section": "UC浏览器",
+      "original_rule": "host, cartoonapi.uc.cn, reject",
+      "normalized_rule": "host, cartoonapi.uc.cn, reject",
+      "decision": "exclude-shared-business",
+      "reason": "Business API, content/CDN, navigation, customer support or shared app infrastructure; whole-host rejection would remove non-ad functions."
+    },
+    {
+      "source_line_at_review": 4917,
+      "source_section": "UC浏览器",
+      "original_rule": "host, umessage-online-zb.uc.cn, reject",
+      "normalized_rule": "host, umessage-online-zb.uc.cn, reject",
+      "decision": "exclude-shared-business",
+      "reason": "Business API, content/CDN, navigation, customer support or shared app infrastructure; whole-host rejection would remove non-ad functions."
+    },
+    {
+      "source_line_at_review": 4918,
+      "source_section": "UC浏览器",
+      "original_rule": "host, api.c.uc.cn, reject",
+      "normalized_rule": "host, api.c.uc.cn, reject",
+      "decision": "exclude-shared-business",
+      "reason": "Business API, content/CDN, navigation, customer support or shared app infrastructure; whole-host rejection would remove non-ad functions."
+    },
+    {
+      "source_line_at_review": 4919,
+      "source_section": "UC浏览器",
+      "original_rule": "host, aid.m.taobao.com, reject",
+      "normalized_rule": "host, aid.m.taobao.com, reject",
+      "decision": "unverified-endpoint",
+      "reason": "Raw app-section rejection alone does not prove exclusive ads/tracking use; require request or script-branch evidence before adding a whole-host/keyword reject."
+    },
+    {
+      "source_line_at_review": 4920,
+      "source_section": "UC浏览器",
+      "original_rule": "host, cms.uc.cn, reject",
+      "normalized_rule": "host, cms.uc.cn, reject",
+      "decision": "exclude-shared-business",
+      "reason": "Business API, content/CDN, navigation, customer support or shared app infrastructure; whole-host rejection would remove non-ad functions."
+    },
+    {
+      "source_line_at_review": 4923,
+      "source_section": "UC浏览器",
+      "original_rule": "host-suffix, fans.m.tmall.com, reject",
+      "normalized_rule": "host-suffix, fans.m.tmall.com, reject",
+      "decision": "exclude-shared-business",
+      "reason": "Business API, content/CDN, navigation, customer support or shared app infrastructure; whole-host rejection would remove non-ad functions."
+    },
+    {
+      "source_line_at_review": 4924,
+      "source_section": "UC浏览器",
+      "original_rule": "host-suffix, r1.ykimg.com, reject",
+      "normalized_rule": "host-suffix, r1.ykimg.com, reject",
+      "decision": "exclude-shared-business",
+      "reason": "Business API, content/CDN, navigation, customer support or shared app infrastructure; whole-host rejection would remove non-ad functions."
+    },
+    {
+      "source_line_at_review": 4932,
+      "source_section": "UC浏览器",
+      "original_rule": "host-suffix, afpapi.alimama.com, reject",
+      "normalized_rule": "host-suffix, afpapi.alimama.com, reject",
+      "decision": "include",
+      "reason": "Alimama advertising-platform API suffix; no whole Alibaba/Taobao business block."
+    },
+    {
+      "source_line_at_review": 4933,
+      "source_section": "UC浏览器",
+      "original_rule": "host-suffix, a.9game.cn, reject",
+      "normalized_rule": "host-suffix, a.9game.cn, reject",
+      "decision": "unverified-endpoint",
+      "reason": "Raw app-section rejection alone does not prove exclusive ads/tracking use; require request or script-branch evidence before adding a whole-host/keyword reject."
+    },
+    {
+      "source_line_at_review": 4939,
+      "source_section": "UC浏览器",
+      "original_rule": "host-suffix, ynuf.alipay.com, reject",
+      "normalized_rule": "host-suffix, ynuf.alipay.com, reject",
+      "decision": "exclude-shared-business",
+      "reason": "Business API, content/CDN, navigation, customer support or shared app infrastructure; whole-host rejection would remove non-ad functions."
+    },
+    {
+      "source_line_at_review": 4940,
+      "source_section": "UC浏览器",
+      "original_rule": "host-suffix, pdds.ucweb.com, reject",
+      "normalized_rule": "host-suffix, pdds.ucweb.com, reject",
+      "decision": "exclude-shared-business",
+      "reason": "Business API, content/CDN, navigation, customer support or shared app infrastructure; whole-host rejection would remove non-ad functions."
+    },
+    {
+      "source_line_at_review": 4942,
+      "source_section": "UC浏览器",
+      "original_rule": "host-suffix, qmlog.cn, reject",
+      "normalized_rule": "host-suffix, qmlog.cn, reject",
+      "decision": "include",
+      "reason": "Upstream telemetry/logging domain in the reviewed UC app section."
+    },
+    {
+      "source_line_at_review": 4965,
+      "source_section": "UC浏览器",
+      "original_rule": "host-suffix, lobmuc.cn, reject",
+      "normalized_rule": "host-suffix, lobmuc.cn, reject",
+      "decision": "unverified-endpoint",
+      "reason": "Raw app-section rejection alone does not prove exclusive ads/tracking use; require request or script-branch evidence before adding a whole-host/keyword reject."
+    },
+    {
+      "source_line_at_review": 4972,
+      "source_section": "UC浏览器",
+      "original_rule": "host, gecko-pangle-lf.snssdk.com, reject",
+      "normalized_rule": "host, gecko-pangle-lf.snssdk.com, reject",
+      "decision": "include",
+      "reason": "Pangle advertising SDK Gecko resource endpoint; not a generic snssdk.com block."
+    },
+    {
+      "source_line_at_review": 5029,
+      "source_section": "VIVO商城",
+      "original_rule": "host-keyword, paradisestatic.vivo.com.cn, reject",
+      "normalized_rule": "host-keyword, paradisestatic.vivo.com.cn, reject",
+      "decision": "exclude-shared-business",
+      "reason": "Business API, content/CDN, navigation, customer support or shared app infrastructure; whole-host rejection would remove non-ad functions."
+    },
+    {
+      "source_line_at_review": 5354,
+      "source_section": "WiFi万能钥匙",
+      "original_rule": "host-keyword, app.51y5.net, reject",
+      "normalized_rule": "host-keyword, app.51y5.net, reject",
+      "decision": "exclude-shared-business",
+      "reason": "Business API, content/CDN, navigation, customer support or shared app infrastructure; whole-host rejection would remove non-ad functions."
+    },
+    {
+      "source_line_at_review": 5355,
+      "source_section": "WiFi万能钥匙",
+      "original_rule": "host-keyword, apiinit.amap.com, reject",
+      "normalized_rule": "host-keyword, apiinit.amap.com, reject",
+      "decision": "exclude-shared-business",
+      "reason": "Business API, content/CDN, navigation, customer support or shared app infrastructure; whole-host rejection would remove non-ad functions."
+    },
+    {
+      "source_line_at_review": 5356,
+      "source_section": "WiFi万能钥匙",
+      "original_rule": "host-keyword, c.51y5.net, reject",
+      "normalized_rule": "host-keyword, c.51y5.net, reject",
+      "decision": "exclude-shared-business",
+      "reason": "Business API, content/CDN, navigation, customer support or shared app infrastructure; whole-host rejection would remove non-ad functions."
+    },
+    {
+      "source_line_at_review": 5357,
+      "source_section": "WiFi万能钥匙",
+      "original_rule": "host-keyword, msg.push.51y5.net, reject",
+      "normalized_rule": "host-keyword, msg.push.51y5.net, reject",
+      "decision": "exclude-push-chat",
+      "reason": "Push, login or instant-messaging infrastructure may carry user messages; no ad-only request proof."
+    },
+    {
+      "source_line_at_review": 5358,
+      "source_section": "WiFi万能钥匙",
+      "original_rule": "host-keyword, a.wkanx.com, reject",
+      "normalized_rule": "host-keyword, a.wkanx.com, reject",
+      "decision": "exclude-shared-business",
+      "reason": "Business API, content/CDN, navigation, customer support or shared app infrastructure; whole-host rejection would remove non-ad functions."
+    },
+    {
+      "source_line_at_review": 5359,
+      "source_section": "WiFi万能钥匙",
+      "original_rule": "host-keyword, c.wkanx.com, reject",
+      "normalized_rule": "host-keyword, c.wkanx.com, reject",
+      "decision": "exclude-shared-business",
+      "reason": "Business API, content/CDN, navigation, customer support or shared app infrastructure; whole-host rejection would remove non-ad functions."
+    },
+    {
+      "source_line_at_review": 5360,
+      "source_section": "WiFi万能钥匙",
+      "original_rule": "host-keyword, c1.wkanx.com, reject",
+      "normalized_rule": "host-keyword, c1.wkanx.com, reject",
+      "decision": "exclude-shared-business",
+      "reason": "Business API, content/CDN, navigation, customer support or shared app infrastructure; whole-host rejection would remove non-ad functions."
+    },
+    {
+      "source_line_at_review": 5361,
+      "source_section": "WiFi万能钥匙",
+      "original_rule": "host-keyword, ap.51y5.net, reject",
+      "normalized_rule": "host-keyword, ap.51y5.net, reject",
+      "decision": "exclude-shared-business",
+      "reason": "Business API, content/CDN, navigation, customer support or shared app infrastructure; whole-host rejection would remove non-ad functions."
+    },
+    {
+      "source_line_at_review": 5362,
+      "source_section": "WiFi万能钥匙",
+      "original_rule": "host-keyword, dc.51y5.net, reject",
+      "normalized_rule": "host-keyword, dc.51y5.net, reject",
+      "decision": "exclude-shared-business",
+      "reason": "Business API, content/CDN, navigation, customer support or shared app infrastructure; whole-host rejection would remove non-ad functions."
+    },
+    {
+      "source_line_at_review": 5363,
+      "source_section": "WiFi万能钥匙",
+      "original_rule": "host-keyword, push-dc.51y5.net, reject",
+      "normalized_rule": "host-keyword, push-dc.51y5.net, reject",
+      "decision": "exclude-push-chat",
+      "reason": "Push, login or instant-messaging infrastructure may carry user messages; no ad-only request proof."
+    },
+    {
+      "source_line_at_review": 5364,
+      "source_section": "WiFi万能钥匙",
+      "original_rule": "host-keyword, news-log.51y5.net, reject",
+      "normalized_rule": "host-keyword, news-log.51y5.net, reject",
+      "decision": "include",
+      "reason": "Exact reviewed WiFi app news-log keyword; push/login endpoints remain excluded."
+    },
+    {
+      "source_line_at_review": 5365,
+      "source_section": "WiFi万能钥匙",
+      "original_rule": "host-keyword, login.push.51y5.net, reject",
+      "normalized_rule": "host-keyword, login.push.51y5.net, reject",
+      "decision": "exclude-push-chat",
+      "reason": "Push, login or instant-messaging infrastructure may carry user messages; no ad-only request proof."
+    },
+    {
+      "source_line_at_review": 5366,
+      "source_section": "WiFi万能钥匙",
+      "original_rule": "host-keyword, news.51y5.net, reject",
+      "normalized_rule": "host-keyword, news.51y5.net, reject",
+      "decision": "exclude-shared-business",
+      "reason": "Business API, content/CDN, navigation, customer support or shared app infrastructure; whole-host rejection would remove non-ad functions."
+    },
+    {
+      "source_line_at_review": 5367,
+      "source_section": "WiFi万能钥匙",
+      "original_rule": "host-keyword, cds.51y5.net, reject",
+      "normalized_rule": "host-keyword, cds.51y5.net, reject",
+      "decision": "exclude-shared-business",
+      "reason": "Business API, content/CDN, navigation, customer support or shared app infrastructure; whole-host rejection would remove non-ad functions."
+    },
+    {
+      "source_line_at_review": 5368,
+      "source_section": "WiFi万能钥匙",
+      "original_rule": "host-keyword, insurance.lianwifi.com, reject",
+      "normalized_rule": "host-keyword, insurance.lianwifi.com, reject",
+      "decision": "exclude-shared-business",
+      "reason": "Business API, content/CDN, navigation, customer support or shared app infrastructure; whole-host rejection would remove non-ad functions."
+    },
+    {
+      "source_line_at_review": 5369,
+      "source_section": "WiFi万能钥匙",
+      "original_rule": "host-keyword, config.51y5.net, reject",
+      "normalized_rule": "host-keyword, config.51y5.net, reject",
+      "decision": "exclude-shared-business",
+      "reason": "Business API, content/CDN, navigation, customer support or shared app infrastructure; whole-host rejection would remove non-ad functions."
+    },
+    {
+      "source_line_at_review": 5370,
+      "source_section": "WiFi万能钥匙",
+      "original_rule": "host-keyword, static.wkanx.com, reject",
+      "normalized_rule": "host-keyword, static.wkanx.com, reject",
+      "decision": "exclude-shared-business",
+      "reason": "Business API, content/CDN, navigation, customer support or shared app infrastructure; whole-host rejection would remove non-ad functions."
+    },
+    {
+      "source_line_at_review": 5371,
+      "source_section": "WiFi万能钥匙",
+      "original_rule": "host-keyword, config.y5en.com, reject",
+      "normalized_rule": "host-keyword, config.y5en.com, reject",
+      "decision": "exclude-shared-business",
+      "reason": "Business API, content/CDN, navigation, customer support or shared app infrastructure; whole-host rejection would remove non-ad functions."
+    },
+    {
+      "source_line_at_review": 5442,
+      "source_section": "喜马拉雅",
+      "original_rule": "host-suffix, adse-v2.ximalaya.com, reject",
+      "normalized_rule": "host-suffix, adse-v2.ximalaya.com, reject",
+      "decision": "include",
+      "reason": "Ximalaya v2 advertising endpoint paired with adse.ximalaya.com."
+    },
+    {
+      "source_line_at_review": 5443,
+      "source_section": "喜马拉雅",
+      "original_rule": "host-suffix, open.ximalaya.com, reject",
+      "normalized_rule": "host-suffix, open.ximalaya.com, reject",
+      "decision": "exclude-shared-business",
+      "reason": "Business API, content/CDN, navigation, customer support or shared app infrastructure; whole-host rejection would remove non-ad functions."
+    },
+    {
+      "source_line_at_review": 5444,
+      "source_section": "喜马拉雅",
+      "original_rule": "host-suffix, upos-app.ximalaya.com, reject",
+      "normalized_rule": "host-suffix, upos-app.ximalaya.com, reject",
+      "decision": "exclude-shared-business",
+      "reason": "Business API, content/CDN, navigation, customer support or shared app infrastructure; whole-host rejection would remove non-ad functions."
+    },
+    {
+      "source_line_at_review": 5625,
+      "source_section": "小利生活",
+      "original_rule": "host-keyword, mpos-pic.helipay.com, reject",
+      "normalized_rule": "host-keyword, mpos-pic.helipay.com, reject",
+      "decision": "exclude-shared-business",
+      "reason": "Business API, content/CDN, navigation, customer support or shared app infrastructure; whole-host rejection would remove non-ad functions."
+    },
+    {
+      "source_line_at_review": 5644,
+      "source_section": "小米",
+      "original_rule": "host-KEYWORD, XiaoQiang, reject",
+      "normalized_rule": "host-keyword, xiaoqiang, reject",
+      "decision": "exclude-shared-business",
+      "reason": "Business API, content/CDN, navigation, customer support or shared app infrastructure; whole-host rejection would remove non-ad functions."
+    },
+    {
+      "source_line_at_review": 5699,
+      "source_section": "小米",
+      "original_rule": "host-suffix, api.jr.mi.com, reject",
+      "normalized_rule": "host-suffix, api.jr.mi.com, reject",
+      "decision": "exclude-shared-business",
+      "reason": "Business API, content/CDN, navigation, customer support or shared app infrastructure; whole-host rejection would remove non-ad functions."
+    },
+    {
+      "source_line_at_review": 5758,
+      "source_section": "小小影视",
+      "original_rule": "host, 39d83s.com, reject",
+      "normalized_rule": "host, 39d83s.com, reject",
+      "decision": "exclude-shared-business",
+      "reason": "Business API, content/CDN, navigation, customer support or shared app infrastructure; whole-host rejection would remove non-ad functions."
+    },
+    {
+      "source_line_at_review": 5798,
+      "source_section": "晓晓优选",
+      "original_rule": "host-suffix, 1sapp.com, reject",
+      "normalized_rule": "host-suffix, 1sapp.com, reject",
+      "decision": "exclude-shared-business",
+      "reason": "Business API, content/CDN, navigation, customer support or shared app infrastructure; whole-host rejection would remove non-ad functions."
+    },
+    {
+      "source_line_at_review": 5800,
+      "source_section": "晓晓优选",
+      "original_rule": "host-suffix, adbiding.com, reject",
+      "normalized_rule": "host-suffix, adbiding.com, reject",
+      "decision": "include",
+      "reason": "Dedicated advertising bidding provider domain in the upstream app ad cluster."
+    },
+    {
+      "source_line_at_review": 5801,
+      "source_section": "晓晓优选",
+      "original_rule": "host-suffix, xwpbj.com, reject",
+      "normalized_rule": "host-suffix, xwpbj.com, reject",
+      "decision": "unverified-endpoint",
+      "reason": "Raw app-section rejection alone does not prove exclusive ads/tracking use; require request or script-branch evidence before adding a whole-host/keyword reject."
+    },
+    {
+      "source_line_at_review": 5802,
+      "source_section": "晓晓优选",
+      "original_rule": "host-suffix, qttunion.com, reject",
+      "normalized_rule": "host-suffix, qttunion.com, reject",
+      "decision": "include",
+      "reason": "Dedicated Qutoutiao advertising-union domain in the upstream app ad cluster."
+    },
+    {
+      "source_line_at_review": 5803,
+      "source_section": "晓晓优选",
+      "original_rule": "host-suffix, qiyukf.com, reject",
+      "normalized_rule": "host-suffix, qiyukf.com, reject",
+      "decision": "exclude-shared-business",
+      "reason": "Business API, content/CDN, navigation, customer support or shared app infrastructure; whole-host rejection would remove non-ad functions."
+    },
+    {
+      "source_line_at_review": 5809,
+      "source_section": "晓晓优选",
+      "original_rule": "host-suffix, adwangmai.com, reject",
+      "normalized_rule": "host-suffix, adwangmai.com, reject",
+      "decision": "include",
+      "reason": "Dedicated Wangmai advertising-provider domain in the upstream app ad cluster."
+    },
+    {
+      "source_line_at_review": 5810,
+      "source_section": "晓晓优选",
+      "original_rule": "host-suffix, yunxinfw.com, reject",
+      "normalized_rule": "host-suffix, yunxinfw.com, reject",
+      "decision": "exclude-push-chat",
+      "reason": "Push, login or instant-messaging infrastructure may carry user messages; no ad-only request proof."
+    },
+    {
+      "source_line_at_review": 5811,
+      "source_section": "晓晓优选",
+      "original_rule": "host-suffix, bridgeoos.com, reject",
+      "normalized_rule": "host-suffix, bridgeoos.com, reject",
+      "decision": "exclude-push-chat",
+      "reason": "Push, login or instant-messaging infrastructure may carry user messages; no ad-only request proof."
+    },
+    {
+      "source_line_at_review": 5813,
+      "source_section": "晓晓优选",
+      "original_rule": "host-suffix, baihemob.com, reject",
+      "normalized_rule": "host-suffix, baihemob.com, reject",
+      "decision": "include",
+      "reason": "Dedicated Baihe mobile advertising-provider domain in the upstream app ad cluster."
+    },
+    {
+      "source_line_at_review": 5815,
+      "source_section": "晓晓优选",
+      "original_rule": "host-suffix, api.wxcjgg.cn, reject",
+      "normalized_rule": "host-suffix, api.wxcjgg.cn, reject",
+      "decision": "exclude-shared-business",
+      "reason": "Business API, content/CDN, navigation, customer support or shared app infrastructure; whole-host rejection would remove non-ad functions."
+    },
+    {
+      "source_line_at_review": 5816,
+      "source_section": "晓晓优选",
+      "original_rule": "host-suffix, shunchangzhixing.com, reject",
+      "normalized_rule": "host-suffix, shunchangzhixing.com, reject",
+      "decision": "unverified-endpoint",
+      "reason": "Raw app-section rejection alone does not prove exclusive ads/tracking use; require request or script-branch evidence before adding a whole-host/keyword reject."
+    },
+    {
+      "source_line_at_review": 5817,
+      "source_section": "晓晓优选",
+      "original_rule": "IP-CIDR, 114.132.165.205/32, reject",
+      "normalized_rule": "ip-cidr, 114.132.165.205/32, reject",
+      "decision": "unverified-ip",
+      "reason": "No verified exclusive ad/telemetry ownership for this IP/network; IP reuse and shared hosting prevent a safe blanket block."
+    },
+    {
+      "source_line_at_review": 6066,
+      "source_section": "讯飞输入法",
+      "original_rule": "host-keyword, ossp.voicecloud.cn, reject",
+      "normalized_rule": "host-keyword, ossp.voicecloud.cn, reject",
+      "decision": "exclude-shared-business",
+      "reason": "Business API, content/CDN, navigation, customer support or shared app infrastructure; whole-host rejection would remove non-ad functions."
+    },
+    {
+      "source_line_at_review": 6067,
+      "source_section": "讯飞输入法",
+      "original_rule": "host-keyword, bj.imp.voiceads.cn, reject",
+      "normalized_rule": "host-keyword, bj.imp.voiceads.cn, reject",
+      "decision": "include",
+      "reason": "iFlytek Voiceads impression endpoint; original keyword match is preserved."
+    },
+    {
+      "source_line_at_review": 6068,
+      "source_section": "讯飞输入法",
+      "original_rule": "host-keyword, m.panda.voiceads.cn, reject",
+      "normalized_rule": "host-keyword, m.panda.voiceads.cn, reject",
+      "decision": "include",
+      "reason": "iFlytek Voiceads mobile endpoint; original keyword match is preserved."
+    },
+    {
+      "source_line_at_review": 6069,
+      "source_section": "讯飞输入法",
+      "original_rule": "host-keyword, iflyad.bj.openstorage.cn, reject",
+      "normalized_rule": "host-keyword, iflyad.bj.openstorage.cn, reject",
+      "decision": "include",
+      "reason": "iFlytek dedicated advertising storage endpoint; generic openstorage.cn is untouched."
+    },
+    {
+      "source_line_at_review": 6101,
+      "source_section": "央视网",
+      "original_rule": "host-suffix, a.cctv.com, reject",
+      "normalized_rule": "host-suffix, a.cctv.com, reject",
+      "decision": "unverified-endpoint",
+      "reason": "Raw app-section rejection alone does not prove exclusive ads/tracking use; require request or script-branch evidence before adding a whole-host/keyword reject."
+    },
+    {
+      "source_line_at_review": 6109,
+      "source_section": "央视网",
+      "original_rule": "host-suffix, afp.qiyi.com, reject",
+      "normalized_rule": "host-suffix, afp.qiyi.com, reject",
+      "decision": "include",
+      "reason": "iQiyi advertising-platform endpoint; api.iqiyi.com remains excluded."
+    },
+    {
+      "source_line_at_review": 6273,
+      "source_section": "优酷",
+      "original_rule": "host-suffix, partner.uc.cn, reject",
+      "normalized_rule": "host-suffix, partner.uc.cn, reject",
+      "decision": "exclude-shared-business",
+      "reason": "Business API, content/CDN, navigation, customer support or shared app infrastructure; whole-host rejection would remove non-ad functions."
+    },
+    {
+      "source_line_at_review": 6275,
+      "source_section": "优酷",
+      "original_rule": "host-suffix, uczzd.cn, reject",
+      "normalized_rule": "host-suffix, uczzd.cn, reject",
+      "decision": "exclude-shared-business",
+      "reason": "Business API, content/CDN, navigation, customer support or shared app infrastructure; whole-host rejection would remove non-ad functions."
+    },
+    {
+      "source_line_at_review": 6277,
+      "source_section": "优酷",
+      "original_rule": "host-suffix, zconfig.alibabausercontent.com, reject",
+      "normalized_rule": "host-suffix, zconfig.alibabausercontent.com, reject",
+      "decision": "exclude-shared-business",
+      "reason": "Business API, content/CDN, navigation, customer support or shared app infrastructure; whole-host rejection would remove non-ad functions."
+    },
+    {
+      "source_line_at_review": 6286,
+      "source_section": "优酷",
+      "original_rule": "host-suffix, rhdc-acs.youku.com, reject",
+      "normalized_rule": "host-suffix, rhdc-acs.youku.com, reject",
+      "decision": "exclude-shared-business",
+      "reason": "Business API, content/CDN, navigation, customer support or shared app infrastructure; whole-host rejection would remove non-ad functions."
+    },
+    {
+      "source_line_at_review": 6289,
+      "source_section": "优酷",
+      "original_rule": "DOMAIN, httpdns.alicdn.com, reject",
+      "normalized_rule": "host, httpdns.alicdn.com, reject",
+      "decision": "exclude-shared-business",
+      "reason": "Business API, content/CDN, navigation, customer support or shared app infrastructure; whole-host rejection would remove non-ad functions."
+    },
+    {
+      "source_line_at_review": 6291,
+      "source_section": "优酷",
+      "original_rule": "DOMAIN, amdc.m.youku.com, reject",
+      "normalized_rule": "host, amdc.m.youku.com, reject",
+      "decision": "exclude-shared-business",
+      "reason": "Business API, content/CDN, navigation, customer support or shared app infrastructure; whole-host rejection would remove non-ad functions."
+    },
+    {
+      "source_line_at_review": 6292,
+      "source_section": "优酷",
+      "original_rule": "DOMAIN, apiv4-iyes.youku.com, reject",
+      "normalized_rule": "host, apiv4-iyes.youku.com, reject",
+      "decision": "exclude-shared-business",
+      "reason": "Business API, content/CDN, navigation, customer support or shared app infrastructure; whole-host rejection would remove non-ad functions."
+    },
+    {
+      "source_line_at_review": 6499,
+      "source_section": "云闪付",
+      "original_rule": "host, tysdk.95516.com, reject",
+      "normalized_rule": "host, tysdk.95516.com, reject",
+      "decision": "exclude-shared-business",
+      "reason": "Business API, content/CDN, navigation, customer support or shared app infrastructure; whole-host rejection would remove non-ad functions."
+    },
+    {
+      "source_line_at_review": 6503,
+      "source_section": "云闪付",
+      "original_rule": "host, switch.cup.com.cn, reject",
+      "normalized_rule": "host, switch.cup.com.cn, reject",
+      "decision": "exclude-shared-business",
+      "reason": "Business API, content/CDN, navigation, customer support or shared app infrastructure; whole-host rejection would remove non-ad functions."
+    },
+    {
+      "source_line_at_review": 6643,
+      "source_section": "真不卡",
+      "original_rule": "host-suffix, ttayy.cn, reject",
+      "normalized_rule": "host-suffix, ttayy.cn, reject",
+      "decision": "exclude-shared-business",
+      "reason": "Business API, content/CDN, navigation, customer support or shared app infrastructure; whole-host rejection would remove non-ad functions."
+    },
+    {
+      "source_line_at_review": 6644,
+      "source_section": "真不卡",
+      "original_rule": "host-suffix, zhengxiaoliu.top, reject",
+      "normalized_rule": "host-suffix, zhengxiaoliu.top, reject",
+      "decision": "exclude-shared-business",
+      "reason": "Business API, content/CDN, navigation, customer support or shared app infrastructure; whole-host rejection would remove non-ad functions."
+    },
+    {
+      "source_line_at_review": 6659,
+      "source_section": "知乎",
+      "original_rule": "host, appcloud.zhihu.com, reject",
+      "normalized_rule": "host, appcloud.zhihu.com, reject",
+      "decision": "exclude-shared-business",
+      "reason": "Business API, content/CDN, navigation, customer support or shared app infrastructure; whole-host rejection would remove non-ad functions."
+    },
+    {
+      "source_line_at_review": 6857,
+      "source_section": "中华万年历",
+      "original_rule": "host-keyword, lkme.cc, reject",
+      "normalized_rule": "host-keyword, lkme.cc, reject",
+      "decision": "exclude-shared-business",
+      "reason": "Business API, content/CDN, navigation, customer support or shared app infrastructure; whole-host rejection would remove non-ad functions."
+    },
+    {
+      "source_line_at_review": 6858,
+      "source_section": "中华万年历",
+      "original_rule": "host-keyword, api.freed.so, reject",
+      "normalized_rule": "host-keyword, api.freed.so, reject",
+      "decision": "exclude-shared-business",
+      "reason": "Business API, content/CDN, navigation, customer support or shared app infrastructure; whole-host rejection would remove non-ad functions."
+    },
+    {
+      "source_line_at_review": 6859,
+      "source_section": "中华万年历",
+      "original_rule": "host-keyword, log-dmp.suishenyun.cn, reject",
+      "normalized_rule": "host-keyword, log-dmp.suishenyun.cn, reject",
+      "decision": "include",
+      "reason": "Calendar-app log/data-management-platform endpoint."
+    },
+    {
+      "source_line_at_review": 6860,
+      "source_section": "中华万年历",
+      "original_rule": "host-keyword, client-dmp.suishenyun.cn, reject",
+      "normalized_rule": "host-keyword, client-dmp.suishenyun.cn, reject",
+      "decision": "include",
+      "reason": "Calendar-app client data-management-platform endpoint."
+    },
+    {
+      "source_line_at_review": 6861,
+      "source_section": "中华万年历",
+      "original_rule": "host-keyword, pc.suishenyun.net, reject",
+      "normalized_rule": "host-keyword, pc.suishenyun.net, reject",
+      "decision": "exclude-shared-business",
+      "reason": "Business API, content/CDN, navigation, customer support or shared app infrastructure; whole-host rejection would remove non-ad functions."
+    },
+    {
+      "source_line_at_review": 6862,
+      "source_section": "中华万年历",
+      "original_rule": "host-keyword, v0-client-lz.rili.cn, reject",
+      "normalized_rule": "host-keyword, v0-client-lz.rili.cn, reject",
+      "decision": "exclude-shared-business",
+      "reason": "Business API, content/CDN, navigation, customer support or shared app infrastructure; whole-host rejection would remove non-ad functions."
+    },
+    {
+      "source_line_at_review": 6957,
+      "source_section": "字节跳动",
+      "original_rule": "host-suffix, -normal-lq.zijieapi.com, reject",
+      "normalized_rule": "host-suffix, -normal-lq.zijieapi.com, reject",
+      "decision": "exclude-shared-business",
+      "reason": "Business API, content/CDN, navigation, customer support or shared app infrastructure; whole-host rejection would remove non-ad functions."
+    },
+    {
+      "source_line_at_review": 6960,
+      "source_section": "字节跳动",
+      "original_rule": "host-suffix, tosv.byted.org, reject",
+      "normalized_rule": "host-suffix, tosv.byted.org, reject",
+      "decision": "exclude-shared-business",
+      "reason": "Business API, content/CDN, navigation, customer support or shared app infrastructure; whole-host rejection would remove non-ad functions."
+    },
+    {
+      "source_line_at_review": 6961,
+      "source_section": "字节跳动",
+      "original_rule": "host-suffix, tosv.boe.byted.org, reject",
+      "normalized_rule": "host-suffix, tosv.boe.byted.org, reject",
+      "decision": "exclude-shared-business",
+      "reason": "Business API, content/CDN, navigation, customer support or shared app infrastructure; whole-host rejection would remove non-ad functions."
+    },
+    {
+      "source_line_at_review": 6974,
+      "source_section": "字节跳动",
+      "original_rule": "host-suffix, s3a.pstatp.com, reject",
+      "normalized_rule": "host-suffix, s3a.pstatp.com, reject",
+      "decision": "exclude-shared-business",
+      "reason": "Business API, content/CDN, navigation, customer support or shared app infrastructure; whole-host rejection would remove non-ad functions."
+    },
+    {
+      "source_line_at_review": 7015,
+      "source_section": "广告联盟",
+      "original_rule": "host-suffix, tos.pstatp.com, reject",
+      "normalized_rule": "host-suffix, tos.pstatp.com, reject",
+      "decision": "exclude-shared-business",
+      "reason": "Business API, content/CDN, navigation, customer support or shared app infrastructure; whole-host rejection would remove non-ad functions."
+    },
+    {
+      "source_line_at_review": 7020,
+      "source_section": "广告联盟",
+      "original_rule": "host-suffix, video-cn.snssdk.com, reject",
+      "normalized_rule": "host-suffix, video-cn.snssdk.com, reject",
+      "decision": "exclude-shared-business",
+      "reason": "Business API, content/CDN, navigation, customer support or shared app infrastructure; whole-host rejection would remove non-ad functions."
+    },
+    {
+      "source_line_at_review": 7027,
+      "source_section": "广告联盟",
+      "original_rule": "host-suffix, cdntips.net, reject",
+      "normalized_rule": "host-suffix, cdntips.net, reject",
+      "decision": "exclude-shared-business",
+      "reason": "Business API, content/CDN, navigation, customer support or shared app infrastructure; whole-host rejection would remove non-ad functions."
+    },
+    {
+      "source_line_at_review": 7028,
+      "source_section": "广告联盟",
+      "original_rule": "host-suffix, tfogc.com, reject",
+      "normalized_rule": "host-suffix, tfogc.com, reject",
+      "decision": "exclude-shared-business",
+      "reason": "Business API, content/CDN, navigation, customer support or shared app infrastructure; whole-host rejection would remove non-ad functions."
+    },
+    {
+      "source_line_at_review": 7031,
+      "source_section": "广告联盟",
+      "original_rule": "host-suffix, 1a-1791.com, reject",
+      "normalized_rule": "host-suffix, 1a-1791.com, reject",
+      "decision": "exclude-shared-business",
+      "reason": "Business API, content/CDN, navigation, customer support or shared app infrastructure; whole-host rejection would remove non-ad functions."
+    },
+    {
+      "source_line_at_review": 7032,
+      "source_section": "广告联盟",
+      "original_rule": "host-suffix, rumble.com, reject",
+      "normalized_rule": "host-suffix, rumble.com, reject",
+      "decision": "exclude-shared-business",
+      "reason": "Business API, content/CDN, navigation, customer support or shared app infrastructure; whole-host rejection would remove non-ad functions."
+    }
+  ]
+}

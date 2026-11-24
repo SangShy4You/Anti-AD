@@ -10,6 +10,8 @@ from __future__ import annotations
 
 from collections import Counter
 import hashlib
+import json
+from pathlib import Path
 import re
 
 if __package__:
@@ -42,6 +44,7 @@ AD_LABEL = re.compile(r"(?:ad|ads|adv|advert|advertise|advertising|adserver|adse
 TRACKING_LABELS = frozenset({"analytics", "telemetry", "tracker", "tracking", "log", "logs", "logger", "logservice", "stats", "statistic", "statistics", "stat", "beacon", "apm"})
 FILTER_LIKE = re.compile(r"^[A-Za-z][\w-]*\s*,")
 SOURCE_URL = "https://raw.githubusercontent.com/fmz200/wool_scripts/main/QuantumultX/rewrite/rewrite.snippet"
+REVIEWED_TAIL_PATH = Path(__file__).resolve().parents[1] / "config/qx-extra-tail-reviewed.json"
 
 
 def _deny_value(value):
@@ -57,12 +60,46 @@ def _deny_value(value):
     return None
 
 
-def extract_fmz_ad_filters(sourcebody: str) -> tuple[str, dict]:
+def _reviewed_rows(decisions):
+    """Validate explicit supplements; upstream app headings alone are not proof."""
+    if not isinstance(decisions, dict) or decisions.get("schema_version") != 1 or decisions.get("source_url") != SOURCE_URL:
+        raise ValueError("Invalid reviewed FMZ tail specification")
+    entries = decisions.get("entries")
+    if not isinstance(entries, list):
+        raise ValueError("Reviewed FMZ tail entries must be a list")
+    approved = {}
+    for entry in entries:
+        if (not isinstance(entry, dict) or not isinstance(entry.get("reason"), str)
+                or not entry["reason"].strip() or not isinstance(entry.get("source_section"), str)
+                or type(entry.get("source_line_at_review")) is not int or entry["source_line_at_review"] < 1):
+            raise ValueError("Reviewed FMZ entry needs provenance and a reason")
+        if entry.get("decision") != "include":
+            continue
+        rules, _ = parse_filters({"id": "reviewed-fmz-tail", "source_format": "qx", "force_policy": None}, entry.get("normalized_rule", ""))
+        if len(rules) != 1:
+            raise ValueError("Reviewed FMZ supplement must identify one exact rule")
+        rule = rules[0]
+        if (rule.policy != "reject" or rule.kind not in {"host", "host-suffix", "host-keyword"}
+                or rule.options or _deny_value(rule.value)
+                or entry["source_section"] not in APP_SECTIONS):
+            raise ValueError("Unsafe or unreviewed FMZ tail supplement")
+        key = (entry["source_section"], rule.render())
+        if key in approved:
+            raise ValueError("Duplicate reviewed FMZ tail supplement")
+        approved[key] = entry
+    return approved
+
+
+def extract_fmz_ad_filters(sourcebody: str, *, reviewed_decisions=None) -> tuple[str, dict]:
     """Return native QX rows plus full, deterministic classification evidence."""
     if not isinstance(sourcebody, str) or not sourcebody.strip():
         raise ValueError("FMZ source is empty")
     if re.match(r"\s*(?:<!doctype|<html)", sourcebody, re.I):
         raise ValueError("FMZ source is HTML")
+    if reviewed_decisions is None:
+        reviewed_decisions = json.loads(REVIEWED_TAIL_PATH.read_bytes())
+    approved = _reviewed_rows(reviewed_decisions)
+    applied = set()
     section, vendor, network = "", "__intro__", False
     records, selected, reasons, sections = [], [], Counter(), Counter()
     marker_seen = False
@@ -89,6 +126,11 @@ def extract_fmz_ad_filters(sourcebody: str) -> tuple[str, dict]:
             reason = "excluded: " + reason
         elif rule.policy != "reject":
             reason = "not selected: non-reject policy"
+        elif (section, rule.render()) in approved:
+            # An exact reviewed row supplements the old label predicate. Keep
+            # the upstream match type and scope; no suffix/keyword widening.
+            include, reason = True, "selected: explicitly reviewed ad/tracking supplement"
+            applied.add((section, rule.render()))
         elif network:
             if vendor == "__intro__":
                 include = (rule.kind, rule.value) in INTRO_RULES
@@ -131,6 +173,10 @@ def extract_fmz_ad_filters(sourcebody: str) -> tuple[str, dict]:
                   "not_selected_filter_rows": len(records) - len(selected),
                   "reason_counts": dict(sorted(reasons.items())), "section_counts": dict(sorted(sections.items())),
                   "unknown_app_sections": sorted(unknown_sections), "unknown_network_vendors": sorted(unknown_vendors),
+                  "reviewed_supplement_count": len(approved),
+                  "reviewed_supplements_selected": len(applied),
+                  "reviewed_supplements_not_present": [approved[key] for key in sorted(set(approved)-applied)],
+                  "reviewed_supplement_decisions_sha256": hashlib.sha256(json.dumps(reviewed_decisions, ensure_ascii=False, sort_keys=True).encode()).hexdigest(),
                   "classification": records,
                   "selection_policy": "Explicit reviewed section/vendor headings plus app host-label predicate; deny list takes priority. Unknown headings are recorded and not selected. No blanket REJECT conversion.",
                   "validation": "Native QX static parsing only; not an on-device QX behavior test."}

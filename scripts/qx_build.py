@@ -346,7 +346,27 @@ def build(root=ROOT, *, offline_dir=None, dependency_dir=None, fetcher=None, res
     # Unlisted optional resources remain present after the reviewed active set;
     # configurations without an order retain their original product ordering.
     rewrite_import_order = [*reviewed_order, *(output for output in rewrite_outputs if output not in reviewed_order)]
+    required_remotes = config.get("required_remote_rewrites", [])
+    guarded = {item["id"]: item for item in mixed_guards}
+    seen_remote_urls = set()
+    for remote in required_remotes:
+        if not isinstance(remote, dict) or set(remote) != {"url", "name", "before_product", "validation_id"}:
+            raise ValueError("Invalid required upstream rewrite reference")
+        url, name = remote["url"], remote["name"]
+        if not isinstance(url, str) or any(char in url for char in ",\r\n") or url in seen_remote_urls:
+            raise ValueError("Invalid or duplicate required upstream rewrite URL")
+        if not isinstance(name, str) or not name.strip() or any(char in name for char in ",\r\n"):
+            raise ValueError("Invalid required upstream rewrite name")
+        guard = guarded.get(remote["validation_id"])
+        if guard is None or download_url(url) != download_url(guard["url"]):
+            raise ValueError("Required upstream rewrite is missing its source selection guard")
+        if remote["before_product"] not in rewrite_import_order:
+            raise ValueError("Required upstream rewrite has no active insertion target")
+        seen_remote_urls.add(url)
     for output in rewrite_import_order:
+        for remote in required_remotes:
+            if remote["before_product"] == output:
+                imports.append(f"{remote['url']}, tag={remote['name']}, update-interval=86400, opt-parser=true, enabled=true")
         selection = config["products"][output]
         enabled = str(selection.get("default_enabled", True)).lower()
         imports.append(f"{PUBLIC}{PREFIX}{output}, tag={selection['name']}, update-interval=86400, opt-parser=false, enabled={enabled}")
@@ -367,6 +387,7 @@ def build(root=ROOT, *, offline_dir=None, dependency_dir=None, fetcher=None, res
         "browser_asset_dependencies": browser_assets,
         "source_adaptations": adaptations,
         "mixed_remote_reference_guards": mixed_guards,
+        "required_remote_rewrites": required_remotes,
         "profile_rewrite_deduplication": profile_dedup,
         "resolved_refs": resolved,
         "script_policy": "Upstream JavaScript is pinned to full immutable commits; new script URLs require review. A documented local bug fix is maintained for Zhihu. Scripts are read and statically checked, never executed by this builder.",

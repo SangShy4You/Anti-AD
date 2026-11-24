@@ -1,6 +1,8 @@
+import json
+from pathlib import Path
 import unittest
 
-from scripts.qx_extra_filters import extract_fmz_ad_filters
+from scripts.qx_extra_filters import extract_fmz_ad_filters, REVIEWED_TAIL_PATH, SOURCE_URL
 
 
 class ExtraFilterTests(unittest.TestCase):
@@ -75,6 +77,50 @@ class ExtraFilterTests(unittest.TestCase):
     def test_idempotent_classification(self):
         source = "# > 12123\nhost, ads.example.com, reject\n# > 广告联盟\nhost-suffix, miaozhen.com, reject"
         self.assertEqual(extract_fmz_ad_filters(source), extract_fmz_ad_filters(source))
+
+    def test_compound_ad_and_metrics_names_are_restored_by_exact_review(self):
+        source = ("# > Apple\nhost, metrics.apple.com, reject\n"
+                  "host, webproxy-advp.iad-apple.com, reject\n"
+                  "# > 叮咚买菜\nhost, trackercollect.ddxq.mobi, reject\n"
+                  "# > 建行生活\nhost, o2o-ad-log-gateway.alibaba.com, reject\n"
+                  "# > 喜马拉雅\nhost-suffix, adse-v2.ximalaya.com, reject\n"
+                  "# > 广告联盟\nhost-suffix, miaozhen.com, reject\n")
+        text, report = extract_fmz_ad_filters(source)
+        for value in ("metrics.apple.com", "webproxy-advp.iad-apple.com", "trackercollect.ddxq.mobi", "o2o-ad-log-gateway.alibaba.com", "adse-v2.ximalaya.com"):
+            self.assertIn(value, text)
+        self.assertEqual(report["reviewed_supplements_selected"], 5)
+
+    def test_supplements_keep_keyword_type_and_do_not_widen_to_parent_domain(self):
+        text, report = self.compile("# > 酷狗音乐\nhost-keyword, adsfilebssdlbig.ali.kugou.com, reject\nhost, metrics.future-example.com, reject")
+        self.assertIn("host-keyword, adsfilebssdlbig.ali.kugou.com, reject", text)
+        self.assertNotIn("host-suffix, kugou.com", text)
+        self.assertNotIn("metrics.future-example.com", text)
+        self.assertEqual(report["reviewed_supplements_selected"], 1)
+
+    def test_review_keeps_business_push_safety_and_unknown_ips_out(self):
+        source = ("# > 爱奇艺\nhost, api.iqiyi.com, reject\n"
+                  "# > Google\nhost, safebrowsing.googleapis.com, reject\n"
+                  "# > Soul\nip-cidr, 47.56.131.76/32, reject\n"
+                  "# > 搜狗输入法\nhost-suffix, push-service-ios.sginput.qq.com, reject\n"
+                  "# > 广告联盟\nhost-suffix, miaozhen.com, reject\n")
+        text, _ = extract_fmz_ad_filters(source)
+        for value in ("api.iqiyi.com", "safebrowsing.googleapis.com", "47.56.131.76", "push-service-ios.sginput.qq.com"):
+            self.assertNotIn(value, text)
+
+    def test_review_table_accounts_for_every_original_candidate(self):
+        review = json.loads(REVIEWED_TAIL_PATH.read_bytes())
+        self.assertEqual(len(review["entries"]), 252)
+        self.assertEqual(sum(e["decision"] == "include" for e in review["entries"]), 62)
+        self.assertTrue(all(e["reason"] and e["source_line_at_review"] for e in review["entries"]))
+        for e in review["entries"]:
+            if e["decision"] == "include":
+                self.assertNotIn(e["normalized_rule"].split(",")[0], {"ip-cidr", "ip6-cidr"})
+
+    def test_malformed_or_broad_review_cannot_override_safety(self):
+        for rule in ("host-suffix, google.com, reject", "host, safebrowsing.googleapis.com, reject", "ip-cidr, 203.107.1.0/24, reject", "host, metrics.apple.com, direct"):
+            review = {"schema_version": 1, "source_url": SOURCE_URL, "entries": [{"decision": "include", "source_section": "Google", "source_line_at_review": 1, "normalized_rule": rule, "reason": "test"}]}
+            with self.subTest(rule=rule), self.assertRaises(ValueError):
+                extract_fmz_ad_filters("# > 广告联盟\nhost-suffix, miaozhen.com, reject\n", reviewed_decisions=review)
 
 
 if __name__ == "__main__":

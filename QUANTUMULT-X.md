@@ -1,10 +1,12 @@
 # 个人 Quantumult X 资源
 
-当前完整整理见 [QX-整理说明](QX-整理说明.md)，原配置逐项盘点见 [历史核对](QX-当前配置核对.md)。用户的完整可导入配置只在本机生成并通过聊天交付，未上传公开仓库。
+2026-11-24 已对原 25 项分流和 25 项重写逐项复查。此前整合存在遗漏：把不同动作当作重复、整组删除混合脚本功能、遗漏比价和部分广告追踪来源。本轮已修复已证实的缺口；逐项去向与限制见 [公开审计清单](data/qx-integration-reaudit.json)。不能据此声称与不可获得的旧手机缓存绝对等价。
 
-## 远程广告资源
+完整可导入配置通过聊天在本机交付。公开仓库不包含节点、机场订阅、证书、私人本地规则或私人配置哈希。[import.snippet](https://raw.githubusercontent.com/SangShy4You/Anti-AD/main/rules/quantumultx/import.snippet) 是资源清单，不能覆盖完整 VPN 配置。
 
-新配置将混合分流按原始连续顺序拆成六项，使拦截项能够明确使用 **REJECT**，同时保留必要放行。应按下表完整订阅，不交换顺序：
+## 有序广告分流
+
+混合分流按原始连续顺序拆成六项。三项纯拦截明确使用 **REJECT**，必要放行保留逐条策略，不能把六项都强制为 REJECT。
 
 | 顺序 | 文件 | 强制策略 |
 | --- | --- | --- |
@@ -15,26 +17,29 @@
 | 5 | [ads-allow-services.list](https://raw.githubusercontent.com/SangShy4You/Anti-AD/main/rules/quantumultx/ads-allow-services.list) | 不指定，保留逐条策略 |
 | 6 | [ads-reject-supplement.list](https://raw.githubusercontent.com/SangShy4You/Anti-AD/main/rules/quantumultx/ads-reject-supplement.list) | **REJECT** |
 
-拆分不改写、删除或重排任何有效规则行。更新时若连续策略段的数量、顺序或允许策略发生未审变化，构建会停止并保留旧快照。旧 `ads.list` 继续生成，供已有配置兼容使用；新 `import.snippet` 默认引用上述六项。
+六项须保持顺序。旧 [ads.list](https://raw.githubusercontent.com/SangShy4You/Anti-AD/main/rules/quantumultx/ads.list) 继续生成用于兼容；它含混合策略，不加统一 force-policy。本轮为原尾部分流补选 62 项有证据的广告／追踪来源，并将四项已有更前拒绝的 IP 兼容副本归入去重，合并后为 **252441** 条。必要放行仍先于相应后续拒绝；新增来源不等于每项都强制改成拒绝。
 
-| 文件 | 用途 |
-| --- | --- |
-| [ads.list](https://raw.githubusercontent.com/SangShy4You/Anti-AD/main/rules/quantumultx/ads.list) | 原广告／追踪分流、必要放行和已审补充 |
-| [ads.conf](https://raw.githubusercontent.com/SangShy4You/Anti-AD/main/rules/quantumultx/ads.conf) | 综合 App 广告、贴吧、神机补充及 Collections 纯广告 |
-| [miniapps.conf](https://raw.githubusercontent.com/SangShy4You/Anti-AD/main/rules/quantumultx/miniapps.conf) | 小程序广告／界面净化 |
-| [mixed-web.conf](https://raw.githubusercontent.com/SangShy4You/Anti-AD/main/rules/quantumultx/mixed-web.conf) | 豆瓣去广告与快捷观影 |
-| [web.conf](https://raw.githubusercontent.com/SangShy4You/Anti-AD/main/rules/quantumultx/web.conf) | 毒奶网页净化 |
-| [youtube.conf](https://raw.githubusercontent.com/SangShy4You/Anti-AD/main/rules/quantumultx/youtube.conf) | YouTube 去广告、后台播放与画中画响应处理 |
+## 个人重写与原功能补充
 
-上述个人原生资源使用 opt-parser=false。三项纯拦截资源明确使用 force-policy=reject；三项必要放行和兼容用的混合 ads.list 不加统一 force-policy，以保留微信等正常连接。主文件按用户原配置保留“全球加速”策略组；完整配置也需保留此组。
+| 文件 | 用途 | 本轮规则数 |
+| --- | --- | --- |
+| [ads.conf](https://raw.githubusercontent.com/SangShy4You/Anti-AD/main/rules/quantumultx/ads.conf) | 综合 App 广告、贴吧、神机及 Collections 纯广告 | 2205 |
+| [miniapps.conf](https://raw.githubusercontent.com/SangShy4You/Anti-AD/main/rules/quantumultx/miniapps.conf) | 小程序广告与界面净化 | 60 |
+| [mixed-web.conf](https://raw.githubusercontent.com/SangShy4You/Anti-AD/main/rules/quantumultx/mixed-web.conf) | 豆瓣广告净化与快捷观影 | 1 |
+| [web.conf](https://raw.githubusercontent.com/SangShy4You/Anti-AD/main/rules/quantumultx/web.conf) | 毒奶网页净化 | 130 |
+| [youtube.conf](https://raw.githubusercontent.com/SangShy4You/Anti-AD/main/rules/quantumultx/youtube.conf) | YouTube 广告、后台播放与画中画响应处理 | 7 |
 
-**保留原全局 KOP 解析器。** 原来的服务路由、字幕筛选、TestFlight JS 直引、Collections／cleanup 功能保留仍需要原解析设置。
+个人原生资源使用 `opt-parser=false`。保留全局 KOP 解析器：字幕筛选、TestFlight JS 直引及上游功能补集仍需要原解析设置。`import.snippet` 固定将必需的 FMZ 精准补充放在广泛的个人广告重写之前；不要删掉它后仅导入个人广告文件。
 
-[import.snippet](https://raw.githubusercontent.com/SangShy4You/Anti-AD/main/rules/quantumultx/import.snippet) 是资源清单，不是完整 VPN 配置。没有节点、DNS、最终路由或证书。完整主配置需要保留原设置，不能用资源清单覆盖。
+FMZ 补充保留 39 项混合广告／功能处理和 28 项原功能，共 67 条，包含原来的升级提示处理和知乎外链等。实际执行原 KOP 后，67 条处理、原顺序和 49 个来源 hostname 均一致；脚本仍由上游提供。京东／淘宝比价的原 DoracisMu 外链已在私人完整配置恢复，保留三个处理入口及两个 hostname；该非广告功能不放进公开广告清单。
 
-## 同类服务合并资源
+字幕的 `#out=Hant`、Netflix 评分、BoxJS、Sub-Store、Google 自动翻页、查询任务和图标继续按原引用保留。Collections 的四项纯广告处理转入个人资源，其余功能保留外链；cleanup 同样保留原三项非广告功能。豆瓣完整原脚本仍保留广告净化与快捷观影两部分。
 
-Google 的 Gemini／YouTube／Drive／Voice 与通用规则合并为一份；Microsoft 的 OneDrive／Copilot／Bing 与通用规则合并为一份。其余服务也各有一份个人原生资源。新完整配置只引用以下 17 项服务资源，个人资源标签统一标注 `@SangShy`。
+原来禁用的七项资源继续不启用，包括 WebAdBlock 和 StartUp。单独的 TestFlightDownload 不恢复，因为 [作者说明](https://raw.githubusercontent.com/NobyDa/Script/master/TestFlight/TestFlightAccount.js)及 install 分支代码确认，其区域安装处理已合并进保留的 TestFlightAccount；同时启用会产生冲突。
+
+## 同类服务合并
+
+Google 的 Gemini／YouTube／Drive／Voice 与通用规则合并为一份；Microsoft 的 OneDrive／Copilot／Bing 与通用规则合并为一份。其余服务也各有一份个人原生资源，共 17 项。个人资源显示 `@SangShy`，继续引用上游的资源显示原作者；原始作者、来源及筛选条件仍记录在仓库中。
 
 | 文件 | 显示名 | 策略 |
 | --- | --- | --- |
@@ -56,28 +61,18 @@ Google 的 Gemini／YouTube／Drive／Voice 与通用规则合并为一份；Mic
 | [service-wechat.list](https://raw.githubusercontent.com/SangShy4You/Anti-AD/main/rules/quantumultx/service-wechat.list) | 微信直连 @SangShy | direct |
 | [service-proxy-fix.list](https://raw.githubusercontent.com/SangShy4You/Anti-AD/main/rules/quantumultx/service-proxy-fix.list) | 代理修正 @SangShy | proxy |
 
-原作者、原始 URL、逐项筛选参数、去重记录和哈希保留在配置与 manifest。Google／Microsoft 内部仍按专用到通用的原有顺序合并；跨服务优先按已核实域名验证。任意构造的域名若同时包含多个宽泛品牌关键词，不承诺与旧的交错资源列表完全同序。
+原 KOP 已丢弃的少量 Surge 选项按逐来源的兼容契约处理；原生 QX 选项保持，命名 GEOIP 标签显式保留。同一条流量以客户端实际加载顺序及匹配规则为准。同类服务合并会改变人为构造、同时命中多个宽泛品牌关键词的名称顺序；这类合成样例不是实际连接故障记录，也不证明所有跨服务条件都严格等价。
 
-原 KOP 已丢弃的少量 Surge 选项仅按逐来源的已审兼容契约处理；原生 QX 选项保持。原有命名 GEOIP 标签也显式保留，仍依赖 QX 原来的相应数据库。
+## 去重边界与 YouTube
 
-## YouTube 后台播放恢复
+分流只对相同匹配、相同策略和相同限定项去重。重写只删除完整操作相同的重复项；同一表达式出现不同动作、响应内容或脚本参数时，按原输入顺序保留并记录重叠，不再擅自丢掉后者。本轮 ads.conf 保留 105 项不等价重叠，删除 225 项完全重复，另补一条经原 KOP 验证可转换的 PSBC 图片规则。与上一版相比净增 106 条；旧审计中的 121 次冲突不是 121 条独有增量。
 
-此前整合选择了 app2smile 的 browse／next 入口，漏掉原 fmz 资源内 Maasea 的 player／get_watch／settings 响应处理。现改为一套 Maasea 响应处理器，补回后台播放和画中画字段，同时保留广告清理、RuleGo 静态拦截与独立字幕资源。
+YouTube 维持单套自托管 Maasea 响应处理，覆盖播放器、get_watch 和设置接口，保留广告清理及后台／画中画字段；不加入外部 Worker 请求转发。二进制测试验证这些字段、QX ArrayBuffer、未知字段保留和异常放行。独立字幕资源继续保留。手机实际息屏播放尚未验证。
 
-脚本固定到已审不可变提交并自托管为 `scripts/youtube-background.js`；上游响应逻辑保持，Apache-2.0 归属及许可完整保留。二进制响应回归测试实际执行固定脚本，验证后台／画中画标记、广告字段清理、QX ArrayBuffer 输出、未知字段保留和异常响应放行。尚未在用户 iPhone 上实测；不将新版 UMP 请求转发加入本次整合。
+## 自动维护与可复核证据
 
-新完整配置以用户最新导出为基准，仅更换资源引用和来源标签，保留最新策略组、节点、DNS、证书和本地规则。仍由外部作者提供的重写标注原作者。
+[自动更新任务](https://github.com/SangShy4You/Anti-AD/actions/workflows/update-qx.yml)每天北京时间 08:50 检查。来源筛选基数、已审补充项、精确语法转换、六段策略顺序、脚本依赖和补丁上下文都有守卫；失败保留已发布快照。个人编译产物中的脚本依赖固定到不可变提交，保留原功能的外链继续由上游维护。
 
-## 原功能与优先级
+本页数字是本轮审计快照；后续实时数量见 [manifest](rules/quantumultx/manifest.json)。原 50 项资源去向、修复证据、去重契约与明确排除项见 [审计 JSON](data/qx-integration-reaudit.json)，许可见 [THIRD_PARTY_NOTICES](THIRD_PARTY_NOTICES.md)。
 
-原比价、字幕、评分、BoxJS、Sub-Store、查询任务与图标继续远程引用。混合来源通过精确筛选保留非广告功能；79 条本地分流与 3 条本地重写留在私有配置中，保护其优先级。当前完整配置保留原十份服务路由，不以可选 BM 列表冒充逐项等价替代。
-
-可选 route-openai／telegram／streaming／wechat／apple／china.list 继续提供，资源清单里默认禁用。新完整配置不额外启用它们。
-
-## 维护与验证
-
-[自动更新任务](https://github.com/SangShy4You/Anti-AD/actions/workflows/update-qx.yml) 每天北京时间 08:50 检查。客户端订阅间隔建议 86400 秒。新脚本、失败下载、规则数量突降、补丁上下文变化、混合功能筛选漂移或语法检查失败都会停止发布并保留旧快照。
-
-脚本固定到不可变上游提交，并读取／语法解析；不会在构建机执行脚本业务。维护的少量修补有上游来源、改动说明和测试。源许可分别保留，见 [THIRD_PARTY_NOTICES](THIRD_PARTY_NOTICES.md)。
-
-[manifest.json](rules/quantumultx/manifest.json) 记录每份来源、去重、冲突、依赖及哈希。静态验证与下载核对不能替代 iPhone 上实际运行。
+旧 chongxie 的冻结缓存不可获得；38 项尾部候选的用途或 IP 独占性尚未证实，未盲目整域封锁。静态构建、真实 KOP 解析和脚本样例测试均不能替代具体 iPhone、App 版本和账号的运行验证。

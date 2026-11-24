@@ -78,6 +78,32 @@ class BuildTests(unittest.TestCase):
                 self.build(root)
             self.assertEqual(snapshot, self.snapshot(root))
 
+    def test_required_functional_complement_is_guarded_and_imported_before_ads(self):
+        with tempfile.TemporaryDirectory(prefix=".test-update-", dir=qx_build.ROOT) as directory:
+            root = Path(directory)
+            config = self.prepare(root)
+            original = "https://raw.githubusercontent.com/example/r/main/mixed.conf"
+            self.bodies[original] = b"^https://music.example/ads url script-response-body https://example.com/mixed.js\nhostname = music.example\n"
+            config["validation_sources"] = [{"id": "mixed-function", "url": original, "mode": "in", "keys": ["mixed.js"], "expected_selected": 1}]
+            selected = original + "#in=mixed.js&hide=1&ntf=0"
+            config["required_remote_rewrites"] = [{"url": selected, "name": "Mixed functions @original", "before_product": "ads.conf", "validation_id": "mixed-function"}]
+            (root / "config/qx-sources.json").write_text(json.dumps(config), encoding="utf-8")
+            self.build(root)
+            imports = (root / "rules/quantumultx/import.snippet").read_text(encoding="utf-8")
+            self.assertIn(selected + ", tag=Mixed functions @original", imports)
+            self.assertLess(imports.index(selected), imports.index("/ads.conf,"))
+            self.assertIn("opt-parser=true, enabled=true", imports)
+            snapshot = self.snapshot(root)
+            self.bodies[original] = b"^https://music.example/ads url reject\n"
+            with self.assertRaisesRegex(ValueError, "selection drift"):
+                self.build(root)
+            self.assertEqual(snapshot, self.snapshot(root))
+            config["validation_sources"] = []
+            (root / "config/qx-sources.json").write_text(json.dumps(config), encoding="utf-8")
+            with self.assertRaisesRegex(ValueError, "missing its source selection guard"):
+                self.build(root)
+            self.assertEqual(snapshot, self.snapshot(root))
+
     def test_already_immutable_script_url_does_not_resolve_another_revision(self):
         with tempfile.TemporaryDirectory(prefix=".test-update-", dir=qx_build.ROOT) as directory:
             root = Path(directory)

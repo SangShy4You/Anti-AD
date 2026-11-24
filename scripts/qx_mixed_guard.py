@@ -20,7 +20,11 @@ def validate_mixed_reference(body: str, spec: dict) -> dict:
     ``spec`` has ``mode`` (``in``/``out``), ``keys`` (unique literal strings),
     ``expected_selected`` (the expected number of distinct matching rows) and
     an optional public ``title``. Each key must match exactly one active native
-    rewrite. Rule bodies are never included in the returned report or errors.
+    rewrite by default. Optional ``expected_per_key`` can specify reviewed
+    counts for keys that intentionally retain every hook of one script; its
+    keys must exactly equal ``keys`` and its counts must be positive integers.
+    The distinct matched union must still equal ``expected_selected``.
+    Rule bodies are never included in the returned report or errors.
     """
     if not isinstance(body, str) or not body.strip():
         raise ValueError("Mixed reference source is empty")
@@ -40,6 +44,11 @@ def validate_mixed_reference(body: str, spec: dict) -> dict:
     folded = [key.upper() for key in keys]
     if len(set(folded)) != len(folded):
         raise ValueError("Mixed reference keys must be unique ignoring case")
+    per_key_expected = spec.get("expected_per_key", {key: 1 for key in keys})
+    if not isinstance(per_key_expected, dict) or set(per_key_expected) != set(keys):
+        raise ValueError("Expected per-key counts must have exactly the selected keys")
+    if any(type(value) is not int or value < 1 for value in per_key_expected.values()):
+        raise ValueError("Expected per-key counts must be positive integers")
     expected = spec.get("expected_selected", len(keys))
     if type(expected) is not int or expected < 1:
         raise ValueError("Expected selected count must be a positive integer")
@@ -69,9 +78,10 @@ def validate_mixed_reference(body: str, spec: dict) -> dict:
                 matched = True
         if matched:
             selected.append((number, line))
-    bad_counts = [len(numbers) for numbers in matches.values() if len(numbers) != 1]
+    bad_counts = [len(numbers) for key, numbers in matches.items()
+                  if len(numbers) != per_key_expected[key]]
     if bad_counts:
-        raise ValueError("Mixed reference selection drift: each key must match exactly one active rule")
+        raise ValueError("Mixed reference selection drift: each key must match its reviewed active-rule count")
     if len(selected) != expected:
         raise ValueError("Mixed reference selection drift: distinct selected count differs from the reviewed count")
     selected_count = len(selected)
@@ -86,7 +96,8 @@ def validate_mixed_reference(body: str, spec: dict) -> dict:
         "selected_rule_count": selected_count,
         "retained_rule_count": retained_count,
         "filtered_rule_count": len(rows) - retained_count,
-        "per_key_matches": [{"key": key, "count": len(matches[key]), "lines": matches[key]} for key in keys],
+        "per_key_matches": [{"key": key, "count": len(matches[key]),
+                             "expected_count": per_key_expected[key], "lines": matches[key]} for key in keys],
         "selected_rule_evidence": [{"line": number, "sha256": hashlib.sha256(line.encode("utf-8")).hexdigest()}
                                    for number, line in selected],
         "rule_bodies_exported": False,

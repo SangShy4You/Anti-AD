@@ -49,6 +49,43 @@ class MixedGuardTests(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, "distinct selected"):
             validate_mixed_reference(body, {"mode": "out", "keys": ["ad", "one"], "expected_selected": 2})
 
+    def test_reviewed_script_count_keeps_both_request_and_response_hooks(self):
+        body = "request url script-request-header https://raw.githubusercontent.com/o/r/main/script.js\nresponse url script-response-body https://raw.githubusercontent.com/o/r/main/script.js\nother url reject\n"
+        report = validate_mixed_reference(body, {
+            "mode": "in", "keys": ["script.js"],
+            "expected_per_key": {"script.js": 2}, "expected_selected": 2,
+        })
+        self.assertEqual(report["selected_rule_count"], 2)
+        self.assertEqual(report["retained_rule_count"], 2)
+        self.assertEqual(report["filtered_rule_count"], 1)
+        self.assertEqual(report["per_key_matches"][0]["expected_count"], 2)
+        self.assertEqual(report["per_key_matches"][0]["lines"], [1, 2])
+
+    def test_reviewed_group_drift_in_either_direction_stops(self):
+        spec = {"mode": "in", "keys": ["script.js"],
+                "expected_per_key": {"script.js": 2}, "expected_selected": 2}
+        for count in (1, 3):
+            body = "".join(f"path_{i} url script-response-body https://raw.githubusercontent.com/o/r/main/script.js\n" for i in range(count))
+            with self.subTest(count=count), self.assertRaisesRegex(ValueError, "reviewed"):
+                validate_mixed_reference(body, spec)
+
+    def test_group_counts_and_selected_union_are_checked_separately(self):
+        body = "one url script-response-body https://raw.githubusercontent.com/o/r/main/foo.js\ntwo url script-request-header https://raw.githubusercontent.com/o/r/main/foo.js\n"
+        spec = {"mode": "in", "keys": ["foo.js", "main/foo.js"],
+                "expected_per_key": {"foo.js": 2, "main/foo.js": 2}, "expected_selected": 4}
+        with self.assertRaisesRegex(ValueError, "distinct selected"):
+            validate_mixed_reference(body, spec)
+        spec["expected_selected"] = 2
+        self.assertEqual(validate_mixed_reference(body, spec)["selected_rule_count"], 2)
+
+    def test_invalid_reviewed_group_counts_do_not_widen_selection(self):
+        for counts in (None, [], {"other.js": 2}, {"foo.js": 1, "extra": 1},
+                       {"FOO.js": 1}, {"foo.js": 0}, {"foo.js": -1},
+                       {"foo.js": True}, {"foo.js": 1.5}, {"foo.js": "2"}):
+            spec = {"mode": "in", "keys": ["foo.js"], "expected_per_key": counts}
+            with self.subTest(counts=counts), self.assertRaisesRegex(ValueError, "per-key"):
+                validate_mixed_reference("path url script-response-body https://raw.githubusercontent.com/o/r/main/foo.js\n", spec)
+
     def test_unselected_rule_changes_are_allowed(self):
         spec = {"mode": "out", "keys": ["selected"], "expected_selected": 1}
         first = validate_mixed_reference("selected url reject\nold url reject\n", spec)

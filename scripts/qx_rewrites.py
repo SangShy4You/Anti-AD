@@ -11,7 +11,7 @@ import re
 from urllib.parse import urlsplit
 
 
-_RULE = re.compile(r"^(.+?)\s+(url-and-header|url)\s+(\S+)(?:[ \t]+(.*))?$", re.I)
+_RULE = re.compile(r"^(.+?)\s+(url-and-header|url|-)\s+(\S+)(?:[ \t]+(.*))?$", re.I)
 _ANNOTATION = re.compile(r"^\{#.*?#\}\s*")
 _HOSTNAME = re.compile(r"^hostname\s*=\s*(.*)$", re.I)
 _FILTER = re.compile(
@@ -80,11 +80,12 @@ def compile_rewrites(sources: list, bodies: dict) -> tuple[str, dict]:
     - excluded_lines: the same mapping for explicitly unsupported content.
     - include_hostnames: exact upstream hostname entries to retain.
 
-    Exact duplicate rules are removed. Conflicts in the same request/response/
-    terminal stage use the first source occurrence. Different stages survive;
-    their common matcher is reported so a reviewer can assess interaction.
-    This priority is an integration choice, not a claim about all QX runtime
-    matching modes. No regex equivalence or domain-wide widening is attempted.
+    Only exact duplicate rules are removed. Different actions or arguments
+    sharing a matcher remain in source order, including within the same stage.
+    A matching URL does not establish equivalent functionality: two JSON
+    transformations may edit different fields. These overlaps are reported
+    without claiming how many QX will execute. No regex equivalence or
+    domain-wide widening is attempted.
     """
     if not isinstance(sources, list) or not sources:
         raise ValueError("rewrite sources must be a non-empty list")
@@ -98,12 +99,12 @@ def compile_rewrites(sources: list, bodies: dict) -> tuple[str, dict]:
     report = {
         "schema_version": 1,
         "validation": "Static native QX structure only; no JavaScript executed and no on-device QX test.",
-        "conflict_policy": "first selected source occurrence within a matching stage; retain different stages",
+        "conflict_policy": "exact canonical duplicates only; retain non-equivalent overlaps in source order",
         "sources": [], "rules": rules, "duplicates": [], "conflicts": [],
         "cross_stage_matches": [], "filter_lines": [], "exclusions": [],
         "hostname_origins": [], "hostname_conflicts": [], "script_urls": [],
         "script_references": [], "local_script_references": [], "local_data_references": [],
-        "source_metadata": [],
+        "source_metadata": [], "syntax_conversions": [],
     }
     for source in sources:
         sid = source.get("id")
@@ -182,6 +183,16 @@ def compile_rewrites(sources: list, bodies: dict) -> tuple[str, dict]:
             matcher, marker, action, argument = match.groups()
             marker, action = marker.lower(), action.lower()
             argument = argument or ""
+            if marker == "-":
+                if source.get("allow_surge_rewrite_marker") is not True:
+                    raise ValueError(f"{sid}:{number}: Surge URL Rewrite marker requires explicit source approval")
+                marker = "url"
+                report["syntax_conversions"].append({
+                    **evidence, "kind": "surge-url-rewrite-marker",
+                    "converted": f"{matcher} url {action}" + (f" {argument}" if argument else ""),
+                    "reason": "Reviewed original KOP conversion: Surge '-' marker maps to native QX 'url'; matcher and action remain unchanged.",
+                })
+                counts["surge_marker_rules_converted"] += 1
             if not matcher.strip() or action not in _ACTIONS:
                 raise ValueError(f"{sid}:{number}: unsupported rewrite action {action!r}")
             if marker == "url-and-header" and len(matcher.split(None, 1)) != 2:
@@ -210,20 +221,21 @@ def compile_rewrites(sources: list, bodies: dict) -> tuple[str, dict]:
             entry = {"rule": canonical, "matcher": matcher, "marker": marker, "action": action,
                      "argument": argument, "stage": stage, "origins": [evidence]}
             if key in by_matcher_stage:
-                winner = by_matcher_stage[key]
+                previous = by_matcher_stage[key]
                 report["conflicts"].append({"matcher": matcher, "marker": marker, "stage": stage,
-                                            "resolution": "first-source-wins", "kept": winner,
-                                            "excluded": entry})
-                counts["conflicts_excluded"] += 1
-                continue
+                                            "resolution": "retained-in-source-order", "earlier": previous,
+                                            "additional": entry})
+                counts["conflicts_retained"] += 1
             common_key = (matcher, marker)
             for previous in by_matcher.get(common_key, []):
+                if previous["stage"] == stage:
+                    continue
                 report["cross_stage_matches"].append({"matcher": matcher, "marker": marker,
                                                        "kept_stages": [previous["stage"], stage],
                                                        "rules": [previous["rule"], canonical],
                                                        "reason": "different processing stages retained; interaction requires QX testing"})
             by_matcher.setdefault(common_key, []).append(entry)
-            by_matcher_stage[key] = entry
+            by_matcher_stage.setdefault(key, entry)
             by_rule[canonical] = entry
             rules.append(entry)
             counts["exported_rules"] += 1
@@ -234,6 +246,8 @@ def compile_rewrites(sources: list, bodies: dict) -> tuple[str, dict]:
             raise ValueError(f"{sid}: stale include_hostnames; selected hostname is missing")
         if counts["input_rules"] == 0:
             raise ValueError(f"{sid}: no native rewrite rules found")
+        if counts["selected_rules"] != counts["exported_rules"] + counts["duplicates_removed"]:
+            raise ValueError(f"{sid}: selected rewrite coverage is incomplete")
         # A later source can supply the MitM host required by an exact duplicate.
         if counts["selected_rules"]:
             for host, evidence in source_hosts:
@@ -271,8 +285,17 @@ def compile_rewrites(sources: list, bodies: dict) -> tuple[str, dict]:
             report["local_data_references"].append({"argument": entry["argument"], "rule": entry["rule"], "origins": entry["origins"]})
     report["actions"] = dict(sorted(Counter(entry["action"] for entry in rules).items()))
     report["counts"] = {"rules": len(rules), "hostnames": len(hostnames), "script_urls": len(report["script_urls"]),
-                        "exact_duplicates_removed": len(report["duplicates"]), "conflicts_excluded": len(report["conflicts"]),
+                        "exact_duplicates_removed": len(report["duplicates"]), "conflicts_excluded": 0,
+                        "non_equivalent_overlaps_retained": len(report["conflicts"]),
                         "filter_lines_collected": len(report["filter_lines"])}
+    report["selected_rule_coverage"] = {
+        "stage": "resource compilation before profile exact deduplication",
+        "selected": sum(item.get("selected_rules", 0) for item in report["sources"]),
+        "exported": len(rules),
+        "exact_duplicates_accounted_for": len(report["duplicates"]),
+        "profile_exact_duplicates_accounted_for": 0,
+        "non_equivalent_rules_discarded": 0,
+    }
     snippet = "# Personal QX rewrites; generated from reviewed sources.\n"
     snippet += "\n".join(entry["rule"] for entry in rules) + "\n"
     if hostnames:

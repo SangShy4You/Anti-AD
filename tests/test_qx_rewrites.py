@@ -15,13 +15,49 @@ class QxRewriteTests(unittest.TestCase):
         self.assertEqual(len(audit["rules"][0]["origins"]), 2)
         self.assertEqual(audit["counts"]["exact_duplicates_removed"], 1)
 
-    def test_conflict_distinct_response_semantics_first_source(self):
+    def test_distinct_response_semantics_remain_in_source_order(self):
         matcher = r"^https://example\.com/a"
         output, audit = self.compile(f"{matcher} url reject-dict\n{matcher} url reject\n")
         self.assertIn("url reject-dict\n", output)
-        self.assertNotIn("url reject\n", output)
-        self.assertEqual(audit["conflicts"][0]["resolution"], "first-source-wins")
-        self.assertEqual(audit["conflicts"][0]["excluded"]["action"], "reject")
+        self.assertIn("url reject\n", output)
+        self.assertLess(output.index("url reject-dict\n"), output.index("url reject\n"))
+        self.assertEqual(audit["conflicts"][0]["resolution"], "retained-in-source-order")
+        self.assertEqual(audit["conflicts"][0]["additional"]["action"], "reject")
+        self.assertEqual(audit["counts"]["conflicts_excluded"], 0)
+
+    def test_kuaishou_independent_cleanup_is_not_a_duplicate(self):
+        matcher = r"^https:\/\/(apissl|az2-api(-js|-idc)?)\.(gifshow|ksapisrv)\.com\/rest\/system\/startup\?"
+        first = f"{matcher} url jsonjq-response-body 'del(.reskinConfig.sidebarExSquareStyle.moreList, .reskinConfig.sidebarExSquareStyle.topList)'"
+        second = f"{matcher} url jsonjq-response-body '.sidebarExSquareStyle.commonlyUsedList |= map(select(.title == \"设置\" or .title == \"历史记录\"))'"
+        output, audit = compile_rewrites(
+            [{"id": "fmz"}, {"id": "later"}],
+            {"fmz": first + "\n" + second, "later": second},
+        )
+        self.assertIn(first, output)
+        self.assertIn(second, output)
+        self.assertLess(output.index(first), output.index(second))
+        self.assertEqual(output.count(second), 1)
+        self.assertEqual(audit["counts"]["exact_duplicates_removed"], 1)
+        self.assertEqual(audit["counts"]["non_equivalent_overlaps_retained"], 1)
+
+    def test_same_matcher_different_response_scripts_are_both_preserved(self):
+        output, audit = self.compile(
+            "^https://example.com/a url script-response-body https://example.com/ads.js\n"
+            "^https://example.com/a url script-response-body https://example.com/background.js\n"
+        )
+        self.assertIn("ads.js", output)
+        self.assertIn("background.js", output)
+        self.assertEqual(len(audit["script_urls"]), 2)
+
+    def test_original_psbc_surge_marker_is_converted_without_losing_ad_rule(self):
+        matcher = r"^https?:\/\/static.psbc.com:8090\/mbank_f\/images\/[0-9]+\.png"
+        original = matcher + " - reject-200"
+        with self.assertRaisesRegex(ValueError, "requires explicit source approval"):
+            self.compile(original)
+        output, audit = self.compile(original, allow_surge_rewrite_marker=True)
+        self.assertIn(matcher + " url reject-200\n", output)
+        self.assertEqual(audit["syntax_conversions"][0]["text"], original)
+        self.assertEqual(audit["sources"][0]["surge_marker_rules_converted"], 1)
 
     def test_request_and_response_stages_survive(self):
         output, audit = self.compile(

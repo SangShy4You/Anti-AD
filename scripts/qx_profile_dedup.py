@@ -139,6 +139,13 @@ def deduplicate_profile(products: dict[str, bytes], reports: dict[str, dict], or
         report.setdefault("counts", {})["rules"] = len(kept)
         report["counts"]["script_urls"] = len(report["script_urls"])
         report["counts"]["profile_exact_duplicates_removed"] = len(removed)
+        if "selected_rule_coverage" in report:
+            coverage = report["selected_rule_coverage"]
+            coverage.update(stage="active profile", exported=len(kept),
+                            profile_exact_duplicates_accounted_for=len(removed))
+            if coverage["selected"] != (coverage["exported"] + coverage["exact_duplicates_accounted_for"]
+                                        + coverage["profile_exact_duplicates_accounted_for"]):
+                raise ValueError("Selected profile rewrite coverage is incomplete")
         report["profile_deduplication"] = summary
         for source in report.get("sources", []):
             removed_count = removed_sources[source["id"]]
