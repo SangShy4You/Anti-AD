@@ -19,7 +19,7 @@
       "url": "https://cdn.jsdelivr.net/gh/limbopro/Adblock4limbo@f38fec9a7630b561c76932af053d24bd541372fe/Adguard/elementBlocker.user.js"
     }
   ],
-  "config_sha256": "81d11759d6732101630627ae49a2127e670e99e32a4de0ccd1a9659374fdabd7",
+  "config_sha256": "76a2980c9de62542d574c0ddf89a080cb978a5f0c3f395ab3676eca5233e76c1",
   "data_dependencies": [
     {
       "bytes": 711,
@@ -3041,7 +3041,7 @@
       }
     }
   },
-  "generator_sha256": "0fd00984daeaa8f42afe43d60b03f239364f65c050ac2a0ca95743ce38f2a158",
+  "generator_sha256": "7d9bf6faeba9ad6087a40f8439089baee8f3d2ab79d4c920d3c73db7fcf8a6b3",
   "mixed_remote_reference_guards": [
     {
       "expected_selected": 4,
@@ -3833,9 +3833,13 @@
       "bytes": 68,
       "sha256": "43739c566e26fd7cb88f69d3864ea34740372f5ee99acac169e090beffbce5c6"
     },
+    "rules/quantumultx/bilibili.conf": {
+      "bytes": 798,
+      "sha256": "eab272014c69c9598edf44a6584498672f9d8831a3040d28aae6406bde93c148"
+    },
     "rules/quantumultx/import.snippet": {
-      "bytes": 7704,
-      "sha256": "d6acbb45ec3b262c57216baeba0bdcd863d3d8c06d75014211e7b8607bf4113d"
+      "bytes": 7875,
+      "sha256": "0ff0def90e91ce9d9fef1d3f839b4ce33c27b3643f7d706d7bd05784caab5590"
     },
     "rules/quantumultx/miniapps.conf": {
       "bytes": 12542,
@@ -3978,8 +3982,20 @@
     {
       "duplicates_removed": 0,
       "examples": [],
-      "file": "ads.conf",
+      "file": "bilibili.conf",
       "order_index": 1,
+      "policy": "exact canonical rule only; first active profile resource wins",
+      "profile_example_limit": 100,
+      "removed_source_counts": {},
+      "requires_earlier_products": [],
+      "rules_after": 3,
+      "rules_before": 3
+    },
+    {
+      "duplicates_removed": 0,
+      "examples": [],
+      "file": "ads.conf",
+      "order_index": 2,
       "policy": "exact canonical rule only; first active profile resource wins",
       "profile_example_limit": 100,
       "removed_source_counts": {},
@@ -5852,7 +5868,7 @@
         }
       ],
       "file": "miniapps.conf",
-      "order_index": 2,
+      "order_index": 3,
       "policy": "exact canonical rule only; first active profile resource wins",
       "profile_example_limit": 100,
       "removed_source_counts": {
@@ -5868,7 +5884,7 @@
       "duplicates_removed": 0,
       "examples": [],
       "file": "mixed-web.conf",
-      "order_index": 3,
+      "order_index": 4,
       "policy": "exact canonical rule only; first active profile resource wins",
       "profile_example_limit": 100,
       "removed_source_counts": {},
@@ -5880,7 +5896,7 @@
       "duplicates_removed": 0,
       "examples": [],
       "file": "web.conf",
-      "order_index": 4,
+      "order_index": 5,
       "policy": "exact canonical rule only; first active profile resource wins",
       "profile_example_limit": 100,
       "removed_source_counts": {},
@@ -53848,7 +53864,7 @@
         "duplicates_removed": 0,
         "examples": [],
         "file": "ads.conf",
-        "order_index": 1,
+        "order_index": 2,
         "policy": "exact canonical rule only; first active profile resource wins",
         "profile_example_limit": 100,
         "removed_source_counts": {},
@@ -92864,6 +92880,197 @@
       ],
       "validation": "Static native QX structure only; no JavaScript executed and no on-device QX test."
     },
+    "bilibili.conf": {
+      "actions": {
+        "script-response-body": 3
+      },
+      "conflict_policy": "exact canonical duplicates only; retain non-equivalent overlaps in source order",
+      "conflicts": [],
+      "counts": {
+        "conflicts_excluded": 0,
+        "exact_duplicates_removed": 0,
+        "filter_lines_collected": 0,
+        "hostnames": 4,
+        "non_equivalent_overlaps_retained": 0,
+        "profile_exact_duplicates_removed": 0,
+        "rules": 3,
+        "script_urls": 1
+      },
+      "cross_stage_matches": [],
+      "duplicates": [],
+      "exclusions": [],
+      "filter_lines": [],
+      "hostname_conflicts": [],
+      "hostname_origins": [
+        {
+          "hostname": "app.bilibili.com",
+          "origins": [
+            {
+              "line": 4,
+              "source": "biliverse-adblock",
+              "url": "https://github.com/Biliverse/ADBlock/releases/latest/download/BiliBili.ADBlock.snippet"
+            }
+          ]
+        },
+        {
+          "hostname": "app.biliapi.net",
+          "origins": [
+            {
+              "line": 4,
+              "source": "biliverse-adblock",
+              "url": "https://github.com/Biliverse/ADBlock/releases/latest/download/BiliBili.ADBlock.snippet"
+            }
+          ]
+        },
+        {
+          "hostname": "grpc.biliapi.net",
+          "origins": [
+            {
+              "line": 4,
+              "source": "biliverse-adblock",
+              "url": "https://github.com/Biliverse/ADBlock/releases/latest/download/BiliBili.ADBlock.snippet"
+            }
+          ]
+        },
+        {
+          "hostname": "api.live.bilibili.com",
+          "origins": [
+            {
+              "line": 4,
+              "source": "biliverse-adblock",
+              "url": "https://github.com/Biliverse/ADBlock/releases/latest/download/BiliBili.ADBlock.snippet"
+            }
+          ]
+        }
+      ],
+      "local_data_references": [],
+      "local_script_references": [],
+      "profile_deduplication": {
+        "duplicates_removed": 0,
+        "examples": [],
+        "file": "bilibili.conf",
+        "order_index": 1,
+        "policy": "exact canonical rule only; first active profile resource wins",
+        "profile_example_limit": 100,
+        "removed_source_counts": {},
+        "requires_earlier_products": [],
+        "rules_after": 3,
+        "rules_before": 3
+      },
+      "reviewed_hostname_additions": {},
+      "rules": [
+        {
+          "action": "script-response-body",
+          "argument": "https://github.com/Biliverse/ADBlock/releases/download/v0.7.5/response.bundle.js",
+          "marker": "url",
+          "matcher": "^https?:\\/\\/app\\.bili(?:bili\\.com|api\\.net)\\/x\\/v2\\/feed\\/index(?:\\?|$)",
+          "origins": [
+            {
+              "line": 1,
+              "source": "biliverse-adblock",
+              "text": "^https?:\\/\\/app\\.bili(?:bili\\.com|api\\.net)\\/x\\/v2\\/feed\\/index(?:\\?|$) url script-response-body https://github.com/Biliverse/ADBlock/releases/download/v0.7.5/response.bundle.js",
+              "url": "https://github.com/Biliverse/ADBlock/releases/latest/download/BiliBili.ADBlock.snippet"
+            }
+          ],
+          "rule": "^https?:\\/\\/app\\.bili(?:bili\\.com|api\\.net)\\/x\\/v2\\/feed\\/index(?:\\?|$) url script-response-body https://github.com/Biliverse/ADBlock/releases/download/v0.7.5/response.bundle.js",
+          "stage": "response"
+        },
+        {
+          "action": "script-response-body",
+          "argument": "https://github.com/Biliverse/ADBlock/releases/download/v0.7.5/response.bundle.js",
+          "marker": "url",
+          "matcher": "^https?:\\/\\/(?:grpc\\.biliapi\\.net|app\\.bili(?:bili\\.com|api\\.net))\\/bilibili\\.app\\.dynamic\\.v2\\.Dynamic\\/Dyn(?:All|Video)$",
+          "origins": [
+            {
+              "line": 2,
+              "source": "biliverse-adblock",
+              "text": "^https?:\\/\\/(?:grpc\\.biliapi\\.net|app\\.bili(?:bili\\.com|api\\.net))\\/bilibili\\.app\\.dynamic\\.v2\\.Dynamic\\/Dyn(?:All|Video)$ url script-response-body https://github.com/Biliverse/ADBlock/releases/download/v0.7.5/response.bundle.js",
+              "url": "https://github.com/Biliverse/ADBlock/releases/latest/download/BiliBili.ADBlock.snippet"
+            }
+          ],
+          "rule": "^https?:\\/\\/(?:grpc\\.biliapi\\.net|app\\.bili(?:bili\\.com|api\\.net))\\/bilibili\\.app\\.dynamic\\.v2\\.Dynamic\\/Dyn(?:All|Video)$ url script-response-body https://github.com/Biliverse/ADBlock/releases/download/v0.7.5/response.bundle.js",
+          "stage": "response"
+        },
+        {
+          "action": "script-response-body",
+          "argument": "https://github.com/Biliverse/ADBlock/releases/download/v0.7.5/response.bundle.js",
+          "marker": "url",
+          "matcher": "^https?:\\/\\/api\\.live\\.bilibili\\.com\\/xlive\\/(?:app-room\\/v1\\/index\\/getInfoByRoom|app-interface\\/v2\\/(?:index\\/feed|room\\/recList))(?:\\?|$)",
+          "origins": [
+            {
+              "line": 3,
+              "source": "biliverse-adblock",
+              "text": "^https?:\\/\\/api\\.live\\.bilibili\\.com\\/xlive\\/(?:app-room\\/v1\\/index\\/getInfoByRoom|app-interface\\/v2\\/(?:index\\/feed|room\\/recList))(?:\\?|$) url script-response-body https://github.com/Biliverse/ADBlock/releases/download/v0.7.5/response.bundle.js",
+              "url": "https://github.com/Biliverse/ADBlock/releases/latest/download/BiliBili.ADBlock.snippet"
+            }
+          ],
+          "rule": "^https?:\\/\\/api\\.live\\.bilibili\\.com\\/xlive\\/(?:app-room\\/v1\\/index\\/getInfoByRoom|app-interface\\/v2\\/(?:index\\/feed|room\\/recList))(?:\\?|$) url script-response-body https://github.com/Biliverse/ADBlock/releases/download/v0.7.5/response.bundle.js",
+          "stage": "response"
+        }
+      ],
+      "schema_version": 1,
+      "script_references": [
+        {
+          "origins": [
+            {
+              "line": 1,
+              "source": "biliverse-adblock",
+              "text": "^https?:\\/\\/app\\.bili(?:bili\\.com|api\\.net)\\/x\\/v2\\/feed\\/index(?:\\?|$) url script-response-body https://github.com/Biliverse/ADBlock/releases/download/v0.7.5/response.bundle.js",
+              "url": "https://github.com/Biliverse/ADBlock/releases/latest/download/BiliBili.ADBlock.snippet"
+            }
+          ],
+          "reference": "https://github.com/Biliverse/ADBlock/releases/download/v0.7.5/response.bundle.js",
+          "rule": "^https?:\\/\\/app\\.bili(?:bili\\.com|api\\.net)\\/x\\/v2\\/feed\\/index(?:\\?|$) url script-response-body https://github.com/Biliverse/ADBlock/releases/download/v0.7.5/response.bundle.js"
+        },
+        {
+          "origins": [
+            {
+              "line": 2,
+              "source": "biliverse-adblock",
+              "text": "^https?:\\/\\/(?:grpc\\.biliapi\\.net|app\\.bili(?:bili\\.com|api\\.net))\\/bilibili\\.app\\.dynamic\\.v2\\.Dynamic\\/Dyn(?:All|Video)$ url script-response-body https://github.com/Biliverse/ADBlock/releases/download/v0.7.5/response.bundle.js",
+              "url": "https://github.com/Biliverse/ADBlock/releases/latest/download/BiliBili.ADBlock.snippet"
+            }
+          ],
+          "reference": "https://github.com/Biliverse/ADBlock/releases/download/v0.7.5/response.bundle.js",
+          "rule": "^https?:\\/\\/(?:grpc\\.biliapi\\.net|app\\.bili(?:bili\\.com|api\\.net))\\/bilibili\\.app\\.dynamic\\.v2\\.Dynamic\\/Dyn(?:All|Video)$ url script-response-body https://github.com/Biliverse/ADBlock/releases/download/v0.7.5/response.bundle.js"
+        },
+        {
+          "origins": [
+            {
+              "line": 3,
+              "source": "biliverse-adblock",
+              "text": "^https?:\\/\\/api\\.live\\.bilibili\\.com\\/xlive\\/(?:app-room\\/v1\\/index\\/getInfoByRoom|app-interface\\/v2\\/(?:index\\/feed|room\\/recList))(?:\\?|$) url script-response-body https://github.com/Biliverse/ADBlock/releases/download/v0.7.5/response.bundle.js",
+              "url": "https://github.com/Biliverse/ADBlock/releases/latest/download/BiliBili.ADBlock.snippet"
+            }
+          ],
+          "reference": "https://github.com/Biliverse/ADBlock/releases/download/v0.7.5/response.bundle.js",
+          "rule": "^https?:\\/\\/api\\.live\\.bilibili\\.com\\/xlive\\/(?:app-room\\/v1\\/index\\/getInfoByRoom|app-interface\\/v2\\/(?:index\\/feed|room\\/recList))(?:\\?|$) url script-response-body https://github.com/Biliverse/ADBlock/releases/download/v0.7.5/response.bundle.js"
+        }
+      ],
+      "script_urls": [
+        "https://github.com/Biliverse/ADBlock/releases/download/v0.7.5/response.bundle.js"
+      ],
+      "selected_rule_coverage": {
+        "exact_duplicates_accounted_for": 0,
+        "exported": 3,
+        "non_equivalent_rules_discarded": 0,
+        "profile_exact_duplicates_accounted_for": 0,
+        "selected": 3,
+        "stage": "active profile"
+      },
+      "source_metadata": [],
+      "sources": [
+        {
+          "exported_rules": 3,
+          "id": "biliverse-adblock",
+          "input_rules": 3,
+          "name": "B站首页、动态和直播净化 @Biliverse",
+          "selected_rules": 3
+        }
+      ],
+      "syntax_conversions": [],
+      "validation": "Static native QX structure only; no JavaScript executed and no on-device QX test."
+    },
     "miniapps.conf": {
       "actions": {
         "reject": 2,
@@ -95921,7 +96128,7 @@
           }
         ],
         "file": "miniapps.conf",
-        "order_index": 2,
+        "order_index": 3,
         "policy": "exact canonical rule only; first active profile resource wins",
         "profile_example_limit": 100,
         "removed_source_counts": {
@@ -97521,7 +97728,7 @@
         "duplicates_removed": 0,
         "examples": [],
         "file": "mixed-web.conf",
-        "order_index": 3,
+        "order_index": 4,
         "policy": "exact canonical rule only; first active profile resource wins",
         "profile_example_limit": 100,
         "removed_source_counts": {},
@@ -102309,7 +102516,7 @@
         "duplicates_removed": 0,
         "examples": [],
         "file": "web.conf",
-        "order_index": 4,
+        "order_index": 5,
         "policy": "exact canonical rule only; first active profile resource wins",
         "profile_example_limit": 100,
         "removed_source_counts": {},
@@ -105623,6 +105830,15 @@
   "scope": "personal-QX-ads-tracking-and-optional-service-routing",
   "script_dependencies": [
     {
+      "bytes": 1091042,
+      "fetch_url": "https://github.com/Biliverse/ADBlock/releases/download/v0.7.5/response.bundle.js",
+      "pinned_url": "https://github.com/Biliverse/ADBlock/releases/download/v0.7.5/response.bundle.js",
+      "release": "v0.7.5",
+      "release_asset_id": 651056710,
+      "sha256": "e8768eb5c75bbfaea78f5798ac7827c431f81a61416a7877753f36dd36b9cb60",
+      "url": "https://github.com/Biliverse/ADBlock/releases/download/v0.7.5/response.bundle.js"
+    },
+    {
       "bytes": 28643,
       "fetch_url": "https://raw.githubusercontent.com/fmz200/wool_scripts/58f6cce6dbd5c5fe50c2998938f9c2ba631a7c18/Scripts/xiaohongshu/xiaohongshu.js",
       "pinned_url": "https://raw.githubusercontent.com/fmz200/wool_scripts/58f6cce6dbd5c5fe50c2998938f9c2ba631a7c18/Scripts/xiaohongshu/xiaohongshu.js",
@@ -106276,7 +106492,7 @@
       "url": "https://raw.githubusercontent.com/zirawell/R-Store/main/Res/Scripts/AntiAd/wechatApplet.js"
     }
   ],
-  "script_policy": "Upstream JavaScript is pinned to full immutable commits; new script URLs require review. A documented local bug fix is maintained for Zhihu. Scripts are read and statically checked, never executed by this builder.",
+  "script_policy": "Upstream JavaScript is pinned to full commits or to the reviewed Biliverse release asset, verified against GitHub's SHA-256 digest. Scripts are read and statically checked, never executed by this builder.",
   "source_adaptations": {
     "14_filter": {
       "allowed_input_policies": [],
@@ -106298,6 +106514,16 @@
       },
       "selection": "KOP literal out on original rows, then literal in on normalized rows; force selected service policy",
       "source_sha256": "2536aacb61b0d40b205d459df7f9beac4e3c0e23744a963e111a6147fabc8cc9"
+    },
+    "biliverse-adblock": {
+      "module_url": "https://github.com/Biliverse/ADBlock/releases/download/v0.7.5/BiliBili.ADBlock.snippet",
+      "release": "v0.7.5",
+      "scope": "App home feed, public dynamic feeds and live promotions",
+      "selected_upstream_matchers": [
+        "^https?:\\/\\/app\\.bili(bili\\.com|api\\.net)\\/x\\/v2\\/(splash\\/(brand\\/list|event\\/list2|list|show)|feed\\/index(\\/(relate\\/)?story)?|search\\/square)",
+        "^https?:\\/\\/(grpc|app)\\.bili(bili\\.com|api\\.net)\\/bilibili\\.app\\.dynamic\\.v2\\.Dynamic\\/Dyn(All|Video)(Personal)?$",
+        "^https?:\\/\\/api\\.live\\.bilibili\\.com\\/xlive\\/(app-room\\/v1\\/index\\/getInfoByRoom|app-interface\\/v2\\/(index\\/feed|room\\/recList))"
+      ]
     },
     "fmz_extra_filters": {
       "classification": [
@@ -132785,6 +133011,14 @@
     }
   },
   "sources": [
+    {
+      "bytes": 5703,
+      "id": "biliverse-adblock",
+      "license": "Apache-2.0",
+      "name": "B站首页、动态和直播净化 @Biliverse",
+      "sha256": "0f3c76f7fbae9438942df186dfb142bb8f9d3ad6ac3a5fe17ed330de92b7ebe0",
+      "url": "https://github.com/Biliverse/ADBlock/releases/latest/download/BiliBili.ADBlock.snippet"
+    },
     {
       "bytes": 3907538,
       "id": "01_filter",
