@@ -85,7 +85,7 @@ def _is_option(token: str) -> bool:
     return token.lower().split("=", 1)[0] in FLAG_OPTIONS | VALUE_OPTIONS
 
 
-def _value(kind: str, value: str, location: str, issues: list[dict]) -> str:
+def _value(kind: str, value: str, location: str, issues: list[dict], allowed_geoip_tags=()) -> str:
     if not value or any(c in value for c in "\r\n,"):
         raise ValueError(f"empty/malformed filter value at {location}")
     if kind in {"host", "host-suffix"}:
@@ -114,7 +114,7 @@ def _value(kind: str, value: str, location: str, issues: list[dict]) -> str:
             raise ValueError(f"ASN out of range at {location}")
         return str(number)
     if kind == "geoip":
-        if not re.fullmatch(r"[A-Za-z]{2}", value):
+        if not re.fullmatch(r"[A-Za-z]{2}", value) and value.lower() not in allowed_geoip_tags:
             raise ValueError(f"unsupported GEOIP country at {location}")
         return value.lower()
     # USER-AGENT values are case-sensitive patterns and may contain percent-
@@ -138,6 +138,9 @@ def parse_filters(source: Mapping, body: str) -> tuple[list[FilterRule], list[di
     if fmt not in {"mixed", "qx", "quantumultx", "surge", *DOMAIN_FORMATS}:
         raise ValueError(f"unsupported filter source format {fmt!r} for {sid}")
     forced = _forced_policy(source)
+    allowed_geoip_tags = source.get("allowed_geoip_tags", [])
+    if not isinstance(allowed_geoip_tags, list) or any(not isinstance(tag,str) or not re.fullmatch(r"[a-z][a-z0-9_-]{0,30}",tag) for tag in allowed_geoip_tags):
+        raise ValueError("Invalid explicitly reviewed GEOIP tags")
     exclusions = source.get("exclude_rules", {})
     if (not isinstance(exclusions, Mapping)
             or any(not isinstance(k, str) or not isinstance(v, str) or not v.strip()
@@ -187,7 +190,7 @@ def parse_filters(source: Mapping, body: str) -> tuple[list[FilterRule], list[di
             # Preserve option order: do not assume two interface or resolver
             # options commute. Only remove an identical repeated option.
             options = tuple(dict.fromkeys(_option(token, location) for token in rest))
-        value = _value(kind, value, location, issues)
+        value = _value(kind, value, location, issues, allowed_geoip_tags)
         rules.append(FilterRule(kind, value, policy, options, sid, lineno))
     if not rules:
         raise ValueError(f"source has no filter rows: {sid}")

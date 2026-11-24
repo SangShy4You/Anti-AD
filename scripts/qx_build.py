@@ -25,10 +25,12 @@ if __package__:
     from .qx_dependencies import pin_url, resolve_ref
     from .qx_surge_ads import adapt_surge_ad_source
     from .qx_web_ads import patch_limbo_entry
+    from .qx_youtube import prepare_response_script
     from .qx_extra_filters import extract_fmz_ad_filters
     from .qx_mixed_guard import validate_mixed_reference
     from .qx_profile_dedup import deduplicate_profile
     from .qx_filter_partition import partition_ordered_filters
+    from .qx_service_filters import prepare_service_filters
 else:
     import update
     from qx_filters import compile_filters
@@ -36,16 +38,18 @@ else:
     from qx_dependencies import pin_url, resolve_ref
     from qx_surge_ads import adapt_surge_ad_source
     from qx_web_ads import patch_limbo_entry
+    from qx_youtube import prepare_response_script
     from qx_extra_filters import extract_fmz_ad_filters
     from qx_mixed_guard import validate_mixed_reference
     from qx_profile_dedup import deduplicate_profile
     from qx_filter_partition import partition_ordered_filters
+    from qx_service_filters import prepare_service_filters
 
 ROOT = Path(__file__).resolve().parents[1]
 PREFIX = "rules/quantumultx/"
 PUBLIC = "https://raw.githubusercontent.com/SangShy4You/Anti-AD/main/"
 IDENTIFIER = re.compile(r"[a-zA-Z0-9][a-zA-Z0-9_-]{0,100}\Z")
-GENERATOR_MODULES = ("qx_build.py", "qx_filters.py", "qx_rewrites.py", "qx_dependencies.py", "qx_surge_ads.py", "qx_web_ads.py", "qx_extra_filters.py", "qx_mixed_guard.py", "qx_profile_dedup.py", "qx_filter_partition.py")
+GENERATOR_MODULES = ("qx_build.py", "qx_filters.py", "qx_rewrites.py", "qx_dependencies.py", "qx_surge_ads.py", "qx_web_ads.py", "qx_extra_filters.py", "qx_mixed_guard.py", "qx_profile_dedup.py", "qx_filter_partition.py", "qx_service_filters.py", "qx_youtube.py")
 
 
 def dump(value):
@@ -156,13 +160,15 @@ def build(root=ROOT, *, offline_dir=None, dependency_dir=None, fetcher=None, res
             bodies[source["id"]], adaptations[source["id"]] = adapt_surge_ad_source(source, bodies[source["id"]])
         elif source.get("source_format") == "fmz_ad_filter_tail":
             bodies[source["id"]], adaptations[source["id"]] = extract_fmz_ad_filters(bodies[source["id"]])
+        elif source.get("source_format") == "service_filter":
+            bodies[source["id"]], adaptations[source["id"]] = prepare_service_filters(source, bodies[source["id"]])
     products, filter_reports, rewrite_reports = {}, {}, {}
     for output, selection in config["products"].items():
         if not re.fullmatch(r"[a-z][a-z0-9-]*\.(?:list|conf)", output):
             raise ValueError("Unsafe product filename: " + output)
         selected = [next(s for s in active if s["id"] == name) for name in selection["sources"]]
         if selection["kind"] == "filter":
-            prepared = [dict(s, source_format="qx") if s.get("source_format") == "fmz_ad_filter_tail" else s for s in selected]
+            prepared = [dict(s, source_format="qx") if s.get("source_format") in {"fmz_ad_filter_tail", "service_filter"} else s for s in selected]
             text, report = compile_filters(prepared, bodies, overrides=selection.get("overrides", []))
             filter_reports[output] = report
         elif selection["kind"] == "rewrite":
@@ -249,6 +255,9 @@ def build(root=ROOT, *, offline_dir=None, dependency_dir=None, fetcher=None, res
             if patch.get("mode") == "limbo-browser":
                 text, record["browser_patch"] = patch_limbo_entry(text, pinned[url])
                 record["patch_applied"] = True
+            elif patch.get("mode") == "youtube-response":
+                text, record["youtube_patch"] = prepare_response_script(text, pinned[url])
+                record["patch_applied"] = True
             else:
                 replacement = pinned_data[patch["replacement_url"]] if "replacement_url" in patch else patch["new"]
                 if text.count(patch["old"]) == 1:
@@ -317,13 +326,19 @@ def build(root=ROOT, *, offline_dir=None, dependency_dir=None, fetcher=None, res
     imports = ["# 合并到现有配置的同名段；不是完整 VPN 配置，勿覆盖节点、DNS 或证书。", "[filter_remote]"]
     for output, selection in config["products"].items():
         if selection["kind"] == "filter":
+            if selection.get("import", True) is False:
+                continue
             enabled = str(selection.get("default_enabled", True)).lower()
             if output in partition_imports:
                 for item in partition_imports[output]:
                     force = f", force-policy={item['force_policy']}" if item["force_policy"] else ""
                     imports.append(f"{PUBLIC}{PREFIX}{item['output']}, tag={item['name']}{force}, update-interval=86400, opt-parser=false, enabled={enabled}")
             else:
-                imports.append(f"{PUBLIC}{PREFIX}{output}, tag={selection['name']}, update-interval=86400, opt-parser=false, enabled={enabled}")
+                policy = selection.get("import_force_policy")
+                if policy is not None and (not isinstance(policy,str) or not policy.strip() or policy != policy.strip() or any(c in policy for c in ",\r\n")):
+                    raise ValueError("Invalid reviewed filter import policy")
+                force = f", force-policy={policy}" if policy is not None else ""
+                imports.append(f"{PUBLIC}{PREFIX}{output}, tag={selection['name']}{force}, update-interval=86400, opt-parser=false, enabled={enabled}")
     imports += ["", "[rewrite_remote]"]
     rewrite_outputs = [output for output, selection in config["products"].items() if selection["kind"] == "rewrite"]
     reviewed_order = config.get("profile_rewrite_order") or []

@@ -353,7 +353,7 @@
         "^https:\\/\\/link\\.zhihu\\.com\\/\\?target=(https?)?(%3A|:)?(\\/\\/|%2F%2F)?(.*?)(&source.*)?$ url 302 http://$4": "Unwraps Zhihu outgoing links and downgrades to http; functional redirect outside ad-only scope.",
         "^https?:\\/\\/zjdr666\\.com\\/zjdr\\.php\\/v\\d\\/(version|top_notice\\?|advert\\?position=[^2]+) url reject": "Combined version/notice/advert expression; omit whole source line rather than changing semantics.",
         "^https?:\\/\\/wrapper\\.cyapi\\.cn\\/v1\\/activity\\? url echo-response application/json echo-response https://raw.githubusercontent.com/Keywos/rule/main/mocks/caiyun.json": "Requires a separate local echo-response data resource; not silently omitted at runtime.",
-        "^https:\\/\\/youtubei\\.googleapis\\.com\\/youtubei\\/v1\\/(browse|next|player|search|reel\\/reel_watch_sequence|guide|account\\/get_setting|get_watch) url script-response-body https://raw.githubusercontent.com/Maasea/sgmodule/refs/heads/master/Script/Youtube/youtube.response.js": "Use the original profile's app2smile YouTube pipeline in youtube.conf; avoid two overlapping protobuf response processors."
+        "^https:\\/\\/youtubei\\.googleapis\\.com\\/youtubei\\/v1\\/(browse|next|player|search|reel\\/reel_watch_sequence|guide|account\\/get_setting|get_watch) url script-response-body https://raw.githubusercontent.com/Maasea/sgmodule/refs/heads/master/Script/Youtube/youtube.response.js": "Covered by the reviewed Maasea response-only player/background/PiP pipeline in personal youtube.conf; keep one protobuf response processor per endpoint."
       },
       "excluded_lines": {
         "^https?:\\/\\/static.psbc.com:8090\\/mbank_f\\/images\\/[0-9]+\\.png - reject-200": "Surge syntax mixed into QX source; not silently translated."
@@ -473,17 +473,9 @@
       "url": "https://raw.githubusercontent.com/ConnersHua/RuleGo/master/Surge/Module/Block/YouTubeAds.sgmodule",
       "source_format": "surge_ad_module",
       "surge_ad_kind": "youtube",
-      "youtube_script_mode": "author-native",
+      "youtube_script_mode": "response-native",
       "min_rules": 6,
       "license": "Retain original author provenance; no blanket MIT claim"
-    },
-    {
-      "id": "author_youtube",
-      "name": "app2smile YouTube 原生 QX 脚本入口",
-      "url": "https://raw.githubusercontent.com/app2smile/rules/master/module/youtube-qx.conf",
-      "source_format": "qx",
-      "min_rules": 1,
-      "license": "Original author reference; script not redistributed"
     },
     {
       "id": "limbo_web",
@@ -506,6 +498,558 @@
         "m.douban.com"
       ],
       "license": "Reuse with attribution; upstream JS referenced, not redistributed"
+    },
+    {
+      "id": "service-source-00",
+      "name": "Nintendo",
+      "url": "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/QuantumultX/Nintendo/Nintendo.list#out=IP-CIDR%2C&hide=1&ntf=0",
+      "source_format": "service_filter",
+      "force_policy": "Nintendo",
+      "allowed_geoip_tags": [],
+      "service_selection": {
+        "allowed_input_policies": [
+          "Nintendo"
+        ],
+        "allowed_selected_types": [
+          "host-suffix"
+        ]
+      },
+      "license": "See THIRD_PARTY_NOTICES.md and the original author repository",
+      "min_rules": 100
+    },
+    {
+      "id": "service-source-01",
+      "name": "Claude",
+      "url": "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/QuantumultX/Claude/Claude.list",
+      "source_format": "service_filter",
+      "force_policy": "Claude",
+      "allowed_geoip_tags": [],
+      "service_selection": {
+        "allowed_input_policies": [
+          "Claude"
+        ],
+        "allowed_selected_types": [
+          "host",
+          "host-suffix"
+        ]
+      },
+      "license": "See THIRD_PARTY_NOTICES.md and the original author repository",
+      "min_rules": 2
+    },
+    {
+      "id": "service-source-02",
+      "name": "OpenAI",
+      "url": "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/QuantumultX/OpenAI/OpenAI.list#out=IP-ASN%2C+%2Cai.com%2C+%2Cbrowser-intake-datadoghq.com%2C+%2Cstatic.cloudflareinsights.com%2C+%2Calgolia.net%2C+%2Capi.statsig.com%2C+%2Cauth0.com%2C+%2Cclient-api.arkoselabs.com%2C+%2Cevents.statsigapi.net%2C+%2Cfeaturegates.org%2C+%2Chost.livekit.cloud%2C+%2Cidentrust.com%2C+%2Cintercom.io%2C+%2Cintercomcdn.com%2C+%2Claunchdarkly.com%2C+%2Cobserveit.net%2C+%2Csegment.io%2C+%2Csentry.io%2C+%2Cstripe.com%2C+%2Cturn.livekit.cloud%2C&hide=1&ntf=0",
+      "source_format": "service_filter",
+      "force_policy": "OpenAI",
+      "allowed_geoip_tags": [],
+      "service_selection": {
+        "allowed_input_policies": [
+          "OpenAI"
+        ],
+        "allowed_selected_types": [
+          "host",
+          "host-keyword",
+          "host-suffix",
+          "ip-cidr"
+        ]
+      },
+      "license": "See THIRD_PARTY_NOTICES.md and the original author repository",
+      "min_rules": 12
+    },
+    {
+      "id": "service-source-03",
+      "name": "Gemini",
+      "url": "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/QuantumultX/Gemini/Gemini.list#out=%2Capis.google.com%2C&hide=1&ntf=0",
+      "source_format": "service_filter",
+      "force_policy": "Google",
+      "allowed_geoip_tags": [],
+      "service_selection": {
+        "allowed_input_policies": [
+          "Gemini"
+        ],
+        "allowed_selected_types": [
+          "host",
+          "host-keyword",
+          "host-suffix"
+        ]
+      },
+      "license": "See THIRD_PARTY_NOTICES.md and the original author repository",
+      "min_rules": 9
+    },
+    {
+      "id": "service-source-04",
+      "name": "YouTube",
+      "url": "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/QuantumultX/YouTube/YouTube.list",
+      "source_format": "service_filter",
+      "force_policy": "Google",
+      "allowed_geoip_tags": [],
+      "service_selection": {
+        "allowed_input_policies": [
+          "YouTube"
+        ],
+        "allowed_selected_types": [
+          "host",
+          "host-keyword",
+          "host-suffix",
+          "host-wildcard",
+          "ip-cidr",
+          "ip6-cidr",
+          "user-agent"
+        ]
+      },
+      "license": "See THIRD_PARTY_NOTICES.md and the original author repository",
+      "min_rules": 156
+    },
+    {
+      "id": "service-source-05",
+      "name": "GoogleDrive",
+      "url": "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/QuantumultX/GoogleDrive/GoogleDrive.list#out=%2Cgoogleusercontent.com%2C+%2Cwww.googleapis.com%2C&hide=1&ntf=0",
+      "source_format": "service_filter",
+      "force_policy": "Google",
+      "allowed_geoip_tags": [],
+      "service_selection": {
+        "allowed_input_policies": [
+          "GoogleDrive"
+        ],
+        "allowed_selected_types": [
+          "host-suffix",
+          "user-agent"
+        ]
+      },
+      "license": "See THIRD_PARTY_NOTICES.md and the original author repository",
+      "min_rules": 4
+    },
+    {
+      "id": "service-source-06",
+      "name": "GoogleVoice",
+      "url": "https://raw.githubusercontent.com/ConnersHua/RuleGo/master/Surge/Ruleset/Extra/Google/GoogleVoice.list",
+      "source_format": "service_filter",
+      "force_policy": "Google",
+      "allowed_geoip_tags": [],
+      "service_selection": {
+        "allowed_input_policies": [],
+        "allowed_selected_types": [
+          "host"
+        ]
+      },
+      "license": "See THIRD_PARTY_NOTICES.md and the original author repository",
+      "min_rules": 1
+    },
+    {
+      "id": "service-source-07",
+      "name": "GitHub",
+      "url": "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/QuantumultX/GitHub/GitHub.list",
+      "source_format": "service_filter",
+      "force_policy": "GitHub",
+      "allowed_geoip_tags": [],
+      "service_selection": {
+        "allowed_input_policies": [
+          "GitHub"
+        ],
+        "allowed_selected_types": [
+          "host-keyword",
+          "host-suffix"
+        ]
+      },
+      "license": "See THIRD_PARTY_NOTICES.md and the original author repository",
+      "min_rules": 24
+    },
+    {
+      "id": "service-source-08",
+      "name": "OneDrive",
+      "url": "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/QuantumultX/OneDrive/OneDrive.list",
+      "source_format": "service_filter",
+      "force_policy": "Microsoft",
+      "allowed_geoip_tags": [],
+      "service_selection": {
+        "allowed_input_policies": [
+          "OneDrive"
+        ],
+        "allowed_selected_types": [
+          "host",
+          "host-keyword",
+          "host-suffix"
+        ]
+      },
+      "license": "See THIRD_PARTY_NOTICES.md and the original author repository",
+      "min_rules": 13
+    },
+    {
+      "id": "service-source-09",
+      "name": "Copilot",
+      "url": "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/QuantumultX/Copilot/Copilot.list#in=copilot.microsoft.com+sydney.bing.com+gateway.bingviz.microsoft.net+gateway.bingviz.microsoftapp.net+services.bingapis.com+edgeservices.bing.com+api.microsoftapp.net+bing-shopping.microsoft-falcon.io&hide=1&ntf=0",
+      "source_format": "service_filter",
+      "force_policy": "Microsoft",
+      "allowed_geoip_tags": [],
+      "service_selection": {
+        "allowed_input_policies": [
+          "Copilot"
+        ],
+        "allowed_selected_types": [
+          "host",
+          "host-suffix"
+        ]
+      },
+      "license": "See THIRD_PARTY_NOTICES.md and the original author repository",
+      "min_rules": 6
+    },
+    {
+      "id": "service-source-10",
+      "name": "Bing",
+      "url": "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/QuantumultX/Bing/Bing.list",
+      "source_format": "service_filter",
+      "force_policy": "Microsoft",
+      "allowed_geoip_tags": [],
+      "service_selection": {
+        "allowed_input_policies": [
+          "Bing"
+        ],
+        "allowed_selected_types": [
+          "host-suffix"
+        ]
+      },
+      "license": "See THIRD_PARTY_NOTICES.md and the original author repository",
+      "min_rules": 7
+    },
+    {
+      "id": "service-source-11",
+      "name": "Microsoft",
+      "url": "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/QuantumultX/Microsoft/Microsoft.list",
+      "source_format": "service_filter",
+      "force_policy": "Microsoft",
+      "allowed_geoip_tags": [],
+      "service_selection": {
+        "allowed_input_policies": [
+          "Microsoft"
+        ],
+        "allowed_selected_types": [
+          "host",
+          "host-keyword",
+          "host-suffix",
+          "host-wildcard",
+          "user-agent"
+        ]
+      },
+      "license": "See THIRD_PARTY_NOTICES.md and the original author repository",
+      "min_rules": 569
+    },
+    {
+      "id": "service-source-12",
+      "name": "Google",
+      "url": "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/QuantumultX/Google/Google.list",
+      "source_format": "service_filter",
+      "force_policy": "Google",
+      "allowed_geoip_tags": [],
+      "service_selection": {
+        "allowed_input_policies": [
+          "Google"
+        ],
+        "allowed_selected_types": [
+          "host",
+          "host-keyword",
+          "host-suffix",
+          "ip-cidr",
+          "ip6-cidr",
+          "user-agent"
+        ]
+      },
+      "license": "See THIRD_PARTY_NOTICES.md and the original author repository",
+      "min_rules": 568
+    },
+    {
+      "id": "service-source-13",
+      "name": "Spotify",
+      "url": "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/QuantumultX/Spotify/Spotify.list#out=IP-CIDR%2C+IP6-CIDR%2C&hide=1&ntf=0",
+      "source_format": "service_filter",
+      "force_policy": "Spotify",
+      "allowed_geoip_tags": [],
+      "service_selection": {
+        "allowed_input_policies": [
+          "Spotify"
+        ],
+        "allowed_selected_types": [
+          "host",
+          "host-keyword",
+          "host-suffix",
+          "user-agent"
+        ]
+      },
+      "license": "See THIRD_PARTY_NOTICES.md and the original author repository",
+      "min_rules": 22
+    },
+    {
+      "id": "service-source-14",
+      "name": "Netflix",
+      "url": "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/QuantumultX/Netflix/Netflix.list#out=IP-CIDR%2C+IP6-CIDR%2C&hide=1&ntf=0",
+      "source_format": "service_filter",
+      "force_policy": "Netflix",
+      "allowed_geoip_tags": [],
+      "service_selection": {
+        "allowed_input_policies": [
+          "Netflix"
+        ],
+        "allowed_selected_types": [
+          "host",
+          "host-keyword",
+          "host-suffix",
+          "host-wildcard",
+          "user-agent"
+        ]
+      },
+      "license": "See THIRD_PARTY_NOTICES.md and the original author repository",
+      "min_rules": 31
+    },
+    {
+      "id": "service-source-15",
+      "name": "TikTok",
+      "url": "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/QuantumultX/TikTok/TikTok.list",
+      "source_format": "service_filter",
+      "force_policy": "TikTok",
+      "allowed_geoip_tags": [],
+      "service_selection": {
+        "allowed_input_policies": [
+          "TikTok"
+        ],
+        "allowed_selected_types": [
+          "host",
+          "host-keyword",
+          "host-suffix",
+          "user-agent"
+        ]
+      },
+      "license": "See THIRD_PARTY_NOTICES.md and the original author repository",
+      "min_rules": 28
+    },
+    {
+      "id": "service-source-16",
+      "name": "海外抖音",
+      "url": "https://raw.githubusercontent.com/ConnersHua/RuleGo/master/Surge/Ruleset/Extra/Streaming/Video/TikTok.list",
+      "source_format": "service_filter",
+      "force_policy": "TikTok",
+      "allowed_geoip_tags": [],
+      "service_selection": {
+        "allowed_input_policies": [],
+        "allowed_selected_types": [
+          "host-keyword",
+          "host-suffix"
+        ]
+      },
+      "license": "See THIRD_PARTY_NOTICES.md and the original author repository",
+      "min_rules": 8
+    },
+    {
+      "id": "service-source-17",
+      "name": "电报代理",
+      "url": "https://raw.githubusercontent.com/ConnersHua/RuleGo/master/Surge/Ruleset/Extra/Telegram.list",
+      "source_format": "service_filter",
+      "force_policy": "电报代理",
+      "allowed_geoip_tags": [],
+      "service_selection": {
+        "allowed_input_policies": [],
+        "allowed_selected_types": [
+          "host-suffix",
+          "ip-cidr",
+          "ip6-cidr"
+        ],
+        "kop_drop_options": [
+          "no-resolve"
+        ]
+      },
+      "license": "See THIRD_PARTY_NOTICES.md and the original author repository",
+      "min_rules": 24
+    },
+    {
+      "id": "service-source-18",
+      "name": "国际媒体",
+      "url": "https://raw.githubusercontent.com/ConnersHua/RuleGo/master/Surge/Ruleset/Extra/Streaming/!CN.list",
+      "source_format": "service_filter",
+      "force_policy": "国际媒体",
+      "allowed_geoip_tags": [
+        "netflix"
+      ],
+      "service_selection": {
+        "allowed_input_policies": [],
+        "allowed_selected_types": [
+          "geoip",
+          "host",
+          "host-keyword",
+          "host-suffix",
+          "ip-cidr"
+        ],
+        "kop_drop_options": [
+          "no-resolve"
+        ]
+      },
+      "license": "See THIRD_PARTY_NOTICES.md and the original author repository",
+      "min_rules": 193
+    },
+    {
+      "id": "service-source-19",
+      "name": "港台番剧",
+      "url": "https://raw.githubusercontent.com/ConnersHua/RuleGo/master/Surge/Ruleset/Extra/Streaming/CN.list",
+      "source_format": "service_filter",
+      "force_policy": "港台番剧",
+      "allowed_geoip_tags": [],
+      "service_selection": {
+        "allowed_input_policies": [],
+        "allowed_selected_types": [
+          "host",
+          "host-keyword",
+          "host-suffix",
+          "ip-cidr"
+        ],
+        "kop_drop_options": [
+          "no-resolve"
+        ]
+      },
+      "license": "See THIRD_PARTY_NOTICES.md and the original author repository",
+      "min_rules": 12
+    },
+    {
+      "id": "service-source-20",
+      "name": "全球加速",
+      "url": "https://raw.githubusercontent.com/ConnersHua/RuleGo/master/Surge/Ruleset/Proxy.list",
+      "source_format": "service_filter",
+      "force_policy": "全球加速",
+      "allowed_geoip_tags": [],
+      "service_selection": {
+        "allowed_input_policies": [],
+        "allowed_selected_types": [
+          "host",
+          "host-keyword",
+          "host-suffix",
+          "ip-cidr",
+          "ip6-cidr"
+        ],
+        "kop_drop_options": [
+          "no-resolve"
+        ]
+      },
+      "license": "See THIRD_PARTY_NOTICES.md and the original author repository",
+      "min_rules": 410
+    },
+    {
+      "id": "service-source-21",
+      "name": "苹果服务",
+      "url": "https://raw.githubusercontent.com/ConnersHua/RuleGo/master/Surge/Ruleset/Extra/Apple/Apple.list",
+      "source_format": "service_filter",
+      "force_policy": "苹果服务",
+      "allowed_geoip_tags": [],
+      "service_selection": {
+        "allowed_input_policies": [],
+        "allowed_selected_types": [
+          "host-keyword",
+          "host-suffix"
+        ]
+      },
+      "license": "See THIRD_PARTY_NOTICES.md and the original author repository",
+      "min_rules": 16
+    },
+    {
+      "id": "service-source-22",
+      "name": "国内网站",
+      "url": "https://raw.githubusercontent.com/ConnersHua/RuleGo/master/Surge/Ruleset/Direct.list",
+      "source_format": "service_filter",
+      "force_policy": "direct",
+      "allowed_geoip_tags": [],
+      "service_selection": {
+        "allowed_input_policies": [],
+        "allowed_selected_types": [
+          "host",
+          "host-suffix",
+          "ip-cidr"
+        ],
+        "kop_drop_options": [
+          "no-resolve"
+        ]
+      },
+      "license": "See THIRD_PARTY_NOTICES.md and the original author repository",
+      "min_rules": 19
+    },
+    {
+      "id": "service-source-23",
+      "name": "微信直连",
+      "url": "https://raw.githubusercontent.com/ConnersHua/RuleGo/master/Surge/Ruleset/Extra/WeChat.list",
+      "source_format": "service_filter",
+      "force_policy": "direct",
+      "allowed_geoip_tags": [],
+      "service_selection": {
+        "allowed_input_policies": [],
+        "allowed_selected_types": [
+          "host-suffix",
+          "ip-cidr"
+        ],
+        "kop_drop_options": [
+          "no-resolve",
+          "extended-matching"
+        ]
+      },
+      "license": "See THIRD_PARTY_NOTICES.md and the original author repository",
+      "min_rules": 14
+    },
+    {
+      "id": "service-source-24",
+      "name": "代理修正",
+      "url": "https://raw.githubusercontent.com/ConnersHua/RuleGo/master/Surge/Ruleset/Proxy+.list",
+      "source_format": "service_filter",
+      "force_policy": "proxy",
+      "allowed_geoip_tags": [
+        "google"
+      ],
+      "service_selection": {
+        "allowed_input_policies": [],
+        "allowed_selected_types": [
+          "geoip"
+        ]
+      },
+      "license": "See THIRD_PARTY_NOTICES.md and the original author repository",
+      "min_rules": 1
+    },
+    {
+      "id": "service-nintendo-extra",
+      "name": "Nintendo/Pokemon reviewed supplements",
+      "url": "https://raw.githubusercontent.com/SangShy4You/Anti-AD/main/config/qx-nintendo-extra.list",
+      "local_path": "config/qx-nintendo-extra.list",
+      "source_format": "service_filter",
+      "force_policy": "Nintendo",
+      "min_rules": 28,
+      "service_selection": {
+        "allowed_input_policies": [
+          "Nintendo"
+        ],
+        "allowed_selected_types": [
+          "host-suffix"
+        ]
+      },
+      "license": "Reviewed public domain facts; source links are retained in the file"
+    },
+    {
+      "id": "youtube_background",
+      "name": "Maasea YouTube 后台播放与画中画",
+      "url": "https://raw.githubusercontent.com/SangShy4You/Anti-AD/main/config/qx-youtube-player.conf",
+      "local_path": "config/qx-youtube-player.conf",
+      "source_format": "qx",
+      "min_rules": 1,
+      "license": "Apache-2.0; licenses/Maasea-sgmodule-APACHE-2.0.txt; preserve original Maasea attribution"
+    },
+    {
+      "id": "service-claude-extra",
+      "name": "Claude reviewed official-domain supplement",
+      "url": "https://raw.githubusercontent.com/SangShy4You/Anti-AD/main/config/qx-claude-extra.list",
+      "local_path": "config/qx-claude-extra.list",
+      "source_format": "service_filter",
+      "force_policy": "Claude",
+      "min_rules": 1,
+      "service_selection": {
+        "allowed_input_policies": [
+          "Claude"
+        ],
+        "allowed_selected_types": [
+          "host-suffix"
+        ]
+      },
+      "license": "Public official-domain fact; source links retained in file"
     }
   ],
   "filter_partitions": {
@@ -514,37 +1058,51 @@
         "output": "ads-allow-first.list",
         "name": "必要放行·基础",
         "kind": "preserve",
-        "allowed_policies": ["proxy", "direct"]
+        "allowed_policies": [
+          "proxy",
+          "direct"
+        ]
       },
       {
         "output": "ads-reject-main.list",
         "name": "个人去广告与防追踪",
         "kind": "reject",
-        "allowed_policies": ["reject"]
+        "allowed_policies": [
+          "reject"
+        ]
       },
       {
         "output": "ads-allow-routing.list",
         "name": "必要放行·路由",
         "kind": "preserve",
-        "allowed_policies": ["全球加速", "direct"]
+        "allowed_policies": [
+          "全球加速",
+          "direct"
+        ]
       },
       {
         "output": "ads-reject-extra.list",
         "name": "去广告与防追踪·补充",
         "kind": "reject",
-        "allowed_policies": ["reject"]
+        "allowed_policies": [
+          "reject"
+        ]
       },
       {
         "output": "ads-allow-services.list",
         "name": "必要放行·微信",
         "kind": "preserve",
-        "allowed_policies": ["direct"]
+        "allowed_policies": [
+          "direct"
+        ]
       },
       {
         "output": "ads-reject-supplement.list",
         "name": "去广告与防追踪·增强",
         "kind": "reject",
-        "allowed_policies": ["reject"]
+        "allowed_policies": [
+          "reject"
+        ]
       }
     ]
   },
@@ -587,7 +1145,8 @@
         "bm-wechat"
       ],
       "name": "微信直连",
-      "default_enabled": false
+      "default_enabled": false,
+      "import": false
     },
     "route-apple.list": {
       "kind": "filter",
@@ -595,7 +1154,8 @@
         "bm-apple"
       ],
       "name": "苹果服务",
-      "default_enabled": false
+      "default_enabled": false,
+      "import": false
     },
     "route-telegram.list": {
       "kind": "filter",
@@ -603,7 +1163,8 @@
         "bm-telegram"
       ],
       "name": "电报代理",
-      "default_enabled": false
+      "default_enabled": false,
+      "import": false
     },
     "route-openai.list": {
       "kind": "filter",
@@ -611,7 +1172,8 @@
         "bm-openai"
       ],
       "name": "OpenAI",
-      "default_enabled": false
+      "default_enabled": false,
+      "import": false
     },
     "route-streaming.list": {
       "kind": "filter",
@@ -619,7 +1181,8 @@
         "bm-streaming"
       ],
       "name": "国际媒体",
-      "default_enabled": false
+      "default_enabled": false,
+      "import": false
     },
     "route-china.list": {
       "kind": "filter",
@@ -627,7 +1190,8 @@
         "bm-china"
       ],
       "name": "国内网站",
-      "default_enabled": false
+      "default_enabled": false,
+      "import": false
     },
     "ads.conf": {
       "kind": "rewrite",
@@ -664,9 +1228,9 @@
       "kind": "rewrite",
       "sources": [
         "rulego_youtube",
-        "author_youtube"
+        "youtube_background"
       ],
-      "name": "个人 YouTube 去广告",
+      "name": "YouTube 去广告与后台播放 @SangShy",
       "default_enabled": true
     },
     "mixed-web.conf": {
@@ -676,10 +1240,174 @@
       ],
       "name": "豆瓣网页净化与快捷观影",
       "default_enabled": true
+    },
+    "service-nintendo.list": {
+      "kind": "filter",
+      "sources": [
+        "service-source-00",
+        "service-nintendo-extra"
+      ],
+      "name": "Nintendo @SangShy",
+      "import_force_policy": "Nintendo",
+      "default_enabled": true
+    },
+    "service-claude.list": {
+      "kind": "filter",
+      "sources": [
+        "service-source-01",
+        "service-claude-extra"
+      ],
+      "name": "Claude @SangShy",
+      "import_force_policy": "Claude",
+      "default_enabled": true
+    },
+    "service-openai.list": {
+      "kind": "filter",
+      "sources": [
+        "service-source-02"
+      ],
+      "name": "OpenAI @SangShy",
+      "import_force_policy": "OpenAI",
+      "default_enabled": true
+    },
+    "service-google.list": {
+      "kind": "filter",
+      "sources": [
+        "service-source-03",
+        "service-source-04",
+        "service-source-05",
+        "service-source-06",
+        "service-source-12"
+      ],
+      "name": "Google @SangShy",
+      "import_force_policy": "Google",
+      "default_enabled": true
+    },
+    "service-github.list": {
+      "kind": "filter",
+      "sources": [
+        "service-source-07"
+      ],
+      "name": "GitHub @SangShy",
+      "import_force_policy": "GitHub",
+      "default_enabled": true
+    },
+    "service-microsoft.list": {
+      "kind": "filter",
+      "sources": [
+        "service-source-08",
+        "service-source-09",
+        "service-source-10",
+        "service-source-11"
+      ],
+      "name": "Microsoft @SangShy",
+      "import_force_policy": "Microsoft",
+      "default_enabled": true
+    },
+    "service-spotify.list": {
+      "kind": "filter",
+      "sources": [
+        "service-source-13"
+      ],
+      "name": "Spotify @SangShy",
+      "import_force_policy": "Spotify",
+      "default_enabled": true
+    },
+    "service-netflix.list": {
+      "kind": "filter",
+      "sources": [
+        "service-source-14"
+      ],
+      "name": "Netflix @SangShy",
+      "import_force_policy": "Netflix",
+      "default_enabled": true
+    },
+    "service-tiktok.list": {
+      "kind": "filter",
+      "sources": [
+        "service-source-15",
+        "service-source-16"
+      ],
+      "name": "TikTok @SangShy",
+      "import_force_policy": "TikTok",
+      "default_enabled": true
+    },
+    "service-telegram.list": {
+      "kind": "filter",
+      "sources": [
+        "service-source-17"
+      ],
+      "name": "电报代理 @SangShy",
+      "import_force_policy": "电报代理",
+      "default_enabled": true
+    },
+    "service-streaming.list": {
+      "kind": "filter",
+      "sources": [
+        "service-source-18"
+      ],
+      "name": "国际媒体 @SangShy",
+      "import_force_policy": "国际媒体",
+      "default_enabled": true
+    },
+    "service-cn-media.list": {
+      "kind": "filter",
+      "sources": [
+        "service-source-19"
+      ],
+      "name": "港台番剧 @SangShy",
+      "import_force_policy": "港台番剧",
+      "default_enabled": true
+    },
+    "service-global.list": {
+      "kind": "filter",
+      "sources": [
+        "service-source-20"
+      ],
+      "name": "全球加速 @SangShy",
+      "import_force_policy": "全球加速",
+      "default_enabled": true
+    },
+    "service-apple.list": {
+      "kind": "filter",
+      "sources": [
+        "service-source-21"
+      ],
+      "name": "苹果服务 @SangShy",
+      "import_force_policy": "苹果服务",
+      "default_enabled": true
+    },
+    "service-china.list": {
+      "kind": "filter",
+      "sources": [
+        "service-source-22"
+      ],
+      "name": "国内网站 @SangShy",
+      "import_force_policy": "direct",
+      "default_enabled": true
+    },
+    "service-wechat.list": {
+      "kind": "filter",
+      "sources": [
+        "service-source-23"
+      ],
+      "name": "微信直连 @SangShy",
+      "import_force_policy": "direct",
+      "default_enabled": true
+    },
+    "service-proxy-fix.list": {
+      "kind": "filter",
+      "sources": [
+        "service-source-24"
+      ],
+      "name": "代理修正 @SangShy",
+      "import_force_policy": "proxy",
+      "default_enabled": true
     }
   },
   "approved_script_urls": [
     "https://github.com/fmz200/wool_scripts/raw/main/Scripts/xiaohongshu/xiaohongshu.js",
+    "https://raw.githubusercontent.com/Maasea/sgmodule/master/Script/Youtube/youtube.response.js",
     "https://raw.githubusercontent.com/NobyDa/Script/master/Bahamut/BahamutAnimeAds.js",
     "https://raw.githubusercontent.com/Sliverkiss/QuantumultX/main/AdBlock/xmApp/wnbz.js",
     "https://raw.githubusercontent.com/Sliverkiss/QuantumultX/main/AdBlock/xmApp/xmApp.js",
@@ -689,7 +1417,6 @@
     "https://raw.githubusercontent.com/app2smile/rules/master/js/tieba-json.js",
     "https://raw.githubusercontent.com/app2smile/rules/master/js/tieba-proto.js",
     "https://raw.githubusercontent.com/app2smile/rules/master/js/vgtime.js",
-    "https://raw.githubusercontent.com/app2smile/rules/master/js/youtube.js",
     "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/script/startup/startup.js",
     "https://raw.githubusercontent.com/chxm1023/Rewrite/main/caiyuntianqi.js",
     "https://raw.githubusercontent.com/ddgksf2013/Scripts/refs/heads/master/douban.js",
@@ -826,12 +1553,17 @@
       "new": "https://raw.githubusercontent.com/SangShy4You/Anti-AD/main/rules/quantumultx/assets/transparent.png",
       "transparent_asset": true,
       "reason": "Replace the unavailable upstream replacement picture with a maintained transparent PNG; keep the miniapp's original ad-response cleanup and GPL attribution."
+    },
+    "https://raw.githubusercontent.com/Maasea/sgmodule/master/Script/Youtube/youtube.response.js": {
+      "filename": "youtube-background.js",
+      "mode": "youtube-response",
+      "reason": "Restore the previously excluded player/get_watch/settings response pipeline for background playback and PiP; preserve upstream response logic and Apache-2.0 attribution; no request Worker forwarding imported."
     }
   },
   "consolidation": {
     "original_ads_sources": "All originally enabled standalone ad sources have a personal native product. Pure ads extracted from mixed resources use precise KOP filters; inseparable mixed ad/function branches remain in original remote references.",
     "original_local_rules": "Keep all 79 filters and 3 rewrites in the private output as priority and behavior guards; eleven public ad rules are additionally maintained here.",
-    "youtube": "Use the original app2smile route; remove the overlapping Maasea response hook. The original global UDP setting is preserved in the private profile; no additional UDP rule is invented."
+    "youtube": "Use one reviewed Maasea response-only pipeline for player background playback/PiP and ad removal. The original static RuleGo rules and separate subtitles remain; no request Worker forwarding is imported."
   },
   "validation_sources": [
     {

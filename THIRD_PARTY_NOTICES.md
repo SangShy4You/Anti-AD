@@ -85,5 +85,11 @@ blackmatrix7 的随附文件为其仓库原始 GNU GPL version 2 完整文本。
 
 `rules/quantumultx/` 由 `config/qx-sources.json` 列明的公开原始文件生成。fmz200/wool_scripts（GPL-3.0）、blackmatrix7/ios_rule_script（GPL-2.0）、privacy-protection-tools/anti-AD（MIT）和原十五个分流作者分别保留其许可与归属。现有 `licenses/` 中对应的许可证副本继续适用。app2smile/rules 的贴吧分流及两条重写保留作者和上游链接，不宣称获得 MIT 授权。原作者明确禁止转载的 chxm1023/AppAd 集合未复制进本聚合。
 
-绝大多数第三方脚本仅引用其原仓库不可变提交地址，不在此重新分发。唯一维护的脚本副本 `rules/quantumultx/scripts/zhihu.js` 来源于 fmz200/wool_scripts，沿用 GPL-3.0（见 `licenses/fmz200-wool_scripts-GPL-3.0.txt`），修正回调中误写的一个变量引用，并保留原作者代码、来源和个人修改说明。上游完整提交及原文件 SHA256 记录于 `rules/quantumultx/manifest.json`。本仓库的原创编译器许可不覆盖这些第三方内容。
+绝大多数第三方脚本仅引用其原仓库不可变提交地址，不在此重新分发。其中维护的脚本副本 `rules/quantumultx/scripts/zhihu.js` 来源于 fmz200/wool_scripts，沿用 GPL-3.0（见 `licenses/fmz200-wool_scripts-GPL-3.0.txt`），修正回调中误写的一个变量引用，并保留原作者代码、来源和个人修改说明。上游完整提交及原文件 SHA256 记录于 `rules/quantumultx/manifest.json`。本仓库的原创编译器许可不覆盖这些第三方内容。
 
+
+## YouTube 后台播放恢复
+
+`rules/quantumultx/scripts/youtube-background.js` 及离线测试固定样本 `tests/fixtures/maasea-youtube-response-65075cdb.js` 来自 [Maasea/sgmodule](https://github.com/Maasea/sgmodule) 的 `Script/Youtube/youtube.response.js`，采用 Apache-2.0；完整许可证见 [licenses/Maasea-sgmodule-APACHE-2.0.txt](licenses/Maasea-sgmodule-APACHE-2.0.txt)。固定测试样本来源提交为 `65075cdb388fc5e3094afd7e7314c67b243f3525`；发布脚本的上游提交与 SHA-256 记录于 manifest。原作者响应处理逻辑保持原样，只增加来源和许可说明。个人原生入口 `config/qx-youtube-player.conf` 仅接入响应脚本，不导入原模块的请求脚本或外部 Worker 转发。
+
+该处理恢复被旧整合遗漏的 player/get_watch/settings 后台播放与画中画字段。离线二进制测试不等同于实际设备兼容性保证；新版 YouTube 的其他传输路径不在此次响应脚本恢复的验证范围内。原有 RuleGo 静态去广告和独立字幕资源继续保留。

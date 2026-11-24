@@ -24,13 +24,49 @@
 | [miniapps.conf](https://raw.githubusercontent.com/SangShy4You/Anti-AD/main/rules/quantumultx/miniapps.conf) | 小程序广告／界面净化 |
 | [mixed-web.conf](https://raw.githubusercontent.com/SangShy4You/Anti-AD/main/rules/quantumultx/mixed-web.conf) | 豆瓣去广告与快捷观影 |
 | [web.conf](https://raw.githubusercontent.com/SangShy4You/Anti-AD/main/rules/quantumultx/web.conf) | 毒奶网页净化 |
-| [youtube.conf](https://raw.githubusercontent.com/SangShy4You/Anti-AD/main/rules/quantumultx/youtube.conf) | 原 YouTube 去广告路线 |
+| [youtube.conf](https://raw.githubusercontent.com/SangShy4You/Anti-AD/main/rules/quantumultx/youtube.conf) | YouTube 去广告、后台播放与画中画响应处理 |
 
 上述个人原生资源使用 opt-parser=false。三项纯拦截资源明确使用 force-policy=reject；三项必要放行和兼容用的混合 ads.list 不加统一 force-policy，以保留微信等正常连接。主文件按用户原配置保留“全球加速”策略组；完整配置也需保留此组。
 
 **保留原全局 KOP 解析器。** 原来的服务路由、字幕筛选、TestFlight JS 直引、Collections／cleanup 功能保留仍需要原解析设置。
 
 [import.snippet](https://raw.githubusercontent.com/SangShy4You/Anti-AD/main/rules/quantumultx/import.snippet) 是资源清单，不是完整 VPN 配置。没有节点、DNS、最终路由或证书。完整主配置需要保留原设置，不能用资源清单覆盖。
+
+## 同类服务合并资源
+
+Google 的 Gemini／YouTube／Drive／Voice 与通用规则合并为一份；Microsoft 的 OneDrive／Copilot／Bing 与通用规则合并为一份。其余服务也各有一份个人原生资源。新完整配置只引用以下 17 项服务资源，个人资源标签统一标注 `@SangShy`。
+
+| 文件 | 显示名 | 策略 |
+| --- | --- | --- |
+| [service-nintendo.list](https://raw.githubusercontent.com/SangShy4You/Anti-AD/main/rules/quantumultx/service-nintendo.list) | Nintendo @SangShy | Nintendo |
+| [service-claude.list](https://raw.githubusercontent.com/SangShy4You/Anti-AD/main/rules/quantumultx/service-claude.list) | Claude @SangShy | Claude |
+| [service-openai.list](https://raw.githubusercontent.com/SangShy4You/Anti-AD/main/rules/quantumultx/service-openai.list) | OpenAI @SangShy | OpenAI |
+| [service-google.list](https://raw.githubusercontent.com/SangShy4You/Anti-AD/main/rules/quantumultx/service-google.list) | Google @SangShy | Google |
+| [service-github.list](https://raw.githubusercontent.com/SangShy4You/Anti-AD/main/rules/quantumultx/service-github.list) | GitHub @SangShy | GitHub |
+| [service-microsoft.list](https://raw.githubusercontent.com/SangShy4You/Anti-AD/main/rules/quantumultx/service-microsoft.list) | Microsoft @SangShy | Microsoft |
+| [service-spotify.list](https://raw.githubusercontent.com/SangShy4You/Anti-AD/main/rules/quantumultx/service-spotify.list) | Spotify @SangShy | Spotify |
+| [service-netflix.list](https://raw.githubusercontent.com/SangShy4You/Anti-AD/main/rules/quantumultx/service-netflix.list) | Netflix @SangShy | Netflix |
+| [service-tiktok.list](https://raw.githubusercontent.com/SangShy4You/Anti-AD/main/rules/quantumultx/service-tiktok.list) | TikTok @SangShy | TikTok |
+| [service-telegram.list](https://raw.githubusercontent.com/SangShy4You/Anti-AD/main/rules/quantumultx/service-telegram.list) | 电报代理 @SangShy | 电报代理 |
+| [service-streaming.list](https://raw.githubusercontent.com/SangShy4You/Anti-AD/main/rules/quantumultx/service-streaming.list) | 国际媒体 @SangShy | 国际媒体 |
+| [service-cn-media.list](https://raw.githubusercontent.com/SangShy4You/Anti-AD/main/rules/quantumultx/service-cn-media.list) | 港台番剧 @SangShy | 港台番剧 |
+| [service-global.list](https://raw.githubusercontent.com/SangShy4You/Anti-AD/main/rules/quantumultx/service-global.list) | 全球加速 @SangShy | 全球加速 |
+| [service-apple.list](https://raw.githubusercontent.com/SangShy4You/Anti-AD/main/rules/quantumultx/service-apple.list) | 苹果服务 @SangShy | 苹果服务 |
+| [service-china.list](https://raw.githubusercontent.com/SangShy4You/Anti-AD/main/rules/quantumultx/service-china.list) | 国内网站 @SangShy | direct |
+| [service-wechat.list](https://raw.githubusercontent.com/SangShy4You/Anti-AD/main/rules/quantumultx/service-wechat.list) | 微信直连 @SangShy | direct |
+| [service-proxy-fix.list](https://raw.githubusercontent.com/SangShy4You/Anti-AD/main/rules/quantumultx/service-proxy-fix.list) | 代理修正 @SangShy | proxy |
+
+原作者、原始 URL、逐项筛选参数、去重记录和哈希保留在配置与 manifest。Google／Microsoft 内部仍按专用到通用的原有顺序合并；跨服务优先按已核实域名验证。任意构造的域名若同时包含多个宽泛品牌关键词，不承诺与旧的交错资源列表完全同序。
+
+原 KOP 已丢弃的少量 Surge 选项仅按逐来源的已审兼容契约处理；原生 QX 选项保持。原有命名 GEOIP 标签也显式保留，仍依赖 QX 原来的相应数据库。
+
+## YouTube 后台播放恢复
+
+此前整合选择了 app2smile 的 browse／next 入口，漏掉原 fmz 资源内 Maasea 的 player／get_watch／settings 响应处理。现改为一套 Maasea 响应处理器，补回后台播放和画中画字段，同时保留广告清理、RuleGo 静态拦截与独立字幕资源。
+
+脚本固定到已审不可变提交并自托管为 `scripts/youtube-background.js`；上游响应逻辑保持，Apache-2.0 归属及许可完整保留。二进制响应回归测试实际执行固定脚本，验证后台／画中画标记、广告字段清理、QX ArrayBuffer 输出、未知字段保留和异常响应放行。尚未在用户 iPhone 上实测；不将新版 UMP 请求转发加入本次整合。
+
+新完整配置以用户最新导出为基准，仅更换资源引用和来源标签，保留最新策略组、节点、DNS、证书和本地规则。仍由外部作者提供的重写标注原作者。
 
 ## 原功能与优先级
 

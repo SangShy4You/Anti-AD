@@ -1,0 +1,36 @@
+# Public Pokemon domains reviewed from official sites
+# https://www.pokemon.co.jp/
+host-suffix, pokemon.co.jp, Nintendo
+host-suffix, pokemon-support.com, Nintendo
+host-suffix, portal-pokemon.com, Nintendo
+# https://www.pokemon.co.jp/sitelist/
+host-suffix, pokemon-card.com, Nintendo
+host-suffix, pokemon-movie.jp, Nintendo
+host-suffix, pokemoncenter-online.com, Nintendo
+host-suffix, pokemon-cafe.jp, Nintendo
+host-suffix, pokemonfrienda.com, Nintendo
+host-suffix, pokemon.jp, Nintendo
+host-suffix, pokemon-foundation.or.jp, Nintendo
+host-suffix, pokepark-kanto.co.jp, Nintendo
+host-suffix, flying-pikachu.com, Nintendo
+host-suffix, monpoke.jp, Nintendo
+# https://www.pokemon.co.jp/app/
+host-suffix, pokemonchampions.jp, Nintendo
+host-suffix, pokemon-friends.jp, Nintendo
+host-suffix, pokemontcgpocket.com, Nintendo
+host-suffix, pokemonsleep.net, Nintendo
+host-suffix, poke-maze.jp, Nintendo
+host-suffix, pokemonunite.jp, Nintendo
+host-suffix, pokemonmasters-game.com, Nintendo
+host-suffix, pokemon-smile.jp, Nintendo
+host-suffix, apppokemon.com, Nintendo
+host-suffix, pokemongo.jp, Nintendo
+host-suffix, poketoru.jp, Nintendo
+# https://press.pokemon.com/en-NZ/POKEMON-REVEALS-MORE-DETAILS-FOR-POKEMON-BRILLIANT-DIAMOND-POKEMON-SHI
+host-suffix, pokemongolive.com, Nintendo
+# https://www.pokemoncenter.com/
+host-suffix, pokemoncenter.com, Nintendo
+# https://www.pokemonworks.co.jp/
+host-suffix, pokemonworks.co.jp, Nintendo
+# https://raw.githubusercontent.com/v2fly/domain-list-community/master/data/nintendo
+host-suffix, pokemon-unitepgame.com, Nintendo

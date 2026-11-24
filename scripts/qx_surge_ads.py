@@ -13,6 +13,7 @@ from urllib.parse import urlsplit
 
 
 YOUTUBE_AUTHOR_QX = "https://raw.githubusercontent.com/app2smile/rules/master/module/youtube-qx.conf"
+YOUTUBE_BACKGROUND_QX = "https://raw.githubusercontent.com/SangShy4You/Anti-AD/main/config/qx-youtube-player.conf"
 YOUTUBE_SCRIPT = "https://raw.githubusercontent.com/app2smile/rules/master/js/youtube.js"
 YOUTUBE_SCRIPT_PATTERN = r"^https:\/\/youtubei\.googleapis\.com\/youtubei\/v1\/(browse|next)\?"
 YOUTUBE_UDP_RULE = "AND,((PROTOCOL,UDP),(DEST-PORT,443),(DOMAIN-SUFFIX,googlevideo.com)),REJECT-NO-DROP"
@@ -81,6 +82,8 @@ def adapt_surge_ad_source(source, body):
     original RuleGo filename can also identify the kind. For YouTube,
     ``youtube_script_mode='author-native'`` leaves script selection to the
     author's separate native QX resource and records that required source.
+    ``response-native`` requires the reviewed personal response pipeline,
+    which also handles player background/PiP and replaces the browse-only hook.
     Default ``include`` converts the audited binary script hook directly.
 
     The UDP/443 logical rule is always reported as an explicit carry item.
@@ -93,7 +96,7 @@ def adapt_surge_ad_source(source, body):
         raise ValueError(f"{sid}: empty or HTML source")
     kind = _kind(source)
     script_mode = source.get("youtube_script_mode", "include")
-    if script_mode not in {"include", "author-native"}:
+    if script_mode not in {"include", "author-native", "response-native"}:
         raise ValueError("Invalid YouTube script selection mode")
     report = {
         "source": sid, "kind": kind,
@@ -163,8 +166,9 @@ def adapt_surge_ad_source(source, body):
                 output.append(native)
                 report["converted"].append({"line": number, "original": line, "native": native})
             else:
-                report["required_sources"] = [YOUTUBE_AUTHOR_QX]
-                selection["reason"] = "Use the single hook in the separately selected author's native QX resource; do not execute both overlapping hooks."
+                report["required_sources"] = [YOUTUBE_BACKGROUND_QX if script_mode == "response-native" else YOUTUBE_AUTHOR_QX]
+                selection["reason"] = ("Use the single comprehensive background/PiP response hook in the reviewed personal native resource; do not execute the old overlapping browse/next handler."
+                                       if script_mode == "response-native" else "Use the single hook in the separately selected author's native QX resource; do not execute both overlapping hooks.")
             report["script_selection"].append(selection)
         elif section == "mitm":
             hosts.extend(_hosts(line, location))

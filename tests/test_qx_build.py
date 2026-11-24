@@ -381,6 +381,28 @@ class BuildTests(unittest.TestCase):
                     self.assertIn(self.pinned_script, ads_text)
                     self.assertEqual(manifest["profile_rewrite_deduplication"], [])
 
+    def test_reviewed_service_import_and_source_drift_preserve_last_snapshot(self):
+        with tempfile.TemporaryDirectory(prefix=".test-update-", dir=qx_build.ROOT) as directory:
+            root=Path(directory)
+            config=self.prepare(root)
+            url="https://raw.githubusercontent.com/example/r/main/service.list"
+            config["sources"].append({"id":"svc","name":"Google","url":url+"#out=IP-ASN%2C&hide=1", "source_format":"service_filter","force_policy":"Google",
+                "service_selection":{"allowed_input_policies":["Original"],"allowed_selected_types":["host-suffix"]}})
+            config["products"]["service-google.list"]={"kind":"filter","sources":["svc"],"name":"Google @SangShy","import_force_policy":"Google"}
+            (root/"config/qx-sources.json").write_text(json.dumps(config),encoding="utf-8")
+            self.bodies[url]=b"HOST-SUFFIX,google.example,Original\nIP-ASN,12345,Original\n"
+            self.build(root)
+            imports=(root/"rules/quantumultx/import.snippet").read_text(encoding="utf-8")
+            self.assertIn("tag=Google @SangShy, force-policy=Google",imports)
+            compiled=(root/"rules/quantumultx/service-google.list").read_text(encoding="utf-8")
+            self.assertIn("host-suffix, google.example, Google",compiled)
+            self.assertNotIn("12345",compiled)
+            snapshot=self.snapshot(root)
+            self.bodies[url]=b"HOST-SUFFIX,google.example,reject\n"
+            with self.assertRaisesRegex(ValueError,"policy changed"):
+                self.build(root)
+            self.assertEqual(snapshot,self.snapshot(root))
+
     def test_raw_url_canonicalization_never_drops_query_but_strips_download_fragment(self):
         self.assertEqual(qx_build.download_url("https://github.com/o/r/raw/main/a.js?q=1#x"),
                          "https://raw.githubusercontent.com/o/r/main/a.js?q=1")

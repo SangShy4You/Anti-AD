@@ -49,6 +49,21 @@ class SurgeAdTests(unittest.TestCase):
         self.assertEqual(report["required_sources"], [adapter.YOUTUBE_AUTHOR_QX])
         self.assertEqual(report["counts"]["output_rewrite_rules"], 2)
 
+    def test_response_native_mode_retains_static_rules_with_a_single_background_hook(self):
+        from pathlib import Path
+        native, report = adapter.adapt_surge_ad_source(
+            {"id": "yt", "surge_ad_kind": "youtube", "youtube_script_mode": "response-native"}, youtube())
+        self.assertNotIn("script-response-body", native)
+        self.assertIn("request-header", native)
+        self.assertIn("url reject", native)
+        self.assertEqual(report["required_sources"], [adapter.YOUTUBE_BACKGROUND_QX])
+        background = (Path(__file__).resolve().parents[1] / "config/qx-youtube-player.conf").read_text(encoding="utf-8")
+        combined, parsed = compile_rewrites([{"id": "yt"}, {"id": "background"}],
+                                            {"yt": native, "background": background})
+        self.assertEqual(len(parsed["script_urls"]), 1)
+        self.assertEqual(combined.count("script-response-body"), 1)
+        self.assertNotIn(adapter.YOUTUBE_SCRIPT, combined)
+
     def test_googlevideo_header_edit_matches_original_url_replacement(self):
         # Execute only our audited regex transformation over synthetic strings.
         # No downloaded JavaScript or source programs are evaluated.
