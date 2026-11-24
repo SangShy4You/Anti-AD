@@ -19,7 +19,7 @@
       "url": "https://cdn.jsdelivr.net/gh/limbopro/Adblock4limbo@f38fec9a7630b561c76932af053d24bd541372fe/Adguard/elementBlocker.user.js"
     }
   ],
-  "config_sha256": "5732d999025821a7af3b1e687b3af5f8632fbbe10d4b331a6ea3831c882f6b84",
+  "config_sha256": "81d11759d6732101630627ae49a2127e670e99e32a4de0ccd1a9659374fdabd7",
   "data_dependencies": [
     {
       "bytes": 711,
@@ -3780,55 +3780,6 @@
       "title": "FMZ mixed advertising and original functional complement",
       "unselected_rule_changes_allowed": true,
       "url": "https://raw.githubusercontent.com/fmz200/wool_scripts/main/QuantumultX/rewrite/rewrite.snippet"
-    },
-    {
-      "expected_selected": 3,
-      "filtered_rule_count": 0,
-      "id": "validation_shopping",
-      "input_rule_count": 3,
-      "matching": "KOP-compatible case-insensitive literal substring matching over active native QX rewrite rows",
-      "mode": "in",
-      "per_key_matches": [
-        {
-          "count": 1,
-          "expected_count": 1,
-          "key": "/jd_price.js",
-          "lines": [
-            2
-          ]
-        },
-        {
-          "count": 2,
-          "expected_count": 2,
-          "key": "/tb_price.js",
-          "lines": [
-            5,
-            6
-          ]
-        }
-      ],
-      "retained_rule_count": 3,
-      "rule_bodies_exported": false,
-      "schema_version": 1,
-      "selected_rule_count": 3,
-      "selected_rule_evidence": [
-        {
-          "line": 2,
-          "sha256": "ff23a0c2e054e9febc8a7b90e22bd7f2387f6e647338f8651d880662161809d4"
-        },
-        {
-          "line": 5,
-          "sha256": "9337fab23a23a9108bdbaf588d3fe66625f128c8cf450110e6af9a8f0541ba53"
-        },
-        {
-          "line": 6,
-          "sha256": "5dc73c539c9da95aab8ca0851edd103eb61f32e856a6e851882d720c6f98ba1e"
-        }
-      ],
-      "source_sha256": "8fc670b6dbbe0c71f478ddc1da27857ca20bd44f161ed465a1d9e1ffd89a5c0e",
-      "title": "Original JD and Taobao price comparison retained upstream",
-      "unselected_rule_changes_allowed": true,
-      "url": "https://raw.githubusercontent.com/DoracisMu/quanX_rewirte/master/JdTb.conf"
     }
   ],
   "omitted_candidates": [
