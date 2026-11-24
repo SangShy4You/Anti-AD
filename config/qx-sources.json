@@ -1580,13 +1580,6 @@
       "selected_hooks": 67,
       "validation_id": "validation_fmz_preserved_functions",
       "reason": "Retain inseparable ad/function scripts and non-ad behavior through one precisely filtered original-author reference; do not claim excluded mixed scripts are equivalent to pure-ad replacements."
-    },
-    "shopping_price": {
-      "url": "https://raw.githubusercontent.com/DoracisMu/quanX_rewirte/master/JdTb.conf",
-      "name": "购物比价 @DoracisMu",
-      "selected_hooks": 3,
-      "validation_id": "validation_shopping",
-      "reason": "Restore the originally enabled reference omitted from the earlier private assembly."
     }
   },
   "validation_sources": [
@@ -1699,21 +1692,6 @@
         "https?:\\/\\/zjdr666\\.com": 1
       },
       "expected_selected": 67
-    },
-    {
-      "id": "validation_shopping",
-      "title": "Original JD and Taobao price comparison retained upstream",
-      "url": "https://raw.githubusercontent.com/DoracisMu/quanX_rewirte/master/JdTb.conf",
-      "mode": "in",
-      "keys": [
-        "/jd_price.js",
-        "/tb_price.js"
-      ],
-      "expected_per_key": {
-        "/jd_price.js": 1,
-        "/tb_price.js": 2
-      },
-      "expected_selected": 3
     }
   ],
   "profile_rewrite_order": [

@@ -104,7 +104,7 @@
       "tag": "购物比价",
       "repository": "DoracisMu/quanX_rewirte",
       "original_enabled": true,
-      "action": "keep-functional-remote"
+      "action": "retired-after-functional-review"
     },
     {
       "original_line": 75,

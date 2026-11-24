@@ -45,7 +45,8 @@
         "https://raw.githubusercontent.com/yichahucha/surge/master/tb_price.js"
       ],
       "actual_kop_verified": true,
-      "part_of_public_ad_only_import_snippet": false
+      "part_of_public_ad_only_import_snippet": false,
+      "status": "historical_restoration_superseded_by_retirement"
     },
     {
       "id": "fmz_tail_ad_tracking_selection_completed",
@@ -585,12 +586,13 @@
       "original_url": "https://raw.githubusercontent.com/DoracisMu/quanX_rewirte/master/JdTb.conf",
       "original_tag": "购物比价",
       "original_enabled": true,
-      "status": "original_external_reference_restored_in_private_complete_profile",
+      "status": "retired_after_functional_review",
       "original_index": 1,
-      "evidence": "Original wrapper and both yichahucha/surge script dependencies were read; actual KOP output preserves all three hooks and both original hostnames. Wrapper is kept upstream, outside the personal ad-only products.",
-      "current_url": "https://raw.githubusercontent.com/DoracisMu/quanX_rewirte/master/JdTb.conf",
+      "evidence": "The original resource parsed into three hooks. The script author's README marks both historical-price features as withdrawn. A query using the public example in issue 101 failed TLS certificate validation and returned no price on the audit network. The private profile and scheduled source checks have retired this resource.",
       "hook_count": 3,
-      "author": "DoracisMu"
+      "author": "DoracisMu",
+      "upstream_status_source": "https://github.com/yichahucha/surge/blob/master/README.md",
+      "issue_example": "https://github.com/yichahucha/surge/issues/101#issuecomment-1156157023"
     },
     {
       "original_url": "https://raw.githubusercontent.com/chxm1023/Script_X/main/Collections.conf",
@@ -1204,7 +1206,8 @@
       },
       "shopping": {
         "hooks": 3,
-        "hostnames": 2
+        "hostnames": 2,
+        "status": "historical_parser_check_before_retirement"
       }
     }
   },
