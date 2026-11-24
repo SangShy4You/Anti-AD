@@ -23,6 +23,7 @@
 
 | 文件 | 用途 | 本轮规则数 |
 | --- | --- | --- |
+| [bilibili.conf](https://raw.githubusercontent.com/SangShy4You/Anti-AD/main/rules/quantumultx/bilibili.conf) | B 站 App 首页推荐、动态和直播推广净化 | 3 |
 | [ads.conf](https://raw.githubusercontent.com/SangShy4You/Anti-AD/main/rules/quantumultx/ads.conf) | 综合 App 广告、贴吧、神机及 Collections 纯广告 | 2205 |
 | [miniapps.conf](https://raw.githubusercontent.com/SangShy4You/Anti-AD/main/rules/quantumultx/miniapps.conf) | 小程序广告与界面净化 | 60 |
 | [mixed-web.conf](https://raw.githubusercontent.com/SangShy4You/Anti-AD/main/rules/quantumultx/mixed-web.conf) | 豆瓣广告净化与快捷观影 | 1 |
@@ -30,6 +31,12 @@
 | [youtube.conf](https://raw.githubusercontent.com/SangShy4You/Anti-AD/main/rules/quantumultx/youtube.conf) | YouTube 广告、后台播放与画中画响应处理 | 7 |
 
 个人原生资源使用 `opt-parser=false`。保留全局 KOP 解析器：字幕筛选、TestFlight JS 直引及上游功能补集仍需要原解析设置。`import.snippet` 固定将必需的 FMZ 精准补充放在广泛的个人广告重写之前；不要删掉它后仅导入个人广告文件。
+
+### B 站净化
+
+在「重写 → 引用」启用「B站净化 @SangShy」，放在「去广告重写 @SangShy」前。首页会过滤推荐广告，综合和视频动态会过滤推广，直播页会清理部分推广卡片、活动横幅及购物入口。上游默认还会隐藏综合动态的「热门话题」。想恢复这些界面元素，可以单独停用这项重写。查看效果时请重新拉取首页推荐、动态或直播列表。HTTPS 内容处理需要 QX 开启重写及已受信任的 MitM 证书。
+
+每日任务检查 Biliverse/ADBlock 正式发布的 QX 规则和响应脚本，用筛选后的规则生成这份个人资源。开屏和播放详情沿用既有处理。[上游项目与设置说明](https://biliverse.github.io/guide/ad-block) · [正式发布记录](https://github.com/Biliverse/ADBlock/releases)
 
 FMZ 补充保留 39 项混合广告／功能处理和 28 项原功能，共 67 条，包含原来的升级提示处理和知乎外链等。实际执行原 KOP 后，67 条处理、原顺序和 49 个来源 hostname 均一致；脚本仍由上游提供。已从个人配置和每日检查中移除京东／淘宝历史比价。上游已划去两项功能，本次用公开示例查询时价格接口证书校验失败。[上游说明](https://github.com/yichahucha/surge#quan-x)
 
@@ -73,7 +80,7 @@ YouTube 维持单套自托管 Maasea 响应处理，覆盖播放器、get_watch 
 
 ## 自动维护与可复核证据
 
-[自动更新任务](https://github.com/SangShy4You/Anti-AD/actions/workflows/update-qx.yml)每天北京时间 08:50 检查。来源筛选基数、已审补充项、精确语法转换、六段策略顺序、脚本依赖和补丁上下文都有守卫；失败保留已发布快照。个人编译产物中的脚本依赖固定到不可变提交，保留原功能的外链继续由上游维护。
+[自动更新任务](https://github.com/SangShy4You/Anti-AD/actions/workflows/update-qx.yml)每天北京时间 08:50 检查。来源筛选基数、已审补充项、精确语法转换、六段策略顺序、脚本依赖和补丁上下文都有守卫；失败保留已发布快照。B 站响应脚本使用上游正式版本号，构建时核对 GitHub 发布的 SHA-256。其余个人编译产物中的脚本依赖固定到提交，保留原功能的外链继续由上游维护。
 
 本页数字是本轮审计快照；后续实时数量见 [manifest](rules/quantumultx/manifest.json)。原 50 项资源去向、修复证据、去重契约与明确排除项见 [审计 JSON](data/qx-integration-reaudit.json)，许可见 [THIRD_PARTY_NOTICES](THIRD_PARTY_NOTICES.md)。
 

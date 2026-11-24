@@ -3,6 +3,14 @@
   "scope": "personal-QX-ads-tracking-and-optional-service-routing",
   "sources": [
     {
+      "id": "biliverse-adblock",
+      "name": "B站首页、动态和直播净化 @Biliverse",
+      "url": "https://github.com/Biliverse/ADBlock/releases/latest/download/BiliBili.ADBlock.snippet",
+      "source_format": "biliverse_release",
+      "license": "Apache-2.0",
+      "min_rules": 3
+    },
+    {
       "id": "01_filter",
       "name": "sve1r-AntiAD-V4",
       "url": "https://raw.githubusercontent.com/sve1r/Rules-For-Quantumult-X/refs/heads/main/Rules/Advertising/antiAD-V4.list",
@@ -1236,6 +1244,14 @@
       "name": "个人网页去广告",
       "default_enabled": true
     },
+    "bilibili.conf": {
+      "kind": "rewrite",
+      "sources": [
+        "biliverse-adblock"
+      ],
+      "name": "B站净化 @SangShy",
+      "default_enabled": true
+    },
     "youtube.conf": {
       "kind": "rewrite",
       "sources": [
@@ -1696,6 +1712,7 @@
   ],
   "profile_rewrite_order": [
     "youtube.conf",
+    "bilibili.conf",
     "ads.conf",
     "miniapps.conf",
     "mixed-web.conf",

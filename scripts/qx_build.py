@@ -19,10 +19,10 @@ from urllib.parse import quote, urlsplit, urlunsplit
 import urllib.request
 
 if __package__:
-    from . import update
+    from . import update, qx_bilibili
     from .qx_filters import compile_filters
     from .qx_rewrites import compile_rewrites
-    from .qx_dependencies import pin_url, resolve_ref
+    from .qx_dependencies import _api_json, pin_url, resolve_ref
     from .qx_surge_ads import adapt_surge_ad_source
     from .qx_web_ads import patch_limbo_entry
     from .qx_youtube import prepare_response_script
@@ -32,10 +32,10 @@ if __package__:
     from .qx_filter_partition import partition_ordered_filters
     from .qx_service_filters import prepare_service_filters
 else:
-    import update
+    import update, qx_bilibili
     from qx_filters import compile_filters
     from qx_rewrites import compile_rewrites
-    from qx_dependencies import pin_url, resolve_ref
+    from qx_dependencies import _api_json, pin_url, resolve_ref
     from qx_surge_ads import adapt_surge_ad_source
     from qx_web_ads import patch_limbo_entry
     from qx_youtube import prepare_response_script
@@ -49,7 +49,7 @@ ROOT = Path(__file__).resolve().parents[1]
 PREFIX = "rules/quantumultx/"
 PUBLIC = "https://raw.githubusercontent.com/SangShy4You/Anti-AD/main/"
 IDENTIFIER = re.compile(r"[a-zA-Z0-9][a-zA-Z0-9_-]{0,100}\Z")
-GENERATOR_MODULES = ("qx_build.py", "qx_filters.py", "qx_rewrites.py", "qx_dependencies.py", "qx_surge_ads.py", "qx_web_ads.py", "qx_extra_filters.py", "qx_mixed_guard.py", "qx_profile_dedup.py", "qx_filter_partition.py", "qx_service_filters.py", "qx_youtube.py")
+GENERATOR_MODULES = ("qx_build.py", "qx_filters.py", "qx_rewrites.py", "qx_dependencies.py", "qx_surge_ads.py", "qx_web_ads.py", "qx_extra_filters.py", "qx_mixed_guard.py", "qx_profile_dedup.py", "qx_filter_partition.py", "qx_service_filters.py", "qx_youtube.py", "qx_bilibili.py")
 
 
 def dump(value):
@@ -119,8 +119,28 @@ def build(root=ROOT, *, offline_dir=None, dependency_dir=None, fetcher=None, res
     if len(set(identifiers)) != len(identifiers) or not all(IDENTIFIER.fullmatch(x) for x in identifiers):
         raise ValueError("Invalid or duplicate source identifiers")
     active = [s for s in sources if s.get("enabled", True)]
+    release_scripts = {}
+    bili_sources = [s for s in active if s.get("source_format") == "biliverse_release"]
+    if bili_sources:
+        if len(bili_sources) != 1 or bili_sources[0]["url"] != qx_bilibili.SOURCE_URL:
+            raise ValueError("Expected a single official Biliverse QX release source")
+        if offline_dir:
+            metadata = (Path(offline_dir) / "biliverse-release.json").read_bytes()
+        elif fetcher:
+            metadata = fetcher("https://api.github.com" + qx_bilibili.API_PATH)
+        else:
+            metadata = _api_json(qx_bilibili.API_PATH)
+        release_tag, release_assets = qx_bilibili.select_release(metadata)
+        script_asset = release_assets[qx_bilibili.SCRIPT]
+        release_scripts[script_asset["browser_download_url"]] = script_asset
 
     def obtain(source):
+        if source.get("source_format") == "biliverse_release":
+            asset = release_assets[qx_bilibili.MODULE]
+            raw = ((Path(offline_dir) / (source["id"] + ".txt")).read_bytes() if offline_dir
+                   else (fetcher or update.fetch_url)(asset["browser_download_url"]))
+            qx_bilibili.verify_asset(asset, raw)
+            return source["id"], raw, update.validate_body(raw)
         url = download_url(source["url"])
         if source.get("local_path"):
             if not source["local_path"].startswith("config/"):
@@ -162,6 +182,8 @@ def build(root=ROOT, *, offline_dir=None, dependency_dir=None, fetcher=None, res
             bodies[source["id"]], adaptations[source["id"]] = extract_fmz_ad_filters(bodies[source["id"]])
         elif source.get("source_format") == "service_filter":
             bodies[source["id"]], adaptations[source["id"]] = prepare_service_filters(source, bodies[source["id"]])
+        elif source.get("source_format") == "biliverse_release":
+            bodies[source["id"]], adaptations[source["id"]] = qx_bilibili.adapt_bilibili(bodies[source["id"]], release_tag)
     products, filter_reports, rewrite_reports = {}, {}, {}
     for output, selection in config["products"].items():
         if not re.fullmatch(r"[a-z][a-z0-9-]*\.(?:list|conf)", output):
@@ -222,7 +244,7 @@ def build(root=ROOT, *, offline_dir=None, dependency_dir=None, fetcher=None, res
                     and rule["argument"] not in approved_data):
                 raise ValueError("New GitHub redirect data dependency needs review: " + rule["argument"])
     approved = set(config["approved_script_urls"])
-    unknown = set(script_urls) - approved
+    unknown = set(script_urls) - approved - release_scripts.keys()
     if unknown:
         raise ValueError("New script references need review before publication: " + ", ".join(sorted(unknown)))
 
@@ -231,22 +253,27 @@ def build(root=ROOT, *, offline_dir=None, dependency_dir=None, fetcher=None, res
         if key not in resolved:
             resolved[key] = (resolver or resolve_ref)(key)
         return resolved[key]
-    pinned = {url: pin_url(url, resolve) for url in script_urls}
+    pinned = {url: (url if url in release_scripts else pin_url(url, resolve)) for url in script_urls}
     pinned_data = {item["url"]: pin_url(item["url"], resolve) for item in config.get("data_dependencies", [])}
     patches = config.get("script_patches", {})
     patched_products = {}
 
     def read_script(url):
-        fetch_url = download_url(pinned[url])
-        cache_name = digest(fetch_url.encode()) + ".js"
+        release_asset = release_scripts.get(url)
+        fetch_url = url if release_asset else download_url(pinned[url])
+        cache_name = "biliverse-response.js" if release_asset else digest(fetch_url.encode()) + ".js"
         raw = ((Path(dependency_dir) / cache_name).read_bytes() if dependency_dir
                else (fetcher or update.fetch_url)(fetch_url))
+        if release_asset:
+            qx_bilibili.verify_asset(release_asset, raw)
         text = update.validate_body(raw)
         check_javascript(raw, fetch_url)
         if not re.search(r"\$(?:done|request|response|task|httpClient|prefs|persistentStore|environment)\b", text):
             raise ValueError("Script does not resemble a reviewed proxy script: " + fetch_url)
         record = {"url": url, "pinned_url": pinned[url], "fetch_url": fetch_url,
                   "bytes": len(raw), "sha256": digest(raw)}
+        if release_asset:
+            record.update(release=release_tag, release_asset_id=release_asset["id"])
         if url in patches:
             patch = patches[url]
             name = patch["filename"]
@@ -390,7 +417,7 @@ def build(root=ROOT, *, offline_dir=None, dependency_dir=None, fetcher=None, res
         "required_remote_rewrites": required_remotes,
         "profile_rewrite_deduplication": profile_dedup,
         "resolved_refs": resolved,
-        "script_policy": "Upstream JavaScript is pinned to full immutable commits; new script URLs require review. A documented local bug fix is maintained for Zhihu. Scripts are read and statically checked, never executed by this builder.",
+        "script_policy": "Upstream JavaScript is pinned to full commits or to the reviewed Biliverse release asset, verified against GitHub's SHA-256 digest. Scripts are read and statically checked, never executed by this builder.",
         "omitted_candidates": config.get("omitted_candidates", []),
         "outputs": {path: {"sha256": digest(raw), "bytes": len(raw)} for path, raw in sorted(products.items())},
     }

@@ -1,0 +1,10 @@
+# Selected native QX lines from Biliverse/ADBlock v0.7.5, Apache-2.0.
+# Full release: https://github.com/Biliverse/ADBlock/releases/tag/v0.7.5
+#!version = 0.7.5
+#[rewrite_local]
+^https?:\/\/app\.bili(bili\.com|api\.net)\/x\/v2\/feed\/index\? url script-request-header https://github.com/Biliverse/ADBlock/releases/download/v0.7.5/request.bundle.js
+^https?:\/\/api\.live\.bilibili\.com\/xlive\/(app-room\/v1\/index\/getInfoByRoom|app-interface\/v2\/(index\/feed|room\/recList)) url script-response-body https://github.com/Biliverse/ADBlock/releases/download/v0.7.5/response.bundle.js
+^https?:\/\/app\.bili(bili\.com|api\.net)\/x\/v2\/(splash\/(brand\/list|event\/list2|list|show)|feed\/index(\/(relate\/)?story)?|search\/square) url script-response-body https://github.com/Biliverse/ADBlock/releases/download/v0.7.5/response.bundle.js
+^https?:\/\/(grpc|app)\.bili(bili\.com|api\.net)\/bilibili\.app\.dynamic\.v2\.Dynamic\/Dyn(All|Video)(Personal)?$ url script-response-body https://github.com/Biliverse/ADBlock/releases/download/v0.7.5/response.bundle.js
+#[mitm]
+hostname = biliverse.github.io, manga.bilibili.com, api.live.bilibili.com, api.vc.bilibili.com, app.bilibili.com, app.biliapi.net, app.biliapi.com, api.bilibili.com, api.biliapi.net, grpc.biliapi.net, cm.bilibili.com, adtrack.qianwen.com, tkio-redirect.solar-engine.com

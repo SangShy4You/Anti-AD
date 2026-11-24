@@ -8,6 +8,8 @@
 
 ## 原作者项目及许可证副本
 
+B 站净化采用 Biliverse/ADBlock 正式版中的部分 QX 匹配规则，个人版本缩小了匹配范围，并在规则中引用原作者发布的响应脚本。该项目以 Apache License 2.0 发布。[上游正式版](https://github.com/Biliverse/ADBlock/releases) · [上游许可原文](https://github.com/Biliverse/ADBlock/blob/v0.7.5/LICENSE) · [仓库内的 Apache License 2.0 全文](licenses/Maasea-sgmodule-APACHE-2.0.txt)
+
 | 原作者项目 | 所用分支 | 根许可证记录 | 随附原文 |
 | --- | --- | --- | --- |
 | [sve1r/Rules-For-Quantumult-X](https://github.com/sve1r/Rules-For-Quantumult-X) | `main` | [MIT](https://github.com/sve1r/Rules-For-Quantumult-X/blob/main/LICENSE) | [完整原文](licenses/sve1r-Rules-For-Quantumult-X-MIT.txt) |
