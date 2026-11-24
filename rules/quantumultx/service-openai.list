@@ -1,0 +1,19 @@
+# Personal Quantumult X ordered filters
+# Source order and explicit policies are preserved; exact matches deduplicated.
+
+# Source: service-source-02
+host, chat.openai.com.cdn.cloudflare.net, OpenAI
+host, openai-api.arkoselabs.com, OpenAI
+host, openaicom-api-bdcpf8c6d2e9atf6.z01.azurefd.net, OpenAI
+host, openaicomproductionae4b.blob.core.windows.net, OpenAI
+host, production-openaicom-storage.azureedge.net, OpenAI
+host-suffix, chatgpt.com, OpenAI
+host-suffix, chatgpt.livekit.cloud, OpenAI
+host-suffix, oaistatic.com, OpenAI
+host-suffix, oaiusercontent.com, OpenAI
+host-suffix, openai.com, OpenAI
+host-suffix, openaiapi-site.azureedge.net, OpenAI
+host-suffix, openaicom.imgix.net, OpenAI
+host-keyword, openai, OpenAI
+ip-cidr, 24.199.123.28/32, OpenAI
+ip-cidr, 64.23.132.171/32, OpenAI

@@ -19,7 +19,7 @@
       "url": "https://cdn.jsdelivr.net/gh/limbopro/Adblock4limbo@f38fec9a7630b561c76932af053d24bd541372fe/Adguard/elementBlocker.user.js"
     }
   ],
-  "config_sha256": "8bbcc9ae68e1f40b0f828f5ee6d9eb40b658905dec5529e3695f9d248be9f848",
+  "config_sha256": "6e9db3b4a2f1ed8cecc88540598f233b446a0080a54c24794a9649e121e6e71f",
   "data_dependencies": [
     {
       "bytes": 711,
@@ -2010,9 +2010,1038 @@
         "ip-asn": 1,
         "user-agent": 2
       }
+    },
+    "service-apple.list": {
+      "conflict_rules_removed_first_match_wins": 0,
+      "conflict_samples_limited_to": 100,
+      "conflicts": [],
+      "deduplication": "same kind, normalized value and identical qualifiers; first source wins",
+      "disabled_sources": [],
+      "domain_parent_child_compaction": false,
+      "duplicate_rules_removed": 0,
+      "duplicate_samples": [],
+      "duplicate_samples_limited_to": 100,
+      "input_rules": 20,
+      "issues": [],
+      "output_rules": 20,
+      "output_sha256": "bc9159875002451c36aee6fcde104fbdf85efb7ca7e4d0e2cb2cbb2b0ce869ed",
+      "schema_version": 1,
+      "sources": [
+        {
+          "body_sha256": "bf1ec7fa7ec10d309ee5e98e7b09d978291b04c0d3270acf546cd83278a0defe",
+          "duplicate_rules": 0,
+          "excluded_rules": 0,
+          "forced_policy": "苹果服务",
+          "id": "service-source-21",
+          "input_rules": 20,
+          "kept_rules": 20,
+          "name": "苹果服务",
+          "url": "https://raw.githubusercontent.com/ConnersHua/RuleGo/master/Surge/Ruleset/Extra/Apple/Apple.list"
+        }
+      ],
+      "type_counts": {
+        "host-keyword": 4,
+        "host-suffix": 16
+      }
+    },
+    "service-china.list": {
+      "conflict_rules_removed_first_match_wins": 0,
+      "conflict_samples_limited_to": 100,
+      "conflicts": [],
+      "deduplication": "same kind, normalized value and identical qualifiers; first source wins",
+      "disabled_sources": [],
+      "domain_parent_child_compaction": false,
+      "duplicate_rules_removed": 0,
+      "duplicate_samples": [],
+      "duplicate_samples_limited_to": 100,
+      "input_rules": 24,
+      "issues": [],
+      "output_rules": 24,
+      "output_sha256": "5ff629fffabab5d6cf6f250c0373fe6b424c9ca04e972c359eb760fa090f335a",
+      "schema_version": 1,
+      "sources": [
+        {
+          "body_sha256": "ee8166f647a74819b65682865861be1819f490014634a28089fa02f8a63d2004",
+          "duplicate_rules": 0,
+          "excluded_rules": 0,
+          "forced_policy": "direct",
+          "id": "service-source-22",
+          "input_rules": 24,
+          "kept_rules": 24,
+          "name": "国内网站",
+          "url": "https://raw.githubusercontent.com/ConnersHua/RuleGo/master/Surge/Ruleset/Direct.list"
+        }
+      ],
+      "type_counts": {
+        "host": 8,
+        "host-suffix": 13,
+        "ip-cidr": 3
+      }
+    },
+    "service-claude.list": {
+      "conflict_rules_removed_first_match_wins": 0,
+      "conflict_samples_limited_to": 100,
+      "conflicts": [],
+      "deduplication": "same kind, normalized value and identical qualifiers; first source wins",
+      "disabled_sources": [],
+      "domain_parent_child_compaction": false,
+      "duplicate_rules_removed": 0,
+      "duplicate_samples": [],
+      "duplicate_samples_limited_to": 100,
+      "input_rules": 4,
+      "issues": [],
+      "output_rules": 4,
+      "output_sha256": "32ee880456ef5fb42f19d230cf64fba57ead8fb562aab65aeb0793cf3b729d62",
+      "schema_version": 1,
+      "sources": [
+        {
+          "body_sha256": "fc830eb8438490455011ff96eff60c1158f21a85eaff35da63886d65163d4ea2",
+          "duplicate_rules": 0,
+          "excluded_rules": 0,
+          "forced_policy": "Claude",
+          "id": "service-source-01",
+          "input_rules": 3,
+          "kept_rules": 3,
+          "name": "Claude",
+          "url": "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/QuantumultX/Claude/Claude.list"
+        },
+        {
+          "body_sha256": "ac42a415f7550fa34e471fe36ec39d14fb2d48e32a74f728d195b45a89f39b78",
+          "duplicate_rules": 0,
+          "excluded_rules": 0,
+          "forced_policy": "Claude",
+          "id": "service-claude-extra",
+          "input_rules": 1,
+          "kept_rules": 1,
+          "name": "Claude reviewed official-domain supplement",
+          "url": "https://raw.githubusercontent.com/SangShy4You/Anti-AD/main/config/qx-claude-extra.list"
+        }
+      ],
+      "type_counts": {
+        "host": 1,
+        "host-suffix": 3
+      }
+    },
+    "service-cn-media.list": {
+      "conflict_rules_removed_first_match_wins": 0,
+      "conflict_samples_limited_to": 100,
+      "conflicts": [],
+      "deduplication": "same kind, normalized value and identical qualifiers; first source wins",
+      "disabled_sources": [],
+      "domain_parent_child_compaction": false,
+      "duplicate_rules_removed": 0,
+      "duplicate_samples": [],
+      "duplicate_samples_limited_to": 100,
+      "input_rules": 16,
+      "issues": [],
+      "output_rules": 16,
+      "output_sha256": "656da44428862d50e8643e2021cfa8985ba95395d77b0d62b8d7bac413ff701f",
+      "schema_version": 1,
+      "sources": [
+        {
+          "body_sha256": "becc69510b1e843530a226f2a428bd1bc4d716fc097081481161247ae16c71ab",
+          "duplicate_rules": 0,
+          "excluded_rules": 0,
+          "forced_policy": "港台番剧",
+          "id": "service-source-19",
+          "input_rules": 16,
+          "kept_rules": 16,
+          "name": "港台番剧",
+          "url": "https://raw.githubusercontent.com/ConnersHua/RuleGo/master/Surge/Ruleset/Extra/Streaming/CN.list"
+        }
+      ],
+      "type_counts": {
+        "host": 12,
+        "host-keyword": 1,
+        "host-suffix": 1,
+        "ip-cidr": 2
+      }
+    },
+    "service-github.list": {
+      "conflict_rules_removed_first_match_wins": 0,
+      "conflict_samples_limited_to": 100,
+      "conflicts": [],
+      "deduplication": "same kind, normalized value and identical qualifiers; first source wins",
+      "disabled_sources": [],
+      "domain_parent_child_compaction": false,
+      "duplicate_rules_removed": 0,
+      "duplicate_samples": [],
+      "duplicate_samples_limited_to": 100,
+      "input_rules": 31,
+      "issues": [],
+      "output_rules": 31,
+      "output_sha256": "6c23aa55d3d0b1bfa6cc08e2244e0811d3882020ca8cadaaec278375d9d857bf",
+      "schema_version": 1,
+      "sources": [
+        {
+          "body_sha256": "272220dc71a552f579c0a1de520de1329be0932641fcb67dc8f2bcecdfc6bd37",
+          "duplicate_rules": 0,
+          "excluded_rules": 0,
+          "forced_policy": "GitHub",
+          "id": "service-source-07",
+          "input_rules": 31,
+          "kept_rules": 31,
+          "name": "GitHub",
+          "url": "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/QuantumultX/GitHub/GitHub.list"
+        }
+      ],
+      "type_counts": {
+        "host-keyword": 1,
+        "host-suffix": 30
+      }
+    },
+    "service-global.list": {
+      "conflict_rules_removed_first_match_wins": 0,
+      "conflict_samples_limited_to": 100,
+      "conflicts": [],
+      "deduplication": "same kind, normalized value and identical qualifiers; first source wins",
+      "disabled_sources": [],
+      "domain_parent_child_compaction": false,
+      "duplicate_rules_removed": 1,
+      "duplicate_samples": [
+        {
+          "kept_line": 460,
+          "kept_rule": "host-suffix, articles.sk, 全球加速",
+          "kept_source": "service-source-20",
+          "removed_line": 461,
+          "removed_rule": "host-suffix, articles.sk, 全球加速",
+          "removed_source": "service-source-20"
+        }
+      ],
+      "duplicate_samples_limited_to": 100,
+      "input_rules": 513,
+      "issues": [],
+      "output_rules": 512,
+      "output_sha256": "90779a48a1983e202869417dcccb9171d300add9e8e8fb1c4c294f0b4a9822b2",
+      "schema_version": 1,
+      "sources": [
+        {
+          "body_sha256": "9bd8645c15babedafb7933be67a2e825003e618cddbe67ef1d55185b3ca15940",
+          "duplicate_rules": 1,
+          "excluded_rules": 0,
+          "forced_policy": "全球加速",
+          "id": "service-source-20",
+          "input_rules": 513,
+          "kept_rules": 512,
+          "name": "全球加速",
+          "url": "https://raw.githubusercontent.com/ConnersHua/RuleGo/master/Surge/Ruleset/Proxy.list"
+        }
+      ],
+      "type_counts": {
+        "host": 54,
+        "host-keyword": 4,
+        "host-suffix": 436,
+        "ip-cidr": 13,
+        "ip6-cidr": 5
+      }
+    },
+    "service-google.list": {
+      "conflict_rules_removed_first_match_wins": 0,
+      "conflict_samples_limited_to": 100,
+      "conflicts": [],
+      "deduplication": "same kind, normalized value and identical qualifiers; first source wins",
+      "disabled_sources": [],
+      "domain_parent_child_compaction": false,
+      "duplicate_rules_removed": 9,
+      "duplicate_samples": [
+        {
+          "kept_line": 1,
+          "kept_rule": "host, lens.l.google.com, Google",
+          "kept_source": "service-source-06",
+          "removed_line": 14,
+          "removed_rule": "host, lens.l.google.com, Google",
+          "removed_source": "service-source-12"
+        },
+        {
+          "kept_line": 5,
+          "kept_rule": "host-suffix, deepmind.com, Google",
+          "kept_source": "service-source-03",
+          "removed_line": 200,
+          "removed_rule": "host-suffix, deepmind.com, Google",
+          "removed_source": "service-source-12"
+        },
+        {
+          "kept_line": 3,
+          "kept_rule": "host-suffix, googledrive.com, Google",
+          "kept_source": "service-source-05",
+          "removed_line": 697,
+          "removed_rule": "host-suffix, googledrive.com, Google",
+          "removed_source": "service-source-12"
+        },
+        {
+          "kept_line": 4,
+          "kept_rule": "user-agent, %E4%BA%91%E7%AB%AF%E7%A1%AC%E7%9B%98*, Google",
+          "kept_source": "service-source-05",
+          "removed_line": 704,
+          "removed_rule": "user-agent, %E4%BA%91%E7%AB%AF%E7%A1%AC%E7%9B%98*, Google",
+          "removed_source": "service-source-12"
+        },
+        {
+          "kept_line": 5,
+          "kept_rule": "user-agent, *com.google.Drive*, Google",
+          "kept_source": "service-source-05",
+          "removed_line": 705,
+          "removed_rule": "user-agent, *com.google.Drive*, Google",
+          "removed_source": "service-source-12"
+        },
+        {
+          "kept_line": 6,
+          "kept_rule": "user-agent, Google.Drive*, Google",
+          "kept_source": "service-source-05",
+          "removed_line": 706,
+          "removed_rule": "user-agent, Google.Drive*, Google",
+          "removed_source": "service-source-12"
+        },
+        {
+          "kept_line": 194,
+          "kept_rule": "ip-cidr, 172.110.32.0/21, Google",
+          "kept_source": "service-source-04",
+          "removed_line": 707,
+          "removed_rule": "ip-cidr, 172.110.32.0/21, Google",
+          "removed_source": "service-source-12"
+        },
+        {
+          "kept_line": 195,
+          "kept_rule": "ip-cidr, 216.73.80.0/20, Google",
+          "kept_source": "service-source-04",
+          "removed_line": 709,
+          "removed_rule": "ip-cidr, 216.73.80.0/20, Google",
+          "removed_source": "service-source-12"
+        },
+        {
+          "kept_line": 196,
+          "kept_rule": "ip6-cidr, 2620:120:e000::/40, Google",
+          "kept_source": "service-source-04",
+          "removed_line": 711,
+          "removed_rule": "ip6-cidr, 2620:120:e000::/40, Google",
+          "removed_source": "service-source-12"
+        }
+      ],
+      "duplicate_samples_limited_to": 100,
+      "input_rules": 926,
+      "issues": [],
+      "output_rules": 917,
+      "output_sha256": "b1ac6164a96a6e672c004319050be03eba93a24e74103859eeed602707232d2d",
+      "schema_version": 1,
+      "sources": [
+        {
+          "body_sha256": "4a6b31b3b4a725811949392b804c23f5e0b3812b2f333ed653d1dc91e68f0f77",
+          "duplicate_rules": 0,
+          "excluded_rules": 0,
+          "forced_policy": "Google",
+          "id": "service-source-03",
+          "input_rules": 12,
+          "kept_rules": 12,
+          "name": "Gemini",
+          "url": "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/QuantumultX/Gemini/Gemini.list#out=%2Capis.google.com%2C&hide=1&ntf=0"
+        },
+        {
+          "body_sha256": "61b6676b196e395e11e885aeaaa29ad5cf69d9768a1202030a3eb8ae50f43aec",
+          "duplicate_rules": 0,
+          "excluded_rules": 0,
+          "forced_policy": "Google",
+          "id": "service-source-04",
+          "input_rules": 196,
+          "kept_rules": 196,
+          "name": "YouTube",
+          "url": "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/QuantumultX/YouTube/YouTube.list"
+        },
+        {
+          "body_sha256": "dd2b874f2dd3846fc757a95579e0bde18c47e4ba6f6a8cfc552fa0274178696e",
+          "duplicate_rules": 0,
+          "excluded_rules": 0,
+          "forced_policy": "Google",
+          "id": "service-source-05",
+          "input_rules": 6,
+          "kept_rules": 6,
+          "name": "GoogleDrive",
+          "url": "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/QuantumultX/GoogleDrive/GoogleDrive.list#out=%2Cgoogleusercontent.com%2C+%2Cwww.googleapis.com%2C&hide=1&ntf=0"
+        },
+        {
+          "body_sha256": "d55eda4758465e1848be1d26882e44e1719c6630e3045dcd43535e05f9f4d54c",
+          "duplicate_rules": 0,
+          "excluded_rules": 0,
+          "forced_policy": "Google",
+          "id": "service-source-06",
+          "input_rules": 1,
+          "kept_rules": 1,
+          "name": "GoogleVoice",
+          "url": "https://raw.githubusercontent.com/ConnersHua/RuleGo/master/Surge/Ruleset/Extra/Google/GoogleVoice.list"
+        },
+        {
+          "body_sha256": "14101afb46e47f441d486e751f1144e8e22ed5e12dc80bd9f5afe3f3ec42e2f9",
+          "duplicate_rules": 9,
+          "excluded_rules": 0,
+          "forced_policy": "Google",
+          "id": "service-source-12",
+          "input_rules": 711,
+          "kept_rules": 702,
+          "name": "Google",
+          "url": "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/QuantumultX/Google/Google.list"
+        }
+      ],
+      "type_counts": {
+        "host": 20,
+        "host-keyword": 9,
+        "host-suffix": 870,
+        "host-wildcard": 3,
+        "ip-cidr": 4,
+        "ip6-cidr": 1,
+        "user-agent": 10
+      }
+    },
+    "service-microsoft.list": {
+      "conflict_rules_removed_first_match_wins": 0,
+      "conflict_samples_limited_to": 100,
+      "conflicts": [],
+      "deduplication": "same kind, normalized value and identical qualifiers; first source wins",
+      "disabled_sources": [],
+      "domain_parent_child_compaction": false,
+      "duplicate_rules_removed": 20,
+      "duplicate_samples": [
+        {
+          "kept_line": 1,
+          "kept_rule": "host, oneclient.sfx.ms, Microsoft",
+          "kept_source": "service-source-08",
+          "removed_line": 40,
+          "removed_rule": "host, oneclient.sfx.ms, Microsoft",
+          "removed_source": "service-source-11"
+        },
+        {
+          "kept_line": 1,
+          "kept_rule": "host-suffix, bing.com, Microsoft",
+          "kept_source": "service-source-10",
+          "removed_line": 148,
+          "removed_rule": "host-suffix, bing.com, Microsoft",
+          "removed_source": "service-source-11"
+        },
+        {
+          "kept_line": 2,
+          "kept_rule": "host-suffix, bing.com.cn, Microsoft",
+          "kept_source": "service-source-10",
+          "removed_line": 149,
+          "removed_rule": "host-suffix, bing.com.cn, Microsoft",
+          "removed_source": "service-source-11"
+        },
+        {
+          "kept_line": 3,
+          "kept_rule": "host-suffix, bing.net, Microsoft",
+          "kept_source": "service-source-10",
+          "removed_line": 150,
+          "removed_rule": "host-suffix, bing.net, Microsoft",
+          "removed_source": "service-source-11"
+        },
+        {
+          "kept_line": 4,
+          "kept_rule": "host-suffix, bingads.com, Microsoft",
+          "kept_source": "service-source-10",
+          "removed_line": 154,
+          "removed_rule": "host-suffix, bingads.com, Microsoft",
+          "removed_source": "service-source-11"
+        },
+        {
+          "kept_line": 5,
+          "kept_rule": "host-suffix, bingagencyawards.com, Microsoft",
+          "kept_source": "service-source-10",
+          "removed_line": 155,
+          "removed_rule": "host-suffix, bingagencyawards.com, Microsoft",
+          "removed_source": "service-source-11"
+        },
+        {
+          "kept_line": 6,
+          "kept_rule": "host-suffix, bingapistatistics.com, Microsoft",
+          "kept_source": "service-source-10",
+          "removed_line": 157,
+          "removed_rule": "host-suffix, bingapistatistics.com, Microsoft",
+          "removed_source": "service-source-11"
+        },
+        {
+          "kept_line": 7,
+          "kept_rule": "host-suffix, bingsandbox.com, Microsoft",
+          "kept_source": "service-source-10",
+          "removed_line": 165,
+          "removed_rule": "host-suffix, bingsandbox.com, Microsoft",
+          "removed_source": "service-source-11"
+        },
+        {
+          "kept_line": 8,
+          "kept_rule": "host-suffix, bingvisualsearch.com, Microsoft",
+          "kept_source": "service-source-10",
+          "removed_line": 168,
+          "removed_rule": "host-suffix, bingvisualsearch.com, Microsoft",
+          "removed_source": "service-source-11"
+        },
+        {
+          "kept_line": 9,
+          "kept_rule": "host-suffix, bingworld.com, Microsoft",
+          "kept_source": "service-source-10",
+          "removed_line": 169,
+          "removed_rule": "host-suffix, bingworld.com, Microsoft",
+          "removed_source": "service-source-11"
+        },
+        {
+          "kept_line": 2,
+          "kept_rule": "host-suffix, 1drv.com, Microsoft",
+          "kept_source": "service-source-08",
+          "removed_line": 698,
+          "removed_rule": "host-suffix, 1drv.com, Microsoft",
+          "removed_source": "service-source-11"
+        },
+        {
+          "kept_line": 3,
+          "kept_rule": "host-suffix, livefilestore.com, Microsoft",
+          "kept_source": "service-source-08",
+          "removed_line": 699,
+          "removed_rule": "host-suffix, livefilestore.com, Microsoft",
+          "removed_source": "service-source-11"
+        },
+        {
+          "kept_line": 4,
+          "kept_rule": "host-suffix, microsoftpersonalcontent.com, Microsoft",
+          "kept_source": "service-source-08",
+          "removed_line": 700,
+          "removed_rule": "host-suffix, microsoftpersonalcontent.com, Microsoft",
+          "removed_source": "service-source-11"
+        },
+        {
+          "kept_line": 6,
+          "kept_rule": "host-suffix, onedrive.com, Microsoft",
+          "kept_source": "service-source-08",
+          "removed_line": 701,
+          "removed_rule": "host-suffix, onedrive.com, Microsoft",
+          "removed_source": "service-source-11"
+        },
+        {
+          "kept_line": 9,
+          "kept_rule": "host-suffix, sharepoint.com, Microsoft",
+          "kept_source": "service-source-08",
+          "removed_line": 702,
+          "removed_rule": "host-suffix, sharepoint.com, Microsoft",
+          "removed_source": "service-source-11"
+        },
+        {
+          "kept_line": 10,
+          "kept_rule": "host-suffix, sharepointonline.com, Microsoft",
+          "kept_source": "service-source-08",
+          "removed_line": 703,
+          "removed_rule": "host-suffix, sharepointonline.com, Microsoft",
+          "removed_source": "service-source-11"
+        },
+        {
+          "kept_line": 12,
+          "kept_rule": "host-suffix, spoprod-a.akamaihd.net, Microsoft",
+          "kept_source": "service-source-08",
+          "removed_line": 704,
+          "removed_rule": "host-suffix, spoprod-a.akamaihd.net, Microsoft",
+          "removed_source": "service-source-11"
+        },
+        {
+          "kept_line": 15,
+          "kept_rule": "host-keyword, 1drv, Microsoft",
+          "kept_source": "service-source-08",
+          "removed_line": 707,
+          "removed_rule": "host-keyword, 1drv, Microsoft",
+          "removed_source": "service-source-11"
+        },
+        {
+          "kept_line": 16,
+          "kept_rule": "host-keyword, onedrive, Microsoft",
+          "kept_source": "service-source-08",
+          "removed_line": 708,
+          "removed_rule": "host-keyword, onedrive, Microsoft",
+          "removed_source": "service-source-11"
+        },
+        {
+          "kept_line": 17,
+          "kept_rule": "host-keyword, skydrive, Microsoft",
+          "kept_source": "service-source-08",
+          "removed_line": 709,
+          "removed_rule": "host-keyword, skydrive, Microsoft",
+          "removed_source": "service-source-11"
+        }
+      ],
+      "duplicate_samples_limited_to": 100,
+      "input_rules": 746,
+      "issues": [],
+      "output_rules": 726,
+      "output_sha256": "bb55d149e60dc1c046594fc8b381aeef734142d9eb4d8d0dfd6d47f3ee49fc4f",
+      "schema_version": 1,
+      "sources": [
+        {
+          "body_sha256": "fc1285c862d1f53c79b5267cd073584e6e5156dbe2eaeaf809b2d65fb33eaad5",
+          "duplicate_rules": 0,
+          "excluded_rules": 0,
+          "forced_policy": "Microsoft",
+          "id": "service-source-08",
+          "input_rules": 17,
+          "kept_rules": 17,
+          "name": "OneDrive",
+          "url": "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/QuantumultX/OneDrive/OneDrive.list"
+        },
+        {
+          "body_sha256": "1adb87eccd73b0969e90ecbf469b7918f46d077b4746eecd35b0ca41617f8a2d",
+          "duplicate_rules": 0,
+          "excluded_rules": 0,
+          "forced_policy": "Microsoft",
+          "id": "service-source-09",
+          "input_rules": 8,
+          "kept_rules": 8,
+          "name": "Copilot",
+          "url": "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/QuantumultX/Copilot/Copilot.list#in=copilot.microsoft.com+sydney.bing.com+gateway.bingviz.microsoft.net+gateway.bingviz.microsoftapp.net+services.bingapis.com+edgeservices.bing.com+api.microsoftapp.net+bing-shopping.microsoft-falcon.io&hide=1&ntf=0"
+        },
+        {
+          "body_sha256": "2acc8ddd6bfb25637fcedce99dbd57a40f6c096ce22a9ca78a7ea558b12508e9",
+          "duplicate_rules": 0,
+          "excluded_rules": 0,
+          "forced_policy": "Microsoft",
+          "id": "service-source-10",
+          "input_rules": 9,
+          "kept_rules": 9,
+          "name": "Bing",
+          "url": "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/QuantumultX/Bing/Bing.list"
+        },
+        {
+          "body_sha256": "6835c9df6917f1f910259e2200d638d72c4044e966be51ee4482bae79ecdd3be",
+          "duplicate_rules": 20,
+          "excluded_rules": 0,
+          "forced_policy": "Microsoft",
+          "id": "service-source-11",
+          "input_rules": 712,
+          "kept_rules": 692,
+          "name": "Microsoft",
+          "url": "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/QuantumultX/Microsoft/Microsoft.list"
+        }
+      ],
+      "type_counts": {
+        "host": 46,
+        "host-keyword": 4,
+        "host-suffix": 672,
+        "host-wildcard": 1,
+        "user-agent": 3
+      }
+    },
+    "service-netflix.list": {
+      "conflict_rules_removed_first_match_wins": 0,
+      "conflict_samples_limited_to": 100,
+      "conflicts": [],
+      "deduplication": "same kind, normalized value and identical qualifiers; first source wins",
+      "disabled_sources": [],
+      "domain_parent_child_compaction": false,
+      "duplicate_rules_removed": 0,
+      "duplicate_samples": [],
+      "duplicate_samples_limited_to": 100,
+      "input_rules": 39,
+      "issues": [],
+      "output_rules": 39,
+      "output_sha256": "9851bb7961626bc4e1150fa47387fe746921680eeddc397001846ff8d83a2b32",
+      "schema_version": 1,
+      "sources": [
+        {
+          "body_sha256": "dd38d65e4d9b4f780dfb1b83e6339de1c33cdc07e4d37573be0fa5a01ac6d203",
+          "duplicate_rules": 0,
+          "excluded_rules": 0,
+          "forced_policy": "Netflix",
+          "id": "service-source-14",
+          "input_rules": 39,
+          "kept_rules": 39,
+          "name": "Netflix",
+          "url": "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/QuantumultX/Netflix/Netflix.list#out=IP-CIDR%2C+IP6-CIDR%2C&hide=1&ntf=0"
+        }
+      ],
+      "type_counts": {
+        "host": 3,
+        "host-keyword": 4,
+        "host-suffix": 30,
+        "host-wildcard": 1,
+        "user-agent": 1
+      }
+    },
+    "service-nintendo.list": {
+      "conflict_rules_removed_first_match_wins": 0,
+      "conflict_samples_limited_to": 100,
+      "conflicts": [],
+      "deduplication": "same kind, normalized value and identical qualifiers; first source wins",
+      "disabled_sources": [],
+      "domain_parent_child_compaction": false,
+      "duplicate_rules_removed": 0,
+      "duplicate_samples": [],
+      "duplicate_samples_limited_to": 100,
+      "input_rules": 153,
+      "issues": [],
+      "output_rules": 153,
+      "output_sha256": "5f8b6473ed7f524c6d8f8398b7e365fa5429d59a10448ecca57785a1e6febf18",
+      "schema_version": 1,
+      "sources": [
+        {
+          "body_sha256": "16ab4c4d841c4631073d0ca9f7d7e1845e8b9b40051669df9890b3e8d681766e",
+          "duplicate_rules": 0,
+          "excluded_rules": 0,
+          "forced_policy": "Nintendo",
+          "id": "service-source-00",
+          "input_rules": 125,
+          "kept_rules": 125,
+          "name": "Nintendo",
+          "url": "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/QuantumultX/Nintendo/Nintendo.list#out=IP-CIDR%2C&hide=1&ntf=0"
+        },
+        {
+          "body_sha256": "dd02e9a33cabd64704cf7a6d2124403e7edbed47f9d0f3d66e29103630aaf4ac",
+          "duplicate_rules": 0,
+          "excluded_rules": 0,
+          "forced_policy": "Nintendo",
+          "id": "service-nintendo-extra",
+          "input_rules": 28,
+          "kept_rules": 28,
+          "name": "Nintendo/Pokemon reviewed supplements",
+          "url": "https://raw.githubusercontent.com/SangShy4You/Anti-AD/main/config/qx-nintendo-extra.list"
+        }
+      ],
+      "type_counts": {
+        "host-suffix": 153
+      }
+    },
+    "service-openai.list": {
+      "conflict_rules_removed_first_match_wins": 0,
+      "conflict_samples_limited_to": 100,
+      "conflicts": [],
+      "deduplication": "same kind, normalized value and identical qualifiers; first source wins",
+      "disabled_sources": [],
+      "domain_parent_child_compaction": false,
+      "duplicate_rules_removed": 0,
+      "duplicate_samples": [],
+      "duplicate_samples_limited_to": 100,
+      "input_rules": 15,
+      "issues": [],
+      "output_rules": 15,
+      "output_sha256": "9550c80a177070aa182ef7057be989654bd7a2b881b2b64581bd6f5221db1d3e",
+      "schema_version": 1,
+      "sources": [
+        {
+          "body_sha256": "64b6f306716d002c486252d25c1b422e712a5775ec699afb6dcff73d548bfb9e",
+          "duplicate_rules": 0,
+          "excluded_rules": 0,
+          "forced_policy": "OpenAI",
+          "id": "service-source-02",
+          "input_rules": 15,
+          "kept_rules": 15,
+          "name": "OpenAI",
+          "url": "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/QuantumultX/OpenAI/OpenAI.list#out=IP-ASN%2C+%2Cai.com%2C+%2Cbrowser-intake-datadoghq.com%2C+%2Cstatic.cloudflareinsights.com%2C+%2Calgolia.net%2C+%2Capi.statsig.com%2C+%2Cauth0.com%2C+%2Cclient-api.arkoselabs.com%2C+%2Cevents.statsigapi.net%2C+%2Cfeaturegates.org%2C+%2Chost.livekit.cloud%2C+%2Cidentrust.com%2C+%2Cintercom.io%2C+%2Cintercomcdn.com%2C+%2Claunchdarkly.com%2C+%2Cobserveit.net%2C+%2Csegment.io%2C+%2Csentry.io%2C+%2Cstripe.com%2C+%2Cturn.livekit.cloud%2C&hide=1&ntf=0"
+        }
+      ],
+      "type_counts": {
+        "host": 5,
+        "host-keyword": 1,
+        "host-suffix": 7,
+        "ip-cidr": 2
+      }
+    },
+    "service-proxy-fix.list": {
+      "conflict_rules_removed_first_match_wins": 0,
+      "conflict_samples_limited_to": 100,
+      "conflicts": [],
+      "deduplication": "same kind, normalized value and identical qualifiers; first source wins",
+      "disabled_sources": [],
+      "domain_parent_child_compaction": false,
+      "duplicate_rules_removed": 0,
+      "duplicate_samples": [],
+      "duplicate_samples_limited_to": 100,
+      "input_rules": 1,
+      "issues": [],
+      "output_rules": 1,
+      "output_sha256": "b0b20006d0ad79bbd14ea99296cc4a4fe81047b971422e22ebf7c58184877420",
+      "schema_version": 1,
+      "sources": [
+        {
+          "body_sha256": "232b4b1869b1e7acc7281b8c7380776a9699ae34929e6a6254ae91613f6f46f8",
+          "duplicate_rules": 0,
+          "excluded_rules": 0,
+          "forced_policy": "proxy",
+          "id": "service-source-24",
+          "input_rules": 1,
+          "kept_rules": 1,
+          "name": "代理修正",
+          "url": "https://raw.githubusercontent.com/ConnersHua/RuleGo/master/Surge/Ruleset/Proxy+.list"
+        }
+      ],
+      "type_counts": {
+        "geoip": 1
+      }
+    },
+    "service-spotify.list": {
+      "conflict_rules_removed_first_match_wins": 0,
+      "conflict_samples_limited_to": 100,
+      "conflicts": [],
+      "deduplication": "same kind, normalized value and identical qualifiers; first source wins",
+      "disabled_sources": [],
+      "domain_parent_child_compaction": false,
+      "duplicate_rules_removed": 0,
+      "duplicate_samples": [],
+      "duplicate_samples_limited_to": 100,
+      "input_rules": 28,
+      "issues": [],
+      "output_rules": 28,
+      "output_sha256": "fce569d300e4b280abb2d6051a5456f4c199b88b8ec2385367a62fe536a9c732",
+      "schema_version": 1,
+      "sources": [
+        {
+          "body_sha256": "9965d32de775c46e2c0c1eab46ed6cfd81eba2fa0fef1f49e29982ca7c3b90b7",
+          "duplicate_rules": 0,
+          "excluded_rules": 0,
+          "forced_policy": "Spotify",
+          "id": "service-source-13",
+          "input_rules": 28,
+          "kept_rules": 28,
+          "name": "Spotify",
+          "url": "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/QuantumultX/Spotify/Spotify.list#out=IP-CIDR%2C+IP6-CIDR%2C&hide=1&ntf=0"
+        }
+      ],
+      "type_counts": {
+        "host": 6,
+        "host-keyword": 1,
+        "host-suffix": 20,
+        "user-agent": 1
+      }
+    },
+    "service-streaming.list": {
+      "conflict_rules_removed_first_match_wins": 0,
+      "conflict_samples_limited_to": 100,
+      "conflicts": [],
+      "deduplication": "same kind, normalized value and identical qualifiers; first source wins",
+      "disabled_sources": [],
+      "domain_parent_child_compaction": false,
+      "duplicate_rules_removed": 3,
+      "duplicate_samples": [
+        {
+          "kept_line": 15,
+          "kept_rule": "host-suffix, p-cdn.us, 国际媒体",
+          "kept_source": "service-source-18",
+          "removed_line": 16,
+          "removed_rule": "host-suffix, p-cdn.us, 国际媒体",
+          "removed_source": "service-source-18"
+        },
+        {
+          "kept_line": 48,
+          "kept_rule": "host, dmqdd6hw24ucf.cloudfront.net, 国际媒体",
+          "kept_source": "service-source-18",
+          "removed_line": 49,
+          "removed_rule": "host, dmqdd6hw24ucf.cloudfront.net, 国际媒体",
+          "removed_source": "service-source-18"
+        },
+        {
+          "kept_line": 96,
+          "kept_rule": "host, edge.api.brightcove.com, 国际媒体",
+          "kept_source": "service-source-18",
+          "removed_line": 219,
+          "removed_rule": "host, edge.api.brightcove.com, 国际媒体",
+          "removed_source": "service-source-18"
+        }
+      ],
+      "duplicate_samples_limited_to": 100,
+      "input_rules": 242,
+      "issues": [],
+      "output_rules": 239,
+      "output_sha256": "a66a4993f5bb89027456a00bf2664c6f1c7da3431e06fbdc47ce6bdf461d02d5",
+      "schema_version": 1,
+      "sources": [
+        {
+          "body_sha256": "69c325be9bcc3f5d257b738e2697ab0eea1ccc1de1f53db7a631d064524375c7",
+          "duplicate_rules": 3,
+          "excluded_rules": 0,
+          "forced_policy": "国际媒体",
+          "id": "service-source-18",
+          "input_rules": 242,
+          "kept_rules": 239,
+          "name": "国际媒体",
+          "url": "https://raw.githubusercontent.com/ConnersHua/RuleGo/master/Surge/Ruleset/Extra/Streaming/!CN.list"
+        }
+      ],
+      "type_counts": {
+        "geoip": 1,
+        "host": 64,
+        "host-keyword": 15,
+        "host-suffix": 143,
+        "ip-cidr": 16
+      }
+    },
+    "service-telegram.list": {
+      "conflict_rules_removed_first_match_wins": 0,
+      "conflict_samples_limited_to": 100,
+      "conflicts": [],
+      "deduplication": "same kind, normalized value and identical qualifiers; first source wins",
+      "disabled_sources": [],
+      "domain_parent_child_compaction": false,
+      "duplicate_rules_removed": 0,
+      "duplicate_samples": [],
+      "duplicate_samples_limited_to": 100,
+      "input_rules": 30,
+      "issues": [],
+      "output_rules": 30,
+      "output_sha256": "abb15ae88ab72a92b7143b7ecc57def4a06fa4c25c80eb9444427d83f26cca1a",
+      "schema_version": 1,
+      "sources": [
+        {
+          "body_sha256": "c95cb8a486056b3e8a16443ad8a77c1fa5979f400b5f90020d6d539718f23ed7",
+          "duplicate_rules": 0,
+          "excluded_rules": 0,
+          "forced_policy": "电报代理",
+          "id": "service-source-17",
+          "input_rules": 30,
+          "kept_rules": 30,
+          "name": "电报代理",
+          "url": "https://raw.githubusercontent.com/ConnersHua/RuleGo/master/Surge/Ruleset/Extra/Telegram.list"
+        }
+      ],
+      "type_counts": {
+        "host-suffix": 16,
+        "ip-cidr": 9,
+        "ip6-cidr": 5
+      }
+    },
+    "service-tiktok.list": {
+      "conflict_rules_removed_first_match_wins": 0,
+      "conflict_samples_limited_to": 100,
+      "conflicts": [],
+      "deduplication": "same kind, normalized value and identical qualifiers; first source wins",
+      "disabled_sources": [],
+      "domain_parent_child_compaction": false,
+      "duplicate_rules_removed": 8,
+      "duplicate_samples": [
+        {
+          "kept_line": 8,
+          "kept_rule": "host-suffix, byteoversea.com, TikTok",
+          "kept_source": "service-source-15",
+          "removed_line": 1,
+          "removed_rule": "host-suffix, byteoversea.com, TikTok",
+          "removed_source": "service-source-16"
+        },
+        {
+          "kept_line": 13,
+          "kept_rule": "host-suffix, ibytedtos.com, TikTok",
+          "kept_source": "service-source-15",
+          "removed_line": 2,
+          "removed_rule": "host-suffix, ibytedtos.com, TikTok",
+          "removed_source": "service-source-16"
+        },
+        {
+          "kept_line": 18,
+          "kept_rule": "host-suffix, muscdn.com, TikTok",
+          "kept_source": "service-source-15",
+          "removed_line": 3,
+          "removed_rule": "host-suffix, muscdn.com, TikTok",
+          "removed_source": "service-source-16"
+        },
+        {
+          "kept_line": 19,
+          "kept_rule": "host-suffix, musical.ly, TikTok",
+          "kept_source": "service-source-15",
+          "removed_line": 4,
+          "removed_rule": "host-suffix, musical.ly, TikTok",
+          "removed_source": "service-source-16"
+        },
+        {
+          "kept_line": 23,
+          "kept_rule": "host-suffix, tiktok.com, TikTok",
+          "kept_source": "service-source-15",
+          "removed_line": 5,
+          "removed_rule": "host-suffix, tiktok.com, TikTok",
+          "removed_source": "service-source-16"
+        },
+        {
+          "kept_line": 22,
+          "kept_rule": "host-suffix, tik-tokapi.com, TikTok",
+          "kept_source": "service-source-15",
+          "removed_line": 6,
+          "removed_rule": "host-suffix, tik-tokapi.com, TikTok",
+          "removed_source": "service-source-16"
+        },
+        {
+          "kept_line": 25,
+          "kept_rule": "host-suffix, tiktokcdn.com, TikTok",
+          "kept_source": "service-source-15",
+          "removed_line": 7,
+          "removed_rule": "host-suffix, tiktokcdn.com, TikTok",
+          "removed_source": "service-source-16"
+        },
+        {
+          "kept_line": 29,
+          "kept_rule": "host-suffix, tiktokv.com, TikTok",
+          "kept_source": "service-source-15",
+          "removed_line": 9,
+          "removed_rule": "host-suffix, tiktokv.com, TikTok",
+          "removed_source": "service-source-16"
+        }
+      ],
+      "duplicate_samples_limited_to": 100,
+      "input_rules": 46,
+      "issues": [],
+      "output_rules": 38,
+      "output_sha256": "e26a2c3270cd9f9918101eb136431ab1d643a71c86dba1844e14fdfaa2124ecd",
+      "schema_version": 1,
+      "sources": [
+        {
+          "body_sha256": "e4033991dc2ba0459bd3ef32d38b9397b76aeb67b6d69c9fd1c323d795736522",
+          "duplicate_rules": 0,
+          "excluded_rules": 0,
+          "forced_policy": "TikTok",
+          "id": "service-source-15",
+          "input_rules": 35,
+          "kept_rules": 35,
+          "name": "TikTok",
+          "url": "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/QuantumultX/TikTok/TikTok.list"
+        },
+        {
+          "body_sha256": "f5cc1c7788aceee62cc8a275dd3fd756980c582c34e0a8b56e63bd24516fa4f8",
+          "duplicate_rules": 8,
+          "excluded_rules": 0,
+          "forced_policy": "TikTok",
+          "id": "service-source-16",
+          "input_rules": 11,
+          "kept_rules": 3,
+          "name": "海外抖音",
+          "url": "https://raw.githubusercontent.com/ConnersHua/RuleGo/master/Surge/Ruleset/Extra/Streaming/Video/TikTok.list"
+        }
+      ],
+      "type_counts": {
+        "host": 4,
+        "host-keyword": 3,
+        "host-suffix": 30,
+        "user-agent": 1
+      }
+    },
+    "service-wechat.list": {
+      "conflict_rules_removed_first_match_wins": 0,
+      "conflict_samples_limited_to": 100,
+      "conflicts": [],
+      "deduplication": "same kind, normalized value and identical qualifiers; first source wins",
+      "disabled_sources": [],
+      "domain_parent_child_compaction": false,
+      "duplicate_rules_removed": 0,
+      "duplicate_samples": [],
+      "duplicate_samples_limited_to": 100,
+      "input_rules": 18,
+      "issues": [],
+      "output_rules": 18,
+      "output_sha256": "cfaae12a0624f838d43e9e80323fa430bd7a68c6b2738afbea297d1f2409b6a4",
+      "schema_version": 1,
+      "sources": [
+        {
+          "body_sha256": "af9dd0daf61d12a9e8fcf92574200ba43d98eefb15094b64d18b1acec2a79d6c",
+          "duplicate_rules": 0,
+          "excluded_rules": 0,
+          "forced_policy": "direct",
+          "id": "service-source-23",
+          "input_rules": 18,
+          "kept_rules": 18,
+          "name": "微信直连",
+          "url": "https://raw.githubusercontent.com/ConnersHua/RuleGo/master/Surge/Ruleset/Extra/WeChat.list"
+        }
+      ],
+      "type_counts": {
+        "host-suffix": 1,
+        "ip-cidr": 17
+      }
     }
   },
-  "generator_sha256": "ac8d724d7d763fde81208d07b8c8c307d8db3cf0ac80a73187f90b0724d71e94",
+  "generator_sha256": "70e0effc81e77560641da83cdf6c5a4f2fd17493bf2a73c4e73da84f3c45464d",
   "mixed_remote_reference_guards": [
     {
       "expected_selected": 4,
@@ -2173,7 +3202,7 @@
     },
     "rules/quantumultx/ads.conf": {
       "bytes": 220638,
-      "sha256": "48afa0afcd230747834b15e6af0a9cdb94bbdcca8276160cdf616fb5ab7ec37f"
+      "sha256": "26f4ce6dde46287d1422b0b012d15f9f7445f2d1fd4fb7e56d2494ea6bec2151"
     },
     "rules/quantumultx/ads.list": {
       "bytes": 9395134,
@@ -2184,8 +3213,8 @@
       "sha256": "43739c566e26fd7cb88f69d3864ea34740372f5ee99acac169e090beffbce5c6"
     },
     "rules/quantumultx/import.snippet": {
-      "bytes": 3209,
-      "sha256": "196cf65db4bce8839a41b5122cbd193346a8484676a6144e8d999289e757e632"
+      "bytes": 5619,
+      "sha256": "a5fcc11cabbc35160d368420be4cfa091466b6eb97fb4b862ac65e789c25d15e"
     },
     "rules/quantumultx/miniapps.conf": {
       "bytes": 12542,
@@ -2227,17 +3256,89 @@
       "bytes": 11339,
       "sha256": "bf49ad6375cf4b8bad9559f3e75463f4267dd5842a5f74e6dffc310698394661"
     },
+    "rules/quantumultx/scripts/youtube-background.js": {
+      "bytes": 133530,
+      "sha256": "be5fb4b2e8104fd1463476916973dc945e40984f7644325a1a76a360565c0e71"
+    },
     "rules/quantumultx/scripts/zhihu.js": {
       "bytes": 7620,
       "sha256": "aa21f42e476d0a5008627aff2c3a5249c1648c4aa270d7ae486a067f87be746d"
+    },
+    "rules/quantumultx/service-apple.list": {
+      "bytes": 1005,
+      "sha256": "bc9159875002451c36aee6fcde104fbdf85efb7ca7e4d0e2cb2cbb2b0ce869ed"
+    },
+    "rules/quantumultx/service-china.list": {
+      "bytes": 1035,
+      "sha256": "5ff629fffabab5d6cf6f250c0373fe6b424c9ca04e972c359eb760fa090f335a"
+    },
+    "rules/quantumultx/service-claude.list": {
+      "bytes": 311,
+      "sha256": "32ee880456ef5fb42f19d230cf64fba57ead8fb562aab65aeb0793cf3b729d62"
+    },
+    "rules/quantumultx/service-cn-media.list": {
+      "bytes": 781,
+      "sha256": "656da44428862d50e8643e2021cfa8985ba95395d77b0d62b8d7bac413ff701f"
+    },
+    "rules/quantumultx/service-github.list": {
+      "bytes": 1306,
+      "sha256": "6c23aa55d3d0b1bfa6cc08e2244e0811d3882020ca8cadaaec278375d9d857bf"
+    },
+    "rules/quantumultx/service-global.list": {
+      "bytes": 20483,
+      "sha256": "90779a48a1983e202869417dcccb9171d300add9e8e8fb1c4c294f0b4a9822b2"
+    },
+    "rules/quantumultx/service-google.list": {
+      "bytes": 32300,
+      "sha256": "b1ac6164a96a6e672c004319050be03eba93a24e74103859eeed602707232d2d"
+    },
+    "rules/quantumultx/service-microsoft.list": {
+      "bytes": 29727,
+      "sha256": "bb55d149e60dc1c046594fc8b381aeef734142d9eb4d8d0dfd6d47f3ee49fc4f"
+    },
+    "rules/quantumultx/service-netflix.list": {
+      "bytes": 1685,
+      "sha256": "9851bb7961626bc4e1150fa47387fe746921680eeddc397001846ff8d83a2b32"
+    },
+    "rules/quantumultx/service-nintendo.list": {
+      "bytes": 6364,
+      "sha256": "5f8b6473ed7f524c6d8f8398b7e365fa5429d59a10448ecca57785a1e6febf18"
+    },
+    "rules/quantumultx/service-openai.list": {
+      "bytes": 787,
+      "sha256": "9550c80a177070aa182ef7057be989654bd7a2b881b2b64581bd6f5221db1d3e"
+    },
+    "rules/quantumultx/service-proxy-fix.list": {
+      "bytes": 170,
+      "sha256": "b0b20006d0ad79bbd14ea99296cc4a4fe81047b971422e22ebf7c58184877420"
+    },
+    "rules/quantumultx/service-spotify.list": {
+      "bytes": 1279,
+      "sha256": "fce569d300e4b280abb2d6051a5456f4c199b88b8ec2385367a62fe536a9c732"
+    },
+    "rules/quantumultx/service-streaming.list": {
+      "bytes": 10058,
+      "sha256": "a66a4993f5bb89027456a00bf2664c6f1c7da3431e06fbdc47ce6bdf461d02d5"
+    },
+    "rules/quantumultx/service-telegram.list": {
+      "bytes": 1322,
+      "sha256": "abb15ae88ab72a92b7143b7ecc57def4a06fa4c25c80eb9444427d83f26cca1a"
+    },
+    "rules/quantumultx/service-tiktok.list": {
+      "bytes": 1512,
+      "sha256": "e26a2c3270cd9f9918101eb136431ab1d643a71c86dba1844e14fdfaa2124ecd"
+    },
+    "rules/quantumultx/service-wechat.list": {
+      "bytes": 768,
+      "sha256": "cfaae12a0624f838d43e9e80323fa430bd7a68c6b2738afbea297d1f2409b6a4"
     },
     "rules/quantumultx/web.conf": {
       "bytes": 37224,
       "sha256": "556af9d7068ca389fef678e6a00453fd3dda3f11e9e67214876a0f76ca5d7d83"
     },
     "rules/quantumultx/youtube.conf": {
-      "bytes": 930,
-      "sha256": "64083b287c0478daa7e3e389c41fc5323c027b4281f80ea533d5ec29e9760be1"
+      "bytes": 1036,
+      "sha256": "c5f7ef2bf3f8fc91fca2393d0c9a4778e8606e99952605e6d45f95c2f2161ef3"
     }
   },
   "profile_rewrite_deduplication": [
@@ -4168,6 +5269,7 @@
     }
   ],
   "resolved_refs": {
+    "Maasea/sgmodule@master": "65075cdb388fc5e3094afd7e7314c67b243f3525",
     "NobyDa/Script@master": "0b8d083d444f4476700cb9d5d059c07b42da85eb",
     "Sliverkiss/QuantumultX@main": "89b9ae1c9e1554976464e6b56739fc80d390bdb1",
     "app2smile/rules@master": "df6366a7024e0b3f0aa3510c5b791eea6f3cba89",
@@ -4175,10 +5277,10 @@
     "chxm1023/Rewrite@main": "712738da8a3c7a61de21eee7c4f78564ffb5492f",
     "ddgksf2013/Scripts@master": "203e38b7b8dd1082ececbd17de3aeb587ac2826c",
     "fmz200/wool_scripts@main": "58f6cce6dbd5c5fe50c2998938f9c2ba631a7c18",
-    "ishowshu/qx@main": "6a3aba93f7c13442c6f27cc447bf7dfa3d17e1e0",
+    "ishowshu/qx@main": "41b20c2205480e3bb835644d34f967ed7e39e82b",
     "kokoryh/Script@master": "d8afcfab97fbfb3d017cfdc759ac7c9c8d784b0d",
     "limbopro/Adblock4limbo@main": "f38fec9a7630b561c76932af053d24bd541372fe",
-    "zirawell/R-Store@main": "1e08bab55bcffc396be39f914f48151443344493"
+    "zirawell/R-Store@main": "52fcb40b118a15610686b9167a7ee8e59bc04709"
   },
   "rewrites": {
     "ads.conf": {
@@ -12606,7 +13708,7 @@
         {
           "kind": "explicit-rule",
           "line": 6562,
-          "reason": "Use the original profile's app2smile YouTube pipeline in youtube.conf; avoid two overlapping protobuf response processors.",
+          "reason": "Covered by the reviewed Maasea response-only player/background/PiP pipeline in personal youtube.conf; keep one protobuf response processor per endpoint.",
           "source": "fmz_rewrite",
           "text": "^https:\\/\\/youtubei\\.googleapis\\.com\\/youtubei\\/v1\\/(browse|next|player|search|reel\\/reel_watch_sequence|guide|account\\/get_setting|get_watch) url script-response-body https://raw.githubusercontent.com/Maasea/sgmodule/refs/heads/master/Script/Youtube/youtube.response.js",
           "url": "https://raw.githubusercontent.com/fmz200/wool_scripts/main/QuantumultX/rewrite/rewrite.snippet"
@@ -102129,9 +103231,9 @@
               "url": "https://raw.githubusercontent.com/ConnersHua/RuleGo/master/Surge/Module/Block/YouTubeAds.sgmodule"
             },
             {
-              "line": 5,
-              "source": "author_youtube",
-              "url": "https://raw.githubusercontent.com/app2smile/rules/master/module/youtube-qx.conf"
+              "line": 6,
+              "source": "youtube_background",
+              "url": "https://raw.githubusercontent.com/SangShy4You/Anti-AD/main/config/qx-youtube-player.conf"
             }
           ]
         }
@@ -102250,18 +103352,18 @@
         },
         {
           "action": "script-response-body",
-          "argument": "https://raw.githubusercontent.com/app2smile/rules/master/js/youtube.js",
+          "argument": "https://raw.githubusercontent.com/Maasea/sgmodule/master/Script/Youtube/youtube.response.js",
           "marker": "url",
-          "matcher": "^https:\\/\\/youtubei\\.googleapis\\.com\\/youtubei\\/v1\\/(browse|next)",
+          "matcher": "^https:\\/\\/youtubei\\.googleapis\\.com\\/youtubei\\/v1\\/(browse|next|player|search|reel\\/reel_watch_sequence|guide|account\\/get_setting|get_watch|log_event|config)(\\?(.*))?$",
           "origins": [
             {
-              "line": 6,
-              "source": "author_youtube",
-              "text": "^https:\\/\\/youtubei\\.googleapis\\.com\\/youtubei\\/v1\\/(browse|next) url script-response-body https://raw.githubusercontent.com/app2smile/rules/master/js/youtube.js",
-              "url": "https://raw.githubusercontent.com/app2smile/rules/master/module/youtube-qx.conf"
+              "line": 5,
+              "source": "youtube_background",
+              "text": "^https:\\/\\/youtubei\\.googleapis\\.com\\/youtubei\\/v1\\/(browse|next|player|search|reel\\/reel_watch_sequence|guide|account\\/get_setting|get_watch|log_event|config)(\\?(.*))?$ url script-response-body https://raw.githubusercontent.com/Maasea/sgmodule/master/Script/Youtube/youtube.response.js",
+              "url": "https://raw.githubusercontent.com/SangShy4You/Anti-AD/main/config/qx-youtube-player.conf"
             }
           ],
-          "rule": "^https:\\/\\/youtubei\\.googleapis\\.com\\/youtubei\\/v1\\/(browse|next) url script-response-body https://raw.githubusercontent.com/app2smile/rules/master/js/youtube.js",
+          "rule": "^https:\\/\\/youtubei\\.googleapis\\.com\\/youtubei\\/v1\\/(browse|next|player|search|reel\\/reel_watch_sequence|guide|account\\/get_setting|get_watch|log_event|config)(\\?(.*))?$ url script-response-body https://raw.githubusercontent.com/Maasea/sgmodule/master/Script/Youtube/youtube.response.js",
           "stage": "response"
         }
       ],
@@ -102270,18 +103372,18 @@
         {
           "origins": [
             {
-              "line": 6,
-              "source": "author_youtube",
-              "text": "^https:\\/\\/youtubei\\.googleapis\\.com\\/youtubei\\/v1\\/(browse|next) url script-response-body https://raw.githubusercontent.com/app2smile/rules/master/js/youtube.js",
-              "url": "https://raw.githubusercontent.com/app2smile/rules/master/module/youtube-qx.conf"
+              "line": 5,
+              "source": "youtube_background",
+              "text": "^https:\\/\\/youtubei\\.googleapis\\.com\\/youtubei\\/v1\\/(browse|next|player|search|reel\\/reel_watch_sequence|guide|account\\/get_setting|get_watch|log_event|config)(\\?(.*))?$ url script-response-body https://raw.githubusercontent.com/Maasea/sgmodule/master/Script/Youtube/youtube.response.js",
+              "url": "https://raw.githubusercontent.com/SangShy4You/Anti-AD/main/config/qx-youtube-player.conf"
             }
           ],
-          "reference": "https://raw.githubusercontent.com/app2smile/rules/master/js/youtube.js",
-          "rule": "^https:\\/\\/youtubei\\.googleapis\\.com\\/youtubei\\/v1\\/(browse|next) url script-response-body https://raw.githubusercontent.com/app2smile/rules/master/js/youtube.js"
+          "reference": "https://raw.githubusercontent.com/Maasea/sgmodule/master/Script/Youtube/youtube.response.js",
+          "rule": "^https:\\/\\/youtubei\\.googleapis\\.com\\/youtubei\\/v1\\/(browse|next|player|search|reel\\/reel_watch_sequence|guide|account\\/get_setting|get_watch|log_event|config)(\\?(.*))?$ url script-response-body https://raw.githubusercontent.com/Maasea/sgmodule/master/Script/Youtube/youtube.response.js"
         }
       ],
       "script_urls": [
-        "https://raw.githubusercontent.com/app2smile/rules/master/js/youtube.js"
+        "https://raw.githubusercontent.com/Maasea/sgmodule/master/Script/Youtube/youtube.response.js"
       ],
       "source_metadata": [],
       "sources": [
@@ -102294,9 +103396,9 @@
         },
         {
           "exported_rules": 1,
-          "id": "author_youtube",
+          "id": "youtube_background",
           "input_rules": 1,
-          "name": "app2smile YouTube 原生 QX 脚本入口",
+          "name": "Maasea YouTube 后台播放与画中画",
           "selected_rules": 1
         }
       ],
@@ -102312,6 +103414,33 @@
       "pinned_url": "https://raw.githubusercontent.com/fmz200/wool_scripts/58f6cce6dbd5c5fe50c2998938f9c2ba631a7c18/Scripts/xiaohongshu/xiaohongshu.js",
       "sha256": "318d89bce1117edb26a93b383804e195649ec4674a04efa9e3ddb4ef7f34b498",
       "url": "https://github.com/fmz200/wool_scripts/raw/main/Scripts/xiaohongshu/xiaohongshu.js"
+    },
+    {
+      "bytes": 132973,
+      "fetch_url": "https://raw.githubusercontent.com/Maasea/sgmodule/65075cdb388fc5e3094afd7e7314c67b243f3525/Script/Youtube/youtube.response.js",
+      "patch_applied": true,
+      "pinned_url": "https://raw.githubusercontent.com/Maasea/sgmodule/65075cdb388fc5e3094afd7e7314c67b243f3525/Script/Youtube/youtube.response.js",
+      "published_sha256": "be5fb4b2e8104fd1463476916973dc945e40984f7644325a1a76a360565c0e71",
+      "published_url": "https://raw.githubusercontent.com/SangShy4You/Anti-AD/main/rules/quantumultx/scripts/youtube-background.js",
+      "sha256": "f98483d5f5017514f82502253c0db5ce2d4ffb7839887aa2cadc22666f5a7f12",
+      "url": "https://raw.githubusercontent.com/Maasea/sgmodule/master/Script/Youtube/youtube.response.js",
+      "youtube_patch": {
+        "external_worker_imported": false,
+        "response_only": true,
+        "scope": "Restores the removed player/get_watch/settings response processing; not an iPhone runtime proof.",
+        "source_logic_unchanged": true,
+        "source_sha256": "f98483d5f5017514f82502253c0db5ce2d4ffb7839887aa2cadc22666f5a7f12",
+        "upstream": "https://raw.githubusercontent.com/Maasea/sgmodule/65075cdb388fc5e3094afd7e7314c67b243f3525/Script/Youtube/youtube.response.js",
+        "validated_features": [
+          "player_background_and_pip",
+          "player_ad_removal",
+          "player_pipeline",
+          "player_dispatch",
+          "setting_background",
+          "quanx_response_bytes",
+          "quanx_done_bytes"
+        ]
+      }
     },
     {
       "bytes": 1860,
@@ -102375,13 +103504,6 @@
       "pinned_url": "https://raw.githubusercontent.com/app2smile/rules/df6366a7024e0b3f0aa3510c5b791eea6f3cba89/js/vgtime.js",
       "sha256": "489f711e41734a6c9a8749d79923c3dc3930c63239fc7e97cb3e25a29c9eafd3",
       "url": "https://raw.githubusercontent.com/app2smile/rules/master/js/vgtime.js"
-    },
-    {
-      "bytes": 105995,
-      "fetch_url": "https://raw.githubusercontent.com/app2smile/rules/df6366a7024e0b3f0aa3510c5b791eea6f3cba89/js/youtube.js",
-      "pinned_url": "https://raw.githubusercontent.com/app2smile/rules/df6366a7024e0b3f0aa3510c5b791eea6f3cba89/js/youtube.js",
-      "sha256": "366643a9bd121ed5d63003f1a5196e83c5b0ac5d427be63559f4770a32f52b39",
-      "url": "https://raw.githubusercontent.com/app2smile/rules/master/js/youtube.js"
     },
     {
       "bytes": 12208,
@@ -102797,8 +103919,8 @@
     },
     {
       "bytes": 7810,
-      "fetch_url": "https://raw.githubusercontent.com/ishowshu/qx/6a3aba93f7c13442c6f27cc447bf7dfa3d17e1e0/script/goofish.js",
-      "pinned_url": "https://raw.githubusercontent.com/ishowshu/qx/6a3aba93f7c13442c6f27cc447bf7dfa3d17e1e0/script/goofish.js",
+      "fetch_url": "https://raw.githubusercontent.com/ishowshu/qx/41b20c2205480e3bb835644d34f967ed7e39e82b/script/goofish.js",
+      "pinned_url": "https://raw.githubusercontent.com/ishowshu/qx/41b20c2205480e3bb835644d34f967ed7e39e82b/script/goofish.js",
       "sha256": "d76d0a65d975a523ad4bb62c5d90dc9898a5a93ad79cf03dea01150705792b20",
       "url": "https://raw.githubusercontent.com/ishowshu/qx/refs/heads/main/script/goofish.js"
     },
@@ -102836,106 +103958,106 @@
     },
     {
       "bytes": 808,
-      "fetch_url": "https://raw.githubusercontent.com/zirawell/R-Store/1e08bab55bcffc396be39f914f48151443344493/Res/Scripts/AntiAd/airchina.js",
-      "pinned_url": "https://raw.githubusercontent.com/zirawell/R-Store/1e08bab55bcffc396be39f914f48151443344493/Res/Scripts/AntiAd/airchina.js",
+      "fetch_url": "https://raw.githubusercontent.com/zirawell/R-Store/52fcb40b118a15610686b9167a7ee8e59bc04709/Res/Scripts/AntiAd/airchina.js",
+      "pinned_url": "https://raw.githubusercontent.com/zirawell/R-Store/52fcb40b118a15610686b9167a7ee8e59bc04709/Res/Scripts/AntiAd/airchina.js",
       "sha256": "b3ad5ac0f6bd2a53b93aa5476cb97d7dcc386952ee1f7fae48f4a9ce98f1a2eb",
       "url": "https://raw.githubusercontent.com/zirawell/R-Store/main/Res/Scripts/AntiAd/airchina.js"
     },
     {
       "bytes": 604,
-      "fetch_url": "https://raw.githubusercontent.com/zirawell/R-Store/1e08bab55bcffc396be39f914f48151443344493/Res/Scripts/AntiAd/alicdn.js",
-      "pinned_url": "https://raw.githubusercontent.com/zirawell/R-Store/1e08bab55bcffc396be39f914f48151443344493/Res/Scripts/AntiAd/alicdn.js",
+      "fetch_url": "https://raw.githubusercontent.com/zirawell/R-Store/52fcb40b118a15610686b9167a7ee8e59bc04709/Res/Scripts/AntiAd/alicdn.js",
+      "pinned_url": "https://raw.githubusercontent.com/zirawell/R-Store/52fcb40b118a15610686b9167a7ee8e59bc04709/Res/Scripts/AntiAd/alicdn.js",
       "sha256": "e6ff8a29a82508abff43eab1e85c7d518002c6d810f5458d1b78a8219fc4cdcf",
       "url": "https://raw.githubusercontent.com/zirawell/R-Store/main/Res/Scripts/AntiAd/alicdn.js"
     },
     {
       "bytes": 2295,
-      "fetch_url": "https://raw.githubusercontent.com/zirawell/R-Store/1e08bab55bcffc396be39f914f48151443344493/Res/Scripts/AntiAd/bilibiliManga.js",
-      "pinned_url": "https://raw.githubusercontent.com/zirawell/R-Store/1e08bab55bcffc396be39f914f48151443344493/Res/Scripts/AntiAd/bilibiliManga.js",
+      "fetch_url": "https://raw.githubusercontent.com/zirawell/R-Store/52fcb40b118a15610686b9167a7ee8e59bc04709/Res/Scripts/AntiAd/bilibiliManga.js",
+      "pinned_url": "https://raw.githubusercontent.com/zirawell/R-Store/52fcb40b118a15610686b9167a7ee8e59bc04709/Res/Scripts/AntiAd/bilibiliManga.js",
       "sha256": "17035efc2c7b5d367a5f6e70ca2e0f7f23aa342c9edb3bf044587e5ee073f261",
       "url": "https://raw.githubusercontent.com/zirawell/R-Store/main/Res/Scripts/AntiAd/bilibiliManga.js"
     },
     {
       "bytes": 3262,
-      "fetch_url": "https://raw.githubusercontent.com/zirawell/R-Store/1e08bab55bcffc396be39f914f48151443344493/Res/Scripts/AntiAd/ccblife.js",
-      "pinned_url": "https://raw.githubusercontent.com/zirawell/R-Store/1e08bab55bcffc396be39f914f48151443344493/Res/Scripts/AntiAd/ccblife.js",
+      "fetch_url": "https://raw.githubusercontent.com/zirawell/R-Store/52fcb40b118a15610686b9167a7ee8e59bc04709/Res/Scripts/AntiAd/ccblife.js",
+      "pinned_url": "https://raw.githubusercontent.com/zirawell/R-Store/52fcb40b118a15610686b9167a7ee8e59bc04709/Res/Scripts/AntiAd/ccblife.js",
       "sha256": "d4017e1658d35309671deda236c0e0bcc560fa604796562d2b39fcc6f69b4958",
       "url": "https://raw.githubusercontent.com/zirawell/R-Store/main/Res/Scripts/AntiAd/ccblife.js"
     },
     {
       "bytes": 1836,
-      "fetch_url": "https://raw.githubusercontent.com/zirawell/R-Store/1e08bab55bcffc396be39f914f48151443344493/Res/Scripts/AntiAd/ddxq.js",
-      "pinned_url": "https://raw.githubusercontent.com/zirawell/R-Store/1e08bab55bcffc396be39f914f48151443344493/Res/Scripts/AntiAd/ddxq.js",
+      "fetch_url": "https://raw.githubusercontent.com/zirawell/R-Store/52fcb40b118a15610686b9167a7ee8e59bc04709/Res/Scripts/AntiAd/ddxq.js",
+      "pinned_url": "https://raw.githubusercontent.com/zirawell/R-Store/52fcb40b118a15610686b9167a7ee8e59bc04709/Res/Scripts/AntiAd/ddxq.js",
       "sha256": "8ae52e7bccc43facf64dc9edaf8e6e1c1da564c6bbab242fb9e51a304e3a0b16",
       "url": "https://raw.githubusercontent.com/zirawell/R-Store/main/Res/Scripts/AntiAd/ddxq.js"
     },
     {
       "bytes": 2257,
-      "fetch_url": "https://raw.githubusercontent.com/zirawell/R-Store/1e08bab55bcffc396be39f914f48151443344493/Res/Scripts/AntiAd/dianping.js",
-      "pinned_url": "https://raw.githubusercontent.com/zirawell/R-Store/1e08bab55bcffc396be39f914f48151443344493/Res/Scripts/AntiAd/dianping.js",
+      "fetch_url": "https://raw.githubusercontent.com/zirawell/R-Store/52fcb40b118a15610686b9167a7ee8e59bc04709/Res/Scripts/AntiAd/dianping.js",
+      "pinned_url": "https://raw.githubusercontent.com/zirawell/R-Store/52fcb40b118a15610686b9167a7ee8e59bc04709/Res/Scripts/AntiAd/dianping.js",
       "sha256": "78971da6855858d1a6737872209cfc0aaaf7755fbe8da19f4115a03591820252",
       "url": "https://raw.githubusercontent.com/zirawell/R-Store/main/Res/Scripts/AntiAd/dianping.js"
     },
     {
       "bytes": 842,
-      "fetch_url": "https://raw.githubusercontent.com/zirawell/R-Store/1e08bab55bcffc396be39f914f48151443344493/Res/Scripts/AntiAd/flyert.js",
-      "pinned_url": "https://raw.githubusercontent.com/zirawell/R-Store/1e08bab55bcffc396be39f914f48151443344493/Res/Scripts/AntiAd/flyert.js",
+      "fetch_url": "https://raw.githubusercontent.com/zirawell/R-Store/52fcb40b118a15610686b9167a7ee8e59bc04709/Res/Scripts/AntiAd/flyert.js",
+      "pinned_url": "https://raw.githubusercontent.com/zirawell/R-Store/52fcb40b118a15610686b9167a7ee8e59bc04709/Res/Scripts/AntiAd/flyert.js",
       "sha256": "9f7b49651ad956ae5fd7a17ad120c486c4f228ae2f7cfab21fcb4fccedfe2d98",
       "url": "https://raw.githubusercontent.com/zirawell/R-Store/main/Res/Scripts/AntiAd/flyert.js"
     },
     {
       "bytes": 972,
-      "fetch_url": "https://raw.githubusercontent.com/zirawell/R-Store/1e08bab55bcffc396be39f914f48151443344493/Res/Scripts/AntiAd/foliday.js",
-      "pinned_url": "https://raw.githubusercontent.com/zirawell/R-Store/1e08bab55bcffc396be39f914f48151443344493/Res/Scripts/AntiAd/foliday.js",
+      "fetch_url": "https://raw.githubusercontent.com/zirawell/R-Store/52fcb40b118a15610686b9167a7ee8e59bc04709/Res/Scripts/AntiAd/foliday.js",
+      "pinned_url": "https://raw.githubusercontent.com/zirawell/R-Store/52fcb40b118a15610686b9167a7ee8e59bc04709/Res/Scripts/AntiAd/foliday.js",
       "sha256": "9e48b618be78330bbcd1d29e56bc5a407414d12a03a158a4d559f7857c74b976",
       "url": "https://raw.githubusercontent.com/zirawell/R-Store/main/Res/Scripts/AntiAd/foliday.js"
     },
     {
       "bytes": 2094,
-      "fetch_url": "https://raw.githubusercontent.com/zirawell/R-Store/1e08bab55bcffc396be39f914f48151443344493/Res/Scripts/AntiAd/freshippo.js",
-      "pinned_url": "https://raw.githubusercontent.com/zirawell/R-Store/1e08bab55bcffc396be39f914f48151443344493/Res/Scripts/AntiAd/freshippo.js",
+      "fetch_url": "https://raw.githubusercontent.com/zirawell/R-Store/52fcb40b118a15610686b9167a7ee8e59bc04709/Res/Scripts/AntiAd/freshippo.js",
+      "pinned_url": "https://raw.githubusercontent.com/zirawell/R-Store/52fcb40b118a15610686b9167a7ee8e59bc04709/Res/Scripts/AntiAd/freshippo.js",
       "sha256": "edf71faccbca61b153bbce98f56b75e27313883cf520e5e315f6ba15ed52360d",
       "url": "https://raw.githubusercontent.com/zirawell/R-Store/main/Res/Scripts/AntiAd/freshippo.js"
     },
     {
       "bytes": 1044,
-      "fetch_url": "https://raw.githubusercontent.com/zirawell/R-Store/1e08bab55bcffc396be39f914f48151443344493/Res/Scripts/AntiAd/mafengwo.js",
-      "pinned_url": "https://raw.githubusercontent.com/zirawell/R-Store/1e08bab55bcffc396be39f914f48151443344493/Res/Scripts/AntiAd/mafengwo.js",
+      "fetch_url": "https://raw.githubusercontent.com/zirawell/R-Store/52fcb40b118a15610686b9167a7ee8e59bc04709/Res/Scripts/AntiAd/mafengwo.js",
+      "pinned_url": "https://raw.githubusercontent.com/zirawell/R-Store/52fcb40b118a15610686b9167a7ee8e59bc04709/Res/Scripts/AntiAd/mafengwo.js",
       "sha256": "9944c174ff0270e9b4cb9a0b8ebf8b40d1a9232b633d7fbee57c171eda6397ea",
       "url": "https://raw.githubusercontent.com/zirawell/R-Store/main/Res/Scripts/AntiAd/mafengwo.js"
     },
     {
       "bytes": 738,
-      "fetch_url": "https://raw.githubusercontent.com/zirawell/R-Store/1e08bab55bcffc396be39f914f48151443344493/Res/Scripts/AntiAd/mdb.js",
-      "pinned_url": "https://raw.githubusercontent.com/zirawell/R-Store/1e08bab55bcffc396be39f914f48151443344493/Res/Scripts/AntiAd/mdb.js",
+      "fetch_url": "https://raw.githubusercontent.com/zirawell/R-Store/52fcb40b118a15610686b9167a7ee8e59bc04709/Res/Scripts/AntiAd/mdb.js",
+      "pinned_url": "https://raw.githubusercontent.com/zirawell/R-Store/52fcb40b118a15610686b9167a7ee8e59bc04709/Res/Scripts/AntiAd/mdb.js",
       "sha256": "f50cef7a5f3b3e3179f9c5a93f2ab937dd72d83ca4dc2c9e8a66937c38e3e9ab",
       "url": "https://raw.githubusercontent.com/zirawell/R-Store/main/Res/Scripts/AntiAd/mdb.js"
     },
     {
       "bytes": 2092,
-      "fetch_url": "https://raw.githubusercontent.com/zirawell/R-Store/1e08bab55bcffc396be39f914f48151443344493/Res/Scripts/AntiAd/qmai.js",
-      "pinned_url": "https://raw.githubusercontent.com/zirawell/R-Store/1e08bab55bcffc396be39f914f48151443344493/Res/Scripts/AntiAd/qmai.js",
+      "fetch_url": "https://raw.githubusercontent.com/zirawell/R-Store/52fcb40b118a15610686b9167a7ee8e59bc04709/Res/Scripts/AntiAd/qmai.js",
+      "pinned_url": "https://raw.githubusercontent.com/zirawell/R-Store/52fcb40b118a15610686b9167a7ee8e59bc04709/Res/Scripts/AntiAd/qmai.js",
       "sha256": "b6823b14feaba4600fdc73438d91b35f1c5b166da3177b70da19dc97f850ce65",
       "url": "https://raw.githubusercontent.com/zirawell/R-Store/main/Res/Scripts/AntiAd/qmai.js"
     },
     {
       "bytes": 2610,
-      "fetch_url": "https://raw.githubusercontent.com/zirawell/R-Store/1e08bab55bcffc396be39f914f48151443344493/Res/Scripts/AntiAd/tuhu.js",
-      "pinned_url": "https://raw.githubusercontent.com/zirawell/R-Store/1e08bab55bcffc396be39f914f48151443344493/Res/Scripts/AntiAd/tuhu.js",
+      "fetch_url": "https://raw.githubusercontent.com/zirawell/R-Store/52fcb40b118a15610686b9167a7ee8e59bc04709/Res/Scripts/AntiAd/tuhu.js",
+      "pinned_url": "https://raw.githubusercontent.com/zirawell/R-Store/52fcb40b118a15610686b9167a7ee8e59bc04709/Res/Scripts/AntiAd/tuhu.js",
       "sha256": "d4a8f475d9c24107644eadce1736e2d0db68974129809ca7f05c77e48abe4561",
       "url": "https://raw.githubusercontent.com/zirawell/R-Store/main/Res/Scripts/AntiAd/tuhu.js"
     },
     {
       "bytes": 739,
-      "fetch_url": "https://raw.githubusercontent.com/zirawell/R-Store/1e08bab55bcffc396be39f914f48151443344493/Res/Scripts/AntiAd/usmile.js",
-      "pinned_url": "https://raw.githubusercontent.com/zirawell/R-Store/1e08bab55bcffc396be39f914f48151443344493/Res/Scripts/AntiAd/usmile.js",
+      "fetch_url": "https://raw.githubusercontent.com/zirawell/R-Store/52fcb40b118a15610686b9167a7ee8e59bc04709/Res/Scripts/AntiAd/usmile.js",
+      "pinned_url": "https://raw.githubusercontent.com/zirawell/R-Store/52fcb40b118a15610686b9167a7ee8e59bc04709/Res/Scripts/AntiAd/usmile.js",
       "sha256": "afe656ce07d169fb9baf4d4484f77b0861341a88950fb64182cd30b45f70ce95",
       "url": "https://raw.githubusercontent.com/zirawell/R-Store/main/Res/Scripts/AntiAd/usmile.js"
     },
     {
       "bytes": 5966,
-      "fetch_url": "https://raw.githubusercontent.com/zirawell/R-Store/1e08bab55bcffc396be39f914f48151443344493/Res/Scripts/AntiAd/wechatApplet.js",
-      "pinned_url": "https://raw.githubusercontent.com/zirawell/R-Store/1e08bab55bcffc396be39f914f48151443344493/Res/Scripts/AntiAd/wechatApplet.js",
+      "fetch_url": "https://raw.githubusercontent.com/zirawell/R-Store/52fcb40b118a15610686b9167a7ee8e59bc04709/Res/Scripts/AntiAd/wechatApplet.js",
+      "pinned_url": "https://raw.githubusercontent.com/zirawell/R-Store/52fcb40b118a15610686b9167a7ee8e59bc04709/Res/Scripts/AntiAd/wechatApplet.js",
       "sha256": "4e0a57585f4ce16bc2f655ec104d1b25d9d42864b78f3ca893b48e7c9e487bed",
       "url": "https://raw.githubusercontent.com/zirawell/R-Store/main/Res/Scripts/AntiAd/wechatApplet.js"
     }
@@ -128829,21 +129951,597 @@
       ],
       "kind": "youtube",
       "required_sources": [
-        "https://raw.githubusercontent.com/app2smile/rules/master/module/youtube-qx.conf"
+        "https://raw.githubusercontent.com/SangShy4You/Anti-AD/main/config/qx-youtube-player.conf"
       ],
       "script_selection": [
         {
           "binary_body": "Native QX bodyBytes support is documented and used by the author's QX resource.",
           "line": 18,
           "max_size_note": "No unverified QX max-size key is emitted; use the author's native QX hook and native runtime limits.",
-          "mode": "author-native",
-          "reason": "Use the single hook in the separately selected author's native QX resource; do not execute both overlapping hooks.",
+          "mode": "response-native",
+          "reason": "Use the single comprehensive background/PiP response hook in the reviewed personal native resource; do not execute the old overlapping browse/next handler.",
           "surge_max_size": 2097152,
           "url": "https://raw.githubusercontent.com/app2smile/rules/master/js/youtube.js"
         }
       ],
       "source": "rulego_youtube",
       "validation": "Static audited format conversion only; no iOS QX execution test."
+    },
+    "service-claude-extra": {
+      "allowed_input_policies": [
+        "Claude"
+      ],
+      "in_key_counts": {},
+      "input_rules": 1,
+      "kind": "reviewed-service-filter",
+      "kop_compatibility_dropped_options": {},
+      "out_key_counts": {},
+      "output_sha256": "ac42a415f7550fa34e471fe36ec39d14fb2d48e32a74f728d195b45a89f39b78",
+      "schema_version": 1,
+      "selected_rules": 1,
+      "selected_type_counts": {
+        "host-suffix": 1
+      },
+      "selection": "KOP literal out on original rows, then literal in on normalized rows; force selected service policy",
+      "source_sha256": "ad072a170e2ff5461b2d8aded45a8e0be66c292954ca25260c2237ad7b6e53b8"
+    },
+    "service-nintendo-extra": {
+      "allowed_input_policies": [
+        "Nintendo"
+      ],
+      "in_key_counts": {},
+      "input_rules": 28,
+      "kind": "reviewed-service-filter",
+      "kop_compatibility_dropped_options": {},
+      "out_key_counts": {},
+      "output_sha256": "dd02e9a33cabd64704cf7a6d2124403e7edbed47f9d0f3d66e29103630aaf4ac",
+      "schema_version": 1,
+      "selected_rules": 28,
+      "selected_type_counts": {
+        "host-suffix": 28
+      },
+      "selection": "KOP literal out on original rows, then literal in on normalized rows; force selected service policy",
+      "source_sha256": "f89d709ba6f64f1e49a69d19f7ab311d6267fc191460ce94a856ff4f4a1c2845"
+    },
+    "service-source-00": {
+      "allowed_input_policies": [
+        "Nintendo"
+      ],
+      "in_key_counts": {},
+      "input_rules": 126,
+      "kind": "reviewed-service-filter",
+      "kop_compatibility_dropped_options": {},
+      "out_key_counts": {
+        "IP-CIDR,": 1
+      },
+      "output_sha256": "16ab4c4d841c4631073d0ca9f7d7e1845e8b9b40051669df9890b3e8d681766e",
+      "schema_version": 1,
+      "selected_rules": 125,
+      "selected_type_counts": {
+        "host-suffix": 125
+      },
+      "selection": "KOP literal out on original rows, then literal in on normalized rows; force selected service policy",
+      "source_sha256": "9c4cd128da1fe44ef824faa8da6ac583017340b1fd888ae48645e721d59b3058"
+    },
+    "service-source-01": {
+      "allowed_input_policies": [
+        "Claude"
+      ],
+      "in_key_counts": {},
+      "input_rules": 3,
+      "kind": "reviewed-service-filter",
+      "kop_compatibility_dropped_options": {},
+      "out_key_counts": {},
+      "output_sha256": "fc830eb8438490455011ff96eff60c1158f21a85eaff35da63886d65163d4ea2",
+      "schema_version": 1,
+      "selected_rules": 3,
+      "selected_type_counts": {
+        "host": 1,
+        "host-suffix": 2
+      },
+      "selection": "KOP literal out on original rows, then literal in on normalized rows; force selected service policy",
+      "source_sha256": "bcf41ba79464a16d8305cf1c6f18c69d023ccd33ea1b84834daaa47cc0d5dfea"
+    },
+    "service-source-02": {
+      "allowed_input_policies": [
+        "OpenAI"
+      ],
+      "in_key_counts": {},
+      "input_rules": 35,
+      "kind": "reviewed-service-filter",
+      "kop_compatibility_dropped_options": {},
+      "out_key_counts": {
+        ",ai.com,": 1,
+        ",algolia.net,": 1,
+        ",api.statsig.com,": 1,
+        ",auth0.com,": 1,
+        ",browser-intake-datadoghq.com,": 1,
+        ",client-api.arkoselabs.com,": 1,
+        ",events.statsigapi.net,": 1,
+        ",featuregates.org,": 1,
+        ",host.livekit.cloud,": 1,
+        ",identrust.com,": 1,
+        ",intercom.io,": 1,
+        ",intercomcdn.com,": 1,
+        ",launchdarkly.com,": 1,
+        ",observeit.net,": 1,
+        ",segment.io,": 1,
+        ",sentry.io,": 1,
+        ",static.cloudflareinsights.com,": 1,
+        ",stripe.com,": 1,
+        ",turn.livekit.cloud,": 1,
+        "IP-ASN,": 1
+      },
+      "output_sha256": "64b6f306716d002c486252d25c1b422e712a5775ec699afb6dcff73d548bfb9e",
+      "schema_version": 1,
+      "selected_rules": 15,
+      "selected_type_counts": {
+        "host": 5,
+        "host-keyword": 1,
+        "host-suffix": 7,
+        "ip-cidr": 2
+      },
+      "selection": "KOP literal out on original rows, then literal in on normalized rows; force selected service policy",
+      "source_sha256": "6ec16f5da986a15c62e80192f5b445dcdaf88607987923120761c1388eeb243d"
+    },
+    "service-source-03": {
+      "allowed_input_policies": [
+        "Gemini"
+      ],
+      "in_key_counts": {},
+      "input_rules": 13,
+      "kind": "reviewed-service-filter",
+      "kop_compatibility_dropped_options": {},
+      "out_key_counts": {
+        ",apis.google.com,": 1
+      },
+      "output_sha256": "4a6b31b3b4a725811949392b804c23f5e0b3812b2f333ed653d1dc91e68f0f77",
+      "schema_version": 1,
+      "selected_rules": 12,
+      "selected_type_counts": {
+        "host": 3,
+        "host-keyword": 3,
+        "host-suffix": 6
+      },
+      "selection": "KOP literal out on original rows, then literal in on normalized rows; force selected service policy",
+      "source_sha256": "9e488fd027a55ec5bfeeeda1ab4a9022364c1d47dfd140293e02835d3303980f"
+    },
+    "service-source-04": {
+      "allowed_input_policies": [
+        "YouTube"
+      ],
+      "in_key_counts": {},
+      "input_rules": 196,
+      "kind": "reviewed-service-filter",
+      "kop_compatibility_dropped_options": {},
+      "out_key_counts": {},
+      "output_sha256": "61b6676b196e395e11e885aeaaa29ad5cf69d9768a1202030a3eb8ae50f43aec",
+      "schema_version": 1,
+      "selected_rules": 196,
+      "selected_type_counts": {
+        "host": 3,
+        "host-keyword": 1,
+        "host-suffix": 179,
+        "host-wildcard": 3,
+        "ip-cidr": 2,
+        "ip6-cidr": 1,
+        "user-agent": 7
+      },
+      "selection": "KOP literal out on original rows, then literal in on normalized rows; force selected service policy",
+      "source_sha256": "6c011f1b2d03f664799bd8f01718bef9c8b071209d5602bfed18bb5db4a8c9e4"
+    },
+    "service-source-05": {
+      "allowed_input_policies": [
+        "GoogleDrive"
+      ],
+      "in_key_counts": {},
+      "input_rules": 8,
+      "kind": "reviewed-service-filter",
+      "kop_compatibility_dropped_options": {},
+      "out_key_counts": {
+        ",googleusercontent.com,": 1,
+        ",www.googleapis.com,": 1
+      },
+      "output_sha256": "dd2b874f2dd3846fc757a95579e0bde18c47e4ba6f6a8cfc552fa0274178696e",
+      "schema_version": 1,
+      "selected_rules": 6,
+      "selected_type_counts": {
+        "host-suffix": 3,
+        "user-agent": 3
+      },
+      "selection": "KOP literal out on original rows, then literal in on normalized rows; force selected service policy",
+      "source_sha256": "4969e8ba55a0d03ba5dd13d8b626a28b73823c1e57991187e5c05a792b7f9144"
+    },
+    "service-source-06": {
+      "allowed_input_policies": [],
+      "in_key_counts": {},
+      "input_rules": 1,
+      "kind": "reviewed-service-filter",
+      "kop_compatibility_dropped_options": {},
+      "out_key_counts": {},
+      "output_sha256": "d55eda4758465e1848be1d26882e44e1719c6630e3045dcd43535e05f9f4d54c",
+      "schema_version": 1,
+      "selected_rules": 1,
+      "selected_type_counts": {
+        "host": 1
+      },
+      "selection": "KOP literal out on original rows, then literal in on normalized rows; force selected service policy",
+      "source_sha256": "ac185af27e084d945c5b771ca93835a80100851585cb94ba6e1b6cde45f7490e"
+    },
+    "service-source-07": {
+      "allowed_input_policies": [
+        "GitHub"
+      ],
+      "in_key_counts": {},
+      "input_rules": 31,
+      "kind": "reviewed-service-filter",
+      "kop_compatibility_dropped_options": {},
+      "out_key_counts": {},
+      "output_sha256": "272220dc71a552f579c0a1de520de1329be0932641fcb67dc8f2bcecdfc6bd37",
+      "schema_version": 1,
+      "selected_rules": 31,
+      "selected_type_counts": {
+        "host-keyword": 1,
+        "host-suffix": 30
+      },
+      "selection": "KOP literal out on original rows, then literal in on normalized rows; force selected service policy",
+      "source_sha256": "413f664aa29692e83879422ee6d35ced46dd135ebd85f67afaf554ab14391f77"
+    },
+    "service-source-08": {
+      "allowed_input_policies": [
+        "OneDrive"
+      ],
+      "in_key_counts": {},
+      "input_rules": 17,
+      "kind": "reviewed-service-filter",
+      "kop_compatibility_dropped_options": {},
+      "out_key_counts": {},
+      "output_sha256": "fc1285c862d1f53c79b5267cd073584e6e5156dbe2eaeaf809b2d65fb33eaad5",
+      "schema_version": 1,
+      "selected_rules": 17,
+      "selected_type_counts": {
+        "host": 1,
+        "host-keyword": 3,
+        "host-suffix": 13
+      },
+      "selection": "KOP literal out on original rows, then literal in on normalized rows; force selected service policy",
+      "source_sha256": "ff3c4a9b4bf9ff4a5095b653e8c9af69a90c4074b3d136a8a82f8cfbb701f676"
+    },
+    "service-source-09": {
+      "allowed_input_policies": [
+        "Copilot"
+      ],
+      "in_key_counts": {
+        "api.microsoftapp.net": 1,
+        "bing-shopping.microsoft-falcon.io": 1,
+        "copilot.microsoft.com": 1,
+        "edgeservices.bing.com": 1,
+        "gateway.bingviz.microsoft.net": 1,
+        "gateway.bingviz.microsoftapp.net": 1,
+        "services.bingapis.com": 1,
+        "sydney.bing.com": 1
+      },
+      "input_rules": 51,
+      "kind": "reviewed-service-filter",
+      "kop_compatibility_dropped_options": {},
+      "out_key_counts": {},
+      "output_sha256": "1adb87eccd73b0969e90ecbf469b7918f46d077b4746eecd35b0ca41617f8a2d",
+      "schema_version": 1,
+      "selected_rules": 8,
+      "selected_type_counts": {
+        "host": 5,
+        "host-suffix": 3
+      },
+      "selection": "KOP literal out on original rows, then literal in on normalized rows; force selected service policy",
+      "source_sha256": "b6bd07a9aaa109d44915b23b19d1d05948cc137dc7e2a5c3240d9a81c6e6b3a4"
+    },
+    "service-source-10": {
+      "allowed_input_policies": [
+        "Bing"
+      ],
+      "in_key_counts": {},
+      "input_rules": 9,
+      "kind": "reviewed-service-filter",
+      "kop_compatibility_dropped_options": {},
+      "out_key_counts": {},
+      "output_sha256": "2acc8ddd6bfb25637fcedce99dbd57a40f6c096ce22a9ca78a7ea558b12508e9",
+      "schema_version": 1,
+      "selected_rules": 9,
+      "selected_type_counts": {
+        "host-suffix": 9
+      },
+      "selection": "KOP literal out on original rows, then literal in on normalized rows; force selected service policy",
+      "source_sha256": "104a58946d9e1411c3d18db64754ea667888ce42224209a3707888a9430655c6"
+    },
+    "service-source-11": {
+      "allowed_input_policies": [
+        "Microsoft"
+      ],
+      "in_key_counts": {},
+      "input_rules": 712,
+      "kind": "reviewed-service-filter",
+      "kop_compatibility_dropped_options": {},
+      "out_key_counts": {},
+      "output_sha256": "6835c9df6917f1f910259e2200d638d72c4044e966be51ee4482bae79ecdd3be",
+      "schema_version": 1,
+      "selected_rules": 712,
+      "selected_type_counts": {
+        "host": 41,
+        "host-keyword": 4,
+        "host-suffix": 663,
+        "host-wildcard": 1,
+        "user-agent": 3
+      },
+      "selection": "KOP literal out on original rows, then literal in on normalized rows; force selected service policy",
+      "source_sha256": "7de40c9424a4a1ab793a38f58dbf64c25ef68f9e812618abf3751a853561c800"
+    },
+    "service-source-12": {
+      "allowed_input_policies": [
+        "Google"
+      ],
+      "in_key_counts": {},
+      "input_rules": 711,
+      "kind": "reviewed-service-filter",
+      "kop_compatibility_dropped_options": {},
+      "out_key_counts": {},
+      "output_sha256": "14101afb46e47f441d486e751f1144e8e22ed5e12dc80bd9f5afe3f3ec42e2f9",
+      "schema_version": 1,
+      "selected_rules": 711,
+      "selected_type_counts": {
+        "host": 14,
+        "host-keyword": 5,
+        "host-suffix": 684,
+        "ip-cidr": 4,
+        "ip6-cidr": 1,
+        "user-agent": 3
+      },
+      "selection": "KOP literal out on original rows, then literal in on normalized rows; force selected service policy",
+      "source_sha256": "eb56706413fab41ded77194ae73f690af583bd56ad7d470273e026fa5ccb7b93"
+    },
+    "service-source-13": {
+      "allowed_input_policies": [
+        "Spotify"
+      ],
+      "in_key_counts": {},
+      "input_rules": 30,
+      "kind": "reviewed-service-filter",
+      "kop_compatibility_dropped_options": {},
+      "out_key_counts": {
+        "IP-CIDR,": 2,
+        "IP6-CIDR,": 0
+      },
+      "output_sha256": "9965d32de775c46e2c0c1eab46ed6cfd81eba2fa0fef1f49e29982ca7c3b90b7",
+      "schema_version": 1,
+      "selected_rules": 28,
+      "selected_type_counts": {
+        "host": 6,
+        "host-keyword": 1,
+        "host-suffix": 20,
+        "user-agent": 1
+      },
+      "selection": "KOP literal out on original rows, then literal in on normalized rows; force selected service policy",
+      "source_sha256": "d29fa087d00317231e7de7c8cd4aa9ca91ed0c51660fbf76101b719d8ac5e78c"
+    },
+    "service-source-14": {
+      "allowed_input_policies": [
+        "Netflix"
+      ],
+      "in_key_counts": {},
+      "input_rules": 1158,
+      "kind": "reviewed-service-filter",
+      "kop_compatibility_dropped_options": {},
+      "out_key_counts": {
+        "IP-CIDR,": 1115,
+        "IP6-CIDR,": 4
+      },
+      "output_sha256": "dd38d65e4d9b4f780dfb1b83e6339de1c33cdc07e4d37573be0fa5a01ac6d203",
+      "schema_version": 1,
+      "selected_rules": 39,
+      "selected_type_counts": {
+        "host": 3,
+        "host-keyword": 4,
+        "host-suffix": 30,
+        "host-wildcard": 1,
+        "user-agent": 1
+      },
+      "selection": "KOP literal out on original rows, then literal in on normalized rows; force selected service policy",
+      "source_sha256": "eb95ba340fc9b3013e6b66a64270d20e4142b0f9b8cde1bac060725742331ec7"
+    },
+    "service-source-15": {
+      "allowed_input_policies": [
+        "TikTok"
+      ],
+      "in_key_counts": {},
+      "input_rules": 35,
+      "kind": "reviewed-service-filter",
+      "kop_compatibility_dropped_options": {},
+      "out_key_counts": {},
+      "output_sha256": "e4033991dc2ba0459bd3ef32d38b9397b76aeb67b6d69c9fd1c323d795736522",
+      "schema_version": 1,
+      "selected_rules": 35,
+      "selected_type_counts": {
+        "host": 4,
+        "host-keyword": 2,
+        "host-suffix": 28,
+        "user-agent": 1
+      },
+      "selection": "KOP literal out on original rows, then literal in on normalized rows; force selected service policy",
+      "source_sha256": "b1a9cc643f72d4f105bf2eb1ba916ae7c56d34014355d97c1ff98f41006b9f75"
+    },
+    "service-source-16": {
+      "allowed_input_policies": [],
+      "in_key_counts": {},
+      "input_rules": 11,
+      "kind": "reviewed-service-filter",
+      "kop_compatibility_dropped_options": {},
+      "out_key_counts": {},
+      "output_sha256": "f5cc1c7788aceee62cc8a275dd3fd756980c582c34e0a8b56e63bd24516fa4f8",
+      "schema_version": 1,
+      "selected_rules": 11,
+      "selected_type_counts": {
+        "host-keyword": 1,
+        "host-suffix": 10
+      },
+      "selection": "KOP literal out on original rows, then literal in on normalized rows; force selected service policy",
+      "source_sha256": "5827f7446fcedddf16152d4b0bbaf8bddb26dcb93700d619385d6f121f5a1483"
+    },
+    "service-source-17": {
+      "allowed_input_policies": [],
+      "in_key_counts": {},
+      "input_rules": 30,
+      "kind": "reviewed-service-filter",
+      "kop_compatibility_dropped_options": {
+        "no-resolve": 14
+      },
+      "out_key_counts": {},
+      "output_sha256": "c95cb8a486056b3e8a16443ad8a77c1fa5979f400b5f90020d6d539718f23ed7",
+      "schema_version": 1,
+      "selected_rules": 30,
+      "selected_type_counts": {
+        "host-suffix": 16,
+        "ip-cidr": 9,
+        "ip6-cidr": 5
+      },
+      "selection": "KOP literal out on original rows, then literal in on normalized rows; force selected service policy",
+      "source_sha256": "e8f75858be3a7da883a796d97c8490acb100404aabb500fde7f23703de5e000c"
+    },
+    "service-source-18": {
+      "allowed_input_policies": [],
+      "in_key_counts": {},
+      "input_rules": 242,
+      "kind": "reviewed-service-filter",
+      "kop_compatibility_dropped_options": {
+        "no-resolve": 17
+      },
+      "out_key_counts": {},
+      "output_sha256": "69c325be9bcc3f5d257b738e2697ab0eea1ccc1de1f53db7a631d064524375c7",
+      "schema_version": 1,
+      "selected_rules": 242,
+      "selected_type_counts": {
+        "geoip": 1,
+        "host": 66,
+        "host-keyword": 15,
+        "host-suffix": 144,
+        "ip-cidr": 16
+      },
+      "selection": "KOP literal out on original rows, then literal in on normalized rows; force selected service policy",
+      "source_sha256": "8e3a7945de96310575837ad55fd724aecaf3b3894a7eac2a979311d6d5fa88ce"
+    },
+    "service-source-19": {
+      "allowed_input_policies": [],
+      "in_key_counts": {},
+      "input_rules": 16,
+      "kind": "reviewed-service-filter",
+      "kop_compatibility_dropped_options": {
+        "no-resolve": 2
+      },
+      "out_key_counts": {},
+      "output_sha256": "becc69510b1e843530a226f2a428bd1bc4d716fc097081481161247ae16c71ab",
+      "schema_version": 1,
+      "selected_rules": 16,
+      "selected_type_counts": {
+        "host": 12,
+        "host-keyword": 1,
+        "host-suffix": 1,
+        "ip-cidr": 2
+      },
+      "selection": "KOP literal out on original rows, then literal in on normalized rows; force selected service policy",
+      "source_sha256": "8a79fd534b92d7ac33e9290bd141b423822dc50525a525938486a340b6b5bcda"
+    },
+    "service-source-20": {
+      "allowed_input_policies": [],
+      "in_key_counts": {},
+      "input_rules": 513,
+      "kind": "reviewed-service-filter",
+      "kop_compatibility_dropped_options": {
+        "no-resolve": 18
+      },
+      "out_key_counts": {},
+      "output_sha256": "9bd8645c15babedafb7933be67a2e825003e618cddbe67ef1d55185b3ca15940",
+      "schema_version": 1,
+      "selected_rules": 513,
+      "selected_type_counts": {
+        "host": 54,
+        "host-keyword": 4,
+        "host-suffix": 437,
+        "ip-cidr": 13,
+        "ip6-cidr": 5
+      },
+      "selection": "KOP literal out on original rows, then literal in on normalized rows; force selected service policy",
+      "source_sha256": "2292abb55f20caf031ffbb7011c84b85c2246f54ae050fe416323da1fd2b8ead"
+    },
+    "service-source-21": {
+      "allowed_input_policies": [],
+      "in_key_counts": {},
+      "input_rules": 20,
+      "kind": "reviewed-service-filter",
+      "kop_compatibility_dropped_options": {},
+      "out_key_counts": {},
+      "output_sha256": "bf1ec7fa7ec10d309ee5e98e7b09d978291b04c0d3270acf546cd83278a0defe",
+      "schema_version": 1,
+      "selected_rules": 20,
+      "selected_type_counts": {
+        "host-keyword": 4,
+        "host-suffix": 16
+      },
+      "selection": "KOP literal out on original rows, then literal in on normalized rows; force selected service policy",
+      "source_sha256": "8ecf4183ed7153f4d7f84f1f397005b4f16cfd9058ccdcce8762d3eb562a5e82"
+    },
+    "service-source-22": {
+      "allowed_input_policies": [],
+      "in_key_counts": {},
+      "input_rules": 24,
+      "kind": "reviewed-service-filter",
+      "kop_compatibility_dropped_options": {
+        "no-resolve": 3
+      },
+      "out_key_counts": {},
+      "output_sha256": "ee8166f647a74819b65682865861be1819f490014634a28089fa02f8a63d2004",
+      "schema_version": 1,
+      "selected_rules": 24,
+      "selected_type_counts": {
+        "host": 8,
+        "host-suffix": 13,
+        "ip-cidr": 3
+      },
+      "selection": "KOP literal out on original rows, then literal in on normalized rows; force selected service policy",
+      "source_sha256": "35aae672ccde5534afd5d30344bd1ee4c75ddd383c099eda3babee3202ca5630"
+    },
+    "service-source-23": {
+      "allowed_input_policies": [],
+      "in_key_counts": {},
+      "input_rules": 18,
+      "kind": "reviewed-service-filter",
+      "kop_compatibility_dropped_options": {
+        "extended-matching": 1,
+        "no-resolve": 17
+      },
+      "out_key_counts": {},
+      "output_sha256": "af9dd0daf61d12a9e8fcf92574200ba43d98eefb15094b64d18b1acec2a79d6c",
+      "schema_version": 1,
+      "selected_rules": 18,
+      "selected_type_counts": {
+        "host-suffix": 1,
+        "ip-cidr": 17
+      },
+      "selection": "KOP literal out on original rows, then literal in on normalized rows; force selected service policy",
+      "source_sha256": "3404f16f0226b9e13e2bee7b22ed2c9d36efbaae3c4251a19457c3dabe43c746"
+    },
+    "service-source-24": {
+      "allowed_input_policies": [],
+      "in_key_counts": {},
+      "input_rules": 1,
+      "kind": "reviewed-service-filter",
+      "kop_compatibility_dropped_options": {},
+      "out_key_counts": {},
+      "output_sha256": "232b4b1869b1e7acc7281b8c7380776a9699ae34929e6a6254ae91613f6f46f8",
+      "schema_version": 1,
+      "selected_rules": 1,
+      "selected_type_counts": {
+        "geoip": 1
+      },
+      "selection": "KOP literal out on original rows, then literal in on normalized rows; force selected service policy",
+      "source_sha256": "2d4f4e156663de6b5d1e4d49be23799f8a0a08ef7c061cb0d133e194be07bf7c"
     }
   },
   "sources": [
@@ -129112,14 +130810,6 @@
       "url": "https://raw.githubusercontent.com/ConnersHua/RuleGo/master/Surge/Module/Block/YouTubeAds.sgmodule"
     },
     {
-      "bytes": 351,
-      "id": "author_youtube",
-      "license": "Original author reference; script not redistributed",
-      "name": "app2smile YouTube 原生 QX 脚本入口",
-      "sha256": "4cb37284d2d56ded94e583a99a822b1f58bd3ddb7ce8efe8efb763092d307054",
-      "url": "https://raw.githubusercontent.com/app2smile/rules/master/module/youtube-qx.conf"
-    },
-    {
       "bytes": 40398,
       "id": "limbo_web",
       "license": "MIT",
@@ -129134,6 +130824,230 @@
       "name": "豆瓣移动网页去广告与快捷观影（原功能保留）",
       "sha256": "ee9f285059e0e0e478a2585c91e53188135775a68a9795b1dd39df979abbc757",
       "url": "https://raw.githubusercontent.com/ddgksf2013/Rewrite/master/Html/Douban.conf"
+    },
+    {
+      "bytes": 4991,
+      "id": "service-source-00",
+      "license": "See THIRD_PARTY_NOTICES.md and the original author repository",
+      "name": "Nintendo",
+      "sha256": "9c4cd128da1fe44ef824faa8da6ac583017340b1fd888ae48645e721d59b3058",
+      "url": "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/QuantumultX/Nintendo/Nintendo.list#out=IP-CIDR%2C&hide=1&ntf=0"
+    },
+    {
+      "bytes": 255,
+      "id": "service-source-01",
+      "license": "See THIRD_PARTY_NOTICES.md and the original author repository",
+      "name": "Claude",
+      "sha256": "bcf41ba79464a16d8305cf1c6f18c69d023ccd33ea1b84834daaa47cc0d5dfea",
+      "url": "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/QuantumultX/Claude/Claude.list"
+    },
+    {
+      "bytes": 1495,
+      "id": "service-source-02",
+      "license": "See THIRD_PARTY_NOTICES.md and the original author repository",
+      "name": "OpenAI",
+      "sha256": "6ec16f5da986a15c62e80192f5b445dcdaf88607987923120761c1388eeb243d",
+      "url": "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/QuantumultX/OpenAI/OpenAI.list#out=IP-ASN%2C+%2Cai.com%2C+%2Cbrowser-intake-datadoghq.com%2C+%2Cstatic.cloudflareinsights.com%2C+%2Calgolia.net%2C+%2Capi.statsig.com%2C+%2Cauth0.com%2C+%2Cclient-api.arkoselabs.com%2C+%2Cevents.statsigapi.net%2C+%2Cfeaturegates.org%2C+%2Chost.livekit.cloud%2C+%2Cidentrust.com%2C+%2Cintercom.io%2C+%2Cintercomcdn.com%2C+%2Claunchdarkly.com%2C+%2Cobserveit.net%2C+%2Csegment.io%2C+%2Csentry.io%2C+%2Cstripe.com%2C+%2Cturn.livekit.cloud%2C&hide=1&ntf=0"
+    },
+    {
+      "bytes": 664,
+      "id": "service-source-03",
+      "license": "See THIRD_PARTY_NOTICES.md and the original author repository",
+      "name": "Gemini",
+      "sha256": "9e488fd027a55ec5bfeeeda1ab4a9022364c1d47dfd140293e02835d3303980f",
+      "url": "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/QuantumultX/Gemini/Gemini.list#out=%2Capis.google.com%2C&hide=1&ntf=0"
+    },
+    {
+      "bytes": 6800,
+      "id": "service-source-04",
+      "license": "See THIRD_PARTY_NOTICES.md and the original author repository",
+      "name": "YouTube",
+      "sha256": "6c011f1b2d03f664799bd8f01718bef9c8b071209d5602bfed18bb5db4a8c9e4",
+      "url": "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/QuantumultX/YouTube/YouTube.list"
+    },
+    {
+      "bytes": 527,
+      "id": "service-source-05",
+      "license": "See THIRD_PARTY_NOTICES.md and the original author repository",
+      "name": "GoogleDrive",
+      "sha256": "4969e8ba55a0d03ba5dd13d8b626a28b73823c1e57991187e5c05a792b7f9144",
+      "url": "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/QuantumultX/GoogleDrive/GoogleDrive.list#out=%2Cgoogleusercontent.com%2C+%2Cwww.googleapis.com%2C&hide=1&ntf=0"
+    },
+    {
+      "bytes": 41,
+      "id": "service-source-06",
+      "license": "See THIRD_PARTY_NOTICES.md and the original author repository",
+      "name": "GoogleVoice",
+      "sha256": "ac185af27e084d945c5b771ca93835a80100851585cb94ba6e1b6cde45f7490e",
+      "url": "https://raw.githubusercontent.com/ConnersHua/RuleGo/master/Surge/Ruleset/Extra/Google/GoogleVoice.list"
+    },
+    {
+      "bytes": 1268,
+      "id": "service-source-07",
+      "license": "See THIRD_PARTY_NOTICES.md and the original author repository",
+      "name": "GitHub",
+      "sha256": "413f664aa29692e83879422ee6d35ced46dd135ebd85f67afaf554ab14391f77",
+      "url": "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/QuantumultX/GitHub/GitHub.list"
+    },
+    {
+      "bytes": 815,
+      "id": "service-source-08",
+      "license": "See THIRD_PARTY_NOTICES.md and the original author repository",
+      "name": "OneDrive",
+      "sha256": "ff3c4a9b4bf9ff4a5095b653e8c9af69a90c4074b3d136a8a82f8cfbb701f676",
+      "url": "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/QuantumultX/OneDrive/OneDrive.list"
+    },
+    {
+      "bytes": 2086,
+      "id": "service-source-09",
+      "license": "See THIRD_PARTY_NOTICES.md and the original author repository",
+      "name": "Copilot",
+      "sha256": "b6bd07a9aaa109d44915b23b19d1d05948cc137dc7e2a5c3240d9a81c6e6b3a4",
+      "url": "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/QuantumultX/Copilot/Copilot.list#in=copilot.microsoft.com+sydney.bing.com+gateway.bingviz.microsoft.net+gateway.bingviz.microsoftapp.net+services.bingapis.com+edgeservices.bing.com+api.microsoftapp.net+bing-shopping.microsoft-falcon.io&hide=1&ntf=0"
+    },
+    {
+      "bytes": 440,
+      "id": "service-source-10",
+      "license": "See THIRD_PARTY_NOTICES.md and the original author repository",
+      "name": "Bing",
+      "sha256": "104a58946d9e1411c3d18db64754ea667888ce42224209a3707888a9430655c6",
+      "url": "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/QuantumultX/Bing/Bing.list"
+    },
+    {
+      "bytes": 27681,
+      "id": "service-source-11",
+      "license": "See THIRD_PARTY_NOTICES.md and the original author repository",
+      "name": "Microsoft",
+      "sha256": "7de40c9424a4a1ab793a38f58dbf64c25ef68f9e812618abf3751a853561c800",
+      "url": "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/QuantumultX/Microsoft/Microsoft.list"
+    },
+    {
+      "bytes": 23684,
+      "id": "service-source-12",
+      "license": "See THIRD_PARTY_NOTICES.md and the original author repository",
+      "name": "Google",
+      "sha256": "eb56706413fab41ded77194ae73f690af583bd56ad7d470273e026fa5ccb7b93",
+      "url": "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/QuantumultX/Google/Google.list"
+    },
+    {
+      "bytes": 1355,
+      "id": "service-source-13",
+      "license": "See THIRD_PARTY_NOTICES.md and the original author repository",
+      "name": "Spotify",
+      "sha256": "d29fa087d00317231e7de7c8cd4aa9ca91ed0c51660fbf76101b719d8ac5e78c",
+      "url": "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/QuantumultX/Spotify/Spotify.list#out=IP-CIDR%2C+IP6-CIDR%2C&hide=1&ntf=0"
+    },
+    {
+      "bytes": 37297,
+      "id": "service-source-14",
+      "license": "See THIRD_PARTY_NOTICES.md and the original author repository",
+      "name": "Netflix",
+      "sha256": "eb95ba340fc9b3013e6b66a64270d20e4142b0f9b8cde1bac060725742331ec7",
+      "url": "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/QuantumultX/Netflix/Netflix.list#out=IP-CIDR%2C+IP6-CIDR%2C&hide=1&ntf=0"
+    },
+    {
+      "bytes": 1357,
+      "id": "service-source-15",
+      "license": "See THIRD_PARTY_NOTICES.md and the original author repository",
+      "name": "TikTok",
+      "sha256": "b1a9cc643f72d4f105bf2eb1ba916ae7c56d34014355d97c1ff98f41006b9f75",
+      "url": "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/QuantumultX/TikTok/TikTok.list"
+    },
+    {
+      "bytes": 311,
+      "id": "service-source-16",
+      "license": "See THIRD_PARTY_NOTICES.md and the original author repository",
+      "name": "海外抖音",
+      "sha256": "5827f7446fcedddf16152d4b0bbaf8bddb26dcb93700d619385d6f121f5a1483",
+      "url": "https://raw.githubusercontent.com/ConnersHua/RuleGo/master/Surge/Ruleset/Extra/Streaming/Video/TikTok.list"
+    },
+    {
+      "bytes": 920,
+      "id": "service-source-17",
+      "license": "See THIRD_PARTY_NOTICES.md and the original author repository",
+      "name": "电报代理",
+      "sha256": "e8f75858be3a7da883a796d97c8490acb100404aabb500fde7f23703de5e000c",
+      "url": "https://raw.githubusercontent.com/ConnersHua/RuleGo/master/Surge/Ruleset/Extra/Telegram.list"
+    },
+    {
+      "bytes": 7796,
+      "id": "service-source-18",
+      "license": "See THIRD_PARTY_NOTICES.md and the original author repository",
+      "name": "国际媒体",
+      "sha256": "8e3a7945de96310575837ad55fd724aecaf3b3894a7eac2a979311d6d5fa88ce",
+      "url": "https://raw.githubusercontent.com/ConnersHua/RuleGo/master/Surge/Ruleset/Extra/Streaming/!CN.list"
+    },
+    {
+      "bytes": 505,
+      "id": "service-source-19",
+      "license": "See THIRD_PARTY_NOTICES.md and the original author repository",
+      "name": "港台番剧",
+      "sha256": "8a79fd534b92d7ac33e9290bd141b423822dc50525a525938486a340b6b5bcda",
+      "url": "https://raw.githubusercontent.com/ConnersHua/RuleGo/master/Surge/Ruleset/Extra/Streaming/CN.list"
+    },
+    {
+      "bytes": 14686,
+      "id": "service-source-20",
+      "license": "See THIRD_PARTY_NOTICES.md and the original author repository",
+      "name": "全球加速",
+      "sha256": "2292abb55f20caf031ffbb7011c84b85c2246f54ae050fe416323da1fd2b8ead",
+      "url": "https://raw.githubusercontent.com/ConnersHua/RuleGo/master/Surge/Ruleset/Proxy.list"
+    },
+    {
+      "bytes": 603,
+      "id": "service-source-21",
+      "license": "See THIRD_PARTY_NOTICES.md and the original author repository",
+      "name": "苹果服务",
+      "sha256": "8ecf4183ed7153f4d7f84f1f397005b4f16cfd9058ccdcce8762d3eb562a5e82",
+      "url": "https://raw.githubusercontent.com/ConnersHua/RuleGo/master/Surge/Ruleset/Extra/Apple/Apple.list"
+    },
+    {
+      "bytes": 897,
+      "id": "service-source-22",
+      "license": "See THIRD_PARTY_NOTICES.md and the original author repository",
+      "name": "国内网站",
+      "sha256": "35aae672ccde5534afd5d30344bd1ee4c75ddd383c099eda3babee3202ca5630",
+      "url": "https://raw.githubusercontent.com/ConnersHua/RuleGo/master/Surge/Ruleset/Direct.list"
+    },
+    {
+      "bytes": 816,
+      "id": "service-source-23",
+      "license": "See THIRD_PARTY_NOTICES.md and the original author repository",
+      "name": "微信直连",
+      "sha256": "3404f16f0226b9e13e2bee7b22ed2c9d36efbaae3c4251a19457c3dabe43c746",
+      "url": "https://raw.githubusercontent.com/ConnersHua/RuleGo/master/Surge/Ruleset/Extra/WeChat.list"
+    },
+    {
+      "bytes": 32,
+      "id": "service-source-24",
+      "license": "See THIRD_PARTY_NOTICES.md and the original author repository",
+      "name": "代理修正",
+      "sha256": "2d4f4e156663de6b5d1e4d49be23799f8a0a08ef7c061cb0d133e194be07bf7c",
+      "url": "https://raw.githubusercontent.com/ConnersHua/RuleGo/master/Surge/Ruleset/Proxy+.list"
+    },
+    {
+      "bytes": 1590,
+      "id": "service-nintendo-extra",
+      "license": "Reviewed public domain facts; source links are retained in the file",
+      "name": "Nintendo/Pokemon reviewed supplements",
+      "sha256": "f89d709ba6f64f1e49a69d19f7ab311d6267fc191460ce94a856ff4f4a1c2845",
+      "url": "https://raw.githubusercontent.com/SangShy4You/Anti-AD/main/config/qx-nintendo-extra.list"
+    },
+    {
+      "bytes": 614,
+      "id": "youtube_background",
+      "license": "Apache-2.0; licenses/Maasea-sgmodule-APACHE-2.0.txt; preserve original Maasea attribution",
+      "name": "Maasea YouTube 后台播放与画中画",
+      "sha256": "d1a5cb3a7ccfa4c1dd261ab53c5aeb28a85a9aeda9ef2ffc62833a5669e0feb2",
+      "url": "https://raw.githubusercontent.com/SangShy4You/Anti-AD/main/config/qx-youtube-player.conf"
+    },
+    {
+      "bytes": 171,
+      "id": "service-claude-extra",
+      "license": "Public official-domain fact; source links retained in file",
+      "name": "Claude reviewed official-domain supplement",
+      "sha256": "ad072a170e2ff5461b2d8aded45a8e0be66c292954ca25260c2237ad7b6e53b8",
+      "url": "https://raw.githubusercontent.com/SangShy4You/Anti-AD/main/config/qx-claude-extra.list"
     }
   ],
   "validation": "static structure and all referenced script downloads; not an iOS Quantumult X execution test"

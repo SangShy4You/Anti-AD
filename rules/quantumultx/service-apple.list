@@ -1,0 +1,24 @@
+# Personal Quantumult X ordered filters
+# Source order and explicit policies are preserved; exact matches deduplicated.
+
+# Source: service-source-21
+host-suffix, aaplimg.com, 苹果服务
+host-suffix, apple.co, 苹果服务
+host-suffix, apple.com, 苹果服务
+host-suffix, apple.com.cn, 苹果服务
+host-suffix, apple-cloudkit.com, 苹果服务
+host-suffix, apple-livephotoskit.com, 苹果服务
+host-suffix, apple-mapkit.com, 苹果服务
+host-suffix, applemusic.com, 苹果服务
+host-suffix, appstore.com, 苹果服务
+host-suffix, apzones.com, 苹果服务
+host-suffix, cdn-apple.com, 苹果服务
+host-suffix, icloud.com, 苹果服务
+host-suffix, icloud.com.cn, 苹果服务
+host-suffix, icloud-content.com, 苹果服务
+host-suffix, me.com, 苹果服务
+host-suffix, mzstatic.com, 苹果服务
+host-keyword, apple.com.akadns.net, 苹果服务
+host-keyword, apple.com.edgekey.net, 苹果服务
+host-keyword, apple-support.akadns.net, 苹果服务
+host-keyword, icloud.com.akadns.net, 苹果服务

@@ -1,0 +1,10 @@
+# Personal Quantumult X ordered filters
+# Source order and explicit policies are preserved; exact matches deduplicated.
+
+# Source: service-source-01
+host, cdn.usefathom.com, Claude
+host-suffix, anthropic.com, Claude
+host-suffix, claude.ai, Claude
+
+# Source: service-claude-extra
+host-suffix, claude.com, Claude

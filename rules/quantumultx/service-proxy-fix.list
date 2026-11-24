@@ -1,0 +1,5 @@
+# Personal Quantumult X ordered filters
+# Source order and explicit policies are preserved; exact matches deduplicated.
+
+# Source: service-source-24
+geoip, google, proxy

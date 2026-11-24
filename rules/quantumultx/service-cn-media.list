@@ -1,0 +1,20 @@
+# Personal Quantumult X ordered filters
+# Source order and explicit policies are preserved; exact matches deduplicated.
+
+# Source: service-source-19
+host, api.biliapi.com, 港台番剧
+host, api.biliapi.net, 港台番剧
+host, api.bilibili.com, 港台番剧
+host, app.biliapi.com, 港台番剧
+host, app.biliapi.net, 港台番剧
+host, app.bilibili.com, 港台番剧
+host, grpc.biliapi.net, 港台番剧
+host, m.bilibili.com, 港台番剧
+host, upos-hz-mirrorakam.akamaized.net, 港台番剧
+host, www.bilibili.com, 港台番剧
+host-keyword, cn-hk-eq-bcache-, 港台番剧
+host, cache.video.iqiyi.com, 港台番剧
+ip-cidr, 116.211.202.206/32, 港台番剧
+ip-cidr, 116.211.202.216/32, 港台番剧
+host-suffix, api.mgtv.com, 港台番剧
+host, mobileso.bz.mgtv.com, 港台番剧

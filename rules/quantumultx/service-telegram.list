@@ -1,0 +1,34 @@
+# Personal Quantumult X ordered filters
+# Source order and explicit policies are preserved; exact matches deduplicated.
+
+# Source: service-source-17
+host-suffix, cdn-telegram.org, 电报代理
+host-suffix, comments.app, 电报代理
+host-suffix, graph.org, 电报代理
+host-suffix, legra.ph, 电报代理
+host-suffix, quiz.directory, 电报代理
+host-suffix, t.me, 电报代理
+host-suffix, tdesktop.com, 电报代理
+host-suffix, telegra.ph, 电报代理
+host-suffix, telegram.dog, 电报代理
+host-suffix, telegram.me, 电报代理
+host-suffix, telegram.org, 电报代理
+host-suffix, telegram.space, 电报代理
+host-suffix, telegram-cdn.org, 电报代理
+host-suffix, telesco.pe, 电报代理
+host-suffix, tg.dev, 电报代理
+host-suffix, tx.me, 电报代理
+ip-cidr, 91.108.56.0/22, 电报代理
+ip-cidr, 91.108.4.0/22, 电报代理
+ip-cidr, 91.108.8.0/22, 电报代理
+ip-cidr, 91.108.16.0/22, 电报代理
+ip-cidr, 91.108.12.0/22, 电报代理
+ip-cidr, 149.154.160.0/20, 电报代理
+ip-cidr, 91.105.192.0/23, 电报代理
+ip-cidr, 91.108.20.0/22, 电报代理
+ip-cidr, 185.76.151.0/24, 电报代理
+ip6-cidr, 2001:b28:f23d::/48, 电报代理
+ip6-cidr, 2001:b28:f23f::/48, 电报代理
+ip6-cidr, 2001:67c:4e8::/48, 电报代理
+ip6-cidr, 2001:b28:f23c::/48, 电报代理
+ip6-cidr, 2a0a:f280::/32, 电报代理
