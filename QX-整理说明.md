@@ -12,7 +12,7 @@
 
 ## 保留内容
 
-17 项个人服务分流中，Google 和 Microsoft 各只有一份资源。个人资源标注 `@SangShy`，外链标注原作者。字幕、评分、BoxJS、Sub-Store、Google 自动翻页、豆瓣增强与查询任务均有明确去向；Collections／cleanup 原非广告功能保留精准外链。
+17 项个人服务分流中，Google 和 Microsoft 各只有一份资源。个人资源标注 `@SangShy`，外链标注原作者。字幕、BoxJS、Sub-Store、豆瓣增强与查询任务继续保留。Collections／cleanup 原非广告功能保留精准外链。Netflix 评分和 Google 自动翻页已按个人使用偏好移除。
 
 原七项禁用重写不擅自启用，包括 WebAdBlock 和 StartUp。旧 TestFlightDownload 不恢复：作者已将其区域安装处理合并至保留的 TestFlightAccount。私人完整配置以最新用户导出及既有个人服务整合版为基础，节点、DNS、证书、策略选择和本地规则保持，仅补齐资源引用。私人配置及其哈希不放入公开仓库。
 

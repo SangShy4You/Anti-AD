@@ -160,7 +160,7 @@
       "tag": "Google自动翻页@ddgksf2013",
       "repository": "ddgksf2013/Rewrite",
       "original_enabled": true,
-      "action": "keep-functional-remote"
+      "action": "retired-by-user-preference"
     },
     {
       "original_line": 83,
@@ -174,7 +174,7 @@
       "tag": "Netflix评分@Orz-3",
       "repository": "Orz-3/QuantumultX",
       "original_enabled": true,
-      "action": "keep-functional-remote"
+      "action": "retired-by-user-preference"
     },
     {
       "original_line": 85,

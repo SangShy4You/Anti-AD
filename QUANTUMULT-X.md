@@ -33,7 +33,9 @@
 
 FMZ 补充保留 39 项混合广告／功能处理和 28 项原功能，共 67 条，包含原来的升级提示处理和知乎外链等。实际执行原 KOP 后，67 条处理、原顺序和 49 个来源 hostname 均一致；脚本仍由上游提供。已从个人配置和每日检查中移除京东／淘宝历史比价。上游已划去两项功能，本次用公开示例查询时价格接口证书校验失败。[上游说明](https://github.com/yichahucha/surge#quan-x)
 
-字幕的 `#out=Hant`、Netflix 评分、BoxJS、Sub-Store、Google 自动翻页、查询任务和图标继续按原引用保留。Collections 的四项纯广告处理转入个人资源，其余功能保留外链；cleanup 同样保留原三项非广告功能。豆瓣完整原脚本仍保留广告净化与快捷观影两部分。
+字幕的 `#out=Hant`、BoxJS、Sub-Store、查询任务和图标继续使用原引用。Collections 的四项纯广告处理转入个人资源，其余功能保留外链。cleanup 同样保留原三项非广告功能。豆瓣原脚本保留广告净化与快捷观影两部分。
+
+按个人使用偏好移除了 Netflix 评分和 Google 自动翻页。两项原先均由 QX 直接订阅原作者，仓库的每日任务从未单独追踪这两份重写或其脚本。Google 与 Netflix 仍可分别选择节点，Safari 超级搜索仍可使用。
 
 原来禁用的七项资源继续不启用，包括 WebAdBlock 和 StartUp。单独的 TestFlightDownload 不恢复，因为 [作者说明](https://raw.githubusercontent.com/NobyDa/Script/master/TestFlight/TestFlightAccount.js)及 install 分支代码确认，其区域安装处理已合并进保留的 TestFlightAccount；同时启用会产生冲突。
 

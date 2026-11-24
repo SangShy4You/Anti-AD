@@ -657,9 +657,9 @@
       "original_url": "https://raw.githubusercontent.com/ddgksf2013/Rewrite/master/Html/EndlessGoogle.conf",
       "original_tag": "Google自动翻页@ddgksf2013",
       "original_enabled": true,
-      "status": "original_external_reference_retained",
+      "status": "retired_by_user_preference",
       "original_index": 9,
-      "current_url": "https://raw.githubusercontent.com/ddgksf2013/Rewrite/master/Html/EndlessGoogle.conf"
+      "evidence": "The external wrapper and script were reachable. Testing returned a Google interstitial, so pagination on a normal Safari results page remained unverified. The user chose to remove this feature."
     },
     {
       "original_url": "https://raw.githubusercontent.com/id77/QuantumultX/master/rewrite/Youtube_CC.conf",
@@ -674,9 +674,9 @@
       "original_url": "https://raw.githubusercontent.com/Orz-3/QuantumultX/master/Netflix_ratings.conf",
       "original_tag": "Netflix评分@Orz-3",
       "original_enabled": true,
-      "status": "original_external_reference_retained",
+      "status": "retired_by_user_preference",
       "original_index": 11,
-      "current_url": "https://raw.githubusercontent.com/Orz-3/QuantumultX/master/Netflix_ratings.conf"
+      "evidence": "The external wrapper and script were reachable. Ratings in the current Netflix app remained unverified. The user chose to remove this feature."
     },
     {
       "original_url": "https://raw.githubusercontent.com/Orz-3/QuantumultX/master/JD_TB_price.conf",
