@@ -1,0 +1,12 @@
+#!name=网易App净化@SangShy
+# 保留网易邮箱大师和网易新闻的广告配置与展示规则。
+# 来源及许可 https://github.com/SangShy4You/Anti-AD/blob/main/THIRD_PARTY_NOTICES.md
+
+^https?:\/\/appconf\.mail\.163\.com\/mmad\/ url reject
+^https?:\/\/client\.mail\.163\.com\/apptrack\/confinfo\/searchMultiAds url reject
+^https?:\/\/appconf\.mail\.163\.com\/mmad\/ url reject-200
+^https?:\/\/client\.mail\.163\.com\/apptrack\/confinfo\/(searchMultiAds|showAds) url reject
+^https?:\/\/client\.mail\.163\.com\/apptrack\/confinfo\/searchMultiAds url reject-200
+^https?:\/\/nex.163.com\/q url reject
+^https?:\/\/c\.m\.163\.com\/nc\/gl\/ url reject
+^https?:\/\/c\.m\.163\.com\/nc\/gl\/ url reject-200
