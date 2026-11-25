@@ -1,0 +1,12 @@
+#!name=个人版 B 站净化
+#!desc=开屏、首页推荐、动态和直播
+# 首页推荐、动态和直播来自 Biliverse/ADBlock v0.7.5（Apache-2.0）。动态仅匹配 App 主机。
+# https://github.com/Biliverse/ADBlock/releases/tag/v0.7.5
+# 开屏规则按广告标记过滤国区 iOS App 的素材与展示条目。
+
+^https?:\/\/app\.bili(?:bili\.com|api\.net)\/x\/v2\/feed\/index(?:\?|$) url script-response-body https://github.com/Biliverse/ADBlock/releases/download/v0.7.5/response.bundle.js
+^https?:\/\/(?:app\.bili(?:bili\.com|api\.net))\/bilibili\.app\.dynamic\.v2\.Dynamic\/Dyn(?:All|Video)$ url script-response-body https://github.com/Biliverse/ADBlock/releases/download/v0.7.5/response.bundle.js
+^https?:\/\/api\.live\.bilibili\.com\/xlive\/(?:app-room\/v1\/index\/getInfoByRoom|app-interface\/v2\/(?:index\/feed|room\/recList))(?:\?|$) url script-response-body https://github.com/Biliverse/ADBlock/releases/download/v0.7.5/response.bundle.js
+^https:\/\/app\.bilibili\.com\/x\/v2\/splash\/(?:list|show)(?:\?|$) url script-response-body https://raw.githubusercontent.com/SangShy4You/Anti-AD/e6d30db498359c5d256e6027a915e3d6c333ec0d/rules/quantumultx/scripts/bilibili-splash.js
+
+hostname = app.bilibili.com, app.biliapi.net, api.live.bilibili.com
