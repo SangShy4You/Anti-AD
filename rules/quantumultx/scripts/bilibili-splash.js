@@ -17,7 +17,7 @@
     return;
   }
 
-  let removed = 0;
+  let changed = false;
   for (const key of ["list", "show"]) {
     const entries = result.data[key];
     if (!Array.isArray(entries)) continue;
@@ -26,9 +26,19 @@
       entry.is_ad === true || entry.is_ad === 1 ||
       (typeof entry.ad_cb === "string" && entry.ad_cb.trim() !== "")
     ));
-    removed += entries.length - remaining.length;
-    result.data[key] = remaining;
+    if (remaining.length !== entries.length) {
+      result.data[key] = remaining;
+      changed = true;
+    }
   }
 
-  $done(removed ? { body: JSON.stringify(result) } : {});
+  const { list, show, keep_ids } = result.data;
+  if (Array.isArray(list) && list.length === 0 &&
+      Array.isArray(show) && show.length === 0 &&
+      Array.isArray(keep_ids) && keep_ids.length > 0) {
+    result.data.keep_ids = [];
+    changed = true;
+  }
+
+  $done(changed ? { body: JSON.stringify(result) } : {});
 })();
