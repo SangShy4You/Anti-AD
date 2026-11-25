@@ -1,0 +1,14 @@
+#!name=买菜商超去广告 · 盒马、叮咚、山姆
+# 盒马、叮咚买菜、山姆会员商店。处理盒马营销推荐、叮咚买菜开屏和广告弹窗，以及山姆开屏和频道广告。
+# 来源及许可 https://github.com/SangShy4You/Anti-AD/blob/main/THIRD_PARTY_NOTICES.md
+
+^https?:\/\/maicai\.api\.ddxq\.mobi\/advert\/ url reject
+^https?:\/\/maicai\.api\.ddxq\.mobi\/homeApi\/getHomeAdPop url reject
+^https?:\/\/maicai\.api\.ddxq\.mobi\/vip\/getVipAd url reject-dict
+^https?:\/\/gw\.api\.ddxq\.mobi\/vip-app-service\/vip\/my\/page\/advertising url reject
+^https?:\/\/acs(\.|-)m\.(taobao|freshippo)\.com\/gw\/mtop\.wdk\.fc\.recommend\.feedscommondservice url reject-dict
+^https?:\/\/acs(\.|-)m\.(taobao|freshippo)\.com\/gw\/mtop\.wdk\.crm\.platform\.ma\.recommend url reject-dict
+^https?:\/\/api-sams\.walmartmobile\.cn\/api\/v\d\/sams\/sams-user\/(window\/getGoUpPlus|screen_promotion\/get) url reject
+^https?:\/\/api-sams\.walmartmobile\.cn\/api\/v\d\/sams\/channel\/portal\/AdgroupData url reject-dict
+^https?:\/\/api-sams\.walmartmobile\.cn\/api\/v1\/sams\/sams-user\/(window\/getGoUpPlus|screen_promotion\/get) url reject-200
+^https?:\/\/maicai\.api\.ddxq\.mobi\/advert\/startUpScreen url reject-200

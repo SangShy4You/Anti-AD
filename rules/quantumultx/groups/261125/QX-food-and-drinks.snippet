@@ -1,0 +1,14 @@
+#!name=餐饮去广告 · 下厨房、肯德基、麦当劳、瑞幸
+# 下厨房、肯德基、麦当劳、瑞幸咖啡。处理下厨房广告、肯德基首页广告和弹窗、麦当劳开屏及瑞幸广告位。同时归入原有的麦当劳弹窗和瑞幸推荐模块重写。
+# 来源及许可 https://github.com/SangShy4You/Anti-AD/blob/main/THIRD_PARTY_NOTICES.md
+
+^https?:\/\/res\.kfc\.com\.cn\/CRM\/kfcad\/apphome5\/apphome url reject-200
+^https?:\/\/res\.kfc\.com\.cn\/CRM\/kfcad\/apphome6\/\w+\.json\? url reject-dict
+^https?:\/\/api\.mcd\.cn\/bff\/portal\/home\/splash url reject-200
+^https?:\/\/capi\.lkcoffee\.com\/resource\/m\/sys\/app\/adposNew url response-body \{.+\} response-body {"status":"SUCCESS"}
+^https?:\/\/api\.xiachufang\.com\/v\d\/ad/ url reject
+^https?:\/\/api\.mcd\.cn\/bff\/portal\/(richpop|home\/splash) url reject
+^https?:\/\/api\.xiachufang\.com\/v\d\/ad/ url reject-dict
+^https?:\/\/capi\.lkcoffee\.com\/resource\/m\/sys\/(homePage\/contactor\/modules|app\/adposNew) url reject-200
+^https?:\/\/res\.kfc\.com\.cn\/advertisement\/ url reject
+https://dynamicad.kfc.com.cn/api/app5/homepage/ai/popup url reject-200

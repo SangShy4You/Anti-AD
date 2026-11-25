@@ -1,0 +1,39 @@
+#!name=出行净化 · 高德、滴滴、12306、飞猪等
+# 高德地图、百度地图、滴滴出行、铁路12306、飞猪。保留现有开屏和营销配置重写，部分脚本会调整地图或打车首页、个人中心、消息入口。归集铁路12306广告列表及飞猪开屏活动资源重写。12306广告列表保留已固定版本的脚本。
+# 来源及许可 https://github.com/SangShy4You/Anti-AD/blob/main/THIRD_PARTY_NOTICES.md
+
+^https?:\/\/ad\.12306\.cn\/ad\/ser\/getAdList url script-analyze-echo-response https://raw.githubusercontent.com/kokoryh/Script/d8afcfab97fbfb3d017cfdc759ac7c9c8d784b0d/js/12306.js
+^https:\/\/acs\.m\.taobao\.com\/gw\/mtop\.fliggy\.crm\.screen\.(allresource|predict) url reject-dict
+^https:\/\/acs\.m\.taobao\.com\/gw\/mtop\.trip\.activity\.querytmsresources url reject-dict
+^https?:\/\/newclient\.map\.baidu\.com\/client\/phpui2\/\?qt=ads url script-response-body https://raw.githubusercontent.com/fmz200/wool_scripts/58f6cce6dbd5c5fe50c2998938f9c2ba631a7c18/Scripts/baidumap.js
+^https?:\/\/conf\.diditaxi\.com\.cn\/homepage\/v\d\/other\/fast url script-response-body https://raw.githubusercontent.com/fmz200/wool_scripts/58f6cce6dbd5c5fe50c2998938f9c2ba631a7c18/Scripts/didi/didiAds.js
+^https?:\/\/conf\.diditaxi\.com\.cn\/dynamic\/conf url script-response-body https://raw.githubusercontent.com/fmz200/wool_scripts/58f6cce6dbd5c5fe50c2998938f9c2ba631a7c18/Scripts/didi/didiAds.js
+^https?:\/\/common\.diditaxi\.com\.cn\/common\/v\d\/usercenter\/me url script-response-body https://raw.githubusercontent.com/fmz200/wool_scripts/58f6cce6dbd5c5fe50c2998938f9c2ba631a7c18/Scripts/didi/didiAds.js
+^https?:\/\/common\.diditaxi\.com\.cn\/common\/v5 url script-response-body https://raw.githubusercontent.com/fmz200/wool_scripts/58f6cce6dbd5c5fe50c2998938f9c2ba631a7c18/Scripts/didi/didiAds.js
+^https?:\/\/capis(-\d)?\.didapinche\.com\/adbase url reject
+^https?:\/\/capis(-\d)?\.didapinche\.com\/ad\/ url reject
+^https?:\/\/www\.didapinche\.com\/app\/adstat\/ url reject-200
+^https?:\/\/acs\.m\.taobao\.com\/gw\/mtop\.fliggy\.crm\.screen\.(allresource|predict) url reject-dict
+^https?:\/\/acs\.m\.taobao\.com\/gw\/mtop\.trip\.activity\.querytmsresources\/1\.0\?type=originaljson url reject-img
+^https?:\/\/m5\.amap\.com\/ws\/shield\/dsp\/app\/startup\/init\? url reject-dict
+^https?:\/\/optimus-ads\.amap\.com\/uploadimg\/[a-zA-Z0-9]+.gif url reject-200
+^https?:\/\/amap-aos-info-nogw\.amap\.com\/ws\/aos\/alimama\/splash_screen_rt url reject
+^https?:\/\/acs\.m\.taobao\.com\/gw\/mtop\.trip\.activity\.querytmsresources url reject-dict
+^https?:\/\/capis(-?\w*)?\.didapinche\.com\/ad\/cx\/startup\? url script-response-body https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/0b6897dc17e0c513d25449c935a9694818e32f0c/script/startup/startup.js
+^https?://newclient\.map\.baidu\.com/client/crossmarketing url reject
+^https?://newclient\.map\.baidu\.com/client/usersystem/home/dynamic url reject
+^https?://optimus-ads\.amap\.com/uploadimg/[a-zA-Z0-9]+\.gif url reject-200
+^https?:\/\/acs\.m\.taobao\.com\/gw\/mtop\.fliggy\.crm\.screen\.allresource url reject-200
+^https?:\/\/acs\.m\.taobao\.com\/gw\/mtop\.trip\.activity\.querytmsresources\/ url reject
+^https?:\/\/amap-aos-info-nogw\.amap\.com\/ws\/aos\/alimama\/splash_screen url reject
+^https?:\/\/amap\-aos\-info\-nogw\.amap\.com\/ws\/aos\/alimama\/ url reject-200
+^https?:\/\/capis(-?\w*)?\.didapinche\.com\/ad\/boot\? url reject
+^https?:\/\/capis(-?\w*)?\.didapinche\.com\/ad\/event? url reject-dict
+^https?:\/\/capis(-?\w*)?\.didapinche\.com\/ad\/ride\/detail\? url reject-dict
+^https?:\/\/capis-slb\.didapinche\.com\/ad\/ url reject
+^https?:\/\/m\d\.amap\.com\/ws\/message\/notice\/list\? url reject-dict
+^https?:\/\/m\d\.amap\.com\/ws\/valueadded\/alimama\/splash_screen\/ url reject
+^https?:\/\/newclient\.map\.baidu\.com\/client\/phpui2\/\?qt=ads url reject
+^https?:\/\/render-oss-cdn\.amap\.com\/render\/studio-dev\/image\/ url reject-200
+^https?:\/\/sns\.amap\.com\/ws\/msgbox\/pull? url reject-dict
+^https?:\/\/www\.didapinche\.com\/app\/adstat\/ url reject

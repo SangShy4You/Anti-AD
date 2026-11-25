@@ -1,0 +1,8 @@
+#!name=米家净化 · 开屏与推荐
+# 米家。处理米家开屏和推荐横幅。同时归入原有轮播和「我的」页推荐处理。
+# 来源及许可 https://github.com/SangShy4You/Anti-AD/blob/main/THIRD_PARTY_NOTICES.md
+
+^https?:\/\/home\.mi\.com\/cgi-op\/api\/v1\/recommendation\/(banner|carousel\/banners|myTab|openingBanner) url reject-dict
+^https?:\/\/home\.mi\.com\/cgi-op\/api\/v1\/resource\/realtime\/openingBanner url reject-dict
+^https?:\/\/home\.mi\.com\/cgi-op\/api\/v\d\/recommendation\/(banner|myTab|openingBanner) url reject-dict
+^https?:\/\/home\.mi\.com\/cgi-op\/api\/v\d\/recommendation\/banner url reject

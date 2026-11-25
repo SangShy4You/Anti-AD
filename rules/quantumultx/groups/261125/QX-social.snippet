@@ -1,0 +1,79 @@
+#!name=社交净化 · 抖音、知乎、微博、小红书等
+# 微博、知乎、小红书、抖音、小黑盒、百度贴吧。保留已纳入的开屏、推荐、信息流及广告请求重写。部分脚本也会整理页面入口、搜索提示或处理小红书水印相关请求。
+# 来源及许可 https://github.com/SangShy4You/Anti-AD/blob/main/THIRD_PARTY_NOTICES.md
+
+^http(s:\/\/tiebac|:\/\/c\.tieba)\.baidu\.com\/(c\/(s\/sync|f\/(ad\/getSplashAd|frs\/(page|threadlist|generalTabList)|pb\/(pic)?page|excellent\/personalized))$|tiebaads\/commonbatch\?) url script-response-body https://raw.githubusercontent.com/app2smile/rules/df6366a7024e0b3f0aa3510c5b791eea6f3cba89/js/tieba-json.js
+^http(s:\/\/tiebac|:\/\/c\.tieba)\.baidu\.com\/c\/(b\/ad\/adBid|f\/(frs\/(page|threadlist|generalTabList)|ad\/getFeedAd|pb\/page|excellent\/personalized))\?cmd url script-response-body https://raw.githubusercontent.com/app2smile/rules/df6366a7024e0b3f0aa3510c5b791eea6f3cba89/js/tieba-proto.js
+^https:\/\/webcast-open\.douyin\.com\/webcast\/openapi\/feed\/\? url reject-dict
+^https?:\/\/edith\.(xiaohongshu|rnote)\.com\/api\/sns\/v\d+\/surprisebox\/(get_style|open|submit_action) url reject-dict
+^https?:\/\/www\.(xiaohongshu|rnote)\.com\/api\/marketing\/box\/trigger\? url reject-dict
+^https?:\/\/edith\.(xiaohongshu|rnote)\.com\/api\/sns\/v\d+\/note\/guide\? url reject-dict
+^https?:\/\/edith\.(xiaohongshu|rnote)\.com\/api\/sns\/v\d+\/note\/detailfeed\/preload\? url reject-dict
+^https?:\/\/edith\.(xiaohongshu|rnote)\.com\/api\/sns\/v\d+\/guide\/user_banner url reject-dict
+^https?:\/\/www\.(xiaohongshu|rnote)\.com\/api\/sns\/(v\d+\/ads\/resource|v\d+\/hey\/\w+\/hey_gallery) url reject-dict
+^https?:\/\/edith\.(xiaohongshu|rnote)\.com\/api\/sns\/v\d+\/search\/(banner_list|hot_list) url script-response-body https://raw.githubusercontent.com/fmz200/wool_scripts/58f6cce6dbd5c5fe50c2998938f9c2ba631a7c18/Scripts/xiaohongshu/xiaohongshu.js
+^https?:\/\/edith\.(xiaohongshu|rnote)\.com\/api\/sns\/v\d+\/search\/(hint|trending)\? url script-response-body https://raw.githubusercontent.com/fmz200/wool_scripts/58f6cce6dbd5c5fe50c2998938f9c2ba631a7c18/Scripts/xiaohongshu/xiaohongshu.js
+^https?:\/\/(so|edith)\.(xiaohongshu|rnote)\.com\/api\/sns\/v\d+\/search\/notes\? url script-response-body https://raw.githubusercontent.com/fmz200/wool_scripts/58f6cce6dbd5c5fe50c2998938f9c2ba631a7c18/Scripts/xiaohongshu/xiaohongshu.js
+^https?:\/\/edith\.(xiaohongshu|rnote)\.com\/api\/sns\/v\d+\/system_service\/config\? url script-response-body https://raw.githubusercontent.com/fmz200/wool_scripts/58f6cce6dbd5c5fe50c2998938f9c2ba631a7c18/Scripts/xiaohongshu/xiaohongshu.js
+^https?:\/\/edith\.(xiaohongshu|rnote)\.com\/api\/sns\/v\d+\/system_service\/splash_config url script-response-body https://raw.githubusercontent.com/fmz200/wool_scripts/58f6cce6dbd5c5fe50c2998938f9c2ba631a7c18/Scripts/xiaohongshu/xiaohongshu.js
+^https?:\/\/edith\.(xiaohongshu|rnote)\.com\/api\/sns\/v\d+\/note\/widgets url script-response-body https://raw.githubusercontent.com/fmz200/wool_scripts/58f6cce6dbd5c5fe50c2998938f9c2ba631a7c18/Scripts/xiaohongshu/xiaohongshu.js
+^https?:\/\/(edith|rec|www)\.(xiaohongshu|rnote)\.com\/api\/sns\/v\d+\/note\/(imagefeed|live_photo\/save) url script-response-body https://raw.githubusercontent.com/fmz200/wool_scripts/58f6cce6dbd5c5fe50c2998938f9c2ba631a7c18/Scripts/xiaohongshu/xiaohongshu.js
+^https?:\/\/(edith|rec|www)\.(xiaohongshu|rnote)\.com\/api\/sns\/v\d+\/(followfeed|homefeed)\? url script-response-body https://raw.githubusercontent.com/fmz200/wool_scripts/58f6cce6dbd5c5fe50c2998938f9c2ba631a7c18/Scripts/xiaohongshu/xiaohongshu.js
+^https?:\/\/(edith|rec|www)\.(xiaohongshu|rnote)\.com\/api\/sns\/(v2\/note\/feed|v3\/note\/videofeed)\? url script-response-body https://raw.githubusercontent.com/fmz200/wool_scripts/58f6cce6dbd5c5fe50c2998938f9c2ba631a7c18/Scripts/xiaohongshu/xiaohongshu.js
+^https?:\/\/(edith|rec|www)\.(xiaohongshu|rnote)\.com\/api\/sns\/(v4\/note\/videofeed|v10\/note\/video\/save)\? url script-response-body https://raw.githubusercontent.com/fmz200/wool_scripts/58f6cce6dbd5c5fe50c2998938f9c2ba631a7c18/Scripts/xiaohongshu/xiaohongshu.js
+^https?:\/\/edith\.(xiaohongshu|rnote)\.com\/api\/sns\/v\d\/note\/comment\/list url response-body red_id response-body fmz200
+^https?:\/\/ci\.(xiaohongshu|rnote)\.com\/system_config\/watermark url reject-img
+^https:\/\/api\.zhihu\.com\/(answers|articles)\/v2\/\d+ url script-response-body https://raw.githubusercontent.com/SangShy4You/Anti-AD/main/rules/quantumultx/scripts/zhihu.js
+^https:\/\/api\.zhihu\.com\/commercial_api\/app_float_layer url script-response-body https://raw.githubusercontent.com/SangShy4You/Anti-AD/main/rules/quantumultx/scripts/zhihu.js
+^https:\/\/api\.zhihu\.com\/commercial_api\/(answer\/\d+\/bottom-v2|article\/\d+\/bottom-v2|banners_v3\/app_topstory_banner|launch_v2|real_time_launch_v2) url reject-dict
+^https:\/\/api\.zhihu\.com\/content-distribution-core\/bubble\/common\/settings url reject-dict
+^https:\/\/api\.zhihu\.com\/feed\/render\/tab\/config\? url script-response-body https://raw.githubusercontent.com/SangShy4You/Anti-AD/main/rules/quantumultx/scripts/zhihu.js
+^https:\/\/api\.zhihu\.com\/(moments\/lastread|drama\/hot-drama-list) url reject-dict
+^https:\/\/api\.zhihu\.com\/(moments_v3|topstory\/hot-lists\/total|topstory\/recommend) url script-response-body https://raw.githubusercontent.com/SangShy4You/Anti-AD/main/rules/quantumultx/scripts/zhihu.js
+^https:\/\/api\.zhihu\.com\/root\/window url reject-dict
+^https:\/\/api\.zhihu\.com\/v2\/topstory\/hot-lists\/everyone-seeing\? url script-response-body https://raw.githubusercontent.com/SangShy4You/Anti-AD/main/rules/quantumultx/scripts/zhihu.js
+^https:\/\/api\.zhihu\.com\/(bazaar\/float_window|market\/popovers_v2) url reject-dict
+^https:\/\/api\.zhihu\.com\/bazaar\/vip_tab\/header\? url script-response-body https://raw.githubusercontent.com/SangShy4You/Anti-AD/main/rules/quantumultx/scripts/zhihu.js
+^https:\/\/api\.zhihu\.com\/me\/guides url reject-dict
+^https:\/\/api\.zhihu\.com\/unlimited\/go\/my_card url reject
+^https:\/\/api\.zhihu\.com\/search\/preset_words url reject-dict
+^https:\/\/api\.zhihu\.com\/search\/recommend_query\/v2\? url response-body "recommend_queries":\{.+\} response-body "recommend_queries":{}
+^https:\/\/www\.zhihu\.com\/api\/v4\/search\/related_queries\/(article|answer)\/\d+ url reject-dict
+^https:\/\/api\.zhihu\.com\/comment_v5\/(articles|answers)\/\d+\/list-headers url reject-dict
+^https:\/\/api\.zhihu\.com\/next-(bff|data|render)\? url script-response-body https://raw.githubusercontent.com/SangShy4You/Anti-AD/main/rules/quantumultx/scripts/zhihu.js
+^https:\/\/api\.zhihu\.com\/prague\/related_suggestion_native\/feed\? url reject-dict
+^https:\/\/api\.zhihu\.com\/questions\/\d+(\/answers|\/feeds|\?include=) url script-response-body https://raw.githubusercontent.com/SangShy4You/Anti-AD/main/rules/quantumultx/scripts/zhihu.js
+^https:\/\/api\.zhihu\.com\/v5\.1\/topics\/answer\/\d+\/relation url reject-dict
+^https:\/\/www\.zhihu\.com\/api\/v4\/(articles|answers)\/\d+\/recommendations?\? url script-response-body https://raw.githubusercontent.com/SangShy4You/Anti-AD/main/rules/quantumultx/scripts/zhihu.js
+^https:\/\/api\.zhihu\.com\/ab\/api\/v1\/products\/zhihu\/platforms\/ios\/config url reject
+^https:\/\/api\.zhihu\.com\/ad-style-service\/request url reject-dict
+^https:\/\/appcloud2\.zhihu\.com\/v3\/config url script-response-body https://raw.githubusercontent.com/SangShy4You/Anti-AD/main/rules/quantumultx/scripts/zhihu.js
+^https:\/\/appcloud2\.zhihu\.com\/v3\/resource\?group_name=mp url reject-dict
+^https:\/\/m-cloud\.zhihu\.com\/api\/cloud\/config\/all\? url script-response-body https://raw.githubusercontent.com/SangShy4You/Anti-AD/main/rules/quantumultx/scripts/zhihu.js
+^https:\/\/api\.zhihu\.com\/distribute\/rhea\/qa_ad_card\/h5\/recommendation\? url reject-dict
+^https:\/\/www\.zhihu\.com\/api\/v4\/hot_recommendation url reject
+^https:\/\/www\.zhihu\.com\/api\/v4\/mcn\/v2\/linkcards\? url reject
+^https:\/\/www\.zhihu\.com\/api\/v4/(answers|questions)\/\d+/related-readings url reject
+^https:\/\/www\.zhihu\.com\/commercial_api\/banners_v3\/mobile_banner url reject
+^https:\/\/zhuanlan\.zhihu\.com\/api\/articles\/\d+\/recommendation url reject
+^https:\/\/zhstatic\.zhihu\.com\/brand-ad url reject
+^https?:\/\/[\w-]+\.amemv\.com\/aweme\/v\d\/ad\/ url reject
+^https?:\/\/.+\.amemv\.com\/.+app_log url reject-img
+^https?:\/\/.+\.amemv\.com\/.+report url reject-img
+^https?:\/\/.+\.amemv\.com\/.+stats url reject-img
+^https?:\/\/(tiebac|c\.tieba)\.baidu\.com\/(c\/(s\/sync|f\/(ad\/getSplashAd|frs\/(page|threadlist|generalTabList)|pb\/(pic)?page|excellent\/personalized))$|tiebaads\/commonbatch\?) url script-response-body https://raw.githubusercontent.com/app2smile/rules/df6366a7024e0b3f0aa3510c5b791eea6f3cba89/js/tieba-json.js
+^https?:\/\/(tiebac|c\.tieba)\.baidu\.com\/c\/(b\/ad\/adBid|f\/(frs\/(page|threadlist|generalTabList)|ad\/getFeedAd|pb\/page|excellent\/personalized))\?cmd url script-response-body https://raw.githubusercontent.com/app2smile/rules/df6366a7024e0b3f0aa3510c5b791eea6f3cba89/js/tieba-proto.js
+^https:\/\/sdkapp\.uve\.weibo\.com\/.+&sub_ad_type=splash url reject
+^https?:\/\/ads-img-al\.xhscdn\.com\/hera\/ url reject
+^https?:\/\/api\.xiaoheihe\.cn\/.*get_ads_info url reject-200
+^https?:\/\/c\.tieba\.baidu\.com\/c\/f\/forum\/getAdInfo url reject
+^https?:\/\/c\.tieba\.baidu\.com\/c\/s\/splashSchedule url reject
+^https?:\/\/pages\.xiaohongshu\.com\/data\/native\/matrix_switches url reject-dict
+^https?:\/\/referee\.xiaohongshu\.com\/v\d\/stateReport url reject-dict
+^https?:\/\/sdkapp\.uve\.weibo\.com\/interface\/sdk\/actionad\.php url reject
+^https?:\/\/tqt\.weibo\.cn\/api\/advert\/ url reject
+^https?:\/\/tqt\.weibo\.cn\/overall\/redirect\.php\?r=(tqt_sdkad|tqtad) url reject
+^https?:\/\/weibointl\.api\.weibo\.cn\/portal\.php\?a=get_coopen_ads url reject
+^https?:\/\/www\.xiaohongshu\.com\/api\/sns\/v\d\/ads\/ url reject-dict
+^https?:\/\/www\.xiaohongshu\.com\/api\/sns\/v\d\/system_service\/splash_config url reject
+^https:\/\/sdkapp\.uve\.weibo\.com\/interface\/sdk\/sdkad\.php$ url reject

@@ -1,0 +1,34 @@
+#!name=快递净化 · 菜鸟、顺丰等
+# 菜鸟、顺丰速运、快递100、申通快递。保留已纳入的开屏、横幅、营销推荐和积分活动重写。菜鸟部分脚本也会整理页面和消息入口。
+# 来源及许可 https://github.com/SangShy4You/Anti-AD/blob/main/THIRD_PARTY_NOTICES.md
+
+^https:\/\/guide-acs\.m\.taobao\.com\/gw\/mtop\.cainiao\.adx\.flyad\.getad url reject-dict
+^https:\/\/guide-acs\.m\.taobao\.com\/gw\/mtop\.cainiao\.guoguo\.nbnetflow\.ads\.mshow url script-response-body https://raw.githubusercontent.com/fmz200/wool_scripts/58f6cce6dbd5c5fe50c2998938f9c2ba631a7c18/Scripts/cainiao/cainiao.js
+^https?:\/\/cn-acs\.m\.cainiao\.com\/gw\/mtop\.cainiao\.adkeyword\.get\.cn url reject-dict
+^https?:\/\/cn-acs\.m\.cainiao\.com\/gw\/mtop\.cainiao\.cncommunity\.my\.station\.query\.cn url reject-dict
+^https?:\/\/cn-acs\.m\.cainiao\.com\/gw\/mtop\.cainiao\.guoguo\.nbnetflow\.ads\.(batch\.show\.v2|index)\.cn url reject-dict
+^https?:\/\/cn-acs\.m\.cainiao\.com\/gw\/mtop\.cainiao\.guoguo\.nbnetflow\.ads\.m?show\.cn url script-response-body https://raw.githubusercontent.com/fmz200/wool_scripts/58f6cce6dbd5c5fe50c2998938f9c2ba631a7c18/Scripts/cainiao/cainiao.js
+^https?:\/\/cn-acs\.m\.cainiao\.com\/gw\/mtop\.cainiao\.nbopen\.miniapp\.recommend\.cpc\.cn url reject-dict
+^https?:\/\/cn-acs\.m\.cainiao\.com\/gw\/mtop\.cainiao\.nbmensa\.research\.researchservice\.(acquire|event|close)\.cn url reject-dict
+^https?:\/\/cn-acs\.m\.cainiao\.com\/gw\/mtop\.cainiao\.nbpresentation\.(homepage\.merge|tabbar\.marketing)\.get\.cn url reject-dict
+^https?:\/\/cn-acs\.m\.cainiao\.com\/gw\/mtop\.cainiao\.nbpresentation\.(pickup\.empty\.page|protocol\.homepage)\.get\.cn url script-response-body https://raw.githubusercontent.com/fmz200/wool_scripts/58f6cce6dbd5c5fe50c2998938f9c2ba631a7c18/Scripts/cainiao/cainiao.js
+^https?:\/\/cn-acs\.m\.cainiao\.com\/gw\/mtop\.nbfriend\.message\.conversation\.list\.cn url script-response-body https://raw.githubusercontent.com/fmz200/wool_scripts/58f6cce6dbd5c5fe50c2998938f9c2ba631a7c18/Scripts/cainiao/cainiao.js
+^https?:\/\/cn-acs\.m\.cainiao\.com\/gw\/mtop\.com\.cainiao\.cnactivitycenter url reject-dict
+^https?:\/\/cn-acs\.m\.cainiao\.com\/gw\/mtop\.com\.cainiao\.cncreditmarket\.hit\.getactivityhit\.cn url reject-dict
+^https?:\/\/cn-acs\.m\.cainiao\.com\/gw\/mtop\.com\.cainiao\.longquan\.place\.getpageresourcecontent\.cn url reject-dict
+^https?:\/\/cdn\.kuaidi100\.com\/images\/open\/appads url reject-img
+^https?:\/\/p\.kuaidi100\.com\/mobile\/mobileapi\.do url reject
+^https?:\/\/ucmp\.sf-express\.com\/proxy\/esgcempcore\/memberGoods\/pointMallService\/goodsList url reject-dict
+^https?:\/\/ccsp-egmas\.sf-express\.com\/cx-app-video\/video\/app\/video\/labelClusterList url reject-dict
+^https?:\/\/ccsp-egmas\.sf-express\.com\/cx-app-base\/base\/app\/ad\/queryInfoFlow url reject-dict
+^https?:\/\/ccsp-egmas\.sf-express\.com\/cx-app-base\/base\/app\/bms\/queryRecommend url reject-dict
+^https?:\/\/mcs-mimp-web\.sf-express\.com\/mcs-mimp\/integralPlanet\/getCxAdvertiseList url reject-dict
+^https?:\/\/ucmp-static\.sf-express\.com\/proxy\/wxbase\/wxTicket\/wxLiveStreamInfo\?pageNo url reject-dict
+^https?:\/\/ucmp\.sf-express\.com\/proxy\/operation-platform\/info-flow-adver\/query url reject-dict
+^https?:\/\/ucmp\.sf-express\.com\/proxy\/esgcempcore\/memberManage\/memberEquity\/queryRecommendEquity url reject-dict
+^https?:\/\/ucmp\.sf-express\.com\/proxy\/esgcempcore\/memberActLengthy\/fullGiveActivityService\/fullGiveInfo url reject-dict
+^https:\/\/customer-app\.sto\.cn\/api\/app\/banner\/banner url reject-dict
+^https?:\/\/ccsp-egmas\.sf-express\.com\/cx-app-base\/base\/app\/ad\/ url reject-dict
+^https?:\/\/cn-acs\.m\.cainiao\.com\/gw\/mtop\.cainiao\.guoguo\.nbnetflow\.ads\.(show|mshow)\.cn\/ url reject-200
+^https?:\/\/shopic\.sf-express\.com\/crm\/mobile\/common\/flashscreen url reject
+^https?:\/\/ucmp\.sf-express\.com\/proxy\/operation-platform\/info-flow-adver\/query$ url reject-200

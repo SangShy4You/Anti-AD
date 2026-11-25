@@ -1,0 +1,13 @@
+#!name=本地生活去广告 · 美团、大众点评
+# 美团、大众点评。归集开屏、广告购物、广告素材与微信小程序广告接口。选入的规则限于已有明确广告路径。同时归入原有美团启动图和启动配置重写。
+# 来源及许可 https://github.com/SangShy4You/Anti-AD/blob/main/THIRD_PARTY_NOTICES.md
+
+^https?:\/\/mapi\.dianping\.com\/adshopping url reject
+^https?:\/\/rms\.meituan\.com\/api\/v\d\/rmsmina\/c\/queryWechatAdvertisement url reject-dict
+^https?:\/\/wmapi\.meituan\.com\/api\/v7\/(loadInfo|openscreen|startpicture)\? url reject-dict
+^https?:\/\/img\.meituan\.net\/bizad\/bizad_brandCpt_\d+\.jpg url reject-img
+^https?:\/\/s3plus\.meituan\.net\/v1\/mss_\w+\/(brandcpt-vedio|waimai-alita)\/\w+\.zip$ url reject-dict
+^https?:\/\/mall\.meituan\.com\/api\/c\/homepage\/splash url reject-dict
+^https?:\/\/s3plus\.meituan\.net\/.*\/brandcpt-vedio\/.*\?time url reject-200
+^https?:\/\/wmapi\.meituan\.com\/api\/v\d\/(openscreen\?ad|loadInfo\?|startpicture) url reject-200
+^https?:\/\/wmapi\.meituan\.com\/api\/v\d\/startpicture url reject

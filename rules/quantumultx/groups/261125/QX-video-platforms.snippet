@@ -1,0 +1,65 @@
+#!name=视频去广告与净化 · 爱奇艺、优酷、腾讯等
+# 爱奇艺、优酷、芒果TV、腾讯视频、咪咕视频、搜狐视频、百视TV、人人视频、央视网。处理部分开屏、播放器和信息流广告，精简部分平台首页、搜索和播放详情。搜狐覆盖原有的旧广告地址。亦包含原有的芒果 TV 启动配置处理。
+# 来源及许可 https://github.com/SangShy4You/Anti-AD/blob/main/THIRD_PARTY_NOTICES.md
+
+^https?:\/\/act\.vip\.iqiyi\.com\/interact\/api\/v2\/show\? url reject-dict
+^https?:\/\/[\d\.]+\/3f1\/cards\.iqiyi\.com\/(views_home\/3\.0\/qy_home|waterfall\/3\.0\/feed)\? url script-response-body https://raw.githubusercontent.com/fmz200/wool_scripts/58f6cce6dbd5c5fe50c2998938f9c2ba631a7c18/Scripts/cnftp.js
+^https?:\/\/access\.if\.iqiyi\.com\/3f1\/cards\.iqiyi\.com\/(views_category\/3\.0\/category_home|views_home\/3\.0\/qy_home|waterfall\/3\.0\/feed)\? url script-response-body https://raw.githubusercontent.com/fmz200/wool_scripts/58f6cce6dbd5c5fe50c2998938f9c2ba631a7c18/Scripts/cnftp.js
+^https?:\/\/cards\.iqiyi\.com\/views_category\/3\.0\/(category_home|categorylib_content|film_hybrid)\? url script-response-body https://raw.githubusercontent.com/fmz200/wool_scripts/58f6cce6dbd5c5fe50c2998938f9c2ba631a7c18/Scripts/cnftp.js
+^https?:\/\/cards\.iqiyi\.com\/(views_home\/3\.0\/qy_home|waterfall\/3\.0\/feed)\? url script-response-body https://raw.githubusercontent.com/fmz200/wool_scripts/58f6cce6dbd5c5fe50c2998938f9c2ba631a7c18/Scripts/cnftp.js
+^https?:\/\/cards\.iqiyi\.com\/views_plt\/3\.0\/player_tabs_v2\? url script-response-body https://raw.githubusercontent.com/fmz200/wool_scripts/58f6cce6dbd5c5fe50c2998938f9c2ba631a7c18/Scripts/cnftp.js
+^https?:\/\/cards\.iqiyi\.com\/views_search\/3\.0\/(hot_query_)?search\? url script-response-body https://raw.githubusercontent.com/fmz200/wool_scripts/58f6cce6dbd5c5fe50c2998938f9c2ba631a7c18/Scripts/cnftp.js
+^https?:\/\/comment-card\.iqiyi\.com\/views_comment\/3\.0\/long_video_comments\? url script-response-body https://raw.githubusercontent.com/fmz200/wool_scripts/58f6cce6dbd5c5fe50c2998938f9c2ba631a7c18/Scripts/cnftp.js
+^https?:\/\/iface2\.iqiyi\.com\/aggregate\/3\.0\/getMyMenus\? url script-response-body https://raw.githubusercontent.com/fmz200/wool_scripts/58f6cce6dbd5c5fe50c2998938f9c2ba631a7c18/Scripts/cnftp.js
+^https?:\/\/iface2\.iqiyi\.com\/fusion\/3\.0\/common_switch\? url script-response-body https://raw.githubusercontent.com/fmz200/wool_scripts/58f6cce6dbd5c5fe50c2998938f9c2ba631a7c18/Scripts/cnftp.js
+^https?:\/\/iface2\.iqiyi\.com\/views\/3\.0\/(bottom_theme|home_top_menu)\? url script-response-body https://raw.githubusercontent.com/fmz200/wool_scripts/58f6cce6dbd5c5fe50c2998938f9c2ba631a7c18/Scripts/cnftp.js
+^https?:\/\/iface2\.iqiyi\.com\/views_pop\/3\.0\/pop_control\? url reject-dict
+^https?:\/\/search\.video\.iqiyi\.com\/q\? url script-response-body https://raw.githubusercontent.com/fmz200/wool_scripts/58f6cce6dbd5c5fe50c2998938f9c2ba631a7c18/Scripts/cnftp.js
+^https?:\/\/(kjp|t7z)\.cupid\.iqiyi\.com\/mixer\? url script-response-body https://raw.githubusercontent.com/fmz200/wool_scripts/58f6cce6dbd5c5fe50c2998938f9c2ba631a7c18/Scripts/cnftp.js
+^https:\/\/bp-api\.bestv\.com\.cn\/cms\/api\/free\/open\/advertisingV2 url reject-dict
+^https:\/\/bp-api\.bestv\.cn\/cms\/api\/free\/open\/advertisingV2 url jsonjq-response-body '.dt = []'
+^https?:\/\/damang\.api\.mgtv\.com\/station\/album\/red\/dot\? url reject-dict
+^https?:\/\/me\.bz\.mgtv\.com\/v3\/module\/list\? url script-response-body https://raw.githubusercontent.com/fmz200/wool_scripts/58f6cce6dbd5c5fe50c2998938f9c2ba631a7c18/Scripts/cnftp.js
+^https?:\/\/mob-st\.bz\.mgtv\.com\/odin\/c1\/channel\/index\? url script-response-body https://raw.githubusercontent.com/fmz200/wool_scripts/58f6cce6dbd5c5fe50c2998938f9c2ba631a7c18/Scripts/cnftp.js
+^https?:\/\/dc2?\.bz\.mgtv\.com\/dynamic\/v1\/channel\/(index|vrsList)\/\w url script-response-body https://raw.githubusercontent.com/fmz200/wool_scripts/58f6cce6dbd5c5fe50c2998938f9c2ba631a7c18/Scripts/cnftp.js
+^https?:\/\/mobile\.api\.mgtv\.com\/mobile\/config\? url script-response-body https://raw.githubusercontent.com/fmz200/wool_scripts/58f6cce6dbd5c5fe50c2998938f9c2ba631a7c18/Scripts/cnftp.js
+^https?:\/\/mobile\.api\.mgtv\.com\/v10\/video\/info\? url script-response-body https://raw.githubusercontent.com/fmz200/wool_scripts/58f6cce6dbd5c5fe50c2998938f9c2ba631a7c18/Scripts/cnftp.js
+^https?:\/\/mobile-thor\.api\.mgtv\.com\/v1\/vod\/info\? url script-response-body https://raw.githubusercontent.com/fmz200/wool_scripts/58f6cce6dbd5c5fe50c2998938f9c2ba631a7c18/Scripts/cnftp.js
+^https?:\/\/mobileso\.bz\.mgtv\.com\/spotlight\/search\/v1\? url reject-dict
+^https?:\/\/mobileso\.bz\.mgtv\.com\/mobile\/recommend\/v2\? url script-response-body https://raw.githubusercontent.com/fmz200/wool_scripts/58f6cce6dbd5c5fe50c2998938f9c2ba631a7c18/Scripts/cnftp.js
+^https?:\/\/ggc\.miguvideo\.com\/v1\/iflyad\/deliverysystem\/direct\/ url reject-img
+^https?:\/\/public-deliver9\.miguvideo\.com\/deliver\/site\/batchMatch\/mergeSpot\/miguvideo\/ url reject-dict
+^https?:\/\/ggx.+\.miguvideo\.com\/request\/sdk.+[^?]*$ url reject-dict
+^https?:\/\/ggic\d+.miguvideo\.com\/ad\/ url reject-dict
+^https?:\/\/display-sc\.miguvideo\.com\/display\/v3\/static\/PERSONAL_CENTER$ url script-response-body https://raw.githubusercontent.com/fmz200/wool_scripts/58f6cce6dbd5c5fe50c2998938f9c2ba631a7c18/Scripts/miguvideo/miguvideo_ads.js
+^https?:\/\/agn\.aty\.sohu\.com\/m? url reject-img
+^https?:\/\/m\.aty\.sohu\.com\/openload? url reject-img
+^https?:\/\/mmg\.aty\.sohu\.com\/mqs? url reject-img
+^https?:\/\/s\.go\.sohu\.com\/adgtr\/\?gbcode= url reject-img
+^https?:\/\/imgcache\.qq\.com\/qqlive\/ url reject-img
+^https?:\/\/vv\.video\.qq\.com\/getvmind\? url reject-200
+^https?:\/\/splashqqlive\.gtimg\.com\/website\/\d{6} url reject-img
+^https?:\/\/bla\.gtimg\.com\/qqlive\/\d{6}.+?\.png url reject-img
+^https?:\/\/www\.cntv\.cn\/nettv\/adp\/ url reject-200
+^https?:\/\/acs\.youku\.com\/gw\/mtop\.youku\.columbus\.(gateway\.new\.execute|home\.feed|home\.query|uc\.query|ycp\.query) url script-response-body https://raw.githubusercontent.com/fmz200/wool_scripts/58f6cce6dbd5c5fe50c2998938f9c2ba631a7c18/Scripts/cnftp.js
+^https?:\/\/acs\.youku\.com\/gw\/mtop\.youku\.haidai\.lantern\.appconfig\.get url script-response-body https://raw.githubusercontent.com/fmz200/wool_scripts/58f6cce6dbd5c5fe50c2998938f9c2ba631a7c18/Scripts/cnftp.js
+^https?:\/\/acs\.youku\.com\/gw\/mtop\.youku\.(pisp\.scripts\.get|xspace\.play\.position\.preload\.query|xspace\.poplayer\.position\.query) url reject-dict
+^https?:\/\/acs\.youku\.com\/gw\/mtop\.youku\.soku\.yksearch url script-response-body https://raw.githubusercontent.com/fmz200/wool_scripts/58f6cce6dbd5c5fe50c2998938f9c2ba631a7c18/Scripts/cnftp.js
+^https?:\/\/push\.m\.youku\.com\/collect-api\/get_push_interval_config_wx\? url script-response-body https://raw.githubusercontent.com/fmz200/wool_scripts/58f6cce6dbd5c5fe50c2998938f9c2ba631a7c18/Scripts/cnftp.js
+^https?:\/\/un-acs\.youku\.com\/gw\/mtop\.youku\.play\.ups\.appinfo\.get url script-response-body https://raw.githubusercontent.com/fmz200/wool_scripts/58f6cce6dbd5c5fe50c2998938f9c2ba631a7c18/Scripts/cnftp.js
+^https?:\/\/(t7z|kjp)\.cupid\.iqiyi\.com\/mixer\? url script-response-body https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/0b6897dc17e0c513d25449c935a9694818e32f0c/script/startup/startup.js
+^https?:\/\/act\.vip\.iqiyi\.com\/interact\/api\/show\.do url reject
+^https?:\/\/act\.vip\.iqiyi\.com\/interact\/api\/v2\/show url reject
+^https?:\/\/aikanvod\.miguvideo\.com\/video\/p\/i_adverseInterface\.jsp url reject-200
+^https?:\/\/api\.rr\.tv\/ad\/ url reject
+^https?:\/\/bp-api\.bestv\.com\.cn\/cms\/api\/free\/open\/advertisingV2 url reject
+^https?:\/\/iface\.iqiyi\.com\/api\/getNewAdInfo url reject
+^https?:\/\/intl\.iqiyi\.com\/ad_external\/ url reject
+^https?:\/\/intl\.iqiyi\.com\/video\/advertise url reject
+^https?:\/\/mob\.bz\.mgtv\.com\/odin\/c1\/channel\/ads\?_ url reject-200
+^https?:\/\/mobile\.api\.mgtv\.com\/mobile\/config\?_support url reject-200
+^https?:\/\/pcvideoyd\.titan\.mgtv\.com\/pb\/ url reject-img
+^https?:\/\/u\d\.iqiyipic\.com\/image\/[\w\/]+\/oad_ url reject
+^https?:\/\/vv\.video\.qq\.com\/getvmind\? url reject
+^https?:\/\/www\.cntv\.com\/nettv\/adp\/ url reject
+^https?:\/\/act\.vip\.iqiyi\.com\/interact\/api\/v\d\/show url reject
