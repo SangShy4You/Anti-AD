@@ -3823,7 +3823,7 @@
     },
     "rules/quantumultx/ads.conf": {
       "bytes": 228847,
-      "sha256": "c9ea5bea941793b3ae027c0fb85dd547cc14fe11b3a98a9014beefe898324b9f"
+      "sha256": "cbd5dad7b2e6381743742903bc01a1d53a08c5302c5827d0398bcfd964af86b0"
     },
     "rules/quantumultx/ads.list": {
       "bytes": 9397456,
@@ -5922,7 +5922,7 @@
     "chxm1023/Rewrite@main": "712738da8a3c7a61de21eee7c4f78564ffb5492f",
     "ddgksf2013/Scripts@master": "203e38b7b8dd1082ececbd17de3aeb587ac2826c",
     "fmz200/wool_scripts@main": "58f6cce6dbd5c5fe50c2998938f9c2ba631a7c18",
-    "ishowshu/qx@main": "41b20c2205480e3bb835644d34f967ed7e39e82b",
+    "ishowshu/qx@main": "3c0e28c497d531d4cac15e33dbcc0fba10e84510",
     "kokoryh/Script@master": "d8afcfab97fbfb3d017cfdc759ac7c9c8d784b0d",
     "limbopro/Adblock4limbo@main": "f38fec9a7630b561c76932af053d24bd541372fe",
     "zirawell/R-Store@main": "52fcb40b118a15610686b9167a7ee8e59bc04709"
@@ -106349,8 +106349,8 @@
     },
     {
       "bytes": 7810,
-      "fetch_url": "https://raw.githubusercontent.com/ishowshu/qx/41b20c2205480e3bb835644d34f967ed7e39e82b/script/goofish.js",
-      "pinned_url": "https://raw.githubusercontent.com/ishowshu/qx/41b20c2205480e3bb835644d34f967ed7e39e82b/script/goofish.js",
+      "fetch_url": "https://raw.githubusercontent.com/ishowshu/qx/3c0e28c497d531d4cac15e33dbcc0fba10e84510/script/goofish.js",
+      "pinned_url": "https://raw.githubusercontent.com/ishowshu/qx/3c0e28c497d531d4cac15e33dbcc0fba10e84510/script/goofish.js",
       "sha256": "d76d0a65d975a523ad4bb62c5d90dc9898a5a93ad79cf03dea01150705792b20",
       "url": "https://raw.githubusercontent.com/ishowshu/qx/refs/heads/main/script/goofish.js"
     },
